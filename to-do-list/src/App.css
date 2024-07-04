@@ -1,6 +1,74 @@
 .App {
   text-align: center;
+
 }
+
+h1 {
+  color: yellow;
+  text-align: center;
+  padding-top: 50px;
+
+}
+
+.containerfaçalogin {
+  text-align: center;
+  font-size: larger;
+  margin: 50px;
+  padding: 10px;
+}
+
+.containerinputlogin {
+  width: 500px;
+  height: 500px;
+  text-align: center;
+  margin-left: 710px;
+  background-color: #1c1d20;
+  border-radius: 10px;
+
+}
+
+.containerlogin {
+  padding-top: 80px;
+}
+
+.containersenha {
+  padding: 80px;
+}
+
+.container {
+  background-color: #282c34;
+  width: 100%;
+  height: 100%;
+  margin: 0%;
+  padding: 0%;
+  position: fixed;
+  background-repeat: no-repeat;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.cabecalhostyle {
+  text-align: center;
+  margin: 50px;
+  height: 150px;
+  /* border: 1px solid rgb(155, 59, 59); */
+  background-color: #0f1011;
+  border-radius: 8px;
+
+}
+
+.styleinputs {
+  border-radius: 5px;
+  background-color: #282c34;
+  color: white;
+  margin-left: 10px;
+}
+
+.stylelabel {
+  color: yellow;
+  font-size: small;
+
+}
+
 
 .App-logo {
   height: 40vmin;
@@ -32,6 +100,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
