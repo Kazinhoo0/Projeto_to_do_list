@@ -6,7 +6,27 @@
 h1 {
   color: yellow;
   text-align: center;
-  padding-top: 50px;
+
+}
+
+.Imgstyle {
+  width: 50px;
+  margin-top: 20px ;
+}
+
+.cabecalhostyle {
+  text-align: center;
+  margin: 50px;
+  height: 150px;
+  /* border: 1px solid rgb(155, 59, 59); */
+  background-color: #0f1011;
+  border-radius: 8px;
+  border: 1px solid;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
 
 }
 
@@ -15,6 +35,7 @@ h1 {
   font-size: larger;
   margin: 50px;
   padding: 10px;
+  color: white;
 }
 
 .containerinputlogin {
@@ -27,12 +48,10 @@ h1 {
 
 }
 
-.containerlogin {
-  padding-top: 80px;
-}
-
-.containersenha {
-  padding: 80px;
+.containerinputmargin {
+  padding-top: 50px;
+  align-items: center;
+  
 }
 
 .container {
@@ -46,15 +65,7 @@ h1 {
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-.cabecalhostyle {
-  text-align: center;
-  margin: 50px;
-  height: 150px;
-  /* border: 1px solid rgb(155, 59, 59); */
-  background-color: #0f1011;
-  border-radius: 8px;
 
-}
 
 .styleinputs {
   border-radius: 5px;
@@ -66,6 +77,7 @@ h1 {
 .stylelabel {
   color: yellow;
   font-size: small;
+  font-size: 15px;
 
 }
 
