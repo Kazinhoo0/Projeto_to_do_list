@@ -1,7 +1,7 @@
 import ImagemCalendario from './imagens/agendamento.png'
-import ImagemGithub from './images/icons8-github-30.png'
-import ImagemLinkedin from './images/Linked_img.png'
-import ImagemPortifólio from './images/Portifólio_img.png'
+import ImagemGithub from './imagens/icons8-github-30.png'
+import ImagemLinkedin from './imagens/Linked_img.png'
+import ImagemPortifólio from './imagens/Portifólio_img.png'
 import AbrirPopUps from './functions_frontend/AbrirPopUps';
 import './To_do_List.css'
 
@@ -12,7 +12,7 @@ function To_Do_List () {
         <div className='container'>
           <div className='cabecalhostyle'>
             <h1>TO-DO-LIST</h1>
-            <img className='Imgstyle' src={ImagemCalendario} alt="" />
+            { <img className='Imgstyle' src={ImagemCalendario} alt="" /> }
           </div>
           <div>
             <div className='containerinputlogin'>
@@ -54,11 +54,11 @@ function To_Do_List () {
             </div>
           </div>
           <div className='containerbuttonsstyle' >
-            <button id="popupid" className="buttonstyle" onClick={AbrirPopUps} type="button"><img className='popupsstyle' src={ImagemPortifólio} alt="" /></button>
+            {<button id="popupid" className="buttonstyle" type="button"><img className='popupsstyle' src={ImagemPortifólio} alt="" /></button>}
     
-            <button className="buttonstyle" onClick="abrirpop_linkd()" type="button"><img className='popupsstyle' src={ImagemLinkedin} alt="" /></button>
+            {<button className="buttonstyle" onClick={AbrirPopUps} type="button"><img className='popupsstyle' src={ImagemLinkedin} alt="" /></button>}
     
-            <button className="buttonstyle" onclick="abrirpop_github()" type="button"><img className='popupsstyle' src={ImagemGithub} alt="" /></button>
+            {<button className="buttonstyle" onClick={AbrirPopUps} type="button"><img className='popupsstyle' src={ImagemGithub} alt="" /></button>}
           </div>
           <div className='containerparagraforedes'>
             <p>Desenvolvido por Kauã Lopes Monteiro</p>
