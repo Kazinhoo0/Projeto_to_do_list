@@ -2,8 +2,8 @@ import ImagemCalendario from './imagens/agendamento.png'
 import ImagemGithub from './imagens/icons8-github-30.png'
 import ImagemLinkedin from './imagens/Linked_img.png'
 import ImagemPortifólio from './imagens/Portifólio_img.png'
-import AbrirPopUps from './functions_frontend/AbrirPopUps';
-import './To_do_List.css'
+
+import './To_Do_List.css'
 
 
 function To_Do_List () {
@@ -46,6 +46,7 @@ function To_Do_List () {
                       name='senha'
                       className='styleinputs' />
                   </div>
+
                 </form>
                 <div className='containerbuttonentrar'>
                   <button className='buttonentrarstyle' >Entrar</button>
@@ -54,15 +55,18 @@ function To_Do_List () {
             </div>
           </div>
           <div className='containerbuttonsstyle' >
-            {<button id="popupid" className="buttonstyle" type="button"><img className='popupsstyle' src={ImagemPortifólio} alt="" /></button>}
+            {<button id="popupid" className="buttonstyle" onClick={() => {window.open("https://kaualopesmonteiro.netlify.app/")}}  type="button"><img className='popupsstyle' src={ImagemPortifólio} alt="" /></button>}
     
-            {<button className="buttonstyle" onClick={AbrirPopUps} type="button"><img className='popupsstyle' src={ImagemLinkedin} alt="" /></button>}
+            {<button className="buttonstyle" onClick={() => {window.open("https://www.linkedin.com/in/kau%C3%A3-lopes-monteiro/")}} type="button"><img className='popupsstyle' src={ImagemLinkedin} alt="" /></button>}
     
-            {<button className="buttonstyle" onClick={AbrirPopUps} type="button"><img className='popupsstyle' src={ImagemGithub} alt="" /></button>}
+            {<button className="buttonstyle" onClick={() => {window.open("https://github.com/Kazinhoo0")}}  type="button" ><img className='popupsstyle' src={ImagemGithub} alt="" /><a href=""></a></button>}
+
           </div>
-          <div className='containerparagraforedes'>
-            <p>Desenvolvido por Kauã Lopes Monteiro</p>
+          <div>
+            <p className='containerparagraforedes'>Desenvolvido por Kauã Lopes Monteiro</p>
           </div>
+
+          
         </div>
       );
     }
