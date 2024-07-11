@@ -2,7 +2,17 @@ import ExitImage from './imagens/logout.png'
 import ImagemUser from './imagens/Imagem do WhatsApp de 2024-05-15 à(s) 18.51.45_32b25f6e.jpg'
 import './Index.css'
 import ImagemCalendario from './/imagens/agendamento.png'
+import Imagemseta from './imagens/seta-para-baixo.png'
+
+
 function Index() {
+
+    const [ListaVisivel, setListavisivel] = useState(false)
+
+    const itslistavisivel = () => {
+        setListavisivel(!ListaVisivel)
+    }
+
 
 
     return (
@@ -23,24 +33,41 @@ function Index() {
                             <img className='styleImageUser' src={ImagemUser} alt="" />
                         </div>
                         <div className='mensagem_bemvindo' >
-                            <p className='mensagem_bemvindo' >Olá,usuário 
-                            <br></br>Bem vindo</p>
+                            <p className='mensagem_bemvindo' >Olá,usuário
+                                <br></br>Bem-vindo</p>
                         </div>
-                        <div>
-                            <ul>
-                                <li className='lista_style' >
-                                    daw
+                        <div className='containeropenseta
+                        ' >
+                            <button className='buttonsetastyle' type='button' name='butãoseta' onClick={itslistavisivel} >{ListaVisivel ? <img src={Imagemseta}></img> : <img src={Imagemseta} ></img>} </button>
+                            {ListaVisivel && (
+                                <div className='containerlistaordenada'  >
+                                    <ul className='listasstyle'>
+                                        <lo className='lista_style' >
+                                            <a href="">Meu perfil</a>
+                                        </lo>
+                                    </ul>
+                                    <ul className='listasstyle'>
+                                        <lo>
+                                            <a href="">Minhas agendas</a>
+                                        </lo>
+                                    </ul>
+                                    <ul className='listasstyle'>
+                                        <lo>
+                                            <a href="">configurações</a>
+                                        </lo>
+                                    </ul>
+                                </div>
+                            )}
 
-                                </li>
-                            </ul>
                         </div>
                         <div className='containerimageexit'>
                             <img className='imageexit' src={ExitImage} alt="" />
                             <div className='Sair'>
-                            <a className='sairbutton' href="">Sair</a>
+                                <a className='sairbutton' href="">Sair</a>
                             </div>
                         </div>
                     </div>
+
                 </div>
 
             </div>
