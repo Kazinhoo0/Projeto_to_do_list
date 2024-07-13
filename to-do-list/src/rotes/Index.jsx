@@ -3,6 +3,9 @@ import ImagemUser from './imagens/Imagem do WhatsApp de 2024-05-15 à(s) 18.51.4
 import './Index.css'
 import ImagemCalendario from './/imagens/agendamento.png'
 import Imagemseta from './imagens/seta-para-baixo.png'
+import { useState } from 'react'
+import imagemlupa from './imagens/lupa.png'
+import Simboloadição from './imagens/Simbolodeadiçao.png'
 
 
 function Index() {
@@ -67,6 +70,34 @@ function Index() {
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <div className='container_listaafazeres'>
+                    <div className='container_barradepesquisa' >
+                        
+                            <input 
+                            className='styleinput_barradepesquisa'
+                            type="text"
+                            name='barrapesquisa'
+                            placeholder='Pesquise seu lembrete aqui*' />
+                            <button className='stylebuttonlupa' ><img className='styleimglupa' src={imagemlupa} alt="" /></button>
+                            <button className='stylebuttonadicao' ><img className='styleimgadição' src={Simboloadição} alt="" /></button>
+                        
+                    </div>
+                    <div className='container_limparlembrete'>
+                        <div>
+                        <button className='buttoncleanlembrete' >Limpar todos os lembretes</button>
+                        </div>
+
+                        <div>
+                            <button className='buttoncleanlembrete2' >Limpar lembrete</button>
+                        </div>
+                    </div>
+
+                    <div>
+
+                    </div>
+
 
                 </div>
 
