@@ -58,6 +58,14 @@ function To_Do_List() {
               <button className='buttonentrarstyle' >Entrar</button>
             </div>
           </div>
+          <div className='container_esquecisenha_criarconta' >
+            <div>
+              <a className='style_esquecisenha' href="">esqueceu sua senha?</a>
+            </div>
+            <div>
+              <a className='style_criarconta' href="">criar conta</a>
+            </div>
+          </div>
         </div>
       </div>
       <div className='containerbuttonsstyle' >
