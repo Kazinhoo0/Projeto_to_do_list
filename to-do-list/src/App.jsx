@@ -14,8 +14,8 @@ import CriarLembrete from './rotes/CriarLembretes';
 function App() {
   return (
     <>
-      <To_Do_List></To_Do_List>
-      {/* <Index></Index> */}
+      {/* <To_Do_List></To_Do_List> */}
+      <Index></Index>
       {/* <CriarLembrete></CriarLembrete> */}
     </>
   )
