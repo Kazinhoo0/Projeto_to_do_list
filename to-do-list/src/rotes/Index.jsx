@@ -41,7 +41,7 @@ function Index() {
                         </div>
                         <div className='containeropenseta
                         ' >
-                            <button className='buttonsetastyle' type='button' name='butãoseta' onClick={itslistavisivel} >{ListaVisivel ? <img src={Imagemseta}></img> : <img src={Imagemseta} ></img>} </button>
+                            <button className='buttonsetastyle' type='button' name='butãoseta' onClick={itslistavisivel} >{ListaVisivel ? <img src={Imagemseta}></img> : <img className='stylebuttonseta' src={Imagemseta} ></img>} </button>
                             {ListaVisivel && (
                                 <div className='containerlistaordenada'  >
                                     <ul className='listasstyle'>

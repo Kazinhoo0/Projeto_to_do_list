@@ -15,8 +15,8 @@ function App() {
   return (
     <>
       {/* <To_Do_List></To_Do_List> */}
-      <Index></Index>
-      {/* <CriarLembrete></CriarLembrete> */}
+      {/* <Index></Index> */}
+      <CriarLembrete></CriarLembrete>
     </>
   )
 }
