@@ -6,7 +6,7 @@ import Index from './rotes/Index'
 import CriarLembrete from './rotes/CriarLembretes';
 import CriarNovaConta from './rotes/CriarNovaConta';
 import Settings from './rotes/Settings';
-
+import Rotas from './rotes/routes'
 
 // import Index from './rotes/Index';
 
@@ -16,11 +16,7 @@ import Settings from './rotes/Settings';
 function App() {
   return (
     <>
-      {/* <To_Do_List></To_Do_List> */}
-      {/* <Index></Index> */}
-      {/* <CriarLembrete></CriarLembrete> */}
-      {/* <CriarNovaConta></CriarNovaConta> */}
-      <Settings></Settings>
+      <Rotas></Rotas>
     </>
   )
 }

@@ -4,6 +4,7 @@ import ImagemGithub from './imagens/icons8-github-30.png'
 import ImagemLinkedin from './imagens/Linked_img.png'
 import ImagemPortifólio from './imagens/Portifólio_img.png'
 import Mensagembemvindo from './scriptsindex/Mesagebemvindo'
+import CriarNovaConta from './CriarNovaConta'
 import './Login.css'
 
 
@@ -17,7 +18,7 @@ function To_Do_List() {
     <div className='container'>
       <div className='cabecalhostyle'>
         <h1>TO-DO-LIST</h1>
-        {<img className='Imgstyle' src={ImagemCalendario} alt="" />}
+        <img className='Imgstyle' src={ImagemCalendario} alt="" />
       </div>
       <div>
         <div className='containerinputlogin'>
@@ -60,10 +61,10 @@ function To_Do_List() {
           </div>
           <div className='container_esquecisenha_criarconta' >
             <div>
-              <a className='style_esquecisenha' href="">esqueceu sua senha?</a>
+              <a className='style_esquecisenha'>esqueceu sua senha?</a>
             </div>
             <div>
-              <a className='style_criarconta' href="">criar conta</a>
+              <a className='style_criarconta'>criar conta</a>
             </div>
           </div>
         </div>
