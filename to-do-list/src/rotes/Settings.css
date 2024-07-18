@@ -13,3 +13,91 @@
     margin-top: 3%;
 }
 
+.container_fotoperfil {
+    border: 1px solid red;
+    width: 350px ;
+    height: 100%;
+    
+}
+
+.style_fotoperfil {
+    border: 1px solid red;
+    margin-left: 22%;
+    margin-top: 15%;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.style_imgprofile {
+    border: 1px solid red;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.container_userinf {
+    border: 1px solid red;
+    width: 70%;
+    height: 75%;
+    position: absolute;
+    left: 24.5%;
+    top: 21.5%;
+}
+
+.container_inputs {
+    border: 1px solid red;
+    width: 98%;
+    height: 90%;
+    position: absolute;
+    left: 1%;
+    top: 8%;
+}
+
+.style_inputs {
+    border: 2px solid black;
+    width: 550px;
+    height: 35px;
+    position: absolute;
+    left: 5%;
+    top: 1.7%;
+    background-color: #19191a;
+    color: rgb(236, 231, 231);
+}
+
+.container_tittle {
+    border: 1px solid red;
+    width: 100%;
+    height: 45px;
+}
+
+.style_tittle {
+    text-align: center;
+    color: yellow;
+    margin-top: 10px;
+    /* border: 1px solid black; */
+}
+
+.container_input_arquivofoto {
+    border: 1px solid red;
+    position: absolute;
+    bottom: 42%;
+    left: 7.5%;
+}
+
+
+.container_buttonsalvar {
+    border: 1px solid red ;
+}
+
+
+.button_salvarconfigs {
+    border: 1px solid red;
+    width: 100px;
+    height: 20px;
+    border-radius: 5px;
+    background-color: yellow;
+    position: absolute;
+    top: 90%;
+    left: 7%;
+}
