@@ -6,10 +6,9 @@ import ImagemPortifólio from './imagens/Portifólio_img.png'
 import Mensagembemvindo from './scriptsindex/Mesagebemvindo'
 import './CriarNovaConta.css'
 
-function CriarNovaConta() {
+function CriarNovaConta({setNome}) {
 
 
-    const [nome, setname] = useState()
 
     return (
 
@@ -50,7 +49,7 @@ function CriarNovaConta() {
                                     className='styleinputs'
                                     type='text'
                                     name='username'
-                                    onChange={(e) => setname(e.target.value)}
+                                    // onChange={(e) => setNome(e.target.value)}
                                 ></input>
                             </div>
                             <div className='containerinputmargin ' >

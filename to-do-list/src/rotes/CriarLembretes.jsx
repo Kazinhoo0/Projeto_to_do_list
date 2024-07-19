@@ -6,6 +6,7 @@ import Imagemseta from './imagens/seta-para-baixo.png'
 import { useState } from 'react'
 
 
+
 function CriarLembrete () {
 
     const [ListaVisivel, setListavisivel] = useState(false)
@@ -13,6 +14,8 @@ function CriarLembrete () {
     const itslistavisivel = () => {
         setListavisivel(!ListaVisivel)
     }
+
+    // const [nome, setNome] = useState()
 
 
     return (
@@ -32,7 +35,7 @@ function CriarLembrete () {
                             <img className='styleImageUser' src={ImagemUser} alt="" />
                         </div>
                         <div className='mensagem_bemvindo' >
-                            <p className='mensagem_bemvindo' >Olá,usuário
+                            <p className='mensagem_bemvindo' >Olá,Username
                                 <br></br>Bem-vindo</p>
                         </div>
                         <div className='containeropenseta

@@ -11,7 +11,6 @@ import './Login.css'
 
 function To_Do_List() {
 
-  const [nome, setname] = useState()
 
 
   return (
@@ -33,8 +32,8 @@ function To_Do_List() {
                   placeholder='insira seu login*'
                   className='styleinputs'
                   type='text'
-                  name='nome'
-                  onChange={(e) => setname(e.target.value)}
+                  name='Username'
+                  // onChange={(e) => setname(e.target.value)}
                 ></input>
               </div>
               <div className='containerinputmargin ' >
@@ -81,7 +80,7 @@ function To_Do_List() {
         <p className='containerparagraforedes'>Desenvolvido por Kauã Lopes Monteiro</p>
       </div>
 
-      <Mensagembemvindo nome={nome}></Mensagembemvindo>
+      {/* <Mensagembemvindo nome={nome}></Mensagembemvindo> */}
     </div>
   );
 }
