@@ -1,14 +1,16 @@
-import { useState } from 'react'
-import ImagemCalendario from './imagens/agendamento.png'
-import ImagemGithub from './imagens/icons8-github-30.png'
-import ImagemLinkedin from './imagens/Linked_img.png'
-import ImagemPortifólio from './imagens/Portifólio_img.png'
-import Mensagembemvindo from './scriptsindex/Mesagebemvindo'
-import './CriarNovaConta.css'
+import { useState } from 'react';
+import ImagemCalendario from './imagens/agendamento.png';
+import ImagemGithub from './imagens/icons8-github-30.png';
+import ImagemLinkedin from './imagens/Linked_img.png';
+import ImagemPortifólio from './imagens/Portifólio_img.png';
+import Mensagembemvindo from './scriptsindex/Mesagebemvindo';
+import './CriarNovaConta.css';
 
-function CriarNovaConta({setNome}) {
+function CriarNovaConta(props) {
 
-
+    const {setNome} = props
+    
+    // const [nome, setNome] = useState('oi')
 
     return (
 
@@ -18,6 +20,7 @@ function CriarNovaConta({setNome}) {
                 {<img className='Imgstyle' src={ImagemCalendario} alt="" />}
             </div>
             <div>
+                
                 <div className='containerinputlogin'>
                     <div className='containerfaçalogin'>
                         <h3>Criar conta</h3>
@@ -31,15 +34,18 @@ function CriarNovaConta({setNome}) {
                                     placeholder='insira seu nome*'
                                     className='styleinputs'
                                     name='nome'
+                                    onChange={(e) => setNome(e.target.value)}
+
                                 />
                             </div>
-                            <div className='containerinputmargin ' >
+                            {/* <div className='containerinputmargin ' >
                                 <label className='stylelabel' htmlFor="sobrenome">Sobrenome:</label>
                                 <input
                                     type="text"
                                     placeholder='Insira seu sobrenome*'
                                     className='styleinputs'
                                     name='sobrenome'
+                                    onChange={(e) => setSobrenome(e.target.value)}
                                 />
                             </div>
                             <div className='containerinputmargin '>
@@ -49,7 +55,7 @@ function CriarNovaConta({setNome}) {
                                     className='styleinputs'
                                     type='text'
                                     name='username'
-                                    // onChange={(e) => setNome(e.target.value)}
+                                    onChange={(e) => setUsername(e.target.value)}
                                 ></input>
                             </div>
                             <div className='containerinputmargin ' >
@@ -58,7 +64,10 @@ function CriarNovaConta({setNome}) {
                                     type="email"
                                     name='email'
                                     placeholder='Insira o seu email *'
-                                    className='styleinputs' />
+                                    className='styleinputs' 
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    />
+                                    
                             </div>
                             <div className='containerinputmargin '>
                                 <label className='stylelabel' htmlFor="senha">Senha:</label>
@@ -66,8 +75,10 @@ function CriarNovaConta({setNome}) {
                                     placeholder='Insira sua senha*'
                                     type='password'
                                     name='senha'
-                                    className='styleinputs' />
-                            </div>
+                                    className='styleinputs'
+                                    onChange={(e) => setSenha(e.target.value)}
+                                     />
+                            </div> */}
 
                         </form>
                         <div className='containerbuttonentrar'>

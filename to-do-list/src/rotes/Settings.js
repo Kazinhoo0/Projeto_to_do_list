@@ -5,15 +5,25 @@ import ImagemUser from './imagens/Imagem do WhatsApp de 2024-05-15 à(s) 18.51.4
 import './Criarlembretes.css'
 import ImagemCalendario from './/imagens/agendamento.png'
 import Imagemseta from './imagens/seta-para-baixo.png'
-import { useState } from 'react'
+import { useState, useTransition } from 'react'
+import Imagempadraoperfil from './imagens/user.png'
+import CriarNovaConta from './CriarNovaConta'
 // import ImagemProfile from ''
 
 
-function Settings() {
+function Settings(props) {
 
     const [ListaVisivel, setListavisivel] = useState(false)
     const [img, setImg] = useState(null)
     const [filename, setFileName] = useState("Nenhum arquivo selecionado")
+    const [nome, setNome] = useState('oi')
+    const [senha, setSenha] = useState('')
+    const [email, setEmail] = useState('')
+    const [username, setUsername] = useState('')
+    const [sobrenome, setSobrenome] = useState('')
+
+    function LimparFotoPerfil() {
+    }
 
     const itslistavisivel = () => {
         setListavisivel(!ListaVisivel)
@@ -22,7 +32,6 @@ function Settings() {
     return (
 
         <div className="container" >
-
             <div className='containeruserbar' >
                 <div className='Tittle_site_div'>
                     <h1 className='h1_userbar'>TO-DO-LIST</h1>
@@ -35,8 +44,14 @@ function Settings() {
                         </div>
                     </div>
                     <div className='containeruserprofile'>
-                        <img className='styleImageUser' src={ImagemUser} alt="" />
+                        <img
+                            className='styleImageUser'
+                            src={ImagemUser}
+                            alt=""
+                            id='Fotoperfil'
+                        />
                     </div>
+                    <button onClick={LimparFotoPerfil} >limpar</button>
                     <div className='mensagem_bemvindo' >
                         <p className='mensagem_bemvindo' >Olá,usuário
                             <br></br>Bem-vindo</p>
@@ -84,18 +99,21 @@ function Settings() {
                             <p>Alterar foto de perfil: </p>
                         </div>
                         <label className='container_input_arquivofoto' htmlFor="arquivo" >
-                            <input 
-                            className='style_inputfile'
-                             type="file"
-                             accept='image/*'
-                             id='arquivo'
-                             onChange={({target : {files}}) => {
-                                files[0] && setFileName(files [0].name) 
-                                if(files) {
-                                    setImg(URL.createObjectURL(files[0]))
-                                }
-                             }} 
-                             />
+                            <input
+                                className='style_inputfile'
+                                type="file"
+                                accept='image/*'
+                                id='arquivo'
+                                onChange={({ target: { files } }) => {
+                                    files[0] && setFileName(files[0].name)
+                                    if (files) {
+                                        setImg(URL.createObjectURL(files[0]))
+                                    }
+                                    if (files === "") {
+                                        setImg(URL.createObjectURL(files[{ Imagempadraoperfil }]))
+                                    }
+                                }}
+                            />
                             <span className='style_span' >Enviar Arquivo </span>
                         </label>
                         <div>
@@ -111,39 +129,19 @@ function Settings() {
                     <div className='container_inputs'>
                         <div>
                             <h4>Nome</h4>
-                            <input
-                                className='style_inputs'
-                                type="text"
-                                name='name'
-                                id='name'
-                            />
+                            <span>{nome}</span>
                         </div>
                         <div>
                             <h4>Sobrenome</h4>
-                            <input
-                                className='style_inputs'
-                                type="text"
-                                name='sobrenome'
-                                id='sobrenome'
-                            />
+                            <span>{sobrenome}</span>
                         </div>
                         <div>
                             <h4>Email</h4>
-                            <input
-                                className='style_inputs'
-                                type="text"
-                                name='email'
-                                id='email'
-                            />
+                            <span>{email}</span>
                         </div>
                         <div>
                             <h4>Senha</h4>
-                            <input
-                                className='style_inputs'
-                                type="password"
-                                name='senha'
-                                id='senha'
-                            />
+                            <span>{senha}</span>
                         </div>
 
                     </div>
@@ -151,6 +149,7 @@ function Settings() {
                 </div>
 
             </div>
+            <CriarNovaConta setNome={setNome} setSenha={setSenha} setEmail={setEmail} setSobrenome={setSobrenome} setUsername={setUsername} nome={nome} />
         </div>
     )
 }
