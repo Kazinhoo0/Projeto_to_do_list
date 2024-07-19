@@ -12,6 +12,8 @@ import { useState } from 'react'
 function Settings() {
 
     const [ListaVisivel, setListavisivel] = useState(false)
+    const [img, setImg] = useState(null)
+    const [filename, setFileName] = useState("Nenhum arquivo selecionado")
 
     const itslistavisivel = () => {
         setListavisivel(!ListaVisivel)
@@ -76,13 +78,24 @@ function Settings() {
                 <div className='container_fotoperfil' >
                     <div className='style_fotoperfil' >
                         <div className='img_fotoperfil'>
-                            <img className='style_imgprofile' src="" />
+                            <img className='style_imgprofile' src={img} />
                         </div>
                         <div className='style_fotodeperfil'>
                             <p>Alterar foto de perfil: </p>
                         </div>
                         <label className='container_input_arquivofoto' htmlFor="arquivo" >
-                            <input className='style_inputfile' type="file" id='arquivo' />
+                            <input 
+                            className='style_inputfile'
+                             type="file"
+                             accept='image/*'
+                             id='arquivo'
+                             onChange={({target : {files}}) => {
+                                files[0] && setFileName(files [0].name) 
+                                if(files) {
+                                    setImg(URL.createObjectURL(files[0]))
+                                }
+                             }} 
+                             />
                             <span className='style_span' >Enviar Arquivo </span>
                         </label>
                         <div>

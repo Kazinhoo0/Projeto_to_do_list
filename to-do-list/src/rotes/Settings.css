@@ -20,7 +20,7 @@
 }
 
 .style_fotoperfil {
-    border: 1px solid red;
+    border: 1px solid rgb(22, 21, 21);
     margin-left: 22%;
     margin-top: 15%;
     width: 200px;
@@ -29,7 +29,7 @@
 }
 
 .style_imgprofile {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     width: 200px;
     height: 200px;
     border-radius: 50%;
