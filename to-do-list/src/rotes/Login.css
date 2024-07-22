@@ -30,7 +30,9 @@ h1 {
 
 .Imgstyle {
   width: 50px;
-  margin-top: 20px;
+  margin-top: 60px;
+  margin-left: 730px;
+  
 }
 
 .cabecalhostyle {
@@ -57,8 +59,9 @@ h1 {
 }
 
 .containerbuttonentrar {
-  margin-top: 40px;
-  margin-left: 300px;
+  position: absolute;
+  bottom: 21%;
+  left: 42%;
 
 }
 
@@ -563,9 +566,13 @@ h1 {
 /* iphone 12 pro */
 @media (width: 390px ) and (height: 844px) {
   .containerinputlogin {
-    width: 375px;
+    width: 370px;
     margin: 10px 0;
 
+  }
+  .buttonentrarstyle {
+    position: absolute;
+    bottom: 14%;
   }
 }
 
@@ -581,7 +588,7 @@ h1 {
 }
 
 
-@media (width: 360px) and (min-height:740px) {
+@media (width: 360px) and (height:740px) {
   
   .container {
     height: 100%;

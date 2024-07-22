@@ -6,6 +6,8 @@ import Imagemseta from './imagens/seta-para-baixo.png'
 import { useState } from 'react'
 import imagemlupa from './imagens/lupa.png'
 import Simboloadição from './imagens/Simbolodeadiçao.png'
+import Abrirpagcriarlembretes from './functions/AbrirPaginacriarlembretes'
+import { useNavigate } from "react-router-dom";
 
 
 function Index() {
@@ -17,6 +19,30 @@ function Index() {
     }
 
 
+    
+    const navigate = useNavigate();
+
+    const NavegarCriarLembrete = () => {
+        navigate('/Criarlembrete');
+    };
+
+    const NavegarHome =  () => {
+        navigate('/')
+    }
+
+    const NavegarMeusLembretes = () => {
+        navigate('/Index')
+    }
+
+    const NavegarMeuPerfil = () => {
+        navigate('Settings')
+    }
+
+
+   
+
+    
+
 
     return (
         <>
@@ -25,13 +51,12 @@ function Index() {
                     <div className='Tittle_site_div'>
                         <h1 className='h1_userbar'>TO-DO-LIST</h1>
                         {<img className='Imgstyle' src={ImagemCalendario} alt="" />}
-                        <div className='containerlinks' >
+                        {/* <div className='containerlinks' >
                             <div className='links_style'>
-                                <a href="">home</a>
-                                <a href="">adasd</a>
-                                <a href="">users</a>
+                                <a onClick={NavegarHome} href="">Home</a>
+                                <a onClick={NavegarMeusLembretes} href="">Meus Lembretes</a>
                             </div>
-                        </div>
+                        </div> */}
                         <div className='containeruserprofile'>
                             <img className='styleImageUser' src={ImagemUser} alt="" />
                         </div>
@@ -46,17 +71,12 @@ function Index() {
                                 <div className='containerlistaordenada'  >
                                     <ul className='listasstyle'>
                                         <lo className='lista_style' >
-                                            <a href="">Meu perfil</a>
+                                            <a onClick={NavegarMeuPerfil} >Meu perfil</a>
                                         </lo>
                                     </ul>
                                     <ul className='listasstyle'>
                                         <lo>
-                                            <a href="">Minhas agendas</a>
-                                        </lo>
-                                    </ul>
-                                    <ul className='listasstyle'>
-                                        <lo>
-                                            <a href="">configurações</a>
+                                            <a onClick={NavegarCriarLembrete} >Minhas agendas</a>
                                         </lo>
                                     </ul>
                                 </div>
@@ -80,8 +100,8 @@ function Index() {
                             type="text"
                             name='barrapesquisa'
                             placeholder='Pesquise seu lembrete aqui*' />
-                            <button className='stylebuttonlupa' ><img className='styleimglupa' src={imagemlupa} alt="" /></button>
-                            <button className='stylebuttonadicao' ><img className='styleimgadição' src={Simboloadição} alt="" /></button>
+                            <button id='pesquisarlembrete' className='stylebuttonlupa' ><img className='styleimglupa' src={imagemlupa} alt="" /></button>
+                            <button onClick={NavegarCriarLembrete} id='Criarlembrete' className='stylebuttonadicao' ><img className='styleimgadição' src={Simboloadição} alt="" /></button>
                         
                     </div>
                     <div className='container_limparlembrete'>

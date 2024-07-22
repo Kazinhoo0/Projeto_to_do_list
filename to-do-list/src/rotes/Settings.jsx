@@ -7,7 +7,8 @@ import { useState, useTransition } from 'react'
 import Imagempadraoperfil from './imagens/user.png'
 import CriarNovaConta from './CriarNovaConta'
 import Settings_Output from '../functionsfrontend/Settings_output_info'
-
+import Inputs_CriarNovaConta from '../functionsfrontend/CriarNovaConta_inputs'
+import { useNavigate } from "react-router-dom";
 
 function Settings() {
 
@@ -23,20 +24,37 @@ function Settings() {
     const itslistavisivel = () => {
         setListavisivel(!ListaVisivel)
     }
+    
+
+    const navigate = useNavigate();
+
+    const NavegarCriarLembrete = () => {
+        navigate('/Criarlembrete');
+    };
+
+    const NavegarHome =  () => {
+        navigate('/')
+    }
+
+    const NavegarMeusLembretes = () => {
+        navigate('/Index')
+    }
+
+    const NavegarMeuPerfil = () => {
+        navigate('Settings')
+    }
 
     return (
         <div className="container" >
-            <Inputs_CriarNovaConta setNome={setNome} setSenha={setSenha} setEmail={setEmail} setSobrenome={setSobrenome} setUsername={setUsername} nome={nome} />
             <div className='containeruserbar' >
                 <div className='Tittle_site_div'>
                     <h1 className='h1_userbar'>TO-DO-LIST</h1>
                     {<img className='Imgstyle' src={ImagemCalendario} alt="" />}
                     <div className='containerlinks' >
-                        <div className='links_style'>
-                            <a href="">Home</a>
-                            <a href="">Meus Lembretes</a>
-                            <a href="">Users</a>
-                        </div>
+                        {/* <div className='links_style'>
+                            <a onClick={NavegarHome} href="">Home</a>
+                            <a onClick={NavegarCriarLembrete} href="">Meus Lembretes</a> */}
+                        {/* </div> */}
                     </div>
                     <div className='containeruserprofile'>
                         <img
@@ -58,17 +76,12 @@ function Settings() {
                             <div className='containerlistaordenada'  >
                                 <ul className='listasstyle'>
                                     <lo className='lista_style' >
-                                        <a href="">Meu perfil</a>
+                                        <a onClick={NavegarMeuPerfil}>Meu perfil</a>
                                     </lo>
                                 </ul>
                                 <ul className='listasstyle'>
                                     <lo>
-                                        <a href="">Minhas agendas</a>
-                                    </lo>
-                                </ul>
-                                <ul className='listasstyle'>
-                                    <lo>
-                                        <a href="">configurações</a>
+                                        <a onClick={NavegarCriarLembrete} >Minhas agendas</a>
                                     </lo>
                                 </ul>
                             </div>
@@ -115,41 +128,40 @@ function Settings() {
                 </div>
 
                 <div className='container_userinf'>
+
                     <div className='container_tittle' >
                         <h2 className='style_tittle' >Configurações</h2>
                     </div>
+
                         <div className='container_inputs'>
 
-                    <div>
-                        <br />
-                        <label htmlFor="nome">Nome:</label>
-                        <span id="nome">{nome}</span>
-                    </div>
-                    <div>
-                        <br />
-                        <label htmlFor="sobrenome">Sobrenome:</label>
-                        <span>{sobrenome}</span>
-                    </div>
-                    <div>
-                        <br />
-                        <label htmlFor="username">Username:</label>
-                        <span>{username}</span>
-                    </div>
-                    <div>
-                        <br />
-                        <label htmlFor="email">Email:</label>
-                        <span>{email}</span>
-                    </div>
-                    <div>
-                        <br />
-                        <label htmlFor="senha">Senha:</label>
-                        <span>{senha}</span>
-                    </div>
+                            <div>
+                                <br />
+                                <label htmlFor="nome">Nome:</label>
+                                <span id="nome">{nome}</span>
+                            </div>
+                            <div>
+                                <br />
+                                <label htmlFor="sobrenome">Sobrenome:</label>
+                                <span>{sobrenome}</span>
+                            </div>
+                            <div>
+                                <br />
+                                <label htmlFor="username">Username:</label>
+                                <span>{username}</span>
+                            </div>
+                            <div>
+                                <br />
+                                <label htmlFor="email">Email:</label>
+                                <span>{email}</span>
+                            </div>
+                            <div>
+                                <br />
+                                <label htmlFor="senha">Senha:</label>
+                                <span>{senha}</span>
+                            </div>
 
-
-                    </div>
-
-
+                        </div>
                 </div>
 
             </div>

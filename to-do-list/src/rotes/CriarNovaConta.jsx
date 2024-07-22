@@ -15,6 +15,7 @@ function CriarNovaConta() {
     const [email, setEmail] = useState('oi')
     const [username, setUsername] = useState('oi')
 
+
     return (
 
         <div className='container'>
@@ -34,9 +35,9 @@ function CriarNovaConta() {
                             <button className='buttonentrarstyle' >Entrar</button>
                         </div>
                     </div>
-                    <div className='container_esquecisenha_criarconta' >
+                    <div className='container_esquecisenha_criarconta'>
                         <div>
-                            <a className='style_esquecisenha' href="">Já tem uma conta ?</a>
+                            <a className='style_esquecisenha'>Já tem uma conta ?</a>
                         </div>
                     </div>
                 </div>
