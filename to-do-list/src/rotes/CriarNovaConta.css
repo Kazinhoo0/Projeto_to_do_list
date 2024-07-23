@@ -78,7 +78,7 @@ h1 {
 
 .containerinputlogin {
     width: 500px;
-    height: 500px;
+    height: 650px;
     text-align: center;
     margin-left: 720px;
     background-color: #1c1d20;
@@ -87,7 +87,6 @@ h1 {
 }
 
 .containerinputmargin {
-    padding-top: 30px;
     align-items: center;
 
 }

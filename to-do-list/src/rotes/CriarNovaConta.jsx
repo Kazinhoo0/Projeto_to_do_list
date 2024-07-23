@@ -3,9 +3,10 @@ import ImagemGithub from './imagens/icons8-github-30.png';
 import ImagemLinkedin from './imagens/Linked_img.png';
 import ImagemPortifólio from './imagens/Portifólio_img.png';
 import Mensagembemvindo from './scriptsindex/Mesagebemvindo';
-import './CriarNovaConta.css';
 import Inputs_CriarNovaConta from '../functionsfrontend/CriarNovaConta_inputs';
 import { useState } from 'react';
+import './CriarNovaConta.css';
+
 
 function CriarNovaConta() {
     
@@ -15,6 +16,10 @@ function CriarNovaConta() {
     const [email, setEmail] = useState('oi')
     const [username, setUsername] = useState('oi')
 
+
+    function EnviarEmail () {
+
+    }
 
     return (
 
@@ -31,9 +36,7 @@ function CriarNovaConta() {
                     </div>
                     <div className='styleborderinput'>
                         <Inputs_CriarNovaConta setNome={setNome} setSenha={setSenha} setEmail={setEmail} setSobrenome={setSobrenome} setUsername={setUsername} nome={nome}/>
-                        <div className='containerbuttonentrar'>
-                            <button className='buttonentrarstyle' >Entrar</button>
-                        </div>
+
                     </div>
                     <div className='container_esquecisenha_criarconta'>
                         <div>

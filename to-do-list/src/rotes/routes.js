@@ -5,6 +5,8 @@ import Criarnovaconta from './CriarNovaConta'
 import CriarLembretes from './CriarLembretes'
 import Login from './Login'
 import Settings from "./Settings";
+import Confirmaremail from "./PagConfirmarEmail/ConfirmarEmail";
+
 
 const Rotas = () => {
 
@@ -17,6 +19,7 @@ const Rotas = () => {
             <Route Component={Criarnovaconta} path="/Criarconta"></Route>
             <Route Component={CriarLembretes} path="/Criarlembrete"></Route>
             <Route Component={Settings} path="/Settings" ></Route>
+            <Route Component={Confirmaremail} path="/Confirmaremail"></Route>
         </Routes>
         
         

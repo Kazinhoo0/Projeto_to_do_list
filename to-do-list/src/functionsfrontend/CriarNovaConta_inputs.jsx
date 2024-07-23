@@ -1,19 +1,63 @@
 import './CriarNovaConta_inputs.css'
+import { useState } from 'react'
+import emailjs from '@emailjs/browser'
 
-function Inputs_CriarNovaConta({setNome,setSobrenome,setUsername,setEmail,setSenha}) {
+function Inputs_CriarNovaConta() {
 
+    const [nome, setNome] = useState()
+    const [sobrenome, setSobrenome] = useState()
+    const [senha, setSenha] = useState()
+    const [Email, setEmail] = useState()
+    const [username, setUsername] = useState()
+
+
+
+    
+        let numero = Math.floor(Math.random() * 9999);
+
+    function EnviarEmail(e) {
+        e.preventDefault();
+        if (nome === "" || Email === "" || sobrenome === "" || username === "" || senha === "") {
+            alert("Porfavor, preencha todos os campos obrigatórios")
+            return;
+        }
+
+        const TemplatesParams = {
+            from_name: nome,
+            email: Email,
+            message: ("Seu codigo de verificação é " + numero)
+        }
+
+        emailjs.send("Verification_todolistweb", "template_451r7i7", TemplatesParams,'3iY_SH8IRchtTAW2R')
+        .then((response) => {
+            console.log('Email enviado', response.status, response.text)
+            setUsername('')
+            setNome('')
+            setEmail('')
+            setSobrenome('')
+            setSenha('')
+        },
+            (error) => {
+            console.log("Não foi possivel enviar o email", + error)
+            } 
+        )
+        }
+
+        
+    
 
     return (
 
-        <form>
+        <form id='criarconta' onSubmit={EnviarEmail} >
             <div className='containerinputmargin'  >
-                <label className='stylelabel' htmlFor="nome">Nome</label>
+                <label className='stylelabel' htmlFor="nome">Nome:</label>
                 <input
                     type="text"
                     placeholder='insira seu nome*'
                     className='styleinputs'
                     name='nome'
                     onChange={(e) => setNome(e.target.value)}
+                    value={nome}
                 />
             </div>
             <div className='containerinputmargin ' >
@@ -23,7 +67,8 @@ function Inputs_CriarNovaConta({setNome,setSobrenome,setUsername,setEmail,setSen
                     placeholder='Insira seu sobrenome*'
                     className='styleinputs'
                     name='sobrenome'
-                onChange={(e) => setSobrenome(e.target.value)}
+                    onChange={(e) => setSobrenome(e.target.value)}
+                    value={sobrenome}
                 />
             </div>
             <div className='containerinputmargin '>
@@ -33,7 +78,8 @@ function Inputs_CriarNovaConta({setNome,setSobrenome,setUsername,setEmail,setSen
                     className='styleinputs'
                     type='text'
                     name='username'
-                onChange={(e) => setUsername(e.target.value)}
+                    onChange={(e) => setUsername(e.target.value)}
+                    value={username}
                 ></input>
             </div>
             <div className='containerinputmargin ' >
@@ -43,7 +89,8 @@ function Inputs_CriarNovaConta({setNome,setSobrenome,setUsername,setEmail,setSen
                     name='email'
                     placeholder='Insira o seu email *'
                     className='styleinputs'
-                onChange={(e) => setEmail(e.target.value)}
+                    onChange={(e) => setEmail(e.target.value)}
+                    value={Email}
                 />
 
             </div>
@@ -54,11 +101,15 @@ function Inputs_CriarNovaConta({setNome,setSobrenome,setUsername,setEmail,setSen
                     type='password'
                     name='senha'
                     className='styleinputs'
-                onChange={(e) => setSenha(e.target.value)}
+                    onChange={(e) => setSenha(e.target.value)}
+                    value={senha}
                 />
             </div>
 
-            {}
+            <div className='containerbuttonentrar'>
+                <button onClick={EnviarEmail} className='buttonentrarstyle' >Entrar</button>
+            </div>
+
 
         </form>
     )

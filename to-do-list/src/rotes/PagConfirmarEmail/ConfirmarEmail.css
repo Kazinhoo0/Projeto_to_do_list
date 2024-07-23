@@ -1,0 +1,38 @@
+.container {
+    width: 100%;
+    height: 100%;
+}
+
+.container_form {
+    border: 5px solid rgba(65, 62, 62, 0.87);
+    border-radius: 5px;
+    width: 50%;
+    height: 40%;
+    position: absolute;
+    left: 25%;
+    top: 25%;
+}
+
+h2 {
+    text-align: center;
+    color: yellow;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+h4 {
+    position: absolute;
+    left: 32%;
+}
+
+.containerinput {
+    border: 1px solid red;
+    width: 35% ;
+    height: 25%;
+    position: absolute;
+    bottom: 38%;
+    left: 32%;
+}
+
+.inputstyle {
+    position: absolute;
+    top: 10%;
+}

@@ -1,11 +1,13 @@
 .containerinputmargin {
-    padding-top: 30px;
     align-items: center;
+    margin-top: -25px;
 
 }
 
 .stylelabel {
     color: yellow;
+    font-family:Georgia, 'Times New Roman', Times, serif;
     font-size: small;
     font-size: 15px;
 }
+
