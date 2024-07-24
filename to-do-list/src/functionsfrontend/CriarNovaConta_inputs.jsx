@@ -1,54 +1,64 @@
 import './CriarNovaConta_inputs.css'
 import { useState } from 'react'
 import emailjs from '@emailjs/browser'
+import { useNavigate } from "react-router-dom";
 
 function Inputs_CriarNovaConta() {
 
-    const [nome, setNome] = useState()
-    const [sobrenome, setSobrenome] = useState()
-    const [senha, setSenha] = useState()
-    const [Email, setEmail] = useState()
-    const [username, setUsername] = useState()
+    const [nome, setNome] = useState('')
+    const [sobrenome, setSobrenome] = useState('')
+    const [senha, setSenha] = useState('')
+    const [Email, setEmail] = useState('')
+    const [username, setUsername] = useState('')
+    const navigate = useNavigate()
+
+
+    // let numero = Math.floor(Math.random() * 9999);
+    // const [number, setNumero] = useState('')
+    // number = props
 
 
 
+    // function EnviarEmail(e) {
+    //     e.preventDefault();
+    //     if (nome === "" || Email === "" || sobrenome === "" || username === "" || senha === "") {
+    //         alert("Porfavor, preencha todos os campos obrigatórios")
+    //         return;
+    //     }
+
+    //     const TemplatesParams = {
+    //         from_name: nome,
+    //         email: Email,
+    //         message: ("Seu codigo de verificação é " + numero)
+
+    //     }
+    //     console.log(numero)
+
+    //     emailjs.send("Verification_todolistweb", "template_451r7i7", TemplatesParams, '3iY_SH8IRchtTAW2R')
+    //         .then((response) => {
+    //             console.log('Email enviado', response.status, response.text)
+    //             setUsername('')
+    //             setNome('')
+    //             setEmail('')
+    //             setSobrenome('')
+    //             setSenha('')
+    //             navigate('/Confirmaremail')
+    //             setNumero(numero)
+    //         },
+    //             (error) => {
+    //                 console.log("Error" , error)
+    //             }
+    //         )
+
+    // }
     
-        let numero = Math.floor(Math.random() * 9999);
-
-    function EnviarEmail(e) {
-        e.preventDefault();
-        if (nome === "" || Email === "" || sobrenome === "" || username === "" || senha === "") {
-            alert("Porfavor, preencha todos os campos obrigatórios")
-            return;
-        }
-
-        const TemplatesParams = {
-            from_name: nome,
-            email: Email,
-            message: ("Seu codigo de verificação é " + numero)
-        }
-
-        emailjs.send("Verification_todolistweb", "template_451r7i7", TemplatesParams,'3iY_SH8IRchtTAW2R')
-        .then((response) => {
-            console.log('Email enviado', response.status, response.text)
-            setUsername('')
-            setNome('')
-            setEmail('')
-            setSobrenome('')
-            setSenha('')
-        },
-            (error) => {
-            console.log("Não foi possivel enviar o email", + error)
-            } 
-        )
-        }
-
-        
-    
+    function Transportarpagina () {
+        navigate('/Confirmaremail')
+    }
 
     return (
 
-        <form id='criarconta' onSubmit={EnviarEmail} >
+        <form id='criarconta' onSubmit={Transportarpagina} >
             <div className='containerinputmargin'  >
                 <label className='stylelabel' htmlFor="nome">Nome:</label>
                 <input
@@ -107,7 +117,7 @@ function Inputs_CriarNovaConta() {
             </div>
 
             <div className='containerbuttonentrar'>
-                <button onClick={EnviarEmail} className='buttonentrarstyle' >Entrar</button>
+                <button onClick={Transportarpagina} className='buttonentrarstyle' >Entrar</button>
             </div>
 
 
