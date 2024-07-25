@@ -14,6 +14,13 @@
     top: 18%;
 }
 
+.style_img {
+    width: 50px;
+    position: absolute;
+    left: 18.6%;
+    top: 6%;
+}
+
 
 .containertittle {
     /* border: 1px solid red; */
@@ -100,9 +107,9 @@
         top: 40%;
     }
 
-    .Imgstyle {
+    .style_img {
         position: absolute;
-        left: 30.5%;
+        left: 28%;
         top: 29%;
     }
 

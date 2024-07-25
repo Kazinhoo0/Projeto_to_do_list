@@ -6,11 +6,13 @@ import ImagemPortifólio from './imagens/Portifólio_img.png'
 import Mensagembemvindo from './scriptsindex/Mesagebemvindo'
 import CriarNovaConta from './CriarNovaConta'
 import './Login.css'
+import InputUsernameLogin from '../functionsfrontend/Loginusernameinput'
 
 
 
 function To_Do_List() {
 
+  const [username, setUsername] = useState('')
 
 
   return (
@@ -26,16 +28,7 @@ function To_Do_List() {
           </div>
           <div className='styleborderinput'>
             <form>
-              <div className='containerinputmargin '>
-                <label className='stylelabel' htmlFor="nome">Username:</label>
-                <input
-                  placeholder='insira seu login*'
-                  className='styleinputs'
-                  type='text'
-                  name='Username'
-                  // onChange={(e) => setname(e.target.value)}
-                ></input>
-              </div>
+              <InputUsernameLogin  setUsername={setUsername} />
               <div className='containerinputmargin ' >
                 <label className='stylelabel' htmlFor="email">Email:</label>
                 <input

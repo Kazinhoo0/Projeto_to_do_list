@@ -32,7 +32,7 @@ h1 {
   width: 50px;
   margin-top: 60px;
   margin-left: 730px;
-  
+
 }
 
 .cabecalhostyle {
@@ -60,7 +60,7 @@ h1 {
 
 .containerbuttonentrar {
   position: absolute;
-  bottom: 29%;
+  bottom: 32%;
   left: 42%;
 
 }
@@ -267,7 +267,7 @@ h1 {
     padding: 10px;
     overflow-y: scroll;
   }
-  
+
   h1 {
     font-size: 1.5em;
   }
@@ -428,23 +428,23 @@ h1 {
     width: 498px;
     height: 45px;
     display: flex;
-    margin-top: 5px; 
+    margin-top: 5px;
   }
 
   .style_esquecisenha {
-  
+
     position: absolute;
     left: 25%;
-    font-size: 0.75em; 
+    font-size: 0.75em;
   }
 
 
   .style_criarconta {
-    
+
     position: absolute;
     right: 32%;
     font-size: 0.75em;
-  } 
+  }
 
   .buttonentrarstyle {
     margin-top: 20px;
@@ -453,7 +453,7 @@ h1 {
 
 
 /* ipad Air */
-@media (width: 820px)  and (height: 1180px) {
+@media (width: 820px) and (height: 1180px) {
 
   .container {
     height: 100%;
@@ -540,23 +540,23 @@ h1 {
     width: 498px;
     height: 45px;
     display: flex;
-    margin-top: 5px; 
+    margin-top: 5px;
   }
 
   .style_esquecisenha {
-  
+
     position: absolute;
     left: 20%;
-    font-size: 0.75em; 
+    font-size: 0.75em;
   }
 
 
   .style_criarconta {
-    
+
     position: absolute;
     right: 25%;
     font-size: 0.75em;
-  } 
+  }
 
   .buttonentrarstyle {
     margin-top: 20px;
@@ -564,12 +564,13 @@ h1 {
 }
 
 /* iphone 12 pro */
-@media (width: 390px ) and (height: 844px) {
+@media (width: 390px) and (height: 844px) {
   .containerinputlogin {
     width: 370px;
     margin: 10px 0;
 
   }
+
   .buttonentrarstyle {
     position: absolute;
     bottom: 14%;
@@ -589,7 +590,7 @@ h1 {
 
 
 @media (width: 360px) and (height:740px) {
-  
+
   .container {
     height: 100%;
     padding: 10px;
@@ -666,7 +667,7 @@ h1 {
   }
 
   .container_esquecisenha_criarconta {
-    
+
     width: 375px;
     height: 45px;
     display: flex;
@@ -674,7 +675,7 @@ h1 {
   }
 
   .style_esquecisenha {
-    
+
     position: absolute;
     left: 2%;
     font-size: 0.75em;
@@ -683,7 +684,7 @@ h1 {
   }
 
   .style_criarconta {
-  
+
     position: absolute;
     right: 18%;
     font-size: 0.75em;

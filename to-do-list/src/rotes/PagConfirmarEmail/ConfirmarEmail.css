@@ -16,57 +16,71 @@
 h2 {
     text-align: center;
     color: yellow;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-h4 {
-    position: absolute;
-    left: 33%;
-    bottom: 45%;
-    color: rgba(175, 162, 162, 0.637);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+h4 {
+    position: absolute;
+    left: 32%;
+    bottom: 38%;
+}
+
+.tittle_enviarcodigo {
+    position: absolute;
+    top: 13%;
+}
+
+
+
 .containerinput {
-    width: 35% ;
+    width: 35%;
     height: 25%;
     position: absolute;
-    bottom: 20%;
-    left: 35%;
+    bottom: 15%;
+    left: 32%;
+}
+
+.container_buttonenviarcodigo {
+    border: 1px;
+    position: absolute;
+    left: 44.5%;
+    top: 27%;
 }
 
 .inputstyle {
     position: absolute;
     top: 10%;
-    background-color: black;
+}
+
+.style_buttonenviarcodigo {
+    background-color: rgba(80, 74, 74, 0.568);
+    border: 2px;
     border-radius: 5px;
-    color: white;
-    position: absolute;
-    left: 20%;
-    border: 10px;
+    padding: 5px;
 }
 
 .style_buttonenviar {
-    position: absolute;
-    bottom: 20%;
-    left: 38%;
-    width: 250px;
-    height: 30px;
-    background-color: yellow;
-    border-radius: 10px;
-    border: 2px;
-}
-
-.button_enviarcodigo {
-    position: absolute;
-    left: 44.5%;
-    
-}
-
-
-.style_buttonenviarcodigo {
     width: 120px;
     height: 20px;
     border-radius: 10px;
+    background-color: yellow;
     border: 2px;
+}
+
+.container_buttonenviar {
+    position: absolute;
+    bottom: 25%;
+    left: 30%;
+}
+
+.inputstyle {
+    position: absolute;
+    left: 22%;
+    border: 2px;
+    background-color: rgba(65, 60, 60, 0.671);
     color: white;
-    background-color: rgb(110, 102, 102);
+    border-radius: 10px;
+    text-align: center;
+
+
 }

@@ -4,6 +4,7 @@ import ImagemCalendario from './/imagens/agendamento.png'
 import Imagemseta from './imagens/seta-para-baixo.png'
 import { useState } from 'react'
 import {useNavigate} from 'react-router-dom'
+import ImagemUser from './imagens/user.png';
 
 
 
@@ -43,7 +44,7 @@ function CriarLembrete () {
             <div className='containeruserbar' >
                     <div className='Tittle_site_div'>
                         <h1 className='h1_userbar'>TO-DO-LIST</h1>
-                        {<img className='Imgstyle' src={ImagemCalendario} alt="" />}
+                        {<img className='style_img' src={ImagemCalendario} alt="" />}
                         {/* <div className='containerlinks' >
                             <div className='links_style'>
                                 <a onClick={NavegarHome} href="">Home</a>
@@ -51,7 +52,7 @@ function CriarLembrete () {
                             </div>
                         </div> */}
                         <div className='containeruserprofile'>
-                            <img className='styleImageUser' src={img} alt="" />
+                            <img className='styleImageUser' src={ImagemUser} alt="" />
                         </div>
                         <div className='mensagem_bemvindo' >
                             <p className='mensagem_bemvindo' >Olá,Username
