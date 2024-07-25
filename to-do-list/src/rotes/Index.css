@@ -170,7 +170,8 @@ a {
 }
 
 .styleinput_barradepesquisa {
-    border: 2px solid black;
+    border: 2px solid rgba(0, 0, 0, 0.664);
+    border-radius: 5px;
     width: 550px;
     height: 35px;
     position: absolute;
@@ -210,6 +211,7 @@ a {
     background-color: #dcdce2a9;
     color: white;
     border-radius: 5px;
+    border: 2px;
 }
 
 .buttoncleanlembrete2 {
@@ -220,6 +222,7 @@ a {
     background-color: #dcdce2bb;
     color: white;
     border-radius: 5px;
+    border: 2px;
 }
 
 .stylebuttonadicao {
@@ -809,7 +812,7 @@ a {
         margin-top: 40px;
         font-size: 0.6em;
     }
-    
+
     .mensagem_bemvindo {
         color: white;
         width: 150px;

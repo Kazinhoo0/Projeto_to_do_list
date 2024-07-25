@@ -24,7 +24,7 @@ function Settings() {
     const itslistavisivel = () => {
         setListavisivel(!ListaVisivel)
     }
-    
+
 
     const navigate = useNavigate();
 
@@ -32,7 +32,7 @@ function Settings() {
         navigate('/Criarlembrete');
     };
 
-    const NavegarHome =  () => {
+    const NavegarHome = () => {
         navigate('/')
     }
 
@@ -133,9 +133,14 @@ function Settings() {
                         <h2 className='style_tittle' >Configurações</h2>
                     </div>
 
-                        <div className='container_inputs'>
+                    <div className='container_inputs'>
 
-                            <div>
+
+
+
+
+                        <h1 className='style_embreve' >EM BREVE</h1>
+                        {/* <div>
                                 <br />
                                 <label htmlFor="nome">Nome:</label>
                                 <span id="nome">{nome}</span>
@@ -159,13 +164,13 @@ function Settings() {
                                 <br />
                                 <label htmlFor="senha">Senha:</label>
                                 <span>{senha}</span>
-                            </div>
+                            </div> */}
 
-                        </div>
+                    </div>
                 </div>
 
             </div>
-            
+
         </div>
     )
 }

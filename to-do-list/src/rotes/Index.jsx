@@ -1,13 +1,15 @@
-import ExitImage from './imagens/logout.png'
-import ImagemUser from './imagens/Imagem do WhatsApp de 2024-05-15 à(s) 18.51.45_32b25f6e.jpg'
-import './Index.css'
-import ImagemCalendario from './/imagens/agendamento.png'
-import Imagemseta from './imagens/seta-para-baixo.png'
-import { useState } from 'react'
-import imagemlupa from './imagens/lupa.png'
-import Simboloadição from './imagens/Simbolodeadiçao.png'
-import Abrirpagcriarlembretes from './functions/AbrirPaginacriarlembretes'
+import ExitImage from './imagens/logout.png';
+import ImagemUser from './imagens/user.png';
+import './Index.css';
+import ImagemCalendario from './/imagens/agendamento.png';
+import Imagemseta from './imagens/seta-para-baixo.png';
+import { useState } from 'react';
+import imagemlupa from './imagens/lupa.png';
+import Simboloadição from './imagens/Simbolodeadiçao.png';
+import Abrirpagcriarlembretes from './functions/AbrirPaginacriarlembretes';
 import { useNavigate } from "react-router-dom";
+import Componentemensagemboasvindas from '../functionsfrontend/componentemensagemboasvindas';
+import MensagemBoasVindas from '../functionsfrontend/MensagemBoasvinda';
 
 
 function Index() {
@@ -19,14 +21,14 @@ function Index() {
     }
 
 
-    
+
     const navigate = useNavigate();
 
     const NavegarCriarLembrete = () => {
         navigate('/Criarlembrete');
     };
 
-    const NavegarHome =  () => {
+    const NavegarHome = () => {
         navigate('/')
     }
 
@@ -39,9 +41,9 @@ function Index() {
     }
 
 
-   
+    const [username, setUsername] = useState()
 
-    
+
 
 
     return (
@@ -60,10 +62,8 @@ function Index() {
                         <div className='containeruserprofile'>
                             <img className='styleImageUser' src={ImagemUser} alt="" />
                         </div>
-                        <div className='mensagem_bemvindo' >
-                            <p className='mensagem_bemvindo' >Olá,usuário
-                                <br></br>Bem-vindo</p>
-                        </div>
+                        <MensagemBoasVindas/>
+                        {/* <Componentemensagemboasvindas/> */}
                         <div className='containeropenseta
                         ' >
                             <button className='buttonsetastyle' type='button' name='butãoseta' onClick={itslistavisivel} >{ListaVisivel ? <img src={Imagemseta}></img> : <img className='stylebuttonseta' src={Imagemseta} ></img>} </button>
@@ -94,19 +94,19 @@ function Index() {
 
                 <div className='container_listaafazeres'>
                     <div className='container_barradepesquisa' >
-                        
-                            <input 
+
+                        <input
                             className='styleinput_barradepesquisa'
                             type="text"
                             name='barrapesquisa'
                             placeholder='Pesquise seu lembrete aqui*' />
-                            <button id='pesquisarlembrete' className='stylebuttonlupa' ><img className='styleimglupa' src={imagemlupa} alt="" /></button>
-                            <button onClick={NavegarCriarLembrete} id='Criarlembrete' className='stylebuttonadicao' ><img className='styleimgadição' src={Simboloadição} alt="" /></button>
-                        
+                        <button id='pesquisarlembrete' className='stylebuttonlupa' ><img className='styleimglupa' src={imagemlupa} alt="" /></button>
+                        <button onClick={NavegarCriarLembrete} id='Criarlembrete' className='stylebuttonadicao' ><img className='styleimgadição' src={Simboloadição} alt="" /></button>
+
                     </div>
                     <div className='container_limparlembrete'>
                         <div>
-                        <button className='buttoncleanlembrete' >Limpar todos os lembretes</button>
+                            <button className='buttoncleanlembrete' >Limpar todos os lembretes</button>
                         </div>
 
                         <div>

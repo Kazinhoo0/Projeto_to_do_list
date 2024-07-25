@@ -53,7 +53,9 @@ function Inputs_CriarNovaConta() {
     // }
     
     function Transportarpagina () {
-        navigate('/Confirmaremail')
+        setTimeout(() => {
+            navigate('/Confirmaremail')
+        }, 5000);
     }
 
     return (
