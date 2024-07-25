@@ -1,6 +1,6 @@
+
 import './CriarNovaConta_inputs.css'
 import { useState } from 'react'
-import emailjs from '@emailjs/browser'
 import { useNavigate } from "react-router-dom";
 
 function Inputs_CriarNovaConta() {
