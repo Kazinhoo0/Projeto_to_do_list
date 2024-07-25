@@ -5,6 +5,7 @@ import Imagemseta from './imagens/seta-para-baixo.png'
 import { useState } from 'react'
 import {useNavigate} from 'react-router-dom'
 import ImagemUser from './imagens/user.png';
+import InputsCriarlembrete from '../Lembretearq/InputsCriarlembrete'
 
 
 
@@ -12,6 +13,13 @@ function CriarLembrete () {
 
     const [ListaVisivel, setListavisivel] = useState(false)
     const [img, setImg] = useState(null)
+    const [nomelembrete, setNomelembrete] = useState('')
+    const [descricao, setdescricao] = useState('')
+    const [datavencimento, setdatavencimento] = useState('')
+    const [horavencimento, sethoravencimento] = useState('')
+    const [categoria, setcategoria] = useState('')
+    const [importante, setimportante] = useState('')
+
 
     const itslistavisivel = () => {
         setListavisivel(!ListaVisivel)
@@ -86,41 +94,7 @@ function CriarLembrete () {
                     </div>
             </div>
 
-                <div className='containercriarlembrete' >
-                    <div className='containertittle' >
-                        <h1>Criar lembrete</h1>
-                    </div>
-                    <div className='containernomelembrete' >
-                        <p className='styleparagrafo' >Nome Lembrete</p>
-                        <input className='styleinput' type="text" />
-                    </div>   
-                    <div className='containernomelembrete2' >
-                        <p className='styleparagrafo' >Descrição</p>
-                        <input className='styleinput' type="text" />
-                    </div> 
-                    <div className='containernomelembrete' >
-                        <p className='styleparagrafo' >Data de vencimento</p>
-                        <input placeholder='Data de vencimento' className='styleinput' type="date" />
-                    </div>  
-                    <div className='containernomelembrete' >
-                        <p className='styleparagrafo' >Hora de vencimento</p>
-                        <input className='styleinput' type="time" />
-                    </div>  
-                    <div className='containernomelembrete' >
-                        <p className='styleparagrafo' >Categoria</p>
-                        <input className='styleinput' type='text' name='categoria' />
-                    </div>  
-                    <div className='containerimportante' >
-                        <label htmlFor="importante">Importante: </label>
-                        <input type="checkbox" />
-                    </div>
-
-                    <div className='containerenviarlembrete' >
-                        <button  className='stylebuttonenviar' >Criar</button>
-                    </div>
-
-
-                </div>
+               <InputsCriarlembrete/>
         </div>
     )
 }

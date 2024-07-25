@@ -53,30 +53,14 @@ function Confirmaremail() {
         console.log("Codigo enviado com sucesso!")
     }
 
-    function EnviarCodigo(e) {
-        e.preventDefault()
-
-        if (parseInt(numbercode) === codenumber) {
-            setTimeout(() => {
-                navigate('/')
-            }, 5000);
-        }
-        else {
-            setTimeout(() => {
-                alert("Codigo inserido é incorreto.")
-            }, 5000);
-        }
-
     function EnviarCodigo (e) {
         e.preventDefault()
     if ((codigoenviardo) === parseInt(numbercode)) {
         console.log('Email confirmado com sucesso!');
         setTimeout(() => {
             navigate('/')
-        }, 5000);
+        }, 3000);
        
-
-    
     }
     else {
         console.log('O Codigo inserido é inválido')
@@ -84,7 +68,7 @@ function Confirmaremail() {
     
     }
 
-    }
+    
 
 
     return (
@@ -96,8 +80,6 @@ function Confirmaremail() {
                         <h2>Confirmação de email</h2>
                         <h4>Insira o número enviado para o seu email</h4>
                         <h4 className='tittle_enviarcodigo' >Clique para enviar o código de confirmar</h4>
-                        <div className='container_buttonenviarcodigo' ></div>
-
                         <div className='button_enviarcodigo' >
                             <button className='style_buttonenviarcodigo' onClick={EnviarEmail} >Solicitar Código</button>
                         </div>
@@ -107,7 +89,6 @@ function Confirmaremail() {
                             <input
                                 type="text"
                                 className='inputstyle'
-                                id='inputnumero'
                                 placeholder='Insira o código aqui*'
                                 onChange={(e) => setnumber(e.target.value)}
                             />

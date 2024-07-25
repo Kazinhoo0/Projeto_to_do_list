@@ -14,22 +14,50 @@ import MensagemBoasVindas from '../functionsfrontend/MensagemBoasvinda';
 
 function Index() {
 
-    const [ListaVisivel, setListavisivel] = useState(false)
+    const [ListaVisivel, setListavisivel] = useState(false);
+    const [mostrarnovolembrete, setnovolembrete] = useState(false);
+    const [nome, setNome] = useState('')
+    const [lembretes,setLembretes] = useState([])
+
 
     const itslistavisivel = () => {
         setListavisivel(!ListaVisivel)
     }
 
+    const handleClick = () => {
+        setnovolembrete(true);
+    }
+
+    const handNomeMudar = (e) => {
+        setNome(e.target.value);
+    }
+
+    const handpressenter = (e) => {
+        if (e.key === 'Enter') {
+            handleSalvar();
+        }
+    }
+
+    const handleSalvar = () => {
+        if (nome.trim()) {
+            setLembretes([...lembretes,nome]);
+            setNome('');
+            setnovolembrete(true);
+        }
+    }
+    
 
 
     const navigate = useNavigate();
 
-    const NavegarCriarLembrete = () => {
-        navigate('/Criarlembrete');
-    };
+    
 
     const NavegarHome = () => {
         navigate('/')
+    }
+
+    const NavegarCriarLembrete = () => {
+        navigate('/Criarlembrete')
     }
 
     const NavegarMeusLembretes = () => {
@@ -52,7 +80,7 @@ function Index() {
                 <div className='containeruserbar' >
                     <div className='Tittle_site_div'>
                         <h1 className='h1_userbar'>TO-DO-LIST</h1>
-                        {<img className='Imgstyle' src={ImagemCalendario} alt="" />}
+                        {<img className='imgstyle' src={ImagemCalendario} alt="" />}
                         {/* <div className='containerlinks' >
                             <div className='links_style'>
                                 <a onClick={NavegarHome} href="">Home</a>
@@ -100,8 +128,13 @@ function Index() {
                             type="text"
                             name='barrapesquisa'
                             placeholder='Pesquise seu lembrete aqui*' />
-                        <button id='pesquisarlembrete' className='stylebuttonlupa' ><img className='styleimglupa' src={imagemlupa} alt="" /></button>
-                        <button onClick={NavegarCriarLembrete} id='Criarlembrete' className='stylebuttonadicao' ><img className='styleimgadição' src={Simboloadição} alt="" /></button>
+                        <button id='pesquisarlembrete' className='stylebuttonlupa'
+                          ><img className='styleimglupa' src={imagemlupa} alt="" />
+                        </button>
+
+                        <button onClick={handleClick} id='Criarlembrete' className='stylebuttonadicao' >
+                            <img className='styleimgadição' src={Simboloadição} alt="" />
+                        </button>
 
                     </div>
                     <div className='container_limparlembrete'>
@@ -114,9 +147,20 @@ function Index() {
                         </div>
                     </div>
 
-                    <div>
-
+                
+                    {mostrarnovolembrete && (
+                        <div className='containernovolembrete'>
+                        <input
+                            type="text"
+                            value={nome}
+                            onChange={handNomeMudar}
+                            onKeyDown={handpressenter}
+                            placeholder='Digite o nome do lembrete'
+                        />
+                        <button onClick={handleSalvar}>Salvar</button>
                     </div>
+                    )}
+                    
 
 
                 </div>

@@ -8,6 +8,8 @@ import Settings from "./Settings";
 import Confirmaremail from "./PagConfirmarEmail/ConfirmarEmail";
 
 
+
+
 const Rotas = () => {
 
     return (
@@ -21,8 +23,6 @@ const Rotas = () => {
             <Route Component={Settings} path="/Settings" ></Route>
             <Route Component={Confirmaremail} path="/Confirmaremail"></Route>
         </Routes>
-        
-        
         </BrowserRouter>
 
     )

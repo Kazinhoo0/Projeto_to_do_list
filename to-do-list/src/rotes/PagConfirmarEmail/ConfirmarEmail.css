@@ -30,14 +30,20 @@ h4 {
     top: 13%;
 }
 
+.button_enviarcodigo {
+    width: 150px;
+    position: absolute;
+    left: 44.5%;
+    top: 32%;
 
+}
 
 .containerinput {
     width: 35%;
     height: 25%;
     position: absolute;
     bottom: 15%;
-    left: 32%;
+    left: 33.7%;
 }
 
 .container_buttonenviarcodigo {
@@ -57,6 +63,7 @@ h4 {
     border: 2px;
     border-radius: 5px;
     padding: 5px;
+
 }
 
 .style_buttonenviar {
