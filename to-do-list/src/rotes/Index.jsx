@@ -17,40 +17,45 @@ function Index() {
     const [ListaVisivel, setListavisivel] = useState(false);
     const [mostrarnovolembrete, setnovolembrete] = useState(false);
     const [nome, setNome] = useState('')
-    const [lembretes,setLembretes] = useState([])
-
+    const [lembretes, setLembretes] = useState([])
+    const [nomelembrete, setNomelembrete] = useState('')
+    const [categoria, setCategoria] = useState('')
+    const [importante, setisimportante] = useState(false)
+    const [todos, settodo] = useState('')
 
     const itslistavisivel = () => {
         setListavisivel(!ListaVisivel)
     }
 
-    const handleClick = () => {
-        setnovolembrete(true);
+    // const handleClick = () => {
+    //     setnovolembrete(true);
+    // }
+
+    const handleClick = (e) => {
+        e.preventDefault()
+        if (!categoria || !nomelembrete) return;
+        setCategoria('')
+        setLembretes('')
+
     }
 
-    const handNomeMudar = (e) => {
-        setNome(e.target.value);
-    }
-
-    const handpressenter = (e) => {
+    const handlepressenter = (e) => {
         if (e.key === 'Enter') {
-            handleSalvar();
+            handleClick();
         }
     }
 
     const handleSalvar = () => {
         if (nome.trim()) {
-            setLembretes([...lembretes,nome]);
+            setLembretes([...lembretes, nome]);
             setNome('');
             setnovolembrete(true);
         }
     }
-    
+
 
 
     const navigate = useNavigate();
-
-    
 
     const NavegarHome = () => {
         navigate('/')
@@ -69,8 +74,19 @@ function Index() {
     }
 
 
-    const [username, setUsername] = useState()
+    const addtodo = (categoria, nomelembrete) => {
 
+        const newtodos = [
+            ...todos,
+
+            {
+                categoria,
+                nomelembrete,
+                importante : false,
+            }
+        ]
+        }
+    
 
 
 
@@ -90,7 +106,7 @@ function Index() {
                         <div className='containeruserprofile'>
                             <img className='styleImageUser' src={ImagemUser} alt="" />
                         </div>
-                        <MensagemBoasVindas/>
+                        <MensagemBoasVindas />
                         {/* <Componentemensagemboasvindas/> */}
                         <div className='containeropenseta
                         ' >
@@ -122,15 +138,37 @@ function Index() {
 
                 <div className='container_listaafazeres'>
                     <div className='container_barradepesquisa' >
+                        <form onsubmit={handleClick} action="">
+                            <input
+                                className='styleinput_nomelembrete'
+                                type="text"
+                                name='nomelembrete'
+                                placeholder='Insira o nome do seu lembrete*'
+                                value={nomelembrete}
+                                onChange={(e) => setNomelembrete(e.target.value)} />
+                            <label className='style_textimportante' htmlFor="checkbox">Importante: </label>
+                            <input 
+                            type="checkbox"
+                            id='checkbox'
+                            onChange={(e) => setisimportante(e.target.value)}
+                            value={importante}
+                            className='style_checkbox'
+                            nome='checkbox'
+                             />
 
-                        <input
-                            className='styleinput_barradepesquisa'
-                            type="text"
-                            name='barrapesquisa'
-                            placeholder='Pesquise seu lembrete aqui*' />
-                        <button id='pesquisarlembrete' className='stylebuttonlupa'
-                          ><img className='styleimglupa' src={imagemlupa} alt="" />
-                        </button>
+                            <select value={categoria} name="typelembrete" id="" className='style_typelembrete' onChange={(e) => setCategoria(e.target.value)}>
+                                <option value="trabalho">Trabalho</option>
+                                <option value="pessoal">Pessoal</option>
+                                <option value="acordarcedo">Acordar cedo</option>
+                                <option value="entrevistaemprego">Entrevista de emprego</option>
+                                <option value="corrida">Corrida</option>
+                                <option value="academia">Academia</option>
+                                <option value="nataçao">Natação</option>
+                            </select>
+                            <button onClick={handleClick} id='pesquisarlembrete' className='stylebuttonlupa'
+                            ><img className='styleimglupa' src={imagemlupa} alt="" />
+                            </button>
+                        </form>
 
                         <button onClick={handleClick} id='Criarlembrete' className='stylebuttonadicao' >
                             <img className='styleimgadição' src={Simboloadição} alt="" />
@@ -146,22 +184,6 @@ function Index() {
                             <button className='buttoncleanlembrete2' >Limpar lembrete</button>
                         </div>
                     </div>
-
-                
-                    {mostrarnovolembrete && (
-                        <div className='containernovolembrete'>
-                        <input
-                            type="text"
-                            value={nome}
-                            onChange={handNomeMudar}
-                            onKeyDown={handpressenter}
-                            placeholder='Digite o nome do lembrete'
-                        />
-                        <button onClick={handleSalvar}>Salvar</button>
-                    </div>
-                    )}
-                    
-
 
                 </div>
 

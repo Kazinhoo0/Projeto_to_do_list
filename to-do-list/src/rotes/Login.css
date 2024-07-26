@@ -13,6 +13,7 @@ h1 {
 .buttonstyle {
   border-radius: 5px;
   margin-left: 20px;
+  cursor: pointer;
 }
 
 .containerbuttonsstyle {
@@ -56,6 +57,7 @@ h1 {
   height: 30px;
   background-color: yellow;
   color: rgb(0, 0, 0);
+  cursor: pointer;
 }
 
 .containerbuttonentrar {
@@ -140,17 +142,17 @@ h1 {
 }
 
 .style_esquecisenha {
-
+  cursor: pointer;
   position: absolute;
   left: 36.5%;
   font-size: 0.75em;
 }
 
 .style_criarconta {
-
   position: absolute;
   right: 39%;
   font-size: 0.75em;
+  cursor: pointer;
 }
 
 

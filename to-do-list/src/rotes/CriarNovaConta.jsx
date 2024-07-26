@@ -6,15 +6,22 @@ import Mensagembemvindo from './scriptsindex/Mesagebemvindo';
 import Inputs_CriarNovaConta from '../functionsfrontend/CriarNovaConta_inputs';
 import { useState } from 'react';
 import './CriarNovaConta.css';
+import { useNavigate } from "react-router-dom";
 
 
 function CriarNovaConta() {
     
-    const [nome, setNome] = useState('oi')
-    const [sobrenome, setSobrenome] = useState('oi')
-    const [senha, setSenha] = useState('oi')
-    const [email, setEmail] = useState('oi')
-    const [username, setUsername] = useState('oi')
+    const [nome, setNome] = useState('oi');
+    const [sobrenome, setSobrenome] = useState('oi');
+    const [senha, setSenha] = useState('oi');
+    const [email, setEmail] = useState('oi');
+    const [username, setUsername] = useState('oi');
+    const navigate = useNavigate();
+
+
+    const jatemconta = () => {
+        navigate('/')
+    }
 
 
     function EnviarEmail () {
@@ -40,7 +47,7 @@ function CriarNovaConta() {
                     </div>
                     <div className='container_esquecisenha_criarconta'>
                         <div>
-                            <a className='style_esquecisenha'>Já tem uma conta ?</a>
+                            <a onClick={jatemconta} className='style_esquecisenha'>Já tem uma conta ?</a>
                         </div>
                     </div>
                 </div>

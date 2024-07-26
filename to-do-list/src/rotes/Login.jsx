@@ -7,12 +7,17 @@ import Mensagembemvindo from './scriptsindex/Mesagebemvindo'
 import CriarNovaConta from './CriarNovaConta'
 import './Login.css'
 import InputUsernameLogin from '../functionsfrontend/Loginusernameinput'
-
+import { useNavigate } from "react-router-dom";
 
 
 function To_Do_List() {
 
+  const navigate = useNavigate('')
   const [username, setUsername] = useState('')
+
+  const handlenavigate = () => {
+    navigate('/Criarconta')
+  }
 
 
   return (
@@ -56,7 +61,7 @@ function To_Do_List() {
               <a className='style_esquecisenha'>esqueceu sua senha?</a>
             </div>
             <div>
-              <a className='style_criarconta'>criar conta</a>
+              <a onClick={handlenavigate} className='style_criarconta'>criar conta</a>
             </div>
           </div>
         </div>

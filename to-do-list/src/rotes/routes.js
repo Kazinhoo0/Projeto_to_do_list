@@ -1,11 +1,12 @@
 import React from "react";
 import {Route,Routes, BrowserRouter} from "react-router-dom"
-import Index from './Index'
+import Index from "./Index";
 import Criarnovaconta from './CriarNovaConta'
 import CriarLembretes from './CriarLembretes'
 import Login from './Login'
 import Settings from "./Settings";
 import Confirmaremail from "./PagConfirmarEmail/ConfirmarEmail";
+import Esquecisenha from "./Esquecisenha";
 
 
 
@@ -22,6 +23,7 @@ const Rotas = () => {
             <Route Component={CriarLembretes} path="/Criarlembrete"></Route>
             <Route Component={Settings} path="/Settings" ></Route>
             <Route Component={Confirmaremail} path="/Confirmaremail"></Route>
+            <Route Component={Esquecisenha} path="/Inputesquecisenha" > </Route>
         </Routes>
         </BrowserRouter>
 

@@ -140,6 +140,7 @@ a {
     height: 30px;
     background: none;
     display: flex;
+    cursor: pointer;
 }
 
 .stylebuttonseta {
@@ -169,16 +170,28 @@ a {
     height: 50px;
 }
 
-.styleinput_barradepesquisa {
+.styleinput_nomelembrete {
     border: 2px solid rgba(0, 0, 0, 0.664);
     border-radius: 5px;
-    width: 550px;
+    width: 250px;
     height: 35px;
     position: absolute;
     left: 6.2%;
     top: 1.7%;
     background-color: #19191a;
     color: rgb(236, 231, 231);
+}
+
+.style_typelembrete {
+    width: 200px;
+    height: 41px;
+    position: absolute;
+    left: 47%;
+    top: 1.5%;
+    background-color: #19191a;
+    color: rgb(236, 231, 231);
+    border: 2px solid rgba(0, 0, 0, 0.664);
+    border-radius: 5px;
 }
 
 .styleimglupa {
@@ -194,6 +207,7 @@ a {
     border-radius: 5px;
     border: rgb(36, 34, 34);
     background-color: #19191a;
+    cursor: pointer;
 }
 
 .container_limparlembrete {
@@ -212,6 +226,7 @@ a {
     color: white;
     border-radius: 5px;
     border: 2px;
+    cursor: pointer;
 }
 
 .buttoncleanlembrete2 {
@@ -223,6 +238,7 @@ a {
     color: white;
     border-radius: 5px;
     border: 2px;
+    cursor: pointer;
 }
 
 .stylebuttonadicao {
@@ -238,6 +254,24 @@ a {
     width: 28px;
     height: 28px;
 
+}
+
+.style_checkbox {
+    background-color: #19191a;
+    border-radius: 10px;
+    position: absolute;
+    left: 89%;
+    top: 7%;
+    cursor: pointer;
+}
+
+.style_textimportante {
+
+    font-size: small;
+    position: absolute;
+    left: 78%;
+    top: 7.2%;
+    
 }
 
 
