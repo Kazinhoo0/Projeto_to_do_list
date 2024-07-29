@@ -1,5 +1,5 @@
 import { useState } from "react"
-import Inputs_CriarNovaConta from "./CriarNovaConta_inputs"
+import Inputs_CriarNovaConta from "./Inputs_CriarNovaConta"
 
 
 function Settings_Output() {
@@ -13,7 +13,7 @@ function Settings_Output() {
 
     return (
         <>
-        <Inputs_CriarNovaConta setNome={setNome} setSenha={setSenha} setEmail={setEmail} setSobrenome={setSobrenome} setUsername={setUsername} nome={nome} />
+            <Inputs_CriarNovaConta setNome={setNome} setSenha={setSenha} setEmail={setEmail} setSobrenome={setSobrenome} setUsername={setUsername} nome={nome} />
 
             <div className='container_inputs'>
 
@@ -46,7 +46,7 @@ function Settings_Output() {
 
             </div>
 
-            
+
 
         </>
     )

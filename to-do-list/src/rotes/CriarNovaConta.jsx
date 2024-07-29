@@ -3,14 +3,14 @@ import ImagemGithub from './imagens/icons8-github-30.png';
 import ImagemLinkedin from './imagens/Linked_img.png';
 import ImagemPortifólio from './imagens/Portifólio_img.png';
 import Mensagembemvindo from './scriptsindex/Mesagebemvindo';
-import Inputs_CriarNovaConta from '../functionsfrontend/CriarNovaConta_inputs';
+import Inputs_CriarNovaConta from '../functionsfrontend/Inputs_CriarNovaConta';
 import { useState } from 'react';
 import './CriarNovaConta.css';
 import { useNavigate } from "react-router-dom";
 
 
 function CriarNovaConta() {
-    
+
     const [nome, setNome] = useState('oi');
     const [sobrenome, setSobrenome] = useState('oi');
     const [senha, setSenha] = useState('oi');
@@ -24,7 +24,7 @@ function CriarNovaConta() {
     }
 
 
-    function EnviarEmail () {
+    function EnviarEmail() {
 
     }
 
@@ -36,13 +36,13 @@ function CriarNovaConta() {
                 {<img className='imgstyle' src={ImagemCalendario} alt="" />}
             </div>
             <div>
-                
+
                 <div className='containerinputlogin'>
                     <div className='containerfaçalogin'>
                         <h3>Criar conta</h3>
                     </div>
                     <div className='styleborderinput'>
-                        <Inputs_CriarNovaConta setNome={setNome} setSenha={setSenha} setEmail={setEmail} setSobrenome={setSobrenome} setUsername={setUsername} nome={nome}/>
+                        <Inputs_CriarNovaConta setNome={setNome} setSenha={setSenha} setEmail={setEmail} setSobrenome={setSobrenome} setUsername={setUsername} nome={nome} />
 
                     </div>
                     <div className='container_esquecisenha_criarconta'>

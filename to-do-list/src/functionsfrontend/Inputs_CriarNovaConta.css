@@ -1,0 +1,49 @@
+.containerinputmargin {
+    align-items: center;
+    margin-top: -25px;
+
+}
+
+.stylelabel {
+    color: yellow;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: small;
+    font-size: 15px;
+}
+
+.styleinputss {
+    border: 1px solid rgb(77, 74, 74);
+    border-radius: 5px;
+    background-color: #282c34;
+    color: white;
+    width: 300px;
+    height: 20px;
+}
+
+.container_inputs2 {
+    /* border: 1px solid red; */
+    position: absolute;
+    top: 35%;
+    left: 1.1%;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.buttonentrarstylee {
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 305px;
+    height: 30px;
+    position: absolute;
+    bottom: 35%;
+    background-color: yellow;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+}
+
+.containerbuttonentrar {
+    position: absolute;
+    top: 67%;
+
+}
+

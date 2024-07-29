@@ -12,9 +12,8 @@ function InputUsernameLogin ({setUsername}) {
 
     return (
         <div className='containerinputmargin '>
-            <label className='stylelabel' htmlFor="nome">Username:</label>
             <input
-                placeholder='insira seu login*'
+                placeholder='Insira seu username*'
                 className='styleinputs'
                 type='text'
                 name='Username'

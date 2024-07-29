@@ -19,6 +19,16 @@ function To_Do_List() {
     navigate('/Criarconta')
   }
 
+  const navigateesquecisenha = () => {
+    navigate('/Recuperarsenha')
+  }
+
+  const handleenteraccount = () => {
+    if (username == 'Kazinho12') {
+      navigate('/Index')
+    }
+  }
+
 
   return (
     <div className='container'>
@@ -33,32 +43,30 @@ function To_Do_List() {
           </div>
           <div className='styleborderinput'>
             <form>
-              <InputUsernameLogin  setUsername={setUsername} />
+              <InputUsernameLogin setUsername={setUsername} />
               <div className='containerinputmargin ' >
-                <label className='stylelabel' htmlFor="email">Email:</label>
                 <input
                   type="text"
                   name='email'
-                  placeholder='Insira o seu email *'
+                  placeholder='Insira seu email*'
                   className='styleinputs' />
               </div>
               <div className='containerinputmargin '>
-                <label className='stylelabel' htmlFor="senha">Senha:</label>
                 <input
                   placeholder='Insira sua senha*'
                   type='password'
                   name='senha'
                   className='styleinputs' />
               </div>
+              <div className='containerbuttonentrar'>
+              <button onClick={handleenteraccount} className='buttonentrarstyle' >Entrar</button>
+            </div>
 
             </form>
-            <div className='containerbuttonentrar'>
-              <button className='buttonentrarstyle' >Entrar</button>
-            </div>
           </div>
           <div className='container_esquecisenha_criarconta' >
             <div>
-              <a className='style_esquecisenha'>esqueceu sua senha?</a>
+              <a onClick={navigateesquecisenha} className='style_esquecisenha'>esqueceu sua senha?</a>
             </div>
             <div>
               <a onClick={handlenavigate} className='style_criarconta'>criar conta</a>

@@ -1,5 +1,5 @@
 import React from "react";
-import {Route,Routes, BrowserRouter} from "react-router-dom"
+import { Route, Routes, BrowserRouter } from "react-router-dom"
 import Index from "./Index";
 import Criarnovaconta from './CriarNovaConta'
 import CriarLembretes from './CriarLembretes'
@@ -16,15 +16,15 @@ const Rotas = () => {
     return (
 
         <BrowserRouter>
-        <Routes>
-            <Route Component={Login} path='/' exact ></Route>
-            <Route Component={Index} path='/Index'></Route>
-            <Route Component={Criarnovaconta} path="/Criarconta"></Route>
-            <Route Component={CriarLembretes} path="/Criarlembrete"></Route>
-            <Route Component={Settings} path="/Settings" ></Route>
-            <Route Component={Confirmaremail} path="/Confirmaremail"></Route>
-            <Route Component={Esquecisenha} path="/Inputesquecisenha" > </Route>
-        </Routes>
+            <Routes>
+                <Route Component={Login} path='/' exact ></Route>
+                <Route Component={Index} path='/index'></Route>
+                <Route Component={Criarnovaconta} path="/criarconta"></Route>
+                <Route Component={CriarLembretes} path="/criarlembrete"></Route>
+                <Route Component={Settings} path="/settings" ></Route>
+                <Route Component={Confirmaremail} path="/confirmaremail"></Route>
+                <Route Component={Esquecisenha} path="/recuperarSenha" > </Route>
+            </Routes>
         </BrowserRouter>
 
     )

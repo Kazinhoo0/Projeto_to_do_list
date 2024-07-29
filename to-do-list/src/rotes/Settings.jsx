@@ -7,7 +7,7 @@ import { useState, useTransition } from 'react'
 import Imagempadraoperfil from './imagens/user.png'
 import CriarNovaConta from './CriarNovaConta'
 import Settings_Output from '../functionsfrontend/Settings_output_info'
-import Inputs_CriarNovaConta from '../functionsfrontend/CriarNovaConta_inputs'
+import Inputs_CriarNovaConta from '../functionsfrontend/Inputs_CriarNovaConta'
 import { useNavigate } from "react-router-dom";
 
 function Settings() {

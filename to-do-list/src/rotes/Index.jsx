@@ -95,8 +95,10 @@ function Index() {
             <div className='container'>
                 <div className='containeruserbar' >
                     <div className='Tittle_site_div'>
-                        <h1 className='h1_userbar'>TO-DO-LIST</h1>
-                        {<img className='imgstyle' src={ImagemCalendario} alt="" />}
+                        <div>
+                            <h1 className='h1_userbar'>TO-DO-LIST {<img className='imgstyle' src={ImagemCalendario} alt="" />}</h1>
+                        </div>
+                        
                         {/* <div className='containerlinks' >
                             <div className='links_style'>
                                 <a onClick={NavegarHome} href="">Home</a>
@@ -130,7 +132,7 @@ function Index() {
                         <div className='containerimageexit'>
                             <img className='imageexit' src={ExitImage} alt="" />
                             <div className='Sair'>
-                                <a className='sairbutton' href="">Sair</a>
+                                <a className='sairbutton' onClick={NavegarHome}>Sair</a>
                             </div>
                         </div>
                     </div>
