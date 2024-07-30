@@ -10,6 +10,7 @@ import Abrirpagcriarlembretes from './functions/AbrirPaginacriarlembretes';
 import { useNavigate } from "react-router-dom";
 import Componentemensagemboasvindas from '../functionsfrontend/componentemensagemboasvindas';
 import MensagemBoasVindas from '../functionsfrontend/MensagemBoasvinda';
+import { IoIosChatboxes } from 'react-icons/io';
 
 
 function Index() {
@@ -20,7 +21,7 @@ function Index() {
     const [lembretes, setLembretes] = useState([])
     const [nomelembrete, setNomelembrete] = useState('')
     const [categoria, setCategoria] = useState('')
-    const [importante, setisimportante] = useState(false)
+    const [ischecked, setisimportante] = useState('')
     const [todos, settodo] = useState('')
 
     const itslistavisivel = () => {
@@ -31,9 +32,19 @@ function Index() {
     //     setnovolembrete(true);
     // }
 
+    const handlchjeckboxchange =  () => {
+        setisimportante(!ischecked)
+    }
+
     const handleClick = (e) => {
         e.preventDefault()
-        if (!categoria || !nomelembrete) return;
+        if (!categoria || !nomelembrete) {
+            alert('Por favor! preencha os campos')
+            return
+        }
+        if (ischecked) {
+            alert("documento marcado como importante")
+        }
         setCategoria('')
         setLembretes('')
 
@@ -153,12 +164,13 @@ function Index() {
                             type="checkbox"
                             id='checkbox'
                             onChange={(e) => setisimportante(e.target.value)}
-                            value={importante}
+                            value={ischecked}
                             className='style_checkbox'
                             nome='checkbox'
                              />
 
                             <select value={categoria} name="typelembrete" id="" className='style_typelembrete' onChange={(e) => setCategoria(e.target.value)}>
+                                <option value="nenhum">Nenhum</option>
                                 <option value="trabalho">Trabalho</option>
                                 <option value="pessoal">Pessoal</option>
                                 <option value="acordarcedo">Acordar cedo</option>

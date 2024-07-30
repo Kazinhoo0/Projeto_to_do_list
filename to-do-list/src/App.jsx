@@ -8,7 +8,6 @@ import CriarNovaConta from './rotes/CriarNovaConta';
 import Settings from './rotes/Settings';
 import Rotas from './rotes/routes'
 
-// import Index from './rotes/Index';
 
 
 
