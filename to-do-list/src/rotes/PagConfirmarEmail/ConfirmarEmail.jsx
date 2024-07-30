@@ -53,10 +53,14 @@ function Confirmaremail() {
         console.log("Codigo enviado com sucesso!")
     }
 
+
+
     function EnviarCodigo (e) {
         e.preventDefault()
     if ((codigoenviardo) === parseInt(numbercode)) {
         console.log('Email confirmado com sucesso!');
+
+        
         setTimeout(() => {
             navigate('/')
         }, 3000);

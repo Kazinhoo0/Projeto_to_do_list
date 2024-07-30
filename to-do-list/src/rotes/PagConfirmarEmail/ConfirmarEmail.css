@@ -63,6 +63,7 @@ h4 {
     border: 2px;
     border-radius: 5px;
     padding: 5px;
+    cursor: pointer;
 
 }
 
@@ -72,6 +73,7 @@ h4 {
     border-radius: 10px;
     background-color: yellow;
     border: 2px;
+    cursor: pointer;
 }
 
 .container_buttonenviar {

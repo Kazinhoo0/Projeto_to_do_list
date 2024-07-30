@@ -2,6 +2,8 @@
 import './Inputs_CriarNovaConta.css'
 import { useState } from 'react'
 import { useNavigate } from "react-router-dom";
+import emailjs from 'emailjs-com'
+
 
 function Inputs_CriarNovaConta() {
 
@@ -13,50 +15,46 @@ function Inputs_CriarNovaConta() {
     const navigate = useNavigate()
 
 
-    // let numero = Math.floor(Math.random() * 9999);
-    // const [number, setNumero] = useState('')
-    // number = props
+    let numero = Math.floor(Math.random() * 9999);
+    const [number, setNumero] = useState('')
 
 
+    function Transportarpagina(e) {
 
-    // function EnviarEmail(e) {
-    //     e.preventDefault();
-    //     if (nome === "" || Email === "" || sobrenome === "" || username === "" || senha === "") {
-    //         alert("Porfavor, preencha todos os campos obrigatórios")
-    //         return;
-    //     }
+        e.preventDefault();
+        // if (nome === "" || Email === "" || sobrenome === "" || username === "" || senha === "") {
+        //     alert("Porfavor, preencha todos os campos obrigatórios")
+        //     return;
+        // }
 
-    //     const TemplatesParams = {
-    //         from_name: nome,
-    //         email: Email,
-    //         message: ("Seu codigo de verificação é " + numero)
+        // const TemplatesParams = {
+        //     from_name: nome,
+        //     email: Email,
+        //     message: ("Seu codigo de verificação é " + numero)
 
-    //     }
-    //     console.log(numero)
+        // }
+        // console.log(numero)
 
-    //     emailjs.send("Verification_todolistweb", "template_451r7i7", TemplatesParams, '3iY_SH8IRchtTAW2R')
-    //         .then((response) => {
-    //             console.log('Email enviado', response.status, response.text)
-    //             setUsername('')
-    //             setNome('')
-    //             setEmail('')
-    //             setSobrenome('')
-    //             setSenha('')
-    //             navigate('/Confirmaremail')
-    //             setNumero(numero)
-    //         },
-    //             (error) => {
-    //                 console.log("Error" , error)
-    //             }
-    //         )
-
-    // }
-
-    function Transportarpagina() {
+        // emailjs.send("Verification_todolistweb", "template_451r7i7", TemplatesParams, '3iY_SH8IRchtTAW2R')
+        //     .then((response) => {
+        //         console.log('Email enviado', response.status, response.text)
+        //         setUsername('')
+        //         setNome('')
+        //         setEmail('')
+        //         setSobrenome('')
+        //         setSenha('')
+        //         setNumero(numero)
+        //     },
+        //         (error) => {
+        //             console.log("Error", error)
+        //         }
+        //     )
         setTimeout(() => {
             navigate('/Confirmaremail')
         }, 5000);
     }
+
+
 
     return (
         <div>
