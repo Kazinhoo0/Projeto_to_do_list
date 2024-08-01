@@ -14,6 +14,8 @@ function To_Do_List() {
 
   const navigate = useNavigate('')
   const [username, setUsername] = useState('')
+  const [senha, setSenha] = useState('')
+  const [email, setEmail] = useState('')
 
   const handlenavigate = () => {
     navigate('/Criarconta')
@@ -23,11 +25,18 @@ function To_Do_List() {
     navigate('/Recuperarsenha')
   }
 
-  const handleenteraccount = () => {
-    if (username == 'Kazinho12') {
-      navigate('/Index')
+  const handleenteraccount = (event) => {
+    event.preventDefault();
+    if (username && senha.length > 8) {
+      setTimeout(() => {
+        navigate('/Index')
+      }, 3000);
     }
-  }
+    else {
+      alert("a senha precisa ter mais de 8 caracteres")
+    }
+
+  };
 
 
   return (
@@ -49,17 +58,19 @@ function To_Do_List() {
                   type="text"
                   name='email'
                   placeholder='Insira seu email*'
-                  className='styleinputs' />
+                  className='styleinputs'
+                  onChange={(e) => setEmail(e.target.value)} />
               </div>
               <div className='containerinputmargin '>
                 <input
                   placeholder='Insira sua senha*'
                   type='password'
                   name='senha'
-                  className='styleinputs' />
+                  className='styleinputs'
+                  onChange={(e) => setSenha(e.target.value)} />
               </div>
               <div className='containerbuttonentrar11'>
-              <button onClick={handleenteraccount} className='buttonentrarstyle' >Entrar</button>
+                <button onClick={handleenteraccount} className='buttonentrarstyle' >Entrar</button>
               </div>
 
             </form>
@@ -86,7 +97,6 @@ function To_Do_List() {
         <p className='containerparagraforedes'>Desenvolvido por Kauã Lopes Monteiro</p>
       </div>
 
-      {/* <Mensagembemvindo nome={nome}></Mensagembemvindo> */}
     </div>
   );
 }

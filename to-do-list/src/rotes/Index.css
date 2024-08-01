@@ -278,6 +278,93 @@ a {
 
 }
 
+.lembretes-list {
+    /* border: 1px solid red; */
+    width: auto;
+    height: 215px;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+
+}
+
+.lembrete_item {
+    background-color: #584f4f9a;
+    border: 1px solid #dddddd70;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.style_nomelembrete {
+    /* border: 1px solid red; */
+    width: 350px;
+    font-size: 18px;
+    margin: 0 0 10px 0;
+    color: #666;
+    font-weight: bold;
+}
+
+
+.style_categorialembrete {
+    /* border: 1px solid red; */
+    width: 350px;
+    font-size: 14px;
+    margin: 0 0 10px 0;
+    color: #666;
+}
+
+
+.style_importanteornot {
+    /* border: 1px solid red; */
+    width: 350px;
+    font-size: 14px;
+    margin: 0;
+    color: #666;
+    font-weight: normal;
+}
+
+.checkedbox {
+    color: green;
+}
+
+.uncheckedbox {
+    color: black;
+}
+
+.container_limpar {
+    /* border: 1px solid red; */
+    width: 50px;
+    display: flex;
+    float: right;
+
+}
+
+.container_limpar {
+    width: 100px;
+}
+
+.container_trash {
+    margin-right: 5%;
+}
+
+.style_button_trash {
+    border: 1px;
+    background-color: #584f4f9a;
+}
+
+.style_button_edit {
+    border: 1px;
+    background-color: #584f4f9a;
+    margin-right: 5%;
+}
+
+
+
+
 
 /* smartphones */
 
