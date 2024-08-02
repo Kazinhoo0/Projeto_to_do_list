@@ -15,7 +15,7 @@ function Inputesquecisenha() {
 
     const handsendinf = (e) => {
         e.preventDefault()
-        console.log(username)
+        navigate('/RedefinirSenha')
 
     }
 
@@ -34,7 +34,7 @@ function Inputesquecisenha() {
                 <div className="container_filho_input">
                     <form onSubmit={handsendinf} >
                         <div className="container_inputusername" >
-                            <p className="style_paragraforedefinirsenha" >Insira seu username abaixo, e você ira receber um codigo pelo email</p>
+                            <p className="style_paragraforedefinirsenha" >Insira seu email abaixo, e você receberá um código de verificação.</p>
                             <input
                                 className="style_inputusername"
                                 type="text"

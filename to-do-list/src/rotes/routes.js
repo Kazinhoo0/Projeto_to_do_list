@@ -2,11 +2,12 @@ import React from "react";
 import { Route, Routes, BrowserRouter } from "react-router-dom"
 import Index from "./Index";
 import Criarnovaconta from './CriarNovaConta'
-import CriarLembretes from './CriarLembretes'
+import EditarLembretes from './EditarLembretes'
 import Login from './Login'
 import Settings from "./Settings";
 import Confirmaremail from "./PagConfirmarEmail/ConfirmarEmail";
 import Esquecisenha from "./Esquecisenha";
+import RedefinirSenha from "./Inputesquecisenha/RedefinirSenha";
 
 
 
@@ -20,10 +21,11 @@ const Rotas = () => {
                 <Route Component={Login} path='/' exact ></Route>
                 <Route Component={Index} path='/index'></Route>
                 <Route Component={Criarnovaconta} path="/criarconta"></Route>
-                <Route Component={CriarLembretes} path="/criarlembrete"></Route>
+                <Route Component={EditarLembretes} path="/EditarLembretes"></Route>
                 <Route Component={Settings} path="/settings" ></Route>
                 <Route Component={Confirmaremail} path="/confirmaremail"></Route>
                 <Route Component={Esquecisenha} path="/recuperarSenha" > </Route>
+                <Route Component={RedefinirSenha} path='/RedefinirSenha'> </Route>
             </Routes>
         </BrowserRouter>
 

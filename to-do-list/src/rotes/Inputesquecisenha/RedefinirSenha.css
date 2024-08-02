@@ -1,0 +1,79 @@
+.container {
+    width: 100%;
+    margin: 0%;
+    padding: 0%;
+}
+
+.container_inputs {
+    border: 1px solid rgb(87, 82, 82);
+    width: 50%;
+    height: 40%;
+    position: fixed;
+    left: 25.5%;
+}
+
+
+.container_inputusername {
+    position: fixed;
+    right: 42%;
+    top: 43%;
+    align-content: center;
+    margin-bottom: 30px;
+
+}
+
+
+.style_inputusername {
+    margin-bottom: 10px;
+}
+
+.style_inputusername {
+    background-color: rgb(59, 56, 56);
+    color: white;
+    border-radius: 5px;
+    border: 1px;
+    width: 250px;
+    height: 30px;
+
+
+}
+
+.style_sendbutton {
+    border: 1px;
+    background-color: rgb(59, 56, 56);
+    height: 31px;
+    border-radius: 2px;
+    margin-left: 5px;
+}
+
+
+.container_filho_input {
+    background-color: rgba(120, 123, 126, 0.151);
+    border: 1px solid rgba(121, 115, 116, 0.678);
+    border-radius: 5px;
+    width: 30%;
+    height: 20%;
+    position: fixed;
+    right: 34.5%;
+    top: 35%;
+
+}
+
+
+.style_linknavigate {
+
+    cursor: pointer;
+    color: white;
+    position: absolute;
+    top: 5%;
+
+
+}
+
+.style_paragraforedefinirsenha {
+    position: fixed;
+    top: 38%;
+    left: 41.2%;
+    font-size: small;
+
+}

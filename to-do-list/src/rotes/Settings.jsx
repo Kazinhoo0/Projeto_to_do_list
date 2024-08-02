@@ -1,11 +1,9 @@
 import './Settings.css'
 import ExitImage from './imagens/logout.png'
-import './Criarlembretes.css'
 import ImagemCalendario from './/imagens/agendamento.png'
 import Imagemseta from './imagens/seta-para-baixo.png'
 import { useState, useTransition } from 'react'
 import Imagempadraoperfil from './imagens/user.png'
-import CriarNovaConta from './CriarNovaConta'
 import Settings_Output from '../functionsfrontend/Settings_output_info'
 import Inputs_CriarNovaConta from '../functionsfrontend/Inputs_CriarNovaConta'
 import { useNavigate } from "react-router-dom";
@@ -29,7 +27,7 @@ function Settings() {
     const navigate = useNavigate();
 
     const NavegarCriarLembrete = () => {
-        navigate('/Criarlembrete');
+        navigate('/EditarLembretes');
     };
 
     const NavegarHome = () => {

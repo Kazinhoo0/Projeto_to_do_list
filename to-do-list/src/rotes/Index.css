@@ -302,7 +302,7 @@ a {
 .style_nomelembrete {
     /* border: 1px solid red; */
     width: 350px;
-    font-size: 18px;
+    font-size: 15px;
     margin: 0 0 10px 0;
     color: #666;
     font-weight: bold;
@@ -353,13 +353,15 @@ a {
 
 .style_button_trash {
     border: 1px;
-    background-color: #584f4f9a;
+    padding-left: 32px;
+    margin-right: 20px;
+    cursor: pointer;
 }
 
 .style_button_edit {
     border: 1px;
-    background-color: #584f4f9a;
-    margin-right: 5%;
+    margin-right: 10px;
+    cursor: pointer;
 }
 
 

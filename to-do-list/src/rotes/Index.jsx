@@ -20,22 +20,24 @@ import { FaEdit } from "react-icons/fa";
 
 
 
+
 function Index() {
     const [ListaVisivel, setListavisivel] = useState(false);
     const [mostrarnovolembrete, setnovolembrete] = useState(false);
     const [nome, setNome] = useState('');
-    const [lembretes, setLembretes] = useState([]);
     const [nomelembrete, setNomelembrete] = useState('');
     const [categoria, setCategoria] = useState('');
     const [ischecked, setisimportante] = useState(false);
     const [todos, settodos] = useState([]);
+    const [id, setID] = useState('')
+    const [lembretes, setLembretes] = useState([])
+    const [editID, setEditID] = useState(null);
+
+
+    const navigate = useNavigate()
 
     const itslistavisivel = () => {
         setListavisivel(!ListaVisivel);
-    }
-
-    const handlchjeckboxchange = () => {
-        setisimportante(!ischecked);
     }
 
     const handleClick = (e) => {
@@ -45,50 +47,41 @@ function Index() {
             return;
         }
 
-        const novoLembrete = {
-            nomelembrete,
-            categoria,
-            importante: ischecked
-        };
+        if (editID) {
+            const lembretesAtualizados = lembretes.map((lembrete) =>
+                lembrete.id === editID ? { ...lembrete, nomelembrete, categoria, importante: ischecked } : lembrete
+            );
+            setLembretes(lembretesAtualizados);
+            setEditID(null);
+        } else {
 
-        setLembretes([...lembretes, novoLembrete]);
+            const novoLembrete = {
+                id,
+                nomelembrete,
+                categoria,
+                importante: ischecked
+            };
+            setLembretes([...lembretes, novoLembrete]);
+            setID(id + 1);
+        }
 
         setCategoria('');
         setNomelembrete('');
         setisimportante(false);
     }
 
-    const handlepressenter = (e) => {
-        if (e.key === 'Enter') {
-            handleClick();
-        }
-    }
-
-    const handleSalvar = () => {
-        if (nome.trim()) {
-            setLembretes([...lembretes, nome]);
-            setNome('');
-            setnovolembrete(true);
-        }
+    const handleedit = () => {
+        alert('funcionalidade ainda não disponivel')
     }
 
 
-    const handleedit = (event) => {
-        console.log('edit ativado')
+    const handletrash = (id) => {
+        const updatelembretes = lembretes.filter(lembrete => lembrete.id !== id);
+        setLembretes(updatelembretes);
     }
-
-    const handletrash = (event) => {
-        console.log('trash ativado')
-    }
-
-    const navigate = useNavigate();
 
     const NavegarHome = () => {
         navigate('/');
-    }
-
-    const NavegarCriarLembrete = () => {
-        navigate('/Criarlembrete');
     }
 
     const NavegarMeusLembretes = () => {
@@ -107,7 +100,7 @@ function Index() {
                         <div>
                             <h1 className='h1_userbar'>TO-DO-LIST {<img className='imgstyle' src={ImagemCalendario} alt="" />}</h1>
                         </div>
-                        
+
                         <div className='containeruserprofile'>
                             <img className='styleImageUser' src={ImagemUser} alt="" />
                         </div>
@@ -125,7 +118,7 @@ function Index() {
                                     </ul>
                                     <ul className='listasstyle'>
                                         <li>
-                                            <a onClick={NavegarCriarLembrete}>Minhas agendas</a>
+                                            <a onClick={NavegarHome}>Minhas agendas</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -151,7 +144,7 @@ function Index() {
                                 value={nomelembrete}
                                 onChange={(e) => setNomelembrete(e.target.value)} />
                             <label className='style_textimportante' htmlFor="checkbox">Importante: </label>
-                            <input 
+                            <input
                                 type="checkbox"
                                 id='checkbox'
                                 onChange={(e) => setisimportante(e.target.checked)}
@@ -187,20 +180,20 @@ function Index() {
                         </div>
                     </div>
 
-                    {/* Renderizando lembretes */}
+                    {/* Renderizar lembretes */}
                     <div className='lembretes-list'>
-                        {lembretes.map((lembrete, index) => (
-                            <div key={index} className='lembrete_item'>
+                        {lembretes.map((lembrete) => (
+                            <div key={lembrete.id} className='lembrete_item'>
                                 <h3 className='style_nomelembrete'>Nome:    {lembrete.nomelembrete}</h3>
                                 <p className='style_categorialembrete'>Categoria: {lembrete.categoria}</p>
-                                <div className='style_importanteornot'>imp:{lembrete.importante ?  <div className='checkedbox'><IoIosCheckbox/></div> : <div className='uncheckedbox'><MdIndeterminateCheckBox/></div> }</div>
+                                <div className='style_importanteornot'>imp:{lembrete.importante ? <div className='checkedbox'><IoIosCheckbox /></div> : <div className='uncheckedbox'><MdIndeterminateCheckBox /></div>}</div>
                                 <div className='container_limpar'>
                                     <div className='container_trash'>
-                                        <button className='style_button_trash' ><FaTrash onClick={handleedit}/></button>
+                                        <FaTrash className='style_button_trash' onClick={() => handletrash(lembrete.id)} />
                                     </div>
-                                    
+
                                     <div className='container_edit'>
-                                        <FaEdit onClick={handleedit} />
+                                        <FaEdit className='style_button_edit' onClick={() => handleedit(lembrete.id)} />
                                     </div>
                                 </div>
                             </div>
