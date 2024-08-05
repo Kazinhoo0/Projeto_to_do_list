@@ -22,18 +22,22 @@ function To_Do_List() {
   }
 
   const navigateesquecisenha = () => {
-    navigate('/Recuperarsenha')
+    navigate('/esquecisenha')
   }
 
   const handleenteraccount = (event) => {
     event.preventDefault();
-    if (username && senha.length > 8) {
+    if (senha.length > 8) {
       setTimeout(() => {
         navigate('/Index')
       }, 3000);
     }
     else {
       alert("a senha precisa ter mais de 8 caracteres")
+    }
+
+    if (!username || !senha || !email) {
+      alert("Porfavor, preencha todos os campos")
     }
 
   };

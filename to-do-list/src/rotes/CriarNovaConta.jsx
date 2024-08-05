@@ -11,11 +11,11 @@ import { useNavigate } from "react-router-dom";
 
 function CriarNovaConta() {
 
-    const [nome, setNome] = useState('oi');
-    const [sobrenome, setSobrenome] = useState('oi');
-    const [senha, setSenha] = useState('oi');
-    const [email, setEmail] = useState('oi');
-    const [username, setUsername] = useState('oi');
+    const [nome, setNome] = useState('');
+    const [sobrenome, setSobrenome] = useState('');
+    const [senha, setSenha] = useState('');
+    const [email, setEmail] = useState('');
+    const [username, setUsername] = useState('');
     const navigate = useNavigate();
 
 

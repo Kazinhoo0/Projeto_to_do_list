@@ -29,21 +29,20 @@
     margin-top: 50px;
 }
 
-.buttonentrarstylee {
+.button_entrarstylee {
     border: 1px solid black;
     border-radius: 5px;
     width: 305px;
     height: 30px;
-    position: absolute;
-    bottom: 35%;
     background-color: yellow;
     color: rgb(0, 0, 0);
     cursor: pointer;
 }
 
-.containerbuttonentrar {
+.containerbuttoncriarconta {
     position: absolute;
-    top: 67%;
+    top: 68%;
+    right: 41%;
 
 }
 

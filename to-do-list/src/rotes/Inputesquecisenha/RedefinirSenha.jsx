@@ -1,10 +1,10 @@
 import { useState } from "react"
 import './RedefinirSenha.css'
-import { GoArrowLeft } from "react-icons/go";
 import { useNavigate } from "react-router-dom";
 import { IoMdSend } from "react-icons/io";
+import { GoArrowLeft } from "react-icons/go";
 
-export default function RedefinirSenha() {
+function RedefinirSenha() {
 
     const [senha, setSenha] = useState('')
     const [senharepetida, setSenhaRepetida] = useState('')
@@ -23,12 +23,18 @@ export default function RedefinirSenha() {
             alert("Porfavor, as senhas precisam ter mais que 8 caracteres, e precisam ser iguais.")
         }
     }
+
+
+    function backpagesquecisenha() {
+        navigate('/esquecisenha')
+    }
     return (
 
         <div className="container">
             <div className="container_inputs">
                 <h2>Redefinir Senha</h2>
                 <div className="style_containerlinknavigate" >
+                    <a className="style_linknavigate" onClick={backpagesquecisenha}><GoArrowLeft /></a>
                 </div>
                 <div className="container_filho_input">
                     <form onSubmit={handlesalvar} >
@@ -57,3 +63,6 @@ export default function RedefinirSenha() {
 
 
 }
+
+
+export default RedefinirSenha;

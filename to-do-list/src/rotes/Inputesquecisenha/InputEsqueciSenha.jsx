@@ -3,19 +3,54 @@ import './InputEsqueciSenha.css'
 import { GoArrowLeft } from "react-icons/go";
 import { useNavigate } from "react-router-dom";
 import { IoMdSend } from "react-icons/io";
+import emailjs from 'emailjs-com';
+
 
 
 function Inputesquecisenha() {
 
-    const [username, setUsername] = useState('')
+    const [email, setEmail] = useState('')
 
 
     const navigate = useNavigate('')
 
 
+    const navegar_redefinirsenha = () => {
+        navigate('/RedefinirSenha')
+    }
+
     const handsendinf = (e) => {
         e.preventDefault()
-        navigate('/RedefinirSenha')
+        setTimeout(() => {
+            if (email === "") {
+                alert("Porfavor, Insira o seu email!")
+                return;
+            }
+            
+            const TemplatesParams = {
+                email: email,
+                message: ("Clique no link para redefinir sua senha " + "linkaqui")
+
+            }
+            console.log(navegar_redefinirsenha)
+
+            emailjs.send("Verification_todolistweb", "template_m2qws8w", TemplatesParams, '3iY_SH8IRchtTAW2R')
+                .then((response) => {
+                    console.log('Email enviado', response.status, response.text)
+                    setEmail('')
+
+
+
+                },
+                    (error) => {
+                        console.log("Error", error)
+                    }
+                )
+
+
+            navigate('/RedefinirSenha')
+        }, 5000);
+
 
     }
 
@@ -38,10 +73,10 @@ function Inputesquecisenha() {
                             <input
                                 className="style_inputusername"
                                 type="text"
-                                placeholder="Insira seu Username para recuperação"
-                                onChange={(e) => setUsername(e.target.value)}
+                                placeholder="Insira seu email*"
+                                onChange={(e) => setEmail(e.target.value)}
                             />
-                            <button className="style_sendbutton" onClick={handsendinf} ><IoMdSend /></button>
+                            <button type="submit" className="style_sendbutton" ><IoMdSend /></button>
                         </div>
                     </form>
                 </div>

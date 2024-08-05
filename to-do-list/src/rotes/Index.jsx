@@ -89,7 +89,7 @@ function Index() {
     }
 
     const NavegarMeuPerfil = () => {
-        navigate('Settings');
+        navigate('/settings');
     }
 
     return (
@@ -97,8 +97,8 @@ function Index() {
             <div className='container'>
                 <div className='containeruserbar'>
                     <div className='Tittle_site_div'>
-                        <div>
-                            <h1 className='h1_userbar'>TO-DO-LIST {<img className='imgstyle' src={ImagemCalendario} alt="" />}</h1>
+                        <div className='container_imgcalendario'>
+                            <h1 className='h1_userbar'>TO-DO-LIST {<img className='style_imgcalendario' src={ImagemCalendario} alt="" />}</h1>
                         </div>
 
                         <div className='containeruserprofile'>

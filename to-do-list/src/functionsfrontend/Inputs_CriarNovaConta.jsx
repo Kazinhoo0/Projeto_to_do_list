@@ -15,40 +15,10 @@ function Inputs_CriarNovaConta() {
     const navigate = useNavigate()
 
 
-    let numero = Math.floor(Math.random() * 9999);
-    const [number, setNumero] = useState('')
-
 
     function Transportarpagina(e) {
 
         e.preventDefault();
-        // if (nome === "" || Email === "" || sobrenome === "" || username === "" || senha === "") {
-        //     alert("Porfavor, preencha todos os campos obrigatórios")
-        //     return;
-        // }
-
-        // const TemplatesParams = {
-        //     from_name: nome,
-        //     email: Email,
-        //     message: ("Seu codigo de verificação é " + numero)
-
-        // }
-        // console.log(numero)
-
-        // emailjs.send("Verification_todolistweb", "template_451r7i7", TemplatesParams, '3iY_SH8IRchtTAW2R')
-        //     .then((response) => {
-        //         console.log('Email enviado', response.status, response.text)
-        //         setUsername('')
-        //         setNome('')
-        //         setEmail('')
-        //         setSobrenome('')
-        //         setSenha('')
-        //         setNumero(numero)
-        //     },
-        //         (error) => {
-        //             console.log("Error", error)
-        //         }
-        //     )
         setTimeout(() => {
             navigate('/Confirmaremail')
         }, 5000);
@@ -115,8 +85,8 @@ function Inputs_CriarNovaConta() {
 
                 </form>
             </div>
-            <div className='containerbuttonentrar'>
-                <button onClick={Transportarpagina} className='buttonentrarstylee' >Cadastrar</button>
+            <div className='containerbuttoncriarconta'>
+                <button onClick={Transportarpagina} className='button_entrarstylee' >Cadastrar</button>
             </div>
         </div>
 
