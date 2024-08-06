@@ -24,10 +24,6 @@ function CriarNovaConta() {
     }
 
 
-    function EnviarEmail() {
-
-    }
-
     return (
 
         <div className='container'>
@@ -42,7 +38,7 @@ function CriarNovaConta() {
                         <h3>Criar conta</h3>
                     </div>
                     <div className='styleborderinput'>
-                        <Inputs_CriarNovaConta setNome={setNome} setSenha={setSenha} setEmail={setEmail} setSobrenome={setSobrenome} setUsername={setUsername} nome={nome} />
+                        <Inputs_CriarNovaConta setNome={setNome} setSenha={setSenha} setEmail={setEmail} setSobrenome={setSobrenome} setUsername={setUsername} />
 
                     </div>
                     <div className='container_esquecisenha_criarconta'>
