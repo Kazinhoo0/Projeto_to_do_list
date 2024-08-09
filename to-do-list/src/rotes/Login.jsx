@@ -15,7 +15,7 @@ function To_Do_List() {
   const navigate = useNavigate('')
   const [username, setUsername] = useState('')
   const [senha, setSenha] = useState('')
-  const [email, setEmail] = useState('')
+  // const [email, setEmail] = useState('')
 
   const handlenavigate = () => {
     navigate('/Criarconta')
@@ -25,22 +25,30 @@ function To_Do_List() {
     navigate('/esquecisenha')
   }
 
-  const handleenteraccount = (event) => {
+  console.log(username)
+  console.log(senha)
+
+  const handleenteraccount = async (event) => {
     event.preventDefault();
-    if (senha.length > 8) {
-      setTimeout(() => {
-        navigate('/Index')
-      }, 3000);
-    }
-    else {
-      alert("a senha precisa ter mais de 8 caracteres")
+    const response = await fetch('/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, senha })
+
+    });
+
+    const data = await response.json();
+    if (data.success) {
+      localStorage.setItem('token', data.token);
+      navigate('/index')
+
+    } else {
+      alert('Login falhou');
     }
 
-    if (!username || !senha || !email) {
-      alert("Porfavor, preencha todos os campos")
-    }
 
   };
+
 
 
   return (
@@ -63,7 +71,7 @@ function To_Do_List() {
                   name='email'
                   placeholder='Insira seu email*'
                   className='styleinputs'
-                  onChange={(e) => setEmail(e.target.value)} />
+                />
               </div>
               <div className='containerinputmargin '>
                 <input
