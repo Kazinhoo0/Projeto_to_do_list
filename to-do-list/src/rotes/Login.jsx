@@ -52,7 +52,7 @@ function To_Do_List() {
   return (
     <div className='container'>
       <div className='cabecalhostyle'>
-        <h1>TO-DO-LIST</h1>
+        <h1>TO-DO-L</h1>
         <img className='Imgstyle' src={ImagemCalendario} alt="" />
       </div>
       <div>
