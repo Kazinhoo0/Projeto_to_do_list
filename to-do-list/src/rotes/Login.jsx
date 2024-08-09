@@ -25,22 +25,28 @@ function To_Do_List() {
     navigate('/esquecisenha')
   }
 
-  const handleenteraccount = (event) => {
+  const handleenteraccount = async (event) => {
     event.preventDefault();
-    if (senha.length > 8) {
-      setTimeout(() => {
-        navigate('/Index')
-      }, 3000);
-    }
-    else {
-      alert("a senha precisa ter mais de 8 caracteres")
-    }
 
-    if (!username || !senha || !email) {
-      alert("Porfavor, preencha todos os campos")
-    }
 
-  };
+    const response = await fetch('/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password })
+    });
+
+    const data = await response.json();
+    if (data.success) {
+      localStorage.setItem('token', data.token);
+      // Redirecione para uma página protegida
+    } else {
+      alert('Login falhou');
+    }
+  
+
+};
+
+
 
 
   return (
