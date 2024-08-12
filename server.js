@@ -20,13 +20,14 @@ app.use(bodyParser.json());
 
 app.post('/login', (req, res) => {
   const { username, senha} = req.body;
+
   console.log(username, senha)
 
 
   if (username === 'kauã' && senha === "197811@@@") {
-    res.json({ status: true, message: 'Login Bem-sucedido' })
+    res.json({ success: true, message: 'Login Bem-sucedido' })
   } else {
-    res.status(400).json({ status: false, message: 'Tentativa de login não autorizada' })
+    res.status(400).json({ success: false, message: 'Tentativa de login não autorizada' })
   }
 
 })
