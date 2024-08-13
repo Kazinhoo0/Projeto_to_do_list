@@ -1,36 +1,47 @@
-
 import './Inputs_CriarNovaConta.css'
 import { useState } from 'react'
 import { useNavigate } from "react-router-dom";
-import emailjs from 'emailjs-com'
-
 
 function Inputs_CriarNovaConta() {
+    const [nome, setNome] = useState('');
+    const [sobrenome, setSobrenome] = useState('');
+    const [senha, setSenha] = useState('');
+    const [Email, setEmail] = useState('');
+    const [username, setUsername] = useState('');
+    const navigate = useNavigate();
 
-    const [nome, setNome] = useState('')
-    const [sobrenome, setSobrenome] = useState('')
-    const [senha, setSenha] = useState('')
-    const [Email, setEmail] = useState('')
-    const [username, setUsername] = useState('')
-    const navigate = useNavigate()
+    async function cadastrarUsuario(nome, sobrenome, Email, username, senha) {
+        const response = await fetch('http://localhost:5000/criarconta', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ nome, sobrenome, Email, username, senha })
+        });
 
+        if (response.ok) {
+            const data = await response.json();
+            console.log('Usuário cadastrado com ID:', data.id);
+        } else {
+            console.error('Erro ao cadastrar usuário');
+        }
 
-
-    function Transportarpagina(e) {
-
-        e.preventDefault();
         setTimeout(() => {
-            navigate('/Confirmaremail')
+            navigate('/Confirmaremail');
         }, 5000);
     }
 
 
+    const handleSubmit = (e) => {
+        e.preventDefault(); 
+        cadastrarUsuario(nome, sobrenome, Email, username, senha); 
+    };
 
     return (
         <div>
             <div className='container_inputs2'>
-                <form id='criarconta' onSubmit={Transportarpagina} >
-                    <div className='containerinputmargin'  >
+                <form id='criarconta' onSubmit={handleSubmit}>
+                    <div className='containerinputmargin'>
                         <input
                             type="text"
                             placeholder='insira seu nome*'
@@ -40,7 +51,7 @@ function Inputs_CriarNovaConta() {
                             value={nome}
                         />
                     </div>
-                    <div className='containerinputmargin ' >
+                    <div className='containerinputmargin'>
                         <input
                             type="text"
                             placeholder='Insira seu sobrenome*'
@@ -50,7 +61,7 @@ function Inputs_CriarNovaConta() {
                             value={sobrenome}
                         />
                     </div>
-                    <div className='containerinputmargin '>
+                    <div className='containerinputmargin'>
                         <input
                             placeholder='insira seu Username*'
                             className='styleinputss'
@@ -58,20 +69,19 @@ function Inputs_CriarNovaConta() {
                             name='username'
                             onChange={(e) => setUsername(e.target.value)}
                             value={username}
-                        ></input>
+                        />
                     </div>
-                    <div className='containerinputmargin ' >
+                    <div className='containerinputmargin'>
                         <input
-                            type="email"
+                            type="text"
                             name='email'
                             placeholder='Insira o seu email *'
                             className='styleinputss'
                             onChange={(e) => setEmail(e.target.value)}
                             value={Email}
                         />
-
                     </div>
-                    <div className='containerinputmargin '>
+                    <div className='containerinputmargin'>
                         <input
                             placeholder='Insira sua senha*'
                             type='password'
@@ -81,17 +91,13 @@ function Inputs_CriarNovaConta() {
                             value={senha}
                         />
                     </div>
-
-
+                    <div className='containerbuttoncriarconta'>
+                        <button type='submit' className='button_entrarstylee'>Cadastrar</button>
+                    </div>
                 </form>
             </div>
-            <div className='containerbuttoncriarconta'>
-                <button onClick={Transportarpagina} className='button_entrarstylee' >Cadastrar</button>
-            </div>
         </div>
-
-    )
+    );
 }
 
-
-export default Inputs_CriarNovaConta
+export default Inputs_CriarNovaConta;

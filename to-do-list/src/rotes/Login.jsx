@@ -42,8 +42,10 @@ function To_Do_List() {
     const data = await response.json();
     if (data.success) {
       localStorage.setItem('token', data.token);
-      navigate('/index')
-
+      setTimeout(() => {
+        navigate('/index')
+      }, 3000);
+      
     } else {
       alert('Login falhou');
     }

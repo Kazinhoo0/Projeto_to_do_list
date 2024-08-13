@@ -22,6 +22,7 @@ function CriarNovaConta() {
     const jatemconta = () => {
         navigate('/')
     }
+    
 
 
     return (
