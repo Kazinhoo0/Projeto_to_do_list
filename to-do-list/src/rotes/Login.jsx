@@ -6,7 +6,7 @@ import ImagemPortifólio from './imagens/Portifólio_img.png'
 import Mensagembemvindo from './scriptsindex/Mesagebemvindo'
 import CriarNovaConta from './CriarNovaConta'
 import './Login.css'
-import InputUsernameLogin from '../functionsfrontend/Loginusernameinput'
+import InputUsernameLogin from '../functionsfrontend/InputUsernameLogin'
 import { useNavigate } from "react-router-dom";
 
 
@@ -42,10 +42,11 @@ function To_Do_List() {
     const data = await response.json();
     if (data.success) {
       localStorage.setItem('token', data.token);
+      localStorage.setItem('username', username)
       setTimeout(() => {
         navigate('/index')
       }, 3000);
-      
+
     } else {
       alert('Login falhou');
     }

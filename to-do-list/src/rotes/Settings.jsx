@@ -2,7 +2,7 @@ import './Settings.css'
 import ExitImage from './imagens/logout.png'
 import ImagemCalendario from './/imagens/agendamento.png'
 import Imagemseta from './imagens/seta-para-baixo.png'
-import { useState, useTransition } from 'react'
+import { useState, useEffect } from 'react'
 import Imagempadraoperfil from './imagens/user.png'
 import Settings_Output from '../functionsfrontend/Settings_output_info'
 import Inputs_CriarNovaConta from '../functionsfrontend/Inputs_CriarNovaConta'
@@ -13,16 +13,46 @@ function Settings() {
     const [ListaVisivel, setListavisivel] = useState(false)
     const [img, setImg] = useState(null)
     const [filename, setFileName] = useState("Nenhum arquivo selecionado")
-    const [nome, setNome] = useState('oi')
-    const [senha, setSenha] = useState('')
-    const [email, setEmail] = useState('')
-    const [username, setUsername] = useState('')
-    const [sobrenome, setSobrenome] = useState('')
+    // const [nome, setNome] = useState('oi')
+    // const [senha, setSenha] = useState('')
+    // const [email, setEmail] = useState('')
+    // const [username, setUsername] = useState('')
+    // const [sobrenome, setSobrenome] = useState('')
+    const [userdata, setUserdata] = useState({
+
+        nome : '',
+        sobrenome :   '',
+        email :  '',
+        senha:  '',
+        username : ''
+
+
+     }
+
+    )
 
     const itslistavisivel = () => {
         setListavisivel(!ListaVisivel)
     }
 
+
+     useEffect(() => {
+        const nome = localStorage.getItem('nome');
+        const username = localStorage.getItem('username');
+        const sobrenome = localStorage.getItem('sobrenome');
+        const senha = localStorage.getItem('senha');
+        const email = localStorage.getItem('email');
+
+        if (nome || username || sobrenome || senha || email) {
+            setUserdata(
+                nome ,
+                username,
+                sobrenome,
+                senha,
+                email
+            )
+        }
+    }, [])
 
     const navigate = useNavigate();
 
@@ -125,44 +155,38 @@ function Settings() {
                     </div>
                 </div>
 
-                <div className='container_userinf'>
+                 <div className='container_userinf'>
 
                     <div className='container_tittle' >
                         <h2 className='style_tittle' >Configurações</h2>
                     </div>
 
                     <div className='container_inputs'>
-
-
-
-
-
-                        <h1 className='style_embreve' >EM BREVE</h1>
-                        {/* <div>
-                                <br />
-                                <label htmlFor="nome">Nome:</label>
-                                <span id="nome">{nome}</span>
-                            </div>
-                            <div>
-                                <br />
-                                <label htmlFor="sobrenome">Sobrenome:</label>
-                                <span>{sobrenome}</span>
-                            </div>
-                            <div>
-                                <br />
-                                <label htmlFor="username">Username:</label>
-                                <span>{username}</span>
-                            </div>
-                            <div>
-                                <br />
-                                <label htmlFor="email">Email:</label>
-                                <span>{email}</span>
-                            </div>
-                            <div>
-                                <br />
-                                <label htmlFor="senha">Senha:</label>
-                                <span>{senha}</span>
-                            </div> */}
+                        <div>
+                            <br />
+                            <label htmlFor="nome">Nome:</label>
+                            <span id="nome">{userdata.nome}</span>
+                        </div>
+                        <div>
+                            <br />
+                            <label htmlFor="sobrenome">Sobrenome:</label>
+                            <span>{userdata.sobrenome}</span>
+                        </div>
+                        <div>
+                            <br />
+                            <label htmlFor="username">Username:</label>
+                            <span>{userdata.username}</span>
+                        </div>
+                        <div>
+                            <br />
+                            <label htmlFor="email">Email:</label>
+                            <span>{userdata.email}</span>
+                        </div>
+                        <div>
+                            <br />
+                            <label htmlFor="senha">Senha:</label>
+                            <span>{userdata.senha}</span>
+                        </div>
 
                     </div>
                 </div>

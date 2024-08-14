@@ -1,17 +1,21 @@
+import { useState } from "react"
+import InputUsernameLogin from "./InputUsernameLogin";
 
 
 
-function MensagemBoasVindas ({usuario}) {
+function MensagemBoasVindas() {
 
+    const [username, setUsername] = useState('');
 
     return (
 
         <>
             <div className='mensagem_bemvindo' >
-                <p className='mensagem_bemvindo' >Olá,{usuario}
-                <br></br>Bem-vindo</p>
+                <InputUsernameLogin setUsername={setUsername} />
+                <p className='mensagem_bemvindo' >Olá,{username}
+                    <br></br>Bem-vindo</p>
             </div>
-        
+
         </>
     )
 }

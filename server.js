@@ -15,13 +15,11 @@ const db = new sqlite3.Database('./database.db', (err) => {
 });
 
 db.run(`
-    CREATE TABLE IF NOT EXISTS usuarios (
+    CREATE TABLE IF NOT EXISTS lembretes (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        nome TEXT NOT NULL,
-        sobrenome TEXT NOT NULL,
-        email TEXT NOT NULL,
-        username TEXT NOT NULL,
-        senha TEXT NOT NULL
+        nomelembrete TEXT NOT NULL,
+        categoria TEXT NOT NULL,
+        ischecked TEXT NOT NULL
     )
 `);
 
@@ -86,6 +84,30 @@ app.post('/criarconta', (req, res) => {
     res.status(201).json({ id: this.lastID });
   });
 });
+
+
+app.post('/criarlembretes' , (req,res) => {
+  const {nomelembrete, ischecked, categoria} = req.body;
+
+  if (!nomelembrete || !categoria || !ischecked) {
+    return res.status(400).json ({error: 'Todos os campos são obrigatórios'});
+  }
+
+  console.log('Dados do lembrete :',{ nomelembrete, categoria, ischecked  });
+
+
+  const query = 'INSERT INTO lembretes (nomelembrete,categoria,ischecked) VALUES ( ? , ? , ? )';
+
+  db.run(query, [nomelembrete , categoria , ischecked],
+    function (err) {
+      if (err) {
+        console.log('Erro ao cadastrar novo lembrete:' , err.message);
+        return res.status(500).json({error: err.message});
+      }
+      res.status(201).json({id: this.lasID})
+    }
+    )
+})
   
 
 

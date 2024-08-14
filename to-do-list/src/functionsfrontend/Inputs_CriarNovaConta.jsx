@@ -22,6 +22,7 @@ function Inputs_CriarNovaConta() {
         if (response.ok) {
             const data = await response.json();
             console.log('Usuário cadastrado com ID:', data.id);
+
         } else {
             console.error('Erro ao cadastrar usuário');
         }
@@ -35,6 +36,11 @@ function Inputs_CriarNovaConta() {
     const handleSubmit = (e) => {
         e.preventDefault(); 
         cadastrarUsuario(nome, sobrenome, Email, username, senha); 
+        localStorage.setItem('nome' , nome);
+        localStorage.setItem('sobrenome', sobrenome);
+        localStorage.setItem('email' , Email);
+        localStorage.setItem('username' , username);
+        localStorage.setItem('senha', senha )
     };
 
     return (

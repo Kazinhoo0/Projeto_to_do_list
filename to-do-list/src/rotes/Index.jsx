@@ -3,7 +3,7 @@ import ImagemUser from './imagens/user.png';
 import './Index.css';
 import ImagemCalendario from './imagens/agendamento.png';
 import Imagemseta from './imagens/seta-para-baixo.png';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import imagemlupa from './imagens/lupa.png';
 import Simboloadição from './imagens/Simbolodeadiçao.png';
 import { useNavigate } from "react-router-dom";
@@ -19,6 +19,7 @@ import { FaEdit } from "react-icons/fa";
 
 
 
+
 function Index() {
     const [ListaVisivel, setListavisivel] = useState(false);
     const [mostrarnovolembrete, setnovolembrete] = useState(false);
@@ -27,9 +28,11 @@ function Index() {
     const [categoria, setCategoria] = useState('');
     const [ischecked, setisimportante] = useState(false);
     const [todos, settodos] = useState([]);
-    const [id, setID] = useState('')
-    const [lembretes, setLembretes] = useState([])
+    const [id, setID] = useState('');
+    const [lembretes, setLembretes] = useState([]);
     const [editID, setEditID] = useState(null);
+    const [username, setUsername] = useState('')
+
 
 
     const navigate = useNavigate()
@@ -38,8 +41,10 @@ function Index() {
         setListavisivel(!ListaVisivel);
     }
 
-    const handleClick = (e) => {
+    const handleClick = async (e) => {
         e.preventDefault();
+
+        
         if (!categoria || !nomelembrete) {
             alert('Por favor! preencha os campos');
             return;
@@ -66,7 +71,34 @@ function Index() {
         setCategoria('');
         setNomelembrete('');
         setisimportante(false);
+
+
+
+        const response = await fetch('http://localhost:5000/criarlembretes' , {
+            method: 'POST',
+            headers: {'Content-Type' : 'application/json'},
+            body: JSON.stringify({nomelembrete, categoria, ischecked })
+        })
+
+        const data = await response.json();
+        if (data.sucess) {
+            localStorage.setItem('token', data.token);
+        } else {
+            alert('Erro ao cadastrar novo lembrete')
+        }
+
+
+       
+
+
     }
+
+    useEffect (() =>  {
+        const useusername = localStorage.getItem('username')
+        if  (useusername) {
+            setUsername(useusername)
+        }
+    },[])
 
     const handleedit = () => {
         alert('funcionalidade ainda não disponivel')
@@ -102,7 +134,10 @@ function Index() {
                         <div className='containeruserprofile'>
                             <img className='styleImageUser' src={ImagemUser} alt="" />
                         </div>
-                        <MensagemBoasVindas />
+                        <div className='mensagem_bemvindo' >
+                            <p className='mensagem_bemvindo' >Olá,{username}
+                                <br></br>Bem-vindo</p>
+                        </div>
                         <div className='containeropenseta'>
                             <button className='buttonsetastyle' type='button' name='butãoseta' onClick={itslistavisivel}>
                                 {ListaVisivel ? <img src={Imagemseta} alt="" /> : <img className='stylebuttonseta' src={Imagemseta} alt="" />}
