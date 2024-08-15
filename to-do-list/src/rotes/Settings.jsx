@@ -13,21 +13,20 @@ function Settings() {
     const [ListaVisivel, setListavisivel] = useState(false)
     const [img, setImg] = useState(null)
     const [filename, setFileName] = useState("Nenhum arquivo selecionado")
-    // const [nome, setNome] = useState('oi')
-    // const [senha, setSenha] = useState('')
-    // const [email, setEmail] = useState('')
-    // const [username, setUsername] = useState('')
-    // const [sobrenome, setSobrenome] = useState('')
+    const [nome, setNome] = useState('oi')
+    const [senha, setSenha] = useState('')
+    const [email, setEmail] = useState('')
+    const [username, setUsername] = useState('')
+    const [sobrenome, setSobrenome] = useState('')
     const [userdata, setUserdata] = useState({
 
-        nome : '',
-        sobrenome :   '',
-        email :  '',
-        senha:  '',
-        username : ''
+        nome: '',
+        sobrenome: '',
+        email: '',
+        username: ''
 
 
-     }
+    }
 
     )
 
@@ -36,23 +35,23 @@ function Settings() {
     }
 
 
-     useEffect(() => {
+    useEffect(() => {
         const nome = localStorage.getItem('nome');
         const username = localStorage.getItem('username');
         const sobrenome = localStorage.getItem('sobrenome');
-        const senha = localStorage.getItem('senha');
-        const email = localStorage.getItem('email');
+        const Email = localStorage.getItem('email');
 
-        if (nome || username || sobrenome || senha || email) {
-            setUserdata(
-                nome ,
-                username,
-                sobrenome,
-                senha,
-                email
-            )
+        if (nome || username || sobrenome || senha || Email) {
+            setUserdata({
+                nome: nome || '',
+                username: username || '',
+                sobrenome:sobrenome || '',
+                email: Email || ''
+
+            });
         }
-    }, [])
+    }, []);
+        
 
     const navigate = useNavigate();
 
@@ -60,7 +59,16 @@ function Settings() {
         navigate('/EditarLembretes');
     };
 
-    const NavegarHome = () => {
+
+    const handleInputChange = (event) => {
+        const { name, value } = event.target;
+        setUserdata({
+            ...userdata,
+            [name]: value 
+        });
+    };
+
+    const handlelogoof = () => {
         navigate('/')
     }
 
@@ -77,7 +85,7 @@ function Settings() {
             <div className='containeruserbar' >
                 <div className='Tittle_site_div'>
                     <h1 className='h1_userbar'>TO-DO-LIST</h1>
-                    {<img className='Imgstyle' src={ImagemCalendario} alt="" />}
+                    {/* {<img className='Imgstyle' src={ImagemCalendario} alt="" />} */}
                     <div className='containerlinks' >
                         {/* <div className='links_style'>
                             <a onClick={NavegarHome} href="">Home</a>
@@ -119,7 +127,7 @@ function Settings() {
                     <div className='containerimageexit'>
                         <img className='imageexit' src={ExitImage} alt="" />
                         <div className='Sair'>
-                            <a className='sairbutton' href="">Sair</a>
+                            <a onClick={handlelogoof} className='sairbutton' href="">Sair</a>
                         </div>
                     </div>
                 </div>
@@ -155,40 +163,35 @@ function Settings() {
                     </div>
                 </div>
 
-                 <div className='container_userinf'>
+                <div className='container_userinf'>
 
                     <div className='container_tittle' >
                         <h2 className='style_tittle' >Configurações</h2>
                     </div>
 
-                    <div className='container_inputs'>
-                        <div>
-                            <br />
-                            <label htmlFor="nome">Nome:</label>
-                            <span id="nome">{userdata.nome}</span>
-                        </div>
-                        <div>
-                            <br />
-                            <label htmlFor="sobrenome">Sobrenome:</label>
-                            <span>{userdata.sobrenome}</span>
-                        </div>
-                        <div>
-                            <br />
-                            <label htmlFor="username">Username:</label>
-                            <span>{userdata.username}</span>
-                        </div>
-                        <div>
-                            <br />
-                            <label htmlFor="email">Email:</label>
-                            <span>{userdata.email}</span>
-                        </div>
-                        <div>
-                            <br />
-                            <label htmlFor="senha">Senha:</label>
-                            <span>{userdata.senha}</span>
-                        </div>
+                     <div className='container_inputs'>
+                            <div>
+                                <br />
+                                <label htmlFor="nome">Nome:</label>
+                                <input onChange={handleInputChange} name='nome' maxLength={50} value={userdata.nome} type="text" />
+                            </div>
+                            <div>
+                                <br />
+                                <label htmlFor="sobrenome">Sobrenome:</label>
+                                <input onChange={handleInputChange} name='sobrenome' maxLength={50} value={userdata.sobrenome} type="text" />
+                            </div>
+                            <div>
+                                <br />
+                                <label htmlFor="username">Username:</label>
+                                <input onChange={handleInputChange} name='username' maxLength={50} value={userdata.username} type="text" />
+                            </div>
+                            <div>
+                                <br />
+                                <label htmlFor="email">Email:</label>
+                                <input onChange={handleInputChange} name='email' maxLength={70} value={userdata.email} type="text" />
+                            </div>
 
-                    </div>
+                        </div>
                 </div>
 
             </div>
