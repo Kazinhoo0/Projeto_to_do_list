@@ -6,7 +6,7 @@ import ImagemPortifólio from './imagens/Portifólio_img.png'
 import Mensagembemvindo from './scriptsindex/Mesagebemvindo'
 import CriarNovaConta from './CriarNovaConta'
 import './Login.css'
-import InputUsernameLogin from '../functionsfrontend/Loginusernameinput'
+import InputUsernameLogin from '../functionsfrontend/InputUsernameLogin'
 import { useNavigate } from "react-router-dom";
 
 
@@ -15,7 +15,7 @@ function To_Do_List() {
   const navigate = useNavigate('')
   const [username, setUsername] = useState('')
   const [senha, setSenha] = useState('')
-  const [email, setEmail] = useState('')
+  // const [email, setEmail] = useState('')
 
   const handlenavigate = () => {
     navigate('/Criarconta')
@@ -28,23 +28,27 @@ function To_Do_List() {
   const handleenteraccount = async (event) => {
     event.preventDefault();
 
-
-    const response = await fetch('/login', {
+    const response = await fetch('http://localhost:5000/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username, password })
+      body: JSON.stringify({ username, senha })
+
     });
 
     const data = await response.json();
     if (data.success) {
       localStorage.setItem('token', data.token);
-      // Redirecione para uma página protegida
+      localStorage.setItem('username', username)
+      setTimeout(() => {
+        navigate('/index')
+      }, 2000);
+
     } else {
       alert('Login falhou');
     }
-  
 
 };
+
 
 
 
@@ -52,8 +56,8 @@ function To_Do_List() {
   return (
     <div className='container'>
       <div className='cabecalhostyle'>
-        <h1>TO-DO-L</h1>
-        <img className='Imgstyle' src={ImagemCalendario} alt="" />
+        <h1>TO-DO-LIST</h1>
+        <img className='Imgstyle_criarconta' src={ImagemCalendario} alt="" />
       </div>
       <div>
         <div className='containerinputlogin'>
@@ -69,7 +73,7 @@ function To_Do_List() {
                   name='email'
                   placeholder='Insira seu email*'
                   className='styleinputs'
-                  onChange={(e) => setEmail(e.target.value)} />
+                />
               </div>
               <div className='containerinputmargin '>
                 <input

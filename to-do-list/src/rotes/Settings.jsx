@@ -2,7 +2,7 @@ import './Settings.css'
 import ExitImage from './imagens/logout.png'
 import ImagemCalendario from './/imagens/agendamento.png'
 import Imagemseta from './imagens/seta-para-baixo.png'
-import { useState, useTransition } from 'react'
+import { useState, useEffect } from 'react'
 import Imagempadraoperfil from './imagens/user.png'
 import Settings_Output from '../functionsfrontend/Settings_output_info'
 import Inputs_CriarNovaConta from '../functionsfrontend/Inputs_CriarNovaConta'
@@ -18,11 +18,40 @@ function Settings() {
     const [email, setEmail] = useState('')
     const [username, setUsername] = useState('')
     const [sobrenome, setSobrenome] = useState('')
+    const [userdata, setUserdata] = useState({
+
+        nome: '',
+        sobrenome: '',
+        email: '',
+        username: ''
+
+
+    }
+
+    )
 
     const itslistavisivel = () => {
         setListavisivel(!ListaVisivel)
     }
 
+
+    useEffect(() => {
+        const nome = localStorage.getItem('nome');
+        const username = localStorage.getItem('username');
+        const sobrenome = localStorage.getItem('sobrenome');
+        const Email = localStorage.getItem('email');
+
+        if (nome || username || sobrenome || senha || Email) {
+            setUserdata({
+                nome: nome || '',
+                username: username || '',
+                sobrenome:sobrenome || '',
+                email: Email || ''
+
+            });
+        }
+    }, []);
+        
 
     const navigate = useNavigate();
 
@@ -30,7 +59,16 @@ function Settings() {
         navigate('/EditarLembretes');
     };
 
-    const NavegarHome = () => {
+
+    const handleInputChange = (event) => {
+        const { name, value } = event.target;
+        setUserdata({
+            ...userdata,
+            [name]: value 
+        });
+    };
+
+    const handlelogoof = () => {
         navigate('/')
     }
 
@@ -47,7 +85,7 @@ function Settings() {
             <div className='containeruserbar' >
                 <div className='Tittle_site_div'>
                     <h1 className='h1_userbar'>TO-DO-LIST</h1>
-                    {<img className='Imgstyle' src={ImagemCalendario} alt="" />}
+                    {/* {<img className='Imgstyle' src={ImagemCalendario} alt="" />} */}
                     <div className='containerlinks' >
                         {/* <div className='links_style'>
                             <a onClick={NavegarHome} href="">Home</a>
@@ -89,7 +127,7 @@ function Settings() {
                     <div className='containerimageexit'>
                         <img className='imageexit' src={ExitImage} alt="" />
                         <div className='Sair'>
-                            <a className='sairbutton' href="">Sair</a>
+                            <a onClick={handlelogoof} className='sairbutton' href="">Sair</a>
                         </div>
                     </div>
                 </div>
@@ -131,40 +169,29 @@ function Settings() {
                         <h2 className='style_tittle' >Configurações</h2>
                     </div>
 
-                    <div className='container_inputs'>
-
-
-
-
-
-                        <h1 className='style_embreve' >EM BREVE</h1>
-                        {/* <div>
+                     <div className='container_inputs'>
+                            <div>
                                 <br />
                                 <label htmlFor="nome">Nome:</label>
-                                <span id="nome">{nome}</span>
+                                <input onChange={handleInputChange} name='nome' maxLength={50} value={userdata.nome} type="text" />
                             </div>
                             <div>
                                 <br />
                                 <label htmlFor="sobrenome">Sobrenome:</label>
-                                <span>{sobrenome}</span>
+                                <input onChange={handleInputChange} name='sobrenome' maxLength={50} value={userdata.sobrenome} type="text" />
                             </div>
                             <div>
                                 <br />
                                 <label htmlFor="username">Username:</label>
-                                <span>{username}</span>
+                                <input onChange={handleInputChange} name='username' maxLength={50} value={userdata.username} type="text" />
                             </div>
                             <div>
                                 <br />
                                 <label htmlFor="email">Email:</label>
-                                <span>{email}</span>
+                                <input onChange={handleInputChange} name='email' maxLength={70} value={userdata.email} type="text" />
                             </div>
-                            <div>
-                                <br />
-                                <label htmlFor="senha">Senha:</label>
-                                <span>{senha}</span>
-                            </div> */}
 
-                    </div>
+                        </div>
                 </div>
 
             </div>
