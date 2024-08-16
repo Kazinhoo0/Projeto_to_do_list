@@ -1,8 +1,9 @@
 // import Inputs_CriarNovaConta from '../../functionsfrontend/CriarNovaConta_inputs'
 import './ConfirmarEmail.css'
 import { useState } from 'react'
-import emailjs from '@emailjs/browser'
 import { useNavigate } from "react-router-dom";
+import { IoIosExit } from "react-icons/io";
+
 
 
 
@@ -16,63 +17,64 @@ function Confirmaremail() {
     const [numbercode, setnumber] = useState('')
     const [codigoenviardo, setCodigoenviado] = useState(null)
     const navigate = useNavigate()
-    
+
     
 
 
-    function EnviarEmail(e) {
+    const EnviarEmail = async (e) => {
         e.preventDefault();
-        //  if (nome === "" || Email === "" || sobrenome === "" || username === "" || senha === "") {
-        //     alert("Email enviado com sucesso")
-        //     return;
-        //  }
+
+
 
         let numero = Math.floor(Math.random() * 9999);
         setCodigoenviado(numero);
 
-        const TemplatesParams = {
-            from_name: (nome, sobrenome),
-            username: (username),
-            email: Email,
-            message: ("Seu codigo de verificação é " + numero)
+
+
+        const to = 'testesemailtestes61@gmail.com'
+        const subject = 'Email teste recebeu ?'
+        const text = 'Seu código de verificação é ${numero}'
+
+
+
+
+
+
+        setCodigoenviado(numero);
+
+        const response = await fetch('http://localhost:5000/Confirmaremail', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ to, subject, text })
+
+        });
+
+        const data = await response.json();
+        if (data.success) {
+            console.log('Email enviado com sucesso:', data.info);
+        } else {
+            console.error('Erro ao enviar email:', data.error);
         }
 
-        emailjs.send("Verification_todolistweb", "template_451r7i7", TemplatesParams, '3iY_SH8IRchtTAW2R')
-            .then((response) => {
-                console.log('Email enviado', response.status, response.text)
-                setUsername('')
-                setNome('')
-                setEmail('')
-                setSobrenome('')
-            },
-                (error) => {
-                    console.log("Error", error)
-                }
-            )
 
-        console.log("Codigo enviado com sucesso!")
+    }
+
+    const enviarCodigo = (e) => {
+        e.preventDefault();
+        if (codigoenviardo === parseInt(numbercode)) {
+            console.log('Email confirmado com sucesso!');
+            setTimeout(() => {
+                navigate('/');
+            }, 3000);
+        } else {
+            console.log('O Código inserido é inválido');
+        }
     }
 
 
-
-    function EnviarCodigo (e) {
-        e.preventDefault()
-    if ((codigoenviardo) === parseInt(numbercode)) {
-        console.log('Email confirmado com sucesso!');
-
-        
-        setTimeout(() => {
-            navigate('/')
-        }, 3000);
-       
+    function handle_navigatelogin () {
+        navigate('/')
     }
-    else {
-        console.log('O Codigo inserido é inválido')
-    }
-    
-    }
-
-    
 
 
     return (
@@ -80,6 +82,7 @@ function Confirmaremail() {
             <div className="container" >
 
                 <div className="container_form" >
+                    <a onClick={handle_navigatelogin}><IoIosExit/></a>
                     <form onSubmit={EnviarEmail} >
                         <h2>Confirmação de email</h2>
                         <h4>Insira o número enviado para o seu email</h4>
@@ -88,7 +91,7 @@ function Confirmaremail() {
                             <button className='style_buttonenviarcodigo' onClick={EnviarEmail} >Solicitar Código</button>
                         </div>
                     </form>
-                    <form onSubmit={EnviarCodigo}  >
+                    <form onSubmit={enviarCodigo}  >
                         <div className='containerinput'>
                             <input
                                 type="text"
@@ -100,7 +103,7 @@ function Confirmaremail() {
 
                             <div className='container_buttonenviar'>
                                 <button
-                                    onClick={EnviarCodigo} className='style_buttonenviar'
+                                    onClick={enviarCodigo} className='style_buttonenviar'
                                 >Enviar</button>
 
                             </div>

@@ -30,7 +30,7 @@ function CriarNovaConta() {
         <div className='container'>
             <div className='cabecalhostyle'>
                 <h1>TO-DO-LIST</h1>
-                {<img className='imgstyle' src={ImagemCalendario} alt="" />}
+                {<img className='imgstyle_criarconta' src={ImagemCalendario} alt="" />}
             </div>
             <div>
 

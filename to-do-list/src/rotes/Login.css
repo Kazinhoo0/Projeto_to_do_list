@@ -29,11 +29,12 @@ h1 {
 }
 
 
-.Imgstyle {
-  width: 50px;
-  margin-top: 60px;
-  margin-left: 730px;
-
+.Imgstyle_criarconta {
+  width: 45px;
+  margin-top: 20px;
+  position: absolute;
+  right: 40.8%;
+  top: 10.5%;
 }
 
 .cabecalhostyle {

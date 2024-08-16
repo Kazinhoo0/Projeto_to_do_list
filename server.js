@@ -41,7 +41,9 @@ app.use(bodyParser.json());
 app.post('/login', (req, res) => {
   const { username, senha } = req.body;
 
-  console.log(username, senha)
+  console.log(
+    'Novo login realizado por ','usuario:', username
+  )
 
 
   const query = `SELECT ID FROM usuarios where username = ? AND senha = ?`;
@@ -62,6 +64,43 @@ app.post('/login', (req, res) => {
   });
 
 })
+
+app.post('/Confirmaremail', (req,res) => {
+  const { to, subject, text } = req.body;
+
+
+        const nodemailer = require('nodemailer')
+
+        let transporter = nodemailer.createTransport({
+            host: 'smtp-relay.brevo.com',
+            port: 587,
+            secure: false,
+            auth : {
+                user : '7a794c001@smtp-brevo.com',
+                pass: 'VbPfakE6gW4wXGmN'
+            }
+        });
+
+
+        let mailOptions = {
+            from: "'Kauã Lopes' <lopeskazin@gmail.com> ",
+            to: to ,
+            subject:  subject,
+            text : text
+
+        }
+
+
+        transporter.sendMail(mailOptions, (error, info) => {
+          if (error) {
+            return res.status(500).json({ success: false, error: error.toString() });
+          }
+          res.status(200).json({ success: true, info: info.response });
+  });
+
+})
+  
+
 
 
 app.post('/criarconta', (req, res) => {

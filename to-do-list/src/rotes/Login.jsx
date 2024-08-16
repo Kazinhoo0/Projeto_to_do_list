@@ -45,7 +45,7 @@ function To_Do_List() {
       localStorage.setItem('username', username)
       setTimeout(() => {
         navigate('/index')
-      }, 3000);
+      }, 2000);
 
     } else {
       alert('Login falhou');
@@ -60,7 +60,7 @@ function To_Do_List() {
     <div className='container'>
       <div className='cabecalhostyle'>
         <h1>TO-DO-LIST</h1>
-        <img className='Imgstyle' src={ImagemCalendario} alt="" />
+        <img className='Imgstyle_criarconta' src={ImagemCalendario} alt="" />
       </div>
       <div>
         <div className='containerinputlogin'>

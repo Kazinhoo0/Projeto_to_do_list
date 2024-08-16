@@ -28,7 +28,8 @@ function Inputs_CriarNovaConta() {
         }
 
         setTimeout(() => {
-            navigate('/Confirmaremail');
+             navigate('/')
+            // navigate('/Confirmaremail');
         }, 5000);
     }
 
