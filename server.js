@@ -4,6 +4,16 @@ const path = require('path');
 const app = express();
 const port = 5000;
 const bodyParser = require('body-parser')
+const cors = require('cors')
+
+
+
+app.use(cors({
+  origin:'projeto-to-do-list-2.onrender.com',
+  methods: [POST, GET, DELETE, PUT],
+  credentials: true,
+
+}))
 
 // conexão com o banco de dados sqlite
 const db = new sqlite3.Database('./database.db', (err) => {
@@ -42,7 +52,7 @@ app.post('/login', (req, res) => {
   const { username, senha } = req.body;
 
   console.log(
-    'Novo login realizado por ','usuario:', username
+    'Novo login realizado por ', 'usuario:', username
   )
 
 
@@ -65,41 +75,41 @@ app.post('/login', (req, res) => {
 
 })
 
-app.post('/Confirmaremail', (req,res) => {
+app.post('/Confirmaremail', (req, res) => {
   const { to, subject, text } = req.body;
 
 
-        const nodemailer = require('nodemailer')
+  const nodemailer = require('nodemailer')
 
-        let transporter = nodemailer.createTransport({
-            host: 'smtp-relay.brevo.com',
-            port: 587,
-            secure: false,
-            auth : {
-                user : '7a794c001@smtp-brevo.com',
-                pass: 'VbPfakE6gW4wXGmN'
-            }
-        });
-
-
-        let mailOptions = {
-            from: "'Kauã Lopes' <lopeskazin@gmail.com> ",
-            to: to ,
-            subject:  subject,
-            text : text
-
-        }
+  let transporter = nodemailer.createTransport({
+    host: 'smtp-relay.brevo.com',
+    port: 587,
+    secure: false,
+    auth: {
+      user: '7a794c001@smtp-brevo.com',
+      pass: 'VbPfakE6gW4wXGmN'
+    }
+  });
 
 
-        transporter.sendMail(mailOptions, (error, info) => {
-          if (error) {
-            return res.status(500).json({ success: false, error: error.toString() });
-          }
-          res.status(200).json({ success: true, info: info.response });
+  let mailOptions = {
+    from: "'Kauã Lopes' <lopeskazin@gmail.com> ",
+    to: to,
+    subject: subject,
+    text: text
+
+  }
+
+
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      return res.status(500).json({ success: false, error: error.toString() });
+    }
+    res.status(200).json({ success: true, info: info.response });
   });
 
 })
-  
+
 
 
 
@@ -125,29 +135,29 @@ app.post('/criarconta', (req, res) => {
 });
 
 
-app.post('/criarlembretes' , (req,res) => {
-  const {nomelembrete, ischecked, categoria} = req.body;
+app.post('/criarlembretes', (req, res) => {
+  const { nomelembrete, ischecked, categoria } = req.body;
 
   if (!nomelembrete || !categoria || !ischecked) {
-    return res.status(400).json ({error: 'Todos os campos são obrigatórios'});
+    return res.status(400).json({ error: 'Todos os campos são obrigatórios' });
   }
 
-  console.log('Dados do lembrete :',{ nomelembrete, categoria, ischecked  });
+  console.log('Dados do lembrete :', { nomelembrete, categoria, ischecked });
 
 
   const query = 'INSERT INTO lembretes (nomelembrete,categoria,ischecked) VALUES ( ? , ? , ? )';
 
-  db.run(query, [nomelembrete , categoria , ischecked],
+  db.run(query, [nomelembrete, categoria, ischecked],
     function (err) {
       if (err) {
-        console.log('Erro ao cadastrar novo lembrete:' , err.message);
-        return res.status(500).json({error: err.message});
+        console.log('Erro ao cadastrar novo lembrete:', err.message);
+        return res.status(500).json({ error: err.message });
       }
-      res.status(201).json({id: this.lasID})
+      res.status(201).json({ id: this.lasID })
     }
-    )
+  )
 })
-  
+
 
 
 
