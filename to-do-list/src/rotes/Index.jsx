@@ -74,7 +74,7 @@ function Index() {
 
 
 
-        const response = await fetch('http://localhost:5000/criarlembretes' , {
+        const response = await fetch('https://projeto-to-do-list-2.onrender.com/criarlembretes' , {
             method: 'POST',
             headers: {'Content-Type' : 'application/json'},
             body: JSON.stringify({nomelembrete, categoria, ischecked })
