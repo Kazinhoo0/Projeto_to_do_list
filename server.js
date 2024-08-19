@@ -10,7 +10,7 @@ const cors = require('cors')
 
 app.use(cors({
   origin:'projeto-to-do-list-2.onrender.com',
-  methods: [POST, GET, DELETE, PUT],
+  methods: ['POST', 'GET', 'DELETE', 'PUT'],
   credentials: true,
 
 }))
