@@ -11,7 +11,7 @@ function Inputs_CriarNovaConta() {
     const navigate = useNavigate();
 
     async function cadastrarUsuario(nome, sobrenome, Email, username, senha) {
-        const response = await fetch('http://localhost:5000/criarconta', {
+        const response = await fetch('https://projeto-to-do-list-2.onrender.com/criarconta', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
