@@ -167,7 +167,7 @@ h1 {
 
 
 /* Dispositivos móveis */
-@media screen and (max-width : 500px) {
+@media screen and (max-width : 500px) and (max-height: 1000px) {
   .container {
     height: 100%;
     padding: 10px;
@@ -186,7 +186,7 @@ h1 {
   .containerinputlogin {
     width: 380px;
     margin: 10px 0;
-    margin-left: 6px;
+    margin-left: 12%;
   }
 
   .styleinputs {
@@ -211,10 +211,10 @@ h1 {
     width: 100px;
   }
 
-  .containerbuttonentrar {
-    margin-right: 150px;
-    margin-top: 52px;
-    margin-left: 230px;
+  .containerbuttonentrar11 {
+    position: absolute;
+    right: 30%;
+    top: 60%;
   }
 
   .containerparagraforedes {
@@ -236,6 +236,11 @@ h1 {
     height: 20px;
   }
 
+  .Imgstyle_criarconta {
+    position: absolute;
+    left: 70%;
+  }
+
   .containerbuttonsstyle {
     width: 120px;
     display: flex;
@@ -254,20 +259,19 @@ h1 {
   .style_esquecisenha {
     /* border: 1px solid red; */
     position: absolute;
-    left: 2%;
+    left: 9%;
     font-size: 0.75em;
-
-
   }
-
   .style_criarconta {
     /* border: 1px solid red; */
     position: absolute;
-    right: 18%;
+    right: 20%;
     font-size: 0.75em;
   }
 
 }
+
+
 
 
 /* tablets  */
@@ -377,7 +381,7 @@ h1 {
   .containerinputlogin {
     width: 500px;
     margin: 10px 0;
-    margin-left: 260px;
+    margin-left: 270px;
   }
 
   .styleinputs {
@@ -403,9 +407,15 @@ h1 {
     width: 100px;
   }
 
-  .containerbuttonentrar {
-    margin-top: 60px;
-    margin-left: 290px;
+  .containerbuttonentrar11 {
+    position: absolute;
+    right: 22%;
+    top: 57%;
+  }
+
+  .Imgstyle_criarconta {
+    position: absolute;
+    left: 60%;
   }
 
   .containerparagraforedes {
@@ -443,17 +453,15 @@ h1 {
   }
 
   .style_esquecisenha {
-
     position: absolute;
-    left: 25%;
+    left: 26%;
     font-size: 0.75em;
   }
 
 
   .style_criarconta {
-
     position: absolute;
-    right: 32%;
+    right: 28%;
     font-size: 0.75em;
   }
 
@@ -486,6 +494,12 @@ h1 {
     height: auto;
   }
 
+  .Imgstyle_criarconta {
+    position: absolute;
+    left: 58.5%;
+    top: 10%;
+  }
+
   .containerinputlogin {
     width: 500px;
     margin: 10px 0;
@@ -516,15 +530,17 @@ h1 {
   }
 
   .containerbuttonentrar11 {
-    margin-top: 55px;
-    margin-left: 340px;
+    position: absolute;
+    top: 56.5%;
+    left: 60%;
+
   }
 
   .containerparagraforedes {
     width: 350px;
     height: auto;
-    margin-left: 280px;
-    margin-top: 30px;
+    margin-left: 510px;
+    margin-top: 50px;
 
   }
 
@@ -542,8 +558,7 @@ h1 {
   .containerbuttonsstyle {
     width: 120px;
     display: flex;
-    margin-left: 355px;
-    margin-bottom: 0px;
+    margin-left: 45.5%;
   }
 
   .container_esquecisenha_criarconta {
@@ -574,33 +589,228 @@ h1 {
   }
 }
 
-/* iphone 12 pro
-@media screen and (width: 390px) and (height: 844px) {
-  .containerinputlogin {
-    width: 370px;
-    margin: 10px 0;
+ /* iphone 12 pro */
+@media screen and (min-width: 390px) and (max-width:414px) and (max-height: 896px)  {
+  .container {
+    height: 100%;
+    padding: 10px;
+    overflow-y: scroll;
+  }
 
+  h1 {
+    position: absolute;
+    right: 32%;
+  }
+  .cabecalhostyle h1 {
+    font-size: 1.5em;
+  }
+
+  .Imgstyle {
+    width: 10%;
+    height: auto;
+  }
+
+  .containerinputlogin {
+    width: 380px;
+    margin: 10px 0;
+    margin-left: 1.75%;
+  }
+
+  .styleinputs {
+    width: 50%;
+    padding: 8px;
+  }
+
+  .buttonstyle {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+
+  .styleborderinput {
+    width: 330px;
   }
 
   .buttonentrarstyle {
+    margin-top: 15px;
+    margin-right: 150px;
+    margin-right: 260px;
+    width: 100px;
+  }
+
+  .containerbuttonentrar11 {
     position: absolute;
-    bottom: 14%;
+    right: 25%;
+    top: 75%;
   }
+
+  .containerparagraforedes {
+    width: 350px;
+    height: auto;
+    margin-left: 60px;
+    margin-top: 30px;
+
+  }
+
+  .buttonstyle {
+    width: 100%;
+    margin: 0px 0;
+  }
+
+
+  .popupsstyle {
+    width: 20px;
+    height: 20px;
+  }
+
+  .Imgstyle_criarconta {
+    position: absolute;
+    left: 70%;
+  }
+
+  .containerbuttonsstyle {
+    width: 120px;
+    display: flex;
+    margin-left: 135px;
+    margin-bottom: 0px;
+  }
+
+  .container_esquecisenha_criarconta {
+    /* border: 1px solid pink; */
+    width: 375px;
+    height: 45px;
+    display: flex;
+    margin-top: 5px;
+  }
+
+  .style_esquecisenha {
+    /* border: 1px solid red; */
+    position: absolute;
+    left: 5%;
+    font-size: 0.75em;
+  }
+  .style_criarconta {
+    /* border: 1px solid red; */
+    position: absolute;
+    left: 70%;
+    font-size: 0.75em;
+  }
+
+
 }
 
-/* iphone 14 pro max */
+ /* iphone 14  */
 
-/* @media screen and (width: 430px) and (height: 932px) {
+@media screen and (width: 430px) and (height: 932px) {
+  .container {
+    height: 100%;
+    padding: 10px;
+    overflow-y: scroll;
+  }
+
+  h1 {
+    position: absolute;
+    right: 32%;
+  }
+  .cabecalhostyle h1 {
+    font-size: 1.5em;
+  }
+
+  .Imgstyle {
+    width: 10%;
+    height: auto;
+  }
+
   .containerinputlogin {
-    width: 390px;
+    width: 380px;
     margin: 10px 0;
-    margin-left: 10px;
+    margin-left: 5.25%;
+  }
+
+  .styleinputs {
+    width: 50%;
+    padding: 8px;
+  }
+
+  .buttonstyle {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+
+  .styleborderinput {
+    width: 330px;
+  }
+
+  .buttonentrarstyle {
+    margin-top: 15px;
+    margin-right: 150px;
+    margin-right: 260px;
+    width: 100px;
+  }
+
+  .containerbuttonentrar11 {
+    position: absolute;
+    right: 25%;
+    top: 70%;
+  }
+
+  .containerparagraforedes {
+    width: 350px;
+    height: auto;
+    margin-left: 60px;
+    margin-top: 30px;
+
+  }
+
+  .buttonstyle {
+    width: 100%;
+    margin: 0px 0;
+  }
+
+
+  .popupsstyle {
+    width: 20px;
+    height: 20px;
+  }
+
+  .Imgstyle_criarconta {
+    position: absolute;
+    left: 70%;
+  }
+
+  .containerbuttonsstyle {
+    width: 120px;
+    display: flex;
+    margin-left: 135px;
+    margin-bottom: 0px;
+  }
+
+  .container_esquecisenha_criarconta {
+    /* border: 1px solid pink; */
+    width: 375px;
+    height: 45px;
+    display: flex;
+    margin-top: 5px;
+  }
+
+  .style_esquecisenha {
+    /* border: 1px solid red; */
+    position: absolute;
+    left: 5%;
+    font-size: 0.75em;
+  }
+  .style_criarconta {
+    /* border: 1px solid red; */
+    position: absolute;
+    left: 70%;
+    font-size: 0.75em;
   }
 
 }
 
 
-@media screen and (width: 360px) and (height:740px) {
+/* @media screen and (width: 360px) and (height:740px) {
 
   .container {
     height: 100%;
