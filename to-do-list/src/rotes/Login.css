@@ -167,7 +167,7 @@ h1 {
 
 
 /* Dispositivos móveis */
-@media (min-width: 360px) and (max-width : 500px) and (min-height : 700px) and (max-height: 950px) {
+@media screen and (max-width : 500px) {
   .container {
     height: 100%;
     padding: 10px;
@@ -270,8 +270,8 @@ h1 {
 }
 
 
-/* notebooks e tablets  */
-@media (min-width: 853px) and (max-width: 1024px) and (min-height: 1280px) and (max-height: 1366px) {
+/* tablets  */
+@media screen and (max-width: 768px) and (min-width: 600px) {
 
   .container {
     height: 100%;
@@ -351,9 +351,9 @@ h1 {
   }
 }
 
-/* ipad pro */
+/* mini notebooks */
 
-@media (width: 1024px) and (height: 1366px) {
+@media screen and (max-width: 992px) and (min-width: 768px) {
   .container {
     height: 100%;
     padding: 10px;
@@ -463,8 +463,8 @@ h1 {
 }
 
 
-/* ipad Air */
-@media (width: 820px) and (height: 1180px) {
+/* notebooks e pcs */
+@media screen and (min-width: 993px) and (max-width: 1280px) {
 
   .container {
     height: 100%;
@@ -489,7 +489,7 @@ h1 {
   .containerinputlogin {
     width: 500px;
     margin: 10px 0;
-    margin-left: 165px;
+    margin-left: 32%;
   }
 
   .styleinputs {
@@ -515,9 +515,9 @@ h1 {
     width: 100px;
   }
 
-  .containerbuttonentrar {
-    margin-top: 60px;
-    margin-left: 290px;
+  .containerbuttonentrar11 {
+    margin-top: 55px;
+    margin-left: 340px;
   }
 
   .containerparagraforedes {
@@ -557,7 +557,7 @@ h1 {
   .style_esquecisenha {
 
     position: absolute;
-    left: 20%;
+    left: 30%;
     font-size: 0.75em;
   }
 
@@ -565,17 +565,17 @@ h1 {
   .style_criarconta {
 
     position: absolute;
-    right: 25%;
+    right: 34%;
     font-size: 0.75em;
   }
 
   .buttonentrarstyle {
-    margin-top: 20px;
+    margin-top: 30px;
   }
 }
 
-/* iphone 12 pro */
-@media (width: 390px) and (height: 844px) {
+/* iphone 12 pro
+@media screen and (width: 390px) and (height: 844px) {
   .containerinputlogin {
     width: 370px;
     margin: 10px 0;
@@ -590,7 +590,7 @@ h1 {
 
 /* iphone 14 pro max */
 
-@media (width: 430px) and (height: 932px) {
+/* @media screen and (width: 430px) and (height: 932px) {
   .containerinputlogin {
     width: 390px;
     margin: 10px 0;
@@ -600,7 +600,7 @@ h1 {
 }
 
 
-@media (width: 360px) and (height:740px) {
+@media screen and (width: 360px) and (height:740px) {
 
   .container {
     height: 100%;
@@ -701,4 +701,4 @@ h1 {
     font-size: 0.75em;
   }
 
-}
+} */
