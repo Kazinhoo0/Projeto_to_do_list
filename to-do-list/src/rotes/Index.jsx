@@ -61,7 +61,7 @@ function Index() {
         setNomelembrete('');
         setisimportante(false);
 
-        const response = await fetch('/criarlembretes', {
+        const response = await fetch('https://projeto-to-do-list-2.onrender.com//criarlembretes', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(novoLembrete)
