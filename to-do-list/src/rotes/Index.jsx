@@ -16,10 +16,6 @@ import { FaEdit } from "react-icons/fa";
 
 
 
-
-
-
-
 function Index() {
     const [ListaVisivel, setListavisivel] = useState(false);
     const [mostrarnovolembrete, setnovolembrete] = useState(false);
@@ -31,7 +27,8 @@ function Index() {
     const [id, setID] = useState('');
     const [lembretes, setLembretes] = useState([]);
     const [editID, setEditID] = useState(null);
-    const [username, setUsername] = useState('')
+    const [username, setUsername] = useState('');
+    const [user_id, setUserid] = useState('');
 
 
 
@@ -42,41 +39,41 @@ function Index() {
     }
 
     const handleClick = async (e) => {
-    e.preventDefault();
+        e.preventDefault();
 
-    const user_id = localStorage.getItem('user_id'); // Obtendo o user_id
+        const user_id = localStorage.getItem('user_id'); // Obtendo o user_id
 
-    if (!categoria || !nomelembrete) {
-        alert('Por favor! preencha os campos');
-        return;
+        if (!categoria || !nomelembrete) {
+            alert('Por favor! preencha os campos');
+            return;
+        }
+
+        const novoLembrete = {
+            nomelembrete,
+            categoria,
+            importante: ischecked,
+            user_id  // Incluindo user_id no lembrete
+        };
+
+        setLembretes([...lembretes, novoLembrete]);
+
+        setCategoria('');
+        setNomelembrete('');
+        setisimportante(false);
+
+        const response = await fetch('/criarlembretes', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(novoLembrete)
+        });
+
+        const data = await response.json();
+        if (data.success) {
+            alert('Lembrete cadastrado com sucesso');
+        } else {
+            alert('Erro ao cadastrar novo lembrete');
+        }
     }
-
-    const novoLembrete = {
-        nomelembrete,
-        categoria,
-        importante: ischecked,
-        user_id  // Incluindo user_id no lembrete
-    };
-
-    setLembretes([...lembretes, novoLembrete]);
-
-    setCategoria('');
-    setNomelembrete('');
-    setisimportante(false);
-
-    const response = await fetch('https://projeto-to-do-list-2.onrender.com/criarlembretes', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(novoLembrete)
-    });
-
-    const data = await response.json();
-    if (data.success) {
-        alert('Lembrete cadastrado com sucesso');
-    } else {
-        alert('Erro ao cadastrar novo lembrete');
-    }
-}
 
     useEffect(() => {
         const useusername = localStorage.getItem('username')

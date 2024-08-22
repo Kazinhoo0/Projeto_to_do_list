@@ -142,11 +142,11 @@ app.post('/criarconta', (req, res) => {
 app.post('/criarlembretes', (req, res) => {
   const { nomelembrete, ischecked, categoria, user_id } = req.body;
 
-  if (!nomelembrete || !categoria || !ischecked, user_id) {
+  if (!nomelembrete || !categoria || !ischecked || !user_id) {
     return res.status(400).json({ error: 'Todos os campos são obrigatórios' });
   }
 
-  console.log('Dados do lembrete :', { nomelembrete, categoria, ischecked });
+  console.log('Dados do lembrete :', { nomelembrete, categoria, ischecked, user_id });
 
 
   const query = 'INSERT INTO lembretes (nomelembrete, categoria, ischecked, user_id) VALUES (?, ?, ?, ?)';
@@ -161,6 +161,7 @@ app.post('/criarlembretes', (req, res) => {
     }
   )
 })
+
 
 
 app.get('/lembretes/:userlembrete', (req, res) => {
