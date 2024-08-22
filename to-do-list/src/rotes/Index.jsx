@@ -134,7 +134,7 @@ function Index() {
                         <div className='containeruserprofile'>
                             <img className='styleImageUser' src={ImagemUser} alt="" />
                         </div>
-                        <div className='mensagem_bemvindo' >
+                        <div className='container_mensagembemvindo' >
                             <p className='mensagem_bemvindo' >Olá,{username}
                                 <br></br>Bem-vindo</p>
                         </div>
