@@ -101,7 +101,7 @@ function Settings() {
                         />
                     </div>
                     {/* <button onClick={LimparFotoPerfil} >limpar</button> */}
-                    <div className='mensagem_bemvindo' >
+                    <div className='container_mensagem_bemvindo' >
                         <p className='mensagem_bemvindo' >Olá,usuário
                             <br></br>Bem-vindo</p>
                     </div>

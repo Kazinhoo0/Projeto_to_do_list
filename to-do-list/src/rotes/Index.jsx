@@ -42,63 +42,48 @@ function Index() {
     }
 
     const handleClick = async (e) => {
-        e.preventDefault();
+    e.preventDefault();
 
-        
-        if (!categoria || !nomelembrete) {
-            alert('Por favor! preencha os campos');
-            return;
-        }
+    const user_id = localStorage.getItem('user_id'); // Obtendo o user_id
 
-        if (editID) {
-            const lembretesAtualizados = lembretes.map((lembrete) =>
-                lembrete.id === editID ? { ...lembrete, nomelembrete, categoria, importante: ischecked } : lembrete
-            );
-            setLembretes(lembretesAtualizados);
-            setEditID(null);
-        } else {
-
-            const novoLembrete = {
-                id,
-                nomelembrete,
-                categoria,
-                importante: ischecked
-            };
-            setLembretes([...lembretes, novoLembrete]);
-            setID(id + 1);
-        }
-
-        setCategoria('');
-        setNomelembrete('');
-        setisimportante(false);
-
-
-
-        const response = await fetch('https://projeto-to-do-list-2.onrender.com/criarlembretes' , {
-            method: 'POST',
-            headers: {'Content-Type' : 'application/json'},
-            body: JSON.stringify({nomelembrete, categoria, ischecked })
-        })
-
-        const data = await response.json();
-        if (data.sucess) {
-            localStorage.setItem('token', data.token);
-        } else {
-            alert('Erro ao cadastrar novo lembrete')
-        }
-
-
-       
-
-
+    if (!categoria || !nomelembrete) {
+        alert('Por favor! preencha os campos');
+        return;
     }
 
-    useEffect (() =>  {
+    const novoLembrete = {
+        nomelembrete,
+        categoria,
+        importante: ischecked,
+        user_id  // Incluindo user_id no lembrete
+    };
+
+    setLembretes([...lembretes, novoLembrete]);
+
+    setCategoria('');
+    setNomelembrete('');
+    setisimportante(false);
+
+    const response = await fetch('https://projeto-to-do-list-2.onrender.com/criarlembretes', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(novoLembrete)
+    });
+
+    const data = await response.json();
+    if (data.success) {
+        alert('Lembrete cadastrado com sucesso');
+    } else {
+        alert('Erro ao cadastrar novo lembrete');
+    }
+}
+
+    useEffect(() => {
         const useusername = localStorage.getItem('username')
-        if  (useusername) {
+        if (useusername) {
             setUsername(useusername)
         }
-    },[])
+    }, [])
 
     const handleedit = () => {
         alert('funcionalidade ainda não disponivel')

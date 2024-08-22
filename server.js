@@ -25,13 +25,17 @@ const db = new sqlite3.Database('./database.db', (err) => {
 });
 
 db.run(`
-    CREATE TABLE IF NOT EXISTS lembretes (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        nomelembrete TEXT NOT NULL,
-        categoria TEXT NOT NULL,
-        ischecked TEXT NOT NULL
-    )
+CREATE TABLE if not exists lembretes (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  nomelembrete TEXT NOT NULL,
+  categoria TEXT NOT NULL,
+  ischecked TEXT NOT NULL,
+  user_id INTEGER NOT NULL,
+  FOREIGN KEY(user_id) REFERENCES usuarios(id)
+);
+  
 `);
+
 
 
 // Servir arquivos estáticos da pasta build
@@ -136,18 +140,18 @@ app.post('/criarconta', (req, res) => {
 
 
 app.post('/criarlembretes', (req, res) => {
-  const { nomelembrete, ischecked, categoria } = req.body;
+  const { nomelembrete, ischecked, categoria, user_id } = req.body;
 
-  if (!nomelembrete || !categoria || !ischecked) {
+  if (!nomelembrete || !categoria || !ischecked, user_id) {
     return res.status(400).json({ error: 'Todos os campos são obrigatórios' });
   }
 
   console.log('Dados do lembrete :', { nomelembrete, categoria, ischecked });
 
 
-  const query = 'INSERT INTO lembretes (nomelembrete,categoria,ischecked) VALUES ( ? , ? , ? )';
+  const query = 'INSERT INTO lembretes (nomelembrete, categoria, ischecked, user_id) VALUES (?, ?, ?, ?)';
 
-  db.run(query, [nomelembrete, categoria, ischecked],
+  db.run(query, [nomelembrete, categoria, ischecked, user_id],
     function (err) {
       if (err) {
         console.log('Erro ao cadastrar novo lembrete:', err.message);
@@ -157,6 +161,22 @@ app.post('/criarlembretes', (req, res) => {
     }
   )
 })
+
+
+app.get('/lembretes/:userlembrete', (req, res) => {
+  const user_id = req.params.user_id;
+
+  const query = 'SELECT * FROM lembretes WHERE user_id = ?';
+
+  db.all(query, [user_id], (err, rows) => {
+    if (err) {
+      console.error('Erro ao recuperar lembretes:', err.message);
+      return res.status(500).json({ error: err.message });
+    }
+
+    res.status(200).json({ lembretes: rows });
+  });
+});
 
 
 
