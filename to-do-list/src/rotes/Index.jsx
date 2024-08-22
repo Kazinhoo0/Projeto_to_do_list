@@ -51,7 +51,7 @@ function Index() {
         const novoLembrete = {
             nomelembrete,
             categoria,
-            importante: ischecked,
+            ischecked,
             user_id  // Incluindo user_id no lembrete
         };
 
