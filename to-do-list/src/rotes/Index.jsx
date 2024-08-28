@@ -34,9 +34,11 @@ function Index() {
 
     const navigate = useNavigate()
 
+
     const itslistavisivel = () => {
         setListavisivel(!ListaVisivel);
     }
+
 
     const handleClick = async (e) => {
         e.preventDefault();
@@ -44,14 +46,14 @@ function Index() {
         const user_id = localStorage.getItem('user_id'); // Obtendo o user_id
 
         if (!categoria || !nomelembrete) {
-            alert('Por favor! preencha os campos');
+            alert('Por favor! preencha os campos'); // condicional que verifica se categoria e nomelembrete preenchidas.
             return;
         }
 
         const novoLembrete = {
-            nomelembrete,
-            categoria,
-            ischecked,
+            nomelembrete, // inclui categoria no lembrete
+            categoria, // inclui categoria no lembrete
+            ischecked, // inclui ischecked no lembrete
             user_id  // Incluindo user_id no lembrete
         };
 
@@ -63,7 +65,7 @@ function Index() {
 
         const response = await fetch('https://projeto-to-do-list-2.onrender.com//criarlembretes', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json' },       
             body: JSON.stringify(novoLembrete)
         });
 
@@ -75,10 +77,10 @@ function Index() {
         }
     }
 
-    useEffect(() => {
+    useEffect(() => {  // esta função pega através da pagina Login, o username de quem está logado no momento.
         const useusername = localStorage.getItem('username')
         if (useusername) {
-            setUsername(useusername)
+            setUsername(useusername)  
         }
     }, [])
 
@@ -86,20 +88,19 @@ function Index() {
         alert('funcionalidade ainda não disponivel')
     }
 
-
+    // Função para apagar os lembretes criados pelo usuário
     const handletrash = (id) => {
-        const updatelembretes = lembretes.filter(lembrete => lembrete.id !== id);
-        setLembretes(updatelembretes);
+        const updatelembretes = lembretes.filter(lembrete => lembrete.id !== id); 
+        setLembretes(updatelembretes); 
     }
 
+    // Função para navegar a home
     const NavegarHome = () => {
         navigate('/');
     }
+    
 
-    const NavegarMeusLembretes = () => {
-        navigate('/Index');
-    }
-
+    // Função para navegar a pagina de settings, que atualmente ainda não foi terminada.
     const NavegarMeuPerfil = () => {
         navigate('/settings');
     }
@@ -117,7 +118,7 @@ function Index() {
                             <img className='styleImageUser' src={ImagemUser} alt="" />
                         </div>
                         <div className='container_mensagembemvindo' >
-                            <p className='mensagem_bemvindo' >Olá,{username}
+                            <p className='mensagem_bemvindo' >Olá,{username} 
                                 <br></br>Bem-vindo</p>
                         </div>
                         <div className='containeropenseta'>

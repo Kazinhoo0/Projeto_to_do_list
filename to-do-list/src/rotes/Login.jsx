@@ -16,16 +16,22 @@ function To_Do_List() {
   const navigate = useNavigate('')
   const [username, setUsername] = useState('')
   const [senha, setSenha] = useState('')
-  // const [email, setEmail] = useState('')
+  
 
+  // Esta variável navega para a página criarconta
   const handlenavigate = () => {
     navigate('/Criarconta')
   }
 
+  // Esta variável navega para a página esquecisenha
   const navigateesquecisenha = () => {
     navigate('/esquecisenha')
   }
 
+
+  // Esta função faz a validação do login do usuário,verificando o username e senha, no browser ele pede o input do email também, mas não está incluso na validação.
+  // esta requisição faz o uso de um metedo 'post' com o servidor express, no arquivo 'server.js'.
+  
   const handleenteraccount = async (event) => {
     event.preventDefault();
 
@@ -49,9 +55,6 @@ function To_Do_List() {
     }
 
 };
-
-
-
 
 
   return (
