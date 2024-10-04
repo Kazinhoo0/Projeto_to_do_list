@@ -8,6 +8,7 @@ import CriarNovaConta from './CriarNovaConta'
 import './Login.css'
 import InputUsernameLogin from '../functionsfrontend/InputUsernameLogin'
 import { useNavigate } from "react-router-dom";
+import Toastify from 'toastify-js';
 
 
 
@@ -16,7 +17,7 @@ function To_Do_List() {
   const navigate = useNavigate('')
   const [username, setUsername] = useState('')
   const [senha, setSenha] = useState('')
-  
+
 
   // Esta variável navega para a página criarconta
   const handlenavigate = () => {
@@ -31,7 +32,7 @@ function To_Do_List() {
 
   // Esta função faz a validação do login do usuário,verificando o username e senha, no browser ele pede o input do email também, mas não está incluso na validação.
   // esta requisição faz o uso de um metedo 'post' com o servidor express, no arquivo 'server.js'.
-  
+
   const handleenteraccount = async (event) => {
     event.preventDefault();
 
@@ -45,16 +46,33 @@ function To_Do_List() {
     const data = await response.json();
     if (data.success) {
       localStorage.setItem('token', data.token);
-      localStorage.setItem('username', username)
+      localStorage.setItem(data.username);
+
+      Toastify({
+        text: 'Login efetuado com sucesso!',
+        position: 'center',
+        style: {
+          background: '#33ff00',
+          color: '#ffffff'
+        }
+      }).showToast();
+
       setTimeout(() => {
         navigate('/index')
       }, 2000);
 
     } else {
-      alert('Login falhou');
+      Toastify({
+        text: 'Usuário não cadastrado, porfavor crie uma conta!',
+        position: 'center',
+        style: {
+          background: '#db2d0e',
+          color: '#ffffff'
+        }
+      }).showToast();
     }
 
-};
+  };
 
 
   return (
@@ -66,7 +84,7 @@ function To_Do_List() {
         <title>Document</title>
       </head>
       <body>
-          <div className='container'>
+        <div className='container'>
           <div className='cabecalhostyle'>
             <h1>TO-DO-LIST</h1>
             <img className='Imgstyle_criarconta' src={ImagemCalendario} alt="" />
@@ -78,7 +96,6 @@ function To_Do_List() {
               </div>
               <div className='styleborderinput'>
                 <form>
-                  <InputUsernameLogin setUsername={setUsername} />
                   <div className='containerinputmargin ' >
                     <input
                       type="text"
@@ -125,8 +142,8 @@ function To_Do_List() {
 
         </div>
       </body>
-        
-      
+
+
     </html>
   );
 }
