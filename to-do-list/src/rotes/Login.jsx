@@ -60,7 +60,9 @@ function To_Do_List() {
         position: 'center',
         style: {
           background: '#33ff00',
-          color: '#ffffff'
+          color: '#ffffff',
+          width: '250px',
+          height: '150px'
         }
       }).showToast();
 
@@ -74,7 +76,9 @@ function To_Do_List() {
         position: 'center',
         style: {
           background: '#db2d0e',
-          color: '#ffffff'
+          color: '#ffffff',
+          width: '250px',
+          height: '150px'
         }
       }).showToast();
     }
