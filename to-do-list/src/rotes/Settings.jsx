@@ -13,11 +13,7 @@ function Settings() {
     const [ListaVisivel, setListavisivel] = useState(false)
     const [img, setImg] = useState(null)
     const [filename, setFileName] = useState("Nenhum arquivo selecionado")
-    const [nome, setNome] = useState('oi')
     const [senha, setSenha] = useState('')
-    const [email, setEmail] = useState('')
-    const [username, setUsername] = useState('')
-    const [sobrenome, setSobrenome] = useState('')
     const [userdata, setUserdata] = useState({
 
         nome: '',
@@ -102,7 +98,7 @@ function Settings() {
                     </div>
                     {/* <button onClick={LimparFotoPerfil} >limpar</button> */}
                     <div className='container_mensagem_bemvindo' >
-                        <p className='mensagem_bemvindo' >Olá,usuário
+                        <p className='mensagem_bemvindo' >Olá,{userdata.username}
                             <br></br>Bem-vindo</p>
                     </div>
                     <div className='containeropenseta

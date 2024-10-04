@@ -10,13 +10,13 @@ function Inputs_CriarNovaConta() {
     const [username, setUsername] = useState('');
     const navigate = useNavigate();
 
-    async function cadastrarUsuario(nome, sobrenome, Email, username, senha) {
+    async function cadastrarUsuario() {
         const response = await fetch('https://projeto-to-do-list-2.onrender.com/criarconta', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ nome, sobrenome, Email, username, senha })
+            body: JSON.stringify({ nome, sobrenome, email, username, senha })
         });
 
         if (response.ok) {
@@ -36,7 +36,7 @@ function Inputs_CriarNovaConta() {
 
     const handleSubmit = (e) => {
         e.preventDefault(); 
-        cadastrarUsuario(nome, sobrenome, Email, username, senha); 
+        cadastrarUsuario(nome, sobrenome, email, username, senha); 
         localStorage.setItem('nome' , nome);
         localStorage.setItem('sobrenome', sobrenome);
         localStorage.setItem('email' , email);
@@ -80,7 +80,7 @@ function Inputs_CriarNovaConta() {
                     </div>
                     <div className='containerinputmargin'>
                         <input
-                            type="text"
+                            type="email"
                             name='email'
                             placeholder='Insira o seu email *'
                             className='styleinputss'
