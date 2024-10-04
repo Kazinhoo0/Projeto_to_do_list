@@ -6,7 +6,7 @@ function Inputs_CriarNovaConta() {
     const [nome, setNome] = useState('');
     const [sobrenome, setSobrenome] = useState('');
     const [senha, setSenha] = useState('');
-    const [Email, setEmail] = useState('');
+    const [email, setEmail] = useState('');
     const [username, setUsername] = useState('');
     const navigate = useNavigate();
 
@@ -39,7 +39,7 @@ function Inputs_CriarNovaConta() {
         cadastrarUsuario(nome, sobrenome, Email, username, senha); 
         localStorage.setItem('nome' , nome);
         localStorage.setItem('sobrenome', sobrenome);
-        localStorage.setItem('email' , Email);
+        localStorage.setItem('email' , email);
         localStorage.setItem('username' , username);
         localStorage.setItem('senha', senha )
     };
@@ -85,7 +85,7 @@ function Inputs_CriarNovaConta() {
                             placeholder='Insira o seu email *'
                             className='styleinputss'
                             onChange={(e) => setEmail(e.target.value)}
-                            value={Email}
+                            value={email}
                         />
                     </div>
                     <div className='containerinputmargin'>
