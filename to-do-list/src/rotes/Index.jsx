@@ -29,6 +29,7 @@ function Index() {
     const [editID, setEditID] = useState(null);
     const [username, setUsername] = useState('');
     const [user_id, setUserid] = useState('');
+    const [userdata, setUserdata] = useState('');
 
 
 
@@ -77,12 +78,13 @@ function Index() {
         }
     }
 
-    useEffect(() => {  // esta função pega através da pagina Login, o username de quem está logado no momento.
-        const useusername = localStorage.getItem('username')
-        if (useusername) {
-            setUsername(useusername)  
-        }
+    useEffect(() => {  // este useEffect executa um get do username,vindo da pagina login.
+        const username = localStorage.getItem('username')
+        setUserdata({
+            username: username || ""
+        })
     }, [])
+
 
     const handleedit = () => {
         alert('funcionalidade ainda não disponivel')
@@ -118,7 +120,7 @@ function Index() {
                             <img className='styleImageUser' src={ImagemUser} alt="" />
                         </div>
                         <div className='container_mensagembemvindo' >
-                            <p className='mensagem_bemvindo' >Olá,{username} 
+                            <p className='mensagem_bemvindo' >Olá,{userdata.username} 
                                 <br></br>Bem-vindo</p>
                         </div>
                         <div className='containeropenseta'>
