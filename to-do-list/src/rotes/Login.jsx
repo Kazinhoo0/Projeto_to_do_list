@@ -15,7 +15,7 @@ import Toastify from 'toastify-js';
 function To_Do_List() {
 
   const navigate = useNavigate('')
-  const [username, setUsername] = useState('')
+  const [email, setEmail] = useState('')
   const [senha, setSenha] = useState('')
 
 
@@ -36,17 +36,22 @@ function To_Do_List() {
   const handleenteraccount = async (event) => {
     event.preventDefault();
 
-    const response = await fetch('https://projeto-to-do-list-2.onrender.com//login', {
+    const response = await fetch('https://projeto-to-do-list-2.onrender.com/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username, senha })
+      body: JSON.stringify({ email, senha })
 
     });
 
     const data = await response.json();
+
+    console.log(data)
+
+
     if (data.success) {
       localStorage.setItem('token', data.token);
-      localStorage.setItem(data.username);
+      localStorage.setItem('username', data.username);
+      localStorage.setItem('email', data.email)
 
       Toastify({
         text: 'Login efetuado com sucesso!',
@@ -98,10 +103,12 @@ function To_Do_List() {
                 <form>
                   <div className='containerinputmargin ' >
                     <input
-                      type="text"
+                      type="email"
                       name='email'
                       placeholder='Insira seu email*'
                       className='styleinputs'
+                      onChange={(e) => setEmail(e.target.value)}
+                      value={email}
                     />
                   </div>
                   <div className='containerinputmargin '>
@@ -110,7 +117,8 @@ function To_Do_List() {
                       type='password'
                       name='senha'
                       className='styleinputs'
-                      onChange={(e) => setSenha(e.target.value)} />
+                      onChange={(e) => setSenha(e.target.value)}
+                      value={senha} />
                   </div>
                   <div className='containerbuttonentrar11'>
                     <button onClick={handleenteraccount} className='buttonentrarstyle' >Entrar</button>

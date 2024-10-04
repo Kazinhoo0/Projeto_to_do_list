@@ -9,7 +9,7 @@ const cors = require('cors')
 
 
 app.use(cors({
-  origin:'https://projeto-to-do-list-2.onrender.com/',
+  origin: 'https://projeto-to-do-list-2.onrender.com/',
   methods: ['POST', 'GET', 'DELETE', 'PUT'],
   credentials: true,
 
@@ -53,16 +53,16 @@ app.use(bodyParser.json());
 
 
 app.post('/login', (req, res) => {
-  const { username, email} = req.body;
+  const { email, senha } = req.body;
 
   console.log(
-    'Novo login realizado por ', 'usuario:', username
+   'Tentativa de login realizada por:  ' , email
   )
 
 
-  const query = `SELECT ID, username FROM usuarios where email = ?`;
+  const query = `SELECT ID, username, senha  FROM usuarios where email = ?`;
 
-  db.get(query, [email], function (err, row) {
+  db.get(query, [email, senha], function (err, row) {
     if (err) {
       console.error('Erro ao inserir no banco de dados:', err.message);
       return res.status(500).json({ error: err.message });
@@ -70,7 +70,13 @@ app.post('/login', (req, res) => {
 
 
     if (row) {
-      res.status(200).json({ success: true, id: row.id, message: 'Login Bem-sucedido' });
+      res.status(200).json({ 
+        success: true,
+        id: row.id,
+        message: 'Login Bem-sucedido',
+        username: row.username,
+       });
+
     } else {
       res.status(400).json({ success: false, message: 'Tentativa de login não autorizada' });
     }
