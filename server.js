@@ -60,7 +60,7 @@ app.post('/login', (req, res) => {
   )
 
 
-  const query = `SELECT ID, username, senha  FROM usuarios where email = ?`;
+  const query = `SELECT id, senha, username FROM users WHERE email = ?`;
 
   db.get(query, [email, senha], function (err, row) {
     if (err) {

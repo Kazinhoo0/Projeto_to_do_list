@@ -36,7 +36,7 @@ function To_Do_List() {
   const handleenteraccount = async (event) => {
     event.preventDefault();
 
-    const response = await fetch('https://projeto-to-do-list-2.onrender.com/login', {
+    const response = await fetch('https://projeto-to-do-list-2.onrender.com//login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, senha })
@@ -52,6 +52,8 @@ function To_Do_List() {
       localStorage.setItem('token', data.token);
       localStorage.setItem('username', data.username);
       localStorage.setItem('email', data.email)
+
+      console.log(data.username)
 
       Toastify({
         text: 'Login efetuado com sucesso!',
