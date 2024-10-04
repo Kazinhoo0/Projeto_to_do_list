@@ -53,7 +53,7 @@ app.use(bodyParser.json());
 
 
 app.post('/login', (req, res) => {
-  const { email, senha } = req.body;
+  const { email } = req.body;
 
   console.log(
    'Tentativa de login realizada por:  ' , email
@@ -62,7 +62,7 @@ app.post('/login', (req, res) => {
 
   const query = `SELECT id, senha, username FROM usuarios WHERE email = ?`;
 
-  db.get(query, [email, senha], function (err, row) {
+  db.get(query, [email], function (err, row) {
     if (err) {
       console.error('Erro ao inserir no banco de dados:', err.message);
       return res.status(500).json({ error: err.message });

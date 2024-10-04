@@ -39,7 +39,7 @@ function To_Do_List() {
     const response = await fetch('https://projeto-to-do-list-2.onrender.com/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, senha })
+      body: JSON.stringify({ email})
 
     });
 
