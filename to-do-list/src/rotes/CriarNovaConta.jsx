@@ -5,7 +5,7 @@ import ImagemPortifólio from './imagens/Portifólio_img.png';
 import Mensagembemvindo from './scriptsindex/Mesagebemvindo';
 import Inputs_CriarNovaConta from '../functionsfrontend/Inputs_CriarNovaConta';
 import { useState } from 'react';
-import './CriarNovaConta.css';
+import '..//App.css'
 import { useNavigate } from "react-router-dom";
 
 

@@ -1,6 +1,6 @@
 import ExitImage from './imagens/logout.png';
 import ImagemUser from './imagens/user.png';
-import './Index.css';
+import '..//App.css'
 import ImagemCalendario from './imagens/agendamento.png';
 import Imagemseta from './imagens/seta-para-baixo.png';
 import { useState, useEffect } from 'react';

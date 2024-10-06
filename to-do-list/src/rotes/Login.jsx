@@ -5,7 +5,7 @@ import ImagemLinkedin from './imagens/Linked_img.png'
 import ImagemPortifólio from './imagens/Portifólio_img.png'
 import Mensagembemvindo from './scriptsindex/Mesagebemvindo'
 import CriarNovaConta from './CriarNovaConta'
-import './Login.css'
+import '..//App.css'
 import InputUsernameLogin from '../functionsfrontend/InputUsernameLogin'
 import { useNavigate } from "react-router-dom";
 import Toastify from 'toastify-js';
