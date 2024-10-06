@@ -169,14 +169,34 @@ function Settings() {
 
                         <div className='container_changephoto' >
 
-                            <div></div>
+                            <div className='container_foto_pagesettings'>
 
-                            <div></div>
+                                <div className='style_foto_pagesettings'>
+                                    <img src="" alt="" />
+                                </div>
+                                
+                            </div>
+
+                            <div className='container_inputfoto_pagesettings'>
+
+                                <input type= "file" />
+
+                                <button className='style_button_pagesettings'>SALVAR</button>
+
+                            </div>
 
                         </div>
 
-                        <div className='container_inputs' >
+                        <div className='container_inputs_pagesettings' >
 
+                            <ul>
+
+                                <li style={{paddingBottom: '60px' ,listStyleType:'none'}} ><input className='style_list_inputs_pagesettings' value={userdata.nome} name='nomecompleto' type="text" /> </li>
+                                <li style={{paddingBottom: '60px' ,listStyleType:'none'}} ><input className='style_list_inputs_pagesettings' value={userdata.email} name='email' type="email" /> </li>
+                                <li style={{paddingBottom: '60px' ,listStyleType:'none'}} ><input className='style_list_inputs_pagesettings' value={userdata.username} name='username' type="text" /> </li>
+                                <li style={{paddingBottom: '60px',listStyleType:'none'}} ><input className='style_list_inputs_pagesettings' value={userdata.senha} name='senha' type="text" /> </li>
+
+                            </ul>
                         </div>  
 
                 </div>
