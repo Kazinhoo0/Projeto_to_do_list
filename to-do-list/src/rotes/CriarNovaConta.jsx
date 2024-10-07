@@ -39,7 +39,7 @@ function CriarNovaConta() {
                         <h3>Criar conta</h3>
                     </div>
                     <div className='styleborderinput'>
-                        <Inputs_CriarNovaConta setNome={setNome} setSenha={setSenha} setEmail={setEmail} setSobrenome={setSobrenome} setUsername={setUsername} />
+                        <Inputs_CriarNovaConta/>
 
                     </div>
                     <div className='container_esquecisenha_criarconta'>

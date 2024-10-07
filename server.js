@@ -124,23 +124,27 @@ app.post('/Confirmaremail', (req, res) => {
 
 
 app.post('/criarconta', (req, res) => {
-  const { username, nome, sobrenome, senha, Email } = req.body;
+  const { nome, sobrenome, email, username, senha } = req.body;
 
   // Verifique se todos os campos estão presentes
-  if (!username || !nome || !sobrenome || !senha || !Email) {
+  if (!username || !nome || !sobrenome || !senha || !email) {
     return res.status(400).json({ error: 'Todos os campos são obrigatórios' });
   }
 
-  console.log('Dados recebidos:', { username, nome, sobrenome, senha, Email });
+  console.log('Dados recebidos:', { username, nome, sobrenome, senha, email });
 
   const query = `INSERT INTO usuarios (nome, sobrenome , email, username , senha) VALUES (?, ?, ?, ?, ?)`;
 
-  db.run(query, [nome, sobrenome, Email, username, senha], function (err) {
+  db.run(query, [nome, sobrenome, email, username, senha], function (err) {
     if (err) {
       console.error('Erro ao inserir no banco de dados:', err.message);
       return res.status(500).json({ error: err.message });
     }
-    res.status(201).json({ id: this.lastID });
+    res.status(201).json({ 
+      id: this.lastID,
+      message: 'conta criada com sucesso!',
+      email: email,
+      nome: nome });
   });
 });
 

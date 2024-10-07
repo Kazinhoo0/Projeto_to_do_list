@@ -14,7 +14,6 @@ function Settings() {
     const [img, setImg] = useState(null)
     const [filename, setFileName] = useState("Nenhum arquivo selecionado")
     const [senha, setSenha] = useState('')
-    const [Refreshemail, setRefresheemail] = useState('')
     const [userdata, setUserdata] = useState({
 
         nome: '',
@@ -37,7 +36,7 @@ function Settings() {
             nome: localStorage.getItem('nome'),
             username: localStorage.getItem('username'),
             sobrenome: localStorage.getItem('sobrenome'),
-            Email: localStorage.getItem('email'),
+            email: localStorage.getItem('email'),
         });
 
         setUserdata(Storeddata)
