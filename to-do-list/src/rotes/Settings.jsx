@@ -14,6 +14,7 @@ function Settings() {
     const [img, setImg] = useState(null)
     const [filename, setFileName] = useState("Nenhum arquivo selecionado")
     const [senha, setSenha] = useState('')
+    const [Refreshemail, setRefresheemail] = useState('')
     const [userdata, setUserdata] = useState({
 
         nome: '',
@@ -32,22 +33,17 @@ function Settings() {
 
 
     useEffect(() => {
-        const nome = localStorage.getItem('nome');
-        const username = localStorage.getItem('username');
-        const sobrenome = localStorage.getItem('sobrenome');
-        const Email = localStorage.getItem('email');
+        const Storeddata = ({
+            nome: localStorage.getItem('nome'),
+            username: localStorage.getItem('username'),
+            sobrenome: localStorage.getItem('sobrenome'),
+            Email: localStorage.getItem('email'),
+        });
 
-        if (nome || username || sobrenome || senha || Email) {
-            setUserdata({
-                nome: nome || '',
-                username: username || '',
-                sobrenome:sobrenome || '',
-                email: Email || ''
+        setUserdata(Storeddata)
 
-            });
-        }
     }, []);
-        
+
 
     const navigate = useNavigate();
 
@@ -60,7 +56,7 @@ function Settings() {
         const { name, value } = event.target;
         setUserdata({
             ...userdata,
-            [name]: value 
+            [name]: value
         });
     };
 
@@ -75,6 +71,15 @@ function Settings() {
     const NavegarMeuPerfil = () => {
         navigate('Settings')
     }
+
+    const handlechangedata = (e) => {
+        const { name, value } = e.target;
+    
+        setUserdata((prevData) => ({
+          ...prevData,
+          [name]: value // Atualiza o campo correspondente (nome, username, sobrenome, email)
+        }));
+      };
 
     return (
         <div className="container" >
@@ -110,7 +115,7 @@ function Settings() {
                     <div className='container_mensagem_bemvindo' >
 
                         <p className='mensagem_bemvindo' >Olá,{userdata.username}
-                        <br></br>Bem-vindo</p>
+                            <br></br>Bem-vindo</p>
 
                     </div>
 
@@ -167,37 +172,47 @@ function Settings() {
 
                 <div className='container_filho_pagesettings' >
 
-                        <div className='container_changephoto' >
+                    <div className='container_changephoto' >
 
-                            <div className='container_foto_pagesettings'>
+                        <div className='container_foto_pagesettings'>
 
-                                <div className='style_foto_pagesettings'>
-                                    <img src="" alt="" />
-                                </div>
-                                
-                            </div>
-
-                            <div className='container_inputfoto_pagesettings'>
-
-                                <input type= "file" />
-
-                                <button className='style_button_pagesettings'>SALVAR</button>
-
+                            <div className='style_foto_pagesettings'>
+                                <img src="" alt="" />
                             </div>
 
                         </div>
 
-                        <div className='container_inputs_pagesettings' >
+                        <div className='container_inputfoto_pagesettings'>
 
-                            <ul>
+                            <input type="file" />
 
-                                <li style={{paddingBottom: '60px' ,listStyleType:'none'}} ><input className='style_list_inputs_pagesettings' value={userdata.nome} name='nomecompleto' type="text" /> </li>
-                                <li style={{paddingBottom: '60px' ,listStyleType:'none'}} ><input className='style_list_inputs_pagesettings' value={userdata.email} name='email' type="email" /> </li>
-                                <li style={{paddingBottom: '60px' ,listStyleType:'none'}} ><input className='style_list_inputs_pagesettings' value={userdata.username} name='username' type="text" /> </li>
-                                <li style={{paddingBottom: '60px',listStyleType:'none'}} ><input className='style_list_inputs_pagesettings' value={userdata.senha} name='senha' type="text" /> </li>
+                            <button className='style_button_pagesettings'>SALVAR</button>
 
-                            </ul>
-                        </div>  
+                        </div>
+
+                    </div>
+
+                    <div className='container_inputs_pagesettings' >
+
+                        <ul>
+                            <small style={{ color: 'white' }}>Nome: </small>
+
+                            <li onChange={handlechangedata} style={{ paddingBottom: '60px', listStyleType: 'none' }} ><input className='style_list_inputs_pagesettings' value={userdata.nome} name='nomecompleto' type="text" /> </li>
+
+                            <small style={{ color: 'white' }}>Email: </small>
+
+                            <li onChange={handlechangedata} style={{ paddingBottom: '60px', listStyleType: 'none' }} ><input className='style_list_inputs_pagesettings' value={userdata.email} name='email' type="email" /> </li>
+
+                            <small style={{ color: 'white' }}>Username: </small>
+
+                            <li onChange={handlechangedata} style={{ paddingBottom: '60px', listStyleType: 'none' }} ><input className='style_list_inputs_pagesettings' value={userdata.username} name='username' type="text" /> </li>
+
+                            <small style={{ color: 'white' }}>Senha: </small>
+
+                            <li onChange={handlechangedata} style={{ paddingBottom: '60px', listStyleType: 'none' }} ><input className='style_list_inputs_pagesettings' value={userdata.senha} name='senha' type="text" /> </li>
+
+                        </ul>
+                    </div>
 
                 </div>
 
