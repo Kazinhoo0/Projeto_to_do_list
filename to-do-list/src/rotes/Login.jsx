@@ -51,7 +51,6 @@ function To_Do_List() {
     if (data.success) {
       localStorage.setItem('token', data.token);
       localStorage.setItem('username', data.username);
-      localStorage.setItem('email', data.email)
 
       console.log(data.username)
 

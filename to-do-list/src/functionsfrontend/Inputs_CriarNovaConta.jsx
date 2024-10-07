@@ -40,7 +40,6 @@ function Inputs_CriarNovaConta() {
         localStorage.setItem('nome' , nome);
         localStorage.setItem('sobrenome', sobrenome);
         localStorage.setItem('email' , email);
-        localStorage.setItem('username' , username);
         localStorage.setItem('senha', senha )
     };
 
