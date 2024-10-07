@@ -1,12 +1,10 @@
-import ExitImage from './imagens/logout.png'
-import ImagemCalendario from './/imagens/agendamento.png'
-import Imagemseta from './imagens/seta-para-baixo.png'
 import { useState, useEffect } from 'react'
-import Imagempadraoperfil from './imagens/user.png'
-import Settings_Output from '../functionsfrontend/Settings_output_info'
-import Inputs_CriarNovaConta from '../functionsfrontend/Inputs_CriarNovaConta'
 import { useNavigate } from "react-router-dom";
 import '..//App.css'
+import ExitImage from '../rotes/imagens/logout.png';
+import ImagemUser from '../rotes/imagens/user.png';
+import ImagemCalendario from '../rotes/imagens/agendamento.png';
+import Imagemseta from '../rotes/imagens/seta-para-baixo.png';
 
 function Settings() {
 
@@ -26,9 +24,9 @@ function Settings() {
 
     )
 
-    const itslistavisivel = () => {
-        setListavisivel(!ListaVisivel)
-    }
+    // const itslistavisivel = () => {
+    //     setListavisivel(!ListaVisivel)
+    // }
 
 
     useEffect(() => {
@@ -44,11 +42,17 @@ function Settings() {
     }, []);
 
 
+
+
     const navigate = useNavigate();
 
-    const NavegarCriarLembrete = () => {
-        navigate('/EditarLembretes');
-    };
+    // const NavegarCriarLembrete = () => {
+    //     navigate('/EditarLembretes');
+    // };
+
+    const itslistavisivel = () => {
+        setListavisivel(!ListaVisivel)
+    }
 
 
     const handleInputChange = (event) => {
@@ -63,6 +67,16 @@ function Settings() {
         navigate('/')
     }
 
+     // Função para navegar a home
+     const NavegarHome = () => {
+        navigate('/');
+    }
+
+    const NavigateLogin = () => {
+        navigate('/login')
+    }
+
+
     const NavegarMeusLembretes = () => {
         navigate('/Index')
     }
@@ -73,99 +87,61 @@ function Settings() {
 
     const handlechangedata = (e) => {
         const { name, value } = e.target;
-    
+
         setUserdata((prevData) => ({
-          ...prevData,
-          [name]: value // Atualiza o campo correspondente (nome, username, sobrenome, email)
+            ...prevData,
+            [name]: value // Atualiza o campo correspondente (nome, username, sobrenome, email)
         }));
-      };
+    };
 
     return (
         <div className="container" >
 
-            <div className='containeruserbar' >
-
-                <div className='Tittle_site_div'>
-
-                    <h1 className='h1_userbar'>TO-DO-LIST</h1>
-
-                    {/* {<img className='Imgstyle' src={ImagemCalendario} alt="" />} */}
-
-                    <div className='containerlinks' >
-
-                        {/* <div className='links_style'>
-                            <a onClick={NavegarHome} href="">Home</a>
-                            <a onClick={NavegarCriarLembrete} href="">Meus Lembretes</a> */}
-                        {/* </div> */}
+            <div className='containeruserbar'>
+                    
+                    <div className='container_imgcalendario'>
+                        <h1 onClick={NavegarMeusLembretes} className='h1_userbar'>TO-DO-LIST {<img className='style_imgcalendario' src={ImagemCalendario} alt="" />}</h1>
                     </div>
 
-                    <div className='containeruserprofile'>
+                    <div className='container_navigatebar'>
 
-                        <img
-                            className='styleImageUser'
-                            alt=""
-                            id='Fotoperfil'
-                            src={img}
-                        />
 
-                    </div>
-
-                    {/* <button onClick={LimparFotoPerfil} >limpar</button> */}
-                    <div className='container_mensagem_bemvindo' >
-
-                        <p className='mensagem_bemvindo' >Olá,{userdata.username}
-                            <br></br>Bem-vindo</p>
-
-                    </div>
-
-                    <div className='containeropenseta'>
-
-                        <button className='buttonsetastyle' type='button' name='butãoseta' onClick={itslistavisivel} >{ListaVisivel ? <img src={Imagemseta}></img> : <img src={Imagemseta} ></img>} </button>
-                        {ListaVisivel && (
-
-                            <div className='containerlistaordenada'  >
-
-                                <ul className='listasstyle'>
-
-                                    <lo className='lista_style' >
-
-                                        <a onClick={NavegarMeuPerfil}>Meu perfil</a>
-
-                                    </lo>
-
-                                </ul>
-
-                                <ul className='listasstyle'>
-
-                                    <lo>
-
-                                        <a onClick={NavegarCriarLembrete} >Minhas agendas</a>
-
-                                    </lo>
-
-                                </ul>
-
-                            </div>
-
-                        )}
-
-                    </div>
-
-                    <div className='containerimageexit'>
-
-                        <img className='imageexit' src={ExitImage} alt="" />
-
-                        <div className='Sair'>
-
-                            <a onClick={handlelogoof} className='sairbutton' href="">Sair</a>
-
+                        <div className='containeruserprofile'>
+                            <img className='styleImageUser' src={ImagemUser} alt="" />
                         </div>
 
+                        <div className='container_mensagembemvindo' >
+                            <p className='mensagem_bemvindo' >Olá,{userdata.username}
+                                <br></br>Bem-vindo</p>
+                        </div>
+
+                        <div className='containeropenseta'>
+                            <button className='buttonsetastyle' type='button' name='butãoseta' onClick={itslistavisivel} >
+                                
+                            {ListaVisivel ? <img src={Imagemseta}></img> : <img src={Imagemseta} ></img>} </button>
+                            {ListaVisivel && (
+
+                                <div className='containerlistaordenada'>
+                                    <ul className='listasstyle'>
+                                        <li className='lista_style'>
+                                            <a onClick={NavegarMeuPerfil}>Configurações</a>
+                                        </li>
+                                    </ul>
+                                    <ul className='listasstyle'>
+                                        <li>
+                                            <a onClick={NavegarMeusLembretes}>Meus Lembretes</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            )}
+                        </div>
+                        <div className='containerimageexit'>
+                            <img onClick={NavigateLogin} className='imageexit' src={ExitImage} alt="" />
+                        </div>
                     </div>
 
-                </div>
 
-            </div>
+                </div>
 
             <div className="container_principal_pagesettings" >
 
@@ -183,7 +159,7 @@ function Settings() {
 
                         <div className='container_inputfoto_pagesettings'>
 
-                            <input type="file" />
+                            <input style={{cursor: 'pointer'}} type="file" />
 
                             <button className='style_button_pagesettings'>SALVAR</button>
 
@@ -192,21 +168,21 @@ function Settings() {
                     </div>
 
                     <div className='container_inputs_pagesettings' >
-
+                        <h1 style={{ borderBottom: '1px solid white' }}>MEU PERFIL</h1>
                         <ul>
-                            <small style={{ color: 'white' }}>Nome: </small>
+                            <small style={{ color: 'white', marginLeft: '10px' }}>Nome: </small>
 
-                            <li onChange={handlechangedata} style={{ paddingBottom: '60px', listStyleType: 'none' }} ><input className='style_list_inputs_pagesettings' value={userdata.nome} name='nomecompleto' type="text" /> </li>
+                            <li onChange={handlechangedata} style={{ paddingBottom: '60px', listStyleType: 'none' }} ><input className='style_list_inputs_pagesettings' value={userdata.nome + userdata.sobrenome} name='nomecompleto' type="text" /> </li>
 
-                            <small style={{ color: 'white' }}>Email: </small>
+                            <small style={{ color: 'white', marginLeft: '10px' }}>Email: </small>
 
                             <li onChange={handlechangedata} style={{ paddingBottom: '60px', listStyleType: 'none' }} ><input className='style_list_inputs_pagesettings' value={userdata.email} name='email' type="email" /> </li>
 
-                            <small style={{ color: 'white' }}>Username: </small>
+                            <small style={{ color: 'white', marginLeft: '10px' }}>Username: </small>
 
                             <li onChange={handlechangedata} style={{ paddingBottom: '60px', listStyleType: 'none' }} ><input className='style_list_inputs_pagesettings' value={userdata.username} name='username' type="text" /> </li>
 
-                            <small style={{ color: 'white' }}>Senha: </small>
+                            <small style={{ color: 'white', marginLeft: '10px' }}>Senha: </small>
 
                             <li onChange={handlechangedata} style={{ paddingBottom: '60px', listStyleType: 'none' }} ><input className='style_list_inputs_pagesettings' value={userdata.senha} name='senha' type="text" /> </li>
 

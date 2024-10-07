@@ -1,0 +1,85 @@
+.container_pageredefinirsenha {
+    width: 100%;
+    height: 956px;
+    padding: 0%;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-color: #282c34;
+
+}
+
+.container_filho_paginaredefinirsenha {
+    border: 1px solid rgb(87, 82, 82);
+    border-radius: 5px;
+    width: 60%;
+    height: 50%;
+    margin-top: 210px;
+
+}
+
+.container_tittle_paginaredefinirsenha {
+    border: 1px solid #3e434e;
+    margin-top: 40px;
+    height: 15%;
+}
+
+.container_inputs_paginaredefinirsenha {
+    /* border: 1px solid red; */
+    height: 75%;
+
+
+}
+
+
+.style_buttonenviar_pageredefinirsenha {
+    color: rgb(255, 255, 255);
+    height: 32px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(59, 56, 56);
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    cursor: pointer;
+}
+
+
+.style_sendbutton {
+    border: 1px;
+    background-color: rgb(59, 56, 56);
+    height: 31px;
+    border-radius: 2px;
+}
+
+
+.container_filho_input {
+    background-color: rgba(120, 123, 126, 0.151);
+    border: 1px solid rgba(121, 115, 116, 0.678);
+    border-radius: 8px;
+    width: 30%;
+    height: 20%;
+    position: fixed;
+    right: 34.5%;
+    top: 35%;
+
+}
+
+
+.style_linknavigate {
+
+    cursor: pointer;
+    color: white;
+    position: absolute;
+    top: 5%;
+
+
+}
+
+.style_paragraforedefinirsenha {
+    position: fixed;
+    top: 38%;
+    left: 41.2%;
+    font-size: small;
+
+}

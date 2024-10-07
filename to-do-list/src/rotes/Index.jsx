@@ -1,8 +1,4 @@
-import ExitImage from './imagens/logout.png';
-import ImagemUser from './imagens/user.png';
 import '..//App.css'
-import ImagemCalendario from './imagens/agendamento.png';
-import Imagemseta from './imagens/seta-para-baixo.png';
 import { useState, useEffect } from 'react';
 import imagemlupa from './imagens/lupa.png';
 import Simboloadição from './imagens/Simbolodeadiçao.png';
@@ -12,6 +8,11 @@ import { IoIosCheckbox } from "react-icons/io";
 import { MdIndeterminateCheckBox } from "react-icons/md";
 import { FaTrash } from "react-icons/fa";
 import { FaEdit } from "react-icons/fa";
+import ImagemUser from '../rotes/imagens/user.png';
+import ImagemCalendario from '../rotes/imagens/agendamento.png';
+import Imagemseta from '../rotes/imagens/seta-para-baixo.png';
+import ExitImage from '../rotes/imagens/logout.png';
+
 
 
 
@@ -66,7 +67,7 @@ function Index() {
 
         const response = await fetch('https://projeto-to-do-list-2.onrender.com//criarlembretes', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },       
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(novoLembrete)
         });
 
@@ -92,15 +93,19 @@ function Index() {
 
     // Função para apagar os lembretes criados pelo usuário
     const handletrash = (id) => {
-        const updatelembretes = lembretes.filter(lembrete => lembrete.id !== id); 
-        setLembretes(updatelembretes); 
+        const updatelembretes = lembretes.filter(lembrete => lembrete.id !== id);
+        setLembretes(updatelembretes);
     }
 
     // Função para navegar a home
     const NavegarHome = () => {
         navigate('/');
     }
-    
+
+    const NavigateLogin = () => {
+        navigate('/login')
+    }
+
 
     // Função para navegar a pagina de settings, que atualmente ainda não foi terminada.
     const NavegarMeuPerfil = () => {
@@ -110,45 +115,51 @@ function Index() {
     return (
         <>
             <div className='container'>
+
                 <div className='containeruserbar'>
-                    <div className='Tittle_site_div'>
-                        <div className='container_imgcalendario'>
-                            <h1 className='h1_userbar'>TO-DO-LIST {<img className='style_imgcalendario' src={ImagemCalendario} alt="" />}</h1>
-                        </div>
+                    
+                    <div className='container_imgcalendario'>
+                        <h1 className='h1_userbar'>TO-DO-LIST {<img className='style_imgcalendario' src={ImagemCalendario} alt="" />}</h1>
+                    </div>
+
+                    <div className='container_navigatebar'>
+
 
                         <div className='containeruserprofile'>
                             <img className='styleImageUser' src={ImagemUser} alt="" />
                         </div>
+
                         <div className='container_mensagembemvindo' >
-                            <p className='mensagem_bemvindo' >Olá,{userdata.username} 
+                            <p className='mensagem_bemvindo' >Olá,{userdata.username}
                                 <br></br>Bem-vindo</p>
                         </div>
+
                         <div className='containeropenseta'>
-                            <button className='buttonsetastyle' type='button' name='butãoseta' onClick={itslistavisivel}>
-                                {ListaVisivel ? <img src={Imagemseta} alt="" /> : <img className='stylebuttonseta' src={Imagemseta} alt="" />}
-                            </button>
+                            <button className='buttonsetastyle' type='button' name='butãoseta' onClick={itslistavisivel} >
+                                
+                            {ListaVisivel ? <img src={Imagemseta}></img> : <img src={Imagemseta} ></img>} </button>
                             {ListaVisivel && (
+
                                 <div className='containerlistaordenada'>
                                     <ul className='listasstyle'>
                                         <li className='lista_style'>
-                                            <a onClick={NavegarMeuPerfil}>Meu perfil</a>
+                                            <a onClick={NavegarMeuPerfil}>Configurações</a>
                                         </li>
                                     </ul>
                                     <ul className='listasstyle'>
                                         <li>
-                                            <a onClick={NavegarHome}>Minhas agendas</a>
+                                            <a onClick={NavegarHome}>Meus Lembretes</a>
                                         </li>
                                     </ul>
                                 </div>
                             )}
                         </div>
                         <div className='containerimageexit'>
-                            <img className='imageexit' src={ExitImage} alt="" />
-                            <div className='Sair'>
-                                <a className='sairbutton' onClick={NavegarHome}>Sair</a>
-                            </div>
+                            <img onClick={NavigateLogin} className='imageexit' src={ExitImage} alt="" />
                         </div>
                     </div>
+
+
                 </div>
 
                 <div className='container_listaafazeres'>

@@ -26,7 +26,7 @@ function Inputesquecisenha() {
                 alert("Porfavor, Insira o seu email!")
                 return;
             }
-            
+
             const TemplatesParams = {
                 email: email,
                 message: ("Clique no link para redefinir sua senha " + "linkaqui")
@@ -60,28 +60,31 @@ function Inputesquecisenha() {
 
 
     return (
-        <div className="container">
-            <div className="container_inputs">
-                <h2>Redefinir Senha</h2>
-                <div className="style_containerlinknavigate" >
-                    <a className="style_linknavigate" onClick={backpaglogin}><GoArrowLeft /></a>
+        <div className="container_pageredefinirsenha">
+            <div className="container_filho_paginaredefinirsenha">
+                <div className="container_tittle_paginaredefinirsenha">
+                    <h2>REDEFINIR SENHA</h2>
                 </div>
-                <div className="container_filho_input">
-                    <form onSubmit={handsendinf} >
-                        <div className="container_inputusername" >
-                            <p className="style_paragraforedefinirsenha" >Insira seu email abaixo, e você receberá um código de verificação.</p>
-                            <input
-                                className="style_inputusername"
-                                type="text"
-                                placeholder="Insira seu email*"
-                                onChange={(e) => setEmail(e.target.value)}
-                            />
-                            <button type="submit" className="style_sendbutton" ><IoMdSend /></button>
-                        </div>
-                    </form>
+                <div className="container_inputs_pageredefinirsenha">
+                    <div style={{ height: '100px', alignContent: "center", justifyContent: 'center', display: 'flex' }}>
+
+                        <small style={{ marginTop: '40px', fontSize: '20px', color: 'grey', marginLeft: '20px' }}>Insira o seu email para recuperar a senha</small>
+
+
+                    </div>
+                    <div style={{ marginLeft: '410px', height: '200px', justifyContent: 'center', display: 'center', alignContent: 'center' }}>
+
+
+                        <input style={{ color: 'white', backgroundColor: 'rgb(59, 56, 56)', borderRadius: '10px', borderTopRightRadius: '0px', borderBottomRightRadius: '0px', border: 'none', width: '300px', height: '30px' }} placeholder="Insira seu email*" type="email" />
+
+                        <button className="style_buttonenviar_pageredefinirsenha">Enviar</button>
+                    </div>
+
+
                 </div>
+
             </div>
-        </div>
+        </div >
     )
 }
 

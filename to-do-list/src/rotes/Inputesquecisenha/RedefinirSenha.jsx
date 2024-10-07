@@ -31,7 +31,7 @@ function RedefinirSenha() {
     return (
 
         <div className="container">
-            <div className="container_inputs">
+            <div className="container_inputs_redefinirsenha">
                 <h2>Redefinir Senha</h2>
                 <div className="style_containerlinknavigate" >
                     <a className="style_linknavigate" onClick={backpagesquecisenha}><GoArrowLeft /></a>

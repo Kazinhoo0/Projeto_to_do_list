@@ -6,8 +6,9 @@ import EditarLembretes from './EditarLembretes'
 import Login from './Login'
 import Settings from "./Settings";
 import Confirmaremail from "./PagConfirmarEmail/ConfirmarEmail";
-import Esquecisenha from "./Inputesquecisenha/InputEsqueciSenha";
+import Esquecisenha from "../components/InputEsqueciSenha";
 import RedefinirSenha from "./Inputesquecisenha/RedefinirSenha";
+
 
 
 
@@ -18,7 +19,7 @@ const Rotas = () => {
 
         <BrowserRouter>
             <Routes>
-                <Route Component={Login} path='/' exact ></Route>
+                <Route Component={Login} path='/login' exact ></Route>
                 <Route Component={Index} path='/index'></Route>
                 <Route Component={Criarnovaconta} path="/criarconta"></Route>
                 <Route Component={EditarLembretes} path="/EditarLembretes"></Route>

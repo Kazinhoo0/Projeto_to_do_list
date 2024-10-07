@@ -19,8 +19,8 @@ function CriarNovaConta() {
     const navigate = useNavigate();
 
 
-    const jatemconta = () => {
-        navigate('/')
+    const NavigateLogin = () => {
+        navigate('/login')
     }
     
 
@@ -44,7 +44,7 @@ function CriarNovaConta() {
                     </div>
                     <div className='container_esquecisenha_criarconta'>
                         <div>
-                            <a onClick={jatemconta} className='style_esquecisenha'>Já tem uma conta ?</a>
+                            <a onClick={NavigateLogin} className='style_esquecisenha'>Já tem uma conta ?</a>
                         </div>
                     </div>
                 </div>
