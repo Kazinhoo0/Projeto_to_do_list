@@ -30,16 +30,17 @@ function Index() {
     // const [username, setUsername] = useState('');
     // const [user_id, setUserid] = useState('');
     const [userdata, setUserdata] = useState('');
-    
+    const [dadoslembrete, setDadosLembrete] = useState('');
+
     const [newlembrete, setNewlembrete] = useState({
 
         nomelembrete: '',
         ichecked: '',
         categoria: '',
-    
-        
-      })
-    
+
+
+    })
+
 
 
     const navigate = useNavigate()
@@ -52,7 +53,7 @@ function Index() {
 
 
     useEffect(() => {  // este useEffect executa um get do username,vindo da pagina login.
-        const username = localStorage.getItem('username')
+        const username = localStorage.getItem('username');
         setUserdata({
             username: username || ""
         })
@@ -69,8 +70,8 @@ function Index() {
         setLembretes(updatelembretes);
     }
 
-        // Função para navegar a home
-     const NavegarHome = () => {
+    // Função para navegar a home
+    const NavegarHome = () => {
         navigate('/index');
     }
 
@@ -84,12 +85,57 @@ function Index() {
         navigate('/settings');
     }
 
+
+
+    useEffect(() => {
+        const userid = localStorage.getItem('id')
+
+        setUserdata({
+            userid: userid || '',
+        })
+
+
+        const fetchLembretes = async () => {
+            try {
+
+
+                const response = await fetch('https://projeto-to-do-list-2.onrender.com/gerenciarlembretes', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ userid })
+
+                });
+
+
+
+                const data = await response.json();
+                console.log('Dados recebidos:', data);
+
+                if (data.success) {
+                    setDadosLembrete(data.items); // Armazena os itens no estado
+                } else {
+                    console.log('Nenhum item encontrado');
+                }
+            } catch (error) {
+                console.error('Erro ao buscar os pratos:', error);
+            } finally {
+                setLoading(false); // Remove o loading após a requisição
+            }
+        };
+
+        fetchLembretes(); // Executa a função ao montar o componente
+    }, []);
+
+    if (loading) {
+        return <div>Carregando...</div>; // Exibe um loading enquanto carrega
+    }
+
     return (
         <>
             <div className='container'>
 
                 <div className='containeruserbar'>
-                    
+
                     <div className='container_imgcalendario'>
                         <h1 className='h1_userbar'>TO-DO-LIST {<img className='style_imgcalendario' src={ImagemCalendario} alt="" />}</h1>
                     </div>
@@ -108,8 +154,8 @@ function Index() {
 
                         <div className='containeropenseta'>
                             <button className='buttonsetastyle' type='button' name='butãoseta' onClick={itslistavisivel} >
-                                
-                            {ListaVisivel ? <img src={Imagemseta}></img> : <img src={Imagemseta} ></img>} </button>
+
+                                {ListaVisivel ? <img src={Imagemseta}></img> : <img src={Imagemseta} ></img>} </button>
                             {ListaVisivel && (
 
                                 <div className='containerlistaordenada'>
@@ -143,17 +189,17 @@ function Index() {
                                 name='nomelembrete'
                                 placeholder='Insira o nome do seu lembrete*'
                                 value={nomelembrete}
-                                onChange={(e) => setNewlembrete({...newlembrete, nomelembrete: e.target.value})} />
+                                onChange={(e) => setNewlembrete({ ...newlembrete, nomelembrete: e.target.value })} />
                             <label className='style_textimportante' htmlFor="checkbox">Importante: </label>
                             <input
                                 type="checkbox"
                                 id='checkbox'
-                                onChange={(e) => setNewlembrete({...newlembrete, ischecked: e.target.value})}
+                                onChange={(e) => setNewlembrete({ ...newlembrete, ischecked: e.target.value })}
                                 checked={ischecked}
                                 className='style_checkbox'
                                 name='checkbox'
                             />
-                            <select value={categoria} name="typelembrete" id="" className='style_typelembrete' onChange={(e) => setNewlembrete({...newlembrete, categoria: e.target.value})}>
+                            <select value={categoria} name="typelembrete" id="" className='style_typelembrete' onChange={(e) => setNewlembrete({ ...newlembrete, categoria: e.target.value })}>
                                 <option value="">Nenhum</option>
                                 <option value="trabalho">Trabalho</option>
                                 <option value="pessoal">Pessoal</option>

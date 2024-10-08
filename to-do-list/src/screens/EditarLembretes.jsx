@@ -89,7 +89,10 @@ function EditarLembretes() {
 
         });
 
+        console.log(body);
+
         const data = await response.json();
+
         if (data.success) {
 
             Toastify({
@@ -102,6 +105,10 @@ function EditarLembretes() {
                     height: '150px'
                 }
             }).showToast();
+
+            setTimeout(() => {
+                navigate('/index')
+            }, 3000);
 
         } else {
 

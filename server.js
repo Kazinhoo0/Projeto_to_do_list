@@ -156,7 +156,7 @@ app.post('/index/criarlembretes', (req, res) => {
 
   console.log(req.body)
 
-  
+
   if (!nomelembrete || !categoria || !ischecked || !user_id) {
     return res.status(400).json({ error: 'Todos os campos são obrigatórios' });
   }
@@ -180,6 +180,39 @@ app.post('/index/criarlembretes', (req, res) => {
     }
   )
 })
+
+
+app.post('/gerenciarlembretes', (req, res) => {
+  const { userid } = req.body;
+
+
+  if (!userid) {
+    return res.status(400).json({ message: 'id do usuário é obrigatório' })
+
+  }
+
+
+  const query = `SELECT * FROM lembrete_users WHERE user_id = ?`;
+
+  db.all(query, [userid], function (err, rows) {
+    if (err) {
+      console.error('Erro ao consultar o banco de dados:', err.message);
+      return res.status(500).json({ error: err.message });
+    }
+
+    // Se houver itens no banco, retorna-os
+    if (rows.length > 0) {
+      res.status(200).json({
+        success: true,
+        message: 'Itens encontrados com sucesso',
+        items: rows
+      });
+    } else {
+      // Caso não haja itens na tabela
+      res.status(404).json({ success: false, message: 'Nenhum item encontrado' });
+    }
+  });
+});
 
 
 
