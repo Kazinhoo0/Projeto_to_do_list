@@ -178,27 +178,6 @@ app.post('/index/criarlembretes', (req, res) => {
 
 
 
-app.get('/lembretes/:userlembrete', (req, res) => {
-  const user_id = req.params.user_id;
-
-  const query = 'SELECT * FROM lembretes WHERE user_id = ?';
-
-  db.all(query, [user_id], (err, rows) => {
-    if (err) {
-      console.error('Erro ao recuperar lembretes:', err.message);
-      return res.status(500).json({ error: err.message });
-    }
-
-    res.status(200).json({ lembretes: rows });
-  });
-});
-
-
-
-
-
-
-
 app.listen(port, () => {
   console.log(`O servidor esta rodando em http://localhost:${port}`);
 });

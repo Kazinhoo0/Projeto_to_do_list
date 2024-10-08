@@ -43,10 +43,6 @@ function EditarLembretes() {
         navigate('/EditarLembretes');
     };
 
-    const NavegarHome = () => {
-        navigate('/')
-    }
-
     const NavegarMeusLembretes = () => {
         navigate('/Index')
     }
@@ -56,7 +52,7 @@ function EditarLembretes() {
     }
 
     const NavigateLogin = () => {
-        navigate('/login')
+        navigate('/')
     }
 
     //  const handleSalvar = (e) => {
@@ -67,14 +63,13 @@ function EditarLembretes() {
         const username = localStorage.getItem('username')
 
         setUserData({
-            username: username || ""
+            username: username || "",
         })
     })
 
     const handlecriarlembrete = async (e) => {
         e.preventDefault();
-
-        const user_id = localStorage.getItem('user_id'); // Obtendo o user_id
+        const userid = localStorage.getItem('id')
 
         const response = await fetch('https://projeto-to-do-list-2.onrender.com/index/criarlembretes', {
 
@@ -84,8 +79,8 @@ function EditarLembretes() {
                 nomelembrete: newlembrete.nomelembrete,
                 categoria: newlembrete.categoria,
                 ischecked: newlembrete.ischecked,
-                user_id: newlembrete.user_id,
-        
+                user_id: userid
+
             })
 
         });
