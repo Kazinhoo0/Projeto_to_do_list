@@ -209,7 +209,7 @@ function EditarLembretes() {
                         </div>
                         <div className='containernomelembrete' >
                             <p className='styleparagrafo' >Categoria</p>
-                            <select value={newlembrete.categoria} name="typelembrete" id="" className='style_typelembrete' onChange={(e) => setNewLembrete({ ...newlembrete, categoria: e.target.value })}>
+                            <select value={newlembrete.categoria} name="typelembrete" id="" className='style_typelembrete' onChange={(e) => setNewLembrete({ ...newlembrete, categoria: e.target.checked })}>
                                 <option value="">Nenhum</option>
                                 <option value="trabalho">Trabalho</option>
                                 <option value="pessoal">Pessoal</option>
