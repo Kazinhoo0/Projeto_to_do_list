@@ -149,7 +149,7 @@ app.post('/criarconta', (req, res) => {
 });
 
 
-app.post('/criarlembretes', (req, res) => {
+app.post('/index/criarlembretes', (req, res) => {
   const { nomelembrete, ischecked, categoria, user_id } = req.body;
 
   if (!nomelembrete || !categoria || !ischecked || !user_id) {

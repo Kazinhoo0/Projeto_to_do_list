@@ -18,19 +18,28 @@ import ExitImage from '../imagens/logout.png';
 
 function Index() {
     const [ListaVisivel, setListavisivel] = useState(false);
-    const [mostrarnovolembrete, setnovolembrete] = useState(false);
-    const [nome, setNome] = useState('');
+    // const [mostrarnovolembrete, setnovolembrete] = useState(false);
+    // const [nome, setNome] = useState('');
     const [nomelembrete, setNomelembrete] = useState('');
     const [categoria, setCategoria] = useState('');
     const [ischecked, setisimportante] = useState(false);
-    const [todos, settodos] = useState([]);
-    const [id, setID] = useState('');
+    // const [todos, settodos] = useState([]);
+    // const [id, setID] = useState('');
     const [lembretes, setLembretes] = useState([]);
-    const [editID, setEditID] = useState(null);
-    const [username, setUsername] = useState('');
-    const [user_id, setUserid] = useState('');
+    // const [editID, setEditID] = useState(null);
+    // const [username, setUsername] = useState('');
+    // const [user_id, setUserid] = useState('');
     const [userdata, setUserdata] = useState('');
+    
+    const [newlembrete, setNewlembrete] = useState({
 
+        nomelembrete: '',
+        ichecked: '',
+        categoria: '',
+    
+        
+      })
+    
 
 
     const navigate = useNavigate()
@@ -41,42 +50,6 @@ function Index() {
     }
 
 
-    const handleClick = async (e) => {
-        e.preventDefault();
-
-        const user_id = localStorage.getItem('user_id'); // Obtendo o user_id
-
-        if (!categoria || !nomelembrete) {
-            alert('Por favor! preencha os campos'); // condicional que verifica se categoria e nomelembrete preenchidas.
-            return;
-        }
-
-        const novoLembrete = {
-            nomelembrete, // inclui categoria no lembrete
-            categoria, // inclui categoria no lembrete
-            ischecked, // inclui ischecked no lembrete
-            user_id  // Incluindo user_id no lembrete
-        };
-
-        setLembretes([...lembretes, novoLembrete]);
-
-        setCategoria('');
-        setNomelembrete('');
-        setisimportante(false);
-
-        const response = await fetch('https://projeto-to-do-list-2.onrender.com/criarlembretes', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(novoLembrete)
-        });
-
-        const data = await response.json();
-        if (data.success) {
-            alert('Lembrete cadastrado com sucesso');
-        } else {
-            alert('Erro ao cadastrar novo lembrete');
-        }
-    }
 
     useEffect(() => {  // este useEffect executa um get do username,vindo da pagina login.
         const username = localStorage.getItem('username')
@@ -87,7 +60,7 @@ function Index() {
 
 
     const handleedit = () => {
-        alert('funcionalidade ainda não disponivel')
+        navigate('/Editarlembretes')
     }
 
     // Função para apagar os lembretes criados pelo usuário
@@ -163,24 +136,24 @@ function Index() {
 
                 <div className='container_listaafazeres'>
                     <div className='container_barradepesquisa'>
-                        <form onSubmit={handleClick} action="">
+                        <form action="">
                             <input
                                 className='styleinput_nomelembrete'
                                 type="text"
                                 name='nomelembrete'
                                 placeholder='Insira o nome do seu lembrete*'
                                 value={nomelembrete}
-                                onChange={(e) => setNomelembrete(e.target.value)} />
+                                onChange={(e) => setNewlembrete({...newlembrete, nomelembrete: e.target.value})} />
                             <label className='style_textimportante' htmlFor="checkbox">Importante: </label>
                             <input
                                 type="checkbox"
                                 id='checkbox'
-                                onChange={(e) => setisimportante(e.target.checked)}
+                                onChange={(e) => setNewlembrete({...newlembrete, ischecked: e.target.value})}
                                 checked={ischecked}
                                 className='style_checkbox'
                                 name='checkbox'
                             />
-                            <select value={categoria} name="typelembrete" id="" className='style_typelembrete' onChange={(e) => setCategoria(e.target.value)}>
+                            <select value={categoria} name="typelembrete" id="" className='style_typelembrete' onChange={(e) => setNewlembrete({...newlembrete, categoria: e.target.value})}>
                                 <option value="">Nenhum</option>
                                 <option value="trabalho">Trabalho</option>
                                 <option value="pessoal">Pessoal</option>
@@ -190,12 +163,12 @@ function Index() {
                                 <option value="academia">Academia</option>
                                 <option value="nataçao">Natação</option>
                             </select>
-                            <button onClick={handleClick} id='pesquisarlembrete' className='stylebuttonlupa'>
+                            <button id='pesquisarlembrete' className='stylebuttonlupa'>
                                 <img className='styleimglupa' src={imagemlupa} alt="" />
                             </button>
                         </form>
 
-                        <button onClick={handleClick} id='Criarlembrete' className='stylebuttonadicao'>
+                        <button id='Criarlembrete' className='stylebuttonadicao'>
                             <img className='styleimgadição' src={Simboloadição} alt="" />
                         </button>
                     </div>
