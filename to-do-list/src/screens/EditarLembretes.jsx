@@ -70,10 +70,10 @@ function EditarLembretes() {
     const handlecriarlembrete = async (e) => {
         e.preventDefault();
 
+        const userid = localStorage.getItem('id');
 
-        console.log('Valores:', newlembrete.nomelembrete, - newlembrete.categoria,- newlembrete.ischecked,- userid );
+        console.log('Valores:', newlembrete.nomelembrete,newlembrete.categoria,newlembrete.ischecked, userid );
 
-        const userid = localStorage.getItem('id')
 
         const response = await fetch('https://projeto-to-do-list-2.onrender.com/index/criarlembretes', {
 
