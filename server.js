@@ -159,7 +159,7 @@ app.post('/criarlembretes', (req, res) => {
   console.log('Dados do lembrete :', { nomelembrete, categoria, ischecked, user_id });
 
 
-  const query = 'INSERT INTO lembretes (nomelembrete, categoria, ischecked, user_id) VALUES (?, ?, ?, ?)';
+  const query = 'INSERT INTO lembretes_users (nomelembrete, categoria, ischecked, user_id) VALUES (?, ?, ?, ?)';
 
   db.run(query, [nomelembrete, categoria, ischecked, user_id],
     function (err) {
@@ -167,7 +167,11 @@ app.post('/criarlembretes', (req, res) => {
         console.log('Erro ao cadastrar novo lembrete:', err.message);
         return res.status(500).json({ error: err.message });
       }
-      res.status(201).json({ id: this.lasID })
+      res.status(201).json({ 
+        success: true,
+        id: this.lasID,
+        message: "item adicionado com sucesso"
+       })
     }
   )
 })
