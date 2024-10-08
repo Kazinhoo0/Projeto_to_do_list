@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
 import '..//App.css'
-import ExitImage from '../rotes/imagens/logout.png';
-import ImagemUser from '../rotes/imagens/user.png';
-import ImagemCalendario from '../rotes/imagens/agendamento.png';
-import Imagemseta from '../rotes/imagens/seta-para-baixo.png';
+import ExitImage from '../imagens/logout.png';
+import ImagemUser from '../imagens/user.png';
+import ImagemCalendario from '../imagens/agendamento.png';
+import Imagemseta from '../imagens/seta-para-baixo.png';
 
 function Settings() {
 
@@ -55,27 +55,18 @@ function Settings() {
     }
 
 
-    const handleInputChange = (event) => {
-        const { name, value } = event.target;
-        setUserdata({
-            ...userdata,
-            [name]: value
-        });
-    };
+    // const handleInputChange = (event) => {
+    //     const { name, value } = event.target;
+    //     setUserdata({
+    //         ...userdata,
+    //         [name]: value
+    //     });
+    // };
 
-    const handlelogoof = () => {
-        navigate('/')
-    }
-
-     // Função para navegar a home
-     const NavegarHome = () => {
-        navigate('/');
-    }
 
     const NavigateLogin = () => {
-        navigate('/login')
+        navigate('/')
     }
-
 
     const NavegarMeusLembretes = () => {
         navigate('/Index')

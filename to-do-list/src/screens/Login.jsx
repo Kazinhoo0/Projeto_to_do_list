@@ -1,12 +1,11 @@
 import { useState } from 'react'
-import ImagemCalendario from './imagens/agendamento.png'
-import ImagemGithub from './imagens/icons8-github-30.png'
-import ImagemLinkedin from './imagens/Linked_img.png'
-import ImagemPortifólio from './imagens/Portifólio_img.png'
-import Mensagembemvindo from './scriptsindex/Mesagebemvindo'
+import ImagemCalendario from '../imagens/agendamento.png'
+import ImagemGithub from '../imagens/icons8-github-30.png'
+import ImagemLinkedin from '../imagens/Linked_img.png'
+import ImagemPortifólio from '../imagens/Portifólio_img.png'
 import CriarNovaConta from './CriarNovaConta'
 import '..//App.css'
-import InputUsernameLogin from '../functionsfrontend/InputUsernameLogin'
+// import InputUsernameLogin from '../functionsfrontend/InputUsernameLogin'
 import { useNavigate } from "react-router-dom";
 import Toastify from 'toastify-js';
 

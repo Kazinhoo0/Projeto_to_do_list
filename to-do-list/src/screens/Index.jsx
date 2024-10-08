@@ -1,17 +1,16 @@
 import '..//App.css'
 import { useState, useEffect } from 'react';
-import imagemlupa from './imagens/lupa.png';
-import Simboloadição from './imagens/Simbolodeadiçao.png';
+import imagemlupa from '../imagens/lupa.png';
+import Simboloadição from '../imagens/Simbolodeadiçao.png';
 import { useNavigate } from "react-router-dom";
-import MensagemBoasVindas from '../functionsfrontend/MensagemBoasvinda';
 import { IoIosCheckbox } from "react-icons/io";
 import { MdIndeterminateCheckBox } from "react-icons/md";
 import { FaTrash } from "react-icons/fa";
 import { FaEdit } from "react-icons/fa";
-import ImagemUser from '../rotes/imagens/user.png';
-import ImagemCalendario from '../rotes/imagens/agendamento.png';
-import Imagemseta from '../rotes/imagens/seta-para-baixo.png';
-import ExitImage from '../rotes/imagens/logout.png';
+import ImagemUser from '../imagens/user.png';
+import ImagemCalendario from '../imagens/agendamento.png';
+import Imagemseta from '../imagens/seta-para-baixo.png';
+import ExitImage from '../imagens/logout.png';
 
 
 
@@ -97,13 +96,13 @@ function Index() {
         setLembretes(updatelembretes);
     }
 
-    // Função para navegar a home
-    const NavegarHome = () => {
-        navigate('/');
+        // Função para navegar a home
+     const NavegarHome = () => {
+        navigate('/index');
     }
 
     const NavigateLogin = () => {
-        navigate('/login')
+        navigate('/')
     }
 
 

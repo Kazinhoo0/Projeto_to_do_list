@@ -1,8 +1,7 @@
-import ImagemCalendario from './imagens/agendamento.png';
-import ImagemGithub from './imagens/icons8-github-30.png';
-import ImagemLinkedin from './imagens/Linked_img.png';
-import ImagemPortifólio from './imagens/Portifólio_img.png';
-import Mensagembemvindo from './scriptsindex/Mesagebemvindo';
+import ImagemCalendario from '../imagens/agendamento.png';
+import ImagemGithub from '../imagens/icons8-github-30.png';
+import ImagemLinkedin from '../imagens/Linked_img.png';
+import ImagemPortifólio from '../imagens/Portifólio_img.png';
 import Inputs_CriarNovaConta from '../functionsfrontend/Inputs_CriarNovaConta';
 import { useState } from 'react';
 import '..//App.css'
@@ -20,7 +19,7 @@ function CriarNovaConta() {
 
 
     const NavigateLogin = () => {
-        navigate('/login')
+        navigate('/')
     }
     
 

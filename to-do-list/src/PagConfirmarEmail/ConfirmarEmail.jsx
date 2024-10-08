@@ -72,7 +72,7 @@ function Confirmaremail() {
     }
 
 
-    function handle_navigatelogin () {
+    function handlenavigatelogin () {
         navigate('/')
     }
 
@@ -82,7 +82,7 @@ function Confirmaremail() {
             <div className="container" >
 
                 <div className="container_form" >
-                    <a onClick={handle_navigatelogin}><IoIosExit/></a>
+                    <a onClick={handlenavigatelogin}><IoIosExit/></a>
                     <form onSubmit={EnviarEmail} >
                         <h2>Confirmação de email</h2>
                         <h4>Insira o número enviado para o seu email</h4>
