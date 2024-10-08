@@ -209,7 +209,7 @@ function EditarLembretes() {
                         </div>
                         <div className='containernomelembrete' >
                             <p className='styleparagrafo' >Categoria</p>
-                            <select value={newlembrete.categoria} name="typelembrete" id="" className='style_typelembrete' onChange={(e) => setNewLembrete({ ...newlembrete, categoria: e.target.checked })}>
+                            <select value={newlembrete.categoria} name="typelembrete" id="" className='style_typelembrete' onChange={(e) => setNewLembrete({ ...newlembrete, categoria: e.target.value })}>
                                 <option value="">Nenhum</option>
                                 <option value="trabalho">Trabalho</option>
                                 <option value="pessoal">Pessoal</option>
@@ -226,7 +226,7 @@ function EditarLembretes() {
                                 className='stylecheckbox_pagecriarlembrete'
                                 type="checkbox"
                                 value={newlembrete.ischecked}
-                                onChange={(e) => setNewLembrete({ ...newlembrete, ischecked: e.target.value })}
+                                onChange={(e) => setNewLembrete({ ...newlembrete, ischecked: e.target.checked })}
                             />
                         </div>
                         <div style={{ justifyContent: 'center', alignContent: 'center', display: 'flex' }}>
