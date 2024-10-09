@@ -56,7 +56,7 @@ app.post('/login', (req, res) => {
   const { email } = req.body;
 
   console.log(
-   'Tentativa de login realizada por:  ' , email
+    'Tentativa de login realizada por:  ', email
   )
 
 
@@ -70,12 +70,12 @@ app.post('/login', (req, res) => {
 
 
     if (row) {
-      res.status(200).json({ 
+      res.status(200).json({
         success: true,
         id: row.id,
         message: 'Login Bem-sucedido',
         username: row.username,
-       });
+      });
 
     } else {
       res.status(400).json({ success: false, message: 'Tentativa de login não autorizada' });
@@ -140,11 +140,12 @@ app.post('/criarconta', (req, res) => {
       console.error('Erro ao inserir no banco de dados:', err.message);
       return res.status(500).json({ error: err.message });
     }
-    res.status(201).json({ 
+    res.status(201).json({
       id: this.lastID,
       message: 'conta criada com sucesso!',
       email: email,
-      nome: nome });
+      nome: nome
+    });
   });
 });
 
@@ -172,11 +173,11 @@ app.post('/index/criarlembretes', (req, res) => {
         console.log('Erro ao cadastrar novo lembrete:', err.message);
         return res.status(500).json({ error: err.message });
       }
-      res.status(201).json({ 
+      res.status(201).json({
         success: true,
         id: this.lasID,
         message: "item adicionado com sucesso"
-       })
+      })
     }
   )
 })
@@ -192,7 +193,7 @@ app.post('/gerenciarlembretes', (req, res) => {
   }
 
 
-  const query = `SELECT * FROM lembrete_users WHERE user_id = ?`;
+  const query = `SELECT * FROM lembretes_users WHERE user_id = ?`;
 
   db.all(query, [userid], function (err, rows) {
     if (err) {
