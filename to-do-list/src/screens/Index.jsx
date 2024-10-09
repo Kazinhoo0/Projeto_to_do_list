@@ -263,24 +263,26 @@ function Index() {
 
 
 
-                            <div className='lembrete_item'>
-                                <h3 className='container_alllembretes'>Nome: </h3>
-                                <p className='container_alllembretes'>Categoria:</p>
-                                <div className='container_alllembretes  '>imp: <div className='checkedbox'><IoIosCheckbox /></div><div className='uncheckedbox'><MdIndeterminateCheckBox /></div></div>
+                        {lembretes.map((lembrete, index) => ( 
+                            <div key={index} className='lembrete_item'>
+                                <h3 className='container_alllembretes'>Nome:{lembrete.nomelembrete} </h3>
+                                <p className='container_alllembretes'>Categoria:{lembrete.categoria}</p>
+                                <div className='container_alllembretes  '>imp:{lembrete.ischecked} <div className='checkedbox'><IoIosCheckbox /></div><div className='uncheckedbox'><MdIndeterminateCheckBox /></div></div>
                                 <div className='container_alllembretes'>
-                                    Vencimento:
+                                    Vencimento:{lembrete.vencimento}
                                 </div>
                                 <div className='container_limpar'>
                                     <div className='container_trash'>
-                                        <FaTrash onClick={fetchdeletelembrete} className='style_button_trash' />
+                                        <FaTrash className='style_button_trash' />
                                     </div>
 
                                     <div className='container_edit'>
-                                        <IoOpenOutline
-                                            onClick={handlenavigateeditarlembrete} className='style_button_edit' />
+                                        <FaEdit className='style_button_edit' />
                                     </div>
                                 </div>
                             </div>
+                            ))
+	                            }
 
                         </div>
                     </div>
