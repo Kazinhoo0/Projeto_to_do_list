@@ -165,7 +165,7 @@ function Index() {
 
 
                   setDadosLembretes((prevLembretes) =>
-                    prevLembretes.filter(lembrete => lembrete.id !== idlembrete)
+                    prevLembretes.filter(lembrete => lembrete.id !== parseInt(idlembrete))
                 )
             } else {
                 console.log('Nenhum item encontrado');
@@ -283,7 +283,7 @@ function Index() {
                                 </div>
                                 <div className='container_limpar'>
                                     <div className='container_trash'>
-                                        <FaTrash onClick={() => fetchdeletelembrete(lembrete.id)} className='style_button_trash' />
+                                        <FaTrash onClick={fetchdeletelembrete} className='style_button_trash' />
                                     </div>
 
                                     <div className='container_edit'>
