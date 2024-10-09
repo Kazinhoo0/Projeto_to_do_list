@@ -162,6 +162,11 @@ function Index() {
                       height: '150px'
                     }
                   }).showToast();
+
+
+                  setDadosLembretes((prevLembretes) =>
+                    prevLembretes.filter(lembrete => lembrete.id !== idlembrete)
+                )
             } else {
                 console.log('Nenhum item encontrado');
             }
@@ -268,8 +273,8 @@ function Index() {
 
 
 
-                        {lembretes.map((lembrete, index) => ( 
-                            <div key={index} className='lembrete_item'>
+                        {lembretes.map((lembrete) => ( 
+                            <div key={lembrete.id} className='lembrete_item'>
                                 <h3 className='container_alllembretes'>Nome:{lembrete.nomelembrete} </h3>
                                 <p className='container_alllembretes'>Categoria:{lembrete.categoria}</p>
                                 <div className='container_alllembretes  '>imp:{lembrete.ischecked} <div className='checkedbox'><IoIosCheckbox /></div><div className='uncheckedbox'><MdIndeterminateCheckBox /></div></div>
@@ -278,7 +283,7 @@ function Index() {
                                 </div>
                                 <div className='container_limpar'>
                                     <div className='container_trash'>
-                                        <FaTrash onClick={fetchdeletelembrete} className='style_button_trash' />
+                                        <FaTrash onClick={() => fetchdeletelembrete(lembrete.id)} className='style_button_trash' />
                                     </div>
 
                                     <div className='container_edit'>
