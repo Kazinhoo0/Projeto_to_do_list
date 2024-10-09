@@ -26,7 +26,7 @@ const db = new sqlite3.Database('./database.db', (err) => {
 
 db.run(
   `ALTER TABLE lembretes_users
-  ADD descricao TEXT, vencimento TEXT, horavencimento INTEGER  
+  ADD COLUMN descricao TEXT, vencimento TEXT, horavencimento INTEGER  
   `
 );
 
