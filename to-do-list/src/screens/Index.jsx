@@ -233,12 +233,13 @@ function Index() {
                         <div className='lembretes-list'>
 
                         
-                            <div className='lembrete_item'>
-                                <h3 className='container_alllembretes'>Nome:</h3>
-                                <p className='container_alllembretes'>Categoria:</p>
-                                <div className='container_alllembretes  '>imp: <div className='checkedbox'><IoIosCheckbox /></div><div className='uncheckedbox'><MdIndeterminateCheckBox /></div></div>
+                        {lembretes.map((lembrete, index) => ( 
+                            <div key={index} className='lembrete_item'>
+                                <h3 className='container_alllembretes'>Nome:{lembrete.nomelembrete} </h3>
+                                <p className='container_alllembretes'>Categoria:{lembrete.categoria}</p>
+                                <div className='container_alllembretes  '>imp:{lembrete.ischecked} <div className='checkedbox'><IoIosCheckbox /></div><div className='uncheckedbox'><MdIndeterminateCheckBox /></div></div>
                                 <div className='container_alllembretes'>
-                                    Vencimento:{lembretes.vencimento}
+                                    Vencimento:
                                 </div>
                                 <div className='container_limpar'>
                                     <div className='container_trash'>
@@ -250,6 +251,8 @@ function Index() {
                                     </div>
                                 </div>
                             </div>
+                            ))
+                            }
                           
                         </div>
                     </div>
