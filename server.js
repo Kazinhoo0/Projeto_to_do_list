@@ -25,14 +25,9 @@ const db = new sqlite3.Database('./database.db', (err) => {
 });
 
 db.run(
-  `CREATE TABLE IF NOT EXISTS lembretes_users (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  nomelembrete TEXT NOT NULL,
-  categoria TEXT NOT NULL,
-  ischecked TEXT NOT NULL,
-  user_id INTEGER,
-  FOREIGN KEY (user_id) REFERENCES usuarios (id)
-  )`
+  `ALTER TABLE lembretes_users
+  ADD descricao TEXT, vencimento TEXT, horavencimento INTEGER  
+  `
 );
 
 
@@ -151,23 +146,23 @@ app.post('/criarconta', (req, res) => {
 
 
 app.post('/index/criarlembretes', (req, res) => {
-  const { nomelembrete, ischecked, categoria, user_id } = req.body;
+  const { nomelembrete, ischecked, categoria, user_id, horavencimento, vencimento, descricao } = req.body;
 
 
 
   console.log(req.body)
 
 
-  if (!nomelembrete || !categoria || !ischecked || !user_id) {
+  if (!nomelembrete || !categoria || !ischecked || !user_id, !vencimento, !horavencimento, !descricao) {
     return res.status(400).json({ error: 'Todos os campos são obrigatórios' });
   }
 
-  console.log('Dados do lembrete :', { nomelembrete, categoria, ischecked, user_id });
+  console.log('Dados do lembrete :', { nomelembrete, categoria, ischecked, user_id, vencimento, horavencimento, descricao });
 
 
-  const query = 'INSERT INTO lembretes_users (nomelembrete, categoria, ischecked, user_id) VALUES (?, ?, ?, ?)';
+  const query = 'INSERT INTO lembretes_users (nomelembrete, categoria, ischecked, user_id, horavencimento, vencimento, descricao) VALUES (?, ?, ?, ?, ?, ? ,? )';
 
-  db.run(query, [nomelembrete, categoria, ischecked, user_id],
+  db.run(query, [nomelembrete, categoria, ischecked, user_id, horavencimento, vencimento, descricao],
     function (err) {
       if (err) {
         console.log('Erro ao cadastrar novo lembrete:', err.message);

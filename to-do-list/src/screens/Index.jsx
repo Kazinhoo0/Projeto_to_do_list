@@ -232,26 +232,25 @@ function Index() {
                         {/* Renderizar lembretes */}
                         <div className='lembretes-list'>
 
-                            {lembretes.map((lembrete, index) => (
-                                <div key={index} className='lembrete_item'>
-                                    <h3 className='container_alllembretes'>Nome:{lembrete.nomelembrete} </h3>
-                                    <p className='container_alllembretes'>Categoria:{lembrete.categoria}</p>
-                                    <div className='container_alllembretes  '>imp:{lembrete.ischecked} <div className='checkedbox'><IoIosCheckbox /></div><div className='uncheckedbox'><MdIndeterminateCheckBox /></div></div>
-                                    <div className='container_alllembretes'>
-                                        Vencimento:
+                        
+                            <div className='lembrete_item'>
+                                <h3 className='container_alllembretes'>Nome:</h3>
+                                <p className='container_alllembretes'>Categoria:</p>
+                                <div className='container_alllembretes  '>imp: <div className='checkedbox'><IoIosCheckbox /></div><div className='uncheckedbox'><MdIndeterminateCheckBox /></div></div>
+                                <div className='container_alllembretes'>
+                                    Vencimento:{lembretes.vencimento}
+                                </div>
+                                <div className='container_limpar'>
+                                    <div className='container_trash'>
+                                        <FaTrash className='style_button_trash' />
                                     </div>
-                                    <div className='container_limpar'>
-                                        <div className='container_trash'>
-                                            <FaTrash className='style_button_trash' />
-                                        </div>
 
-                                        <div className='container_edit'>
-                                            <FaEdit className='style_button_edit' />
-                                        </div>
+                                    <div className='container_edit'>
+                                        <FaEdit className='style_button_edit' />
                                     </div>
                                 </div>
-                            ))
-                            }
+                            </div>
+                          
                         </div>
                     </div>
                 </div>

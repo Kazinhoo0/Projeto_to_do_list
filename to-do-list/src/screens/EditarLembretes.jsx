@@ -72,7 +72,7 @@ function EditarLembretes() {
 
         const userid = localStorage.getItem('id');
 
-        console.log('Valores:', newlembrete.nomelembrete,newlembrete.categoria,newlembrete.ischecked, userid );
+        console.log('Valores:', newlembrete.nomelembrete,newlembrete.categoria,newlembrete.ischecked, userid, newlembrete.horavencimento, newlembrete.vencimento, newlembrete.descricao );
 
 
         const response = await fetch('https://projeto-to-do-list-2.onrender.com/index/criarlembretes', {
@@ -83,7 +83,10 @@ function EditarLembretes() {
                 nomelembrete: newlembrete.nomelembrete,
                 categoria: newlembrete.categoria,
                 ischecked: newlembrete.ischecked,
-                user_id: userid
+                user_id: userid,
+                descricao: newlembrete.descricao,
+                vencimento: newlembrete.vencimento,
+                horavencimento: newlembrete.horavencimento
 
             })
         });
