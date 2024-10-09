@@ -26,23 +26,23 @@ const db = new sqlite3.Database('./database.db', (err) => {
   }
 });
 
-// db.run(
-//   `ALTER TABLE lembretes_users
-//   ADD COLUMN descricao TEXT  
-//   `
-// );
+db.run(`
+DROP TABLE lembretes_users
+`);
 
-// db.run(
-//   `ALTER TABLE lembretes_users
-//   ADD COLUMN vencimento TEXT
-//   `
-// );
 
-// db.run(
-//   `ALTER TABLE lembretes_users
-//  ADD COLUMN horavencimento INTEGER
-//  `
-// );
+
+db.run(`CREATE TABLE IF NOT EXISTS lembretes_users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nomelembrete TEXT NOT NULL,
+    categoria TEXT NOT NULL,
+    ischecked TEXT NOT NULL,
+    user_id TEXT NOT NULL,
+    descricao TEXT,
+    vencimento INTEGER,
+    horavencimento TEXT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES usuarios(id)
+  )`);
 
 
 
@@ -59,15 +59,6 @@ app.get('*', (req, res) => {
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
-
-
-
-// rota para baixar o banco de dados
-app.get('/baixar-banco', (req, res) => {
-  const dbPath = path.join(__dirname, 'database.db');
-    res.download(dbPath, 'database.db') 
-});
 
 
 
