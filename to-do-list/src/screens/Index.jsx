@@ -136,6 +136,11 @@ function Index() {
     const fetchdeletelembrete = async () => {
         const idlembrete = localStorage.getItem('idlembrete');
 
+        if (!idlembrete) {
+            console.log("nenhum lembrete selecionado")
+            return
+        }
+
             const response = await fetch('https://projeto-to-do-list-2.onrender.com/index/deletelembrete', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -273,7 +278,7 @@ function Index() {
                                 </div>
                                 <div className='container_limpar'>
                                     <div className='container_trash'>
-                                        <FaTrash className='style_button_trash' />
+                                        <FaTrash onClick={fetchdeletelembrete} className='style_button_trash' />
                                     </div>
 
                                     <div className='container_edit'>

@@ -209,7 +209,7 @@ app.post('/index/deletelembrete', (req, res) => {
         console.log('Erro ao excluir lembrete:', err.message);
         return res.status(500).json({ error: err.message });
       }
-      res.status(201).json({
+      res.status(200).json({
         success: true,
         message: "Lembrete excluido com sucesso!"
       })
