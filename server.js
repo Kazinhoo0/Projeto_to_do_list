@@ -26,13 +26,9 @@ const db = new sqlite3.Database('./database.db', (err) => {
   }
 });
 
-db.run(`
-DROP TABLE lembretes_users
-`);
 
 
-
-db.run(`CREATE TABLE IF NOT EXISTS lembretes_users (
+db.run(`CREATE TABLE IF NOT EXISTS lembretesusers (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     nomelembrete TEXT NOT NULL,
     categoria TEXT NOT NULL,
