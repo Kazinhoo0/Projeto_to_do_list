@@ -25,12 +25,11 @@ function Index() {
     const [ischecked, setisimportante] = useState(false);
     // const [todos, settodos] = useState([]);
     // const [id, setID] = useState('');
-    const [lembretes, setLembretes] = useState([]);
+    const [lembretes, setDadosLembretes] = useState([]);
     // const [editID, setEditID] = useState(null);
     // const [username, setUsername] = useState('');
     // const [user_id, setUserid] = useState('');
     const [userdata, setUserdata] = useState('');
-    const [dadoslembrete, setDadosLembrete] = useState('');
     const [loading, setLoading] = useState('')
 
     const [newlembrete, setNewlembrete] = useState({
@@ -117,7 +116,7 @@ function Index() {
                 console.log('Dados recebidos:', data);
 
                 if (data.success) {
-                    setDadosLembrete(data.items); // Armazena os itens no estado
+                    setDadosLembretes(data.items); // Armazena os itens no estado
                 } else {
                     console.log('Nenhum item encontrado');
                 }
@@ -251,7 +250,8 @@ function Index() {
                                         </div>
                                     </div>
                                 </div>
-                            ))}
+                            ))
+                            }
                         </div>
                     </div>
                 </div>
