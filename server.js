@@ -65,8 +65,8 @@ app.use(bodyParser.json());
 
 // rota para baixar o banco de dados
 app.get('/baixar-banco', (req, res) => {
-  const dbPath = path.join(__dirname, 'seu-banco-de-dados.db');
-    res.download(dbPath, 'seu-banco-de-dados.db') 
+  const dbPath = path.join(__dirname, 'database.db');
+    res.download(dbPath, 'database.db') 
 });
 
 
