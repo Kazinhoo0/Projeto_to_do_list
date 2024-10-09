@@ -198,22 +198,22 @@ function Index() {
                                 </button>
                             </div>
 
-                            <div style={{width: '80%'}}>
+                            <div style={{ width: '80%' }}>
 
-                                <input placeholder='Pesquisar lembrete*' style={{width: '70%',height: '60%', marginTop: '9px' , backgroundColor: '#19191a', border: 'none'}} type="text" />
+                                <input placeholder='Pesquisar lembrete*' style={{ color: 'white', width: '100%', height: '60%', marginTop: '9px', backgroundColor: '#19191a', border: 'none' }} type="text" />
 
                             </div>
-                            
+
                             <div>
 
                                 <button onClick={handlenavigateCriarLembrete} id='Criarlembrete' className='stylebuttonadicao'>
 
-                                 <img className='styleimgadição' src={Simboloadição} alt="" />
+                                    <img className='styleimgadição' src={Simboloadição} alt="" />
 
                                 </button>
 
                             </div>
-                            
+
                         </div>
 
                         <div className='container_limparlembrete'>
@@ -233,18 +233,21 @@ function Index() {
                         {/* Renderizar lembretes */}
                         <div className='lembretes-list'>
 
-                            {lembretes.map((lembrete) => (
-                                <div key={lembrete.id} className='lembrete_item'>
-                                    <h3 className='style_nomelembrete'>Nome:    {lembrete.nomelembrete}</h3>
-                                    <p className='style_categorialembrete'>Categoria: {lembrete.categoria}</p>
-                                    <div className='style_importanteornot'>imp:{lembrete.importante ? <div className='checkedbox'><IoIosCheckbox /></div> : <div className='uncheckedbox'><MdIndeterminateCheckBox /></div>}</div>
+                            {lembretes.map((lembrete, index) => (
+                                <div key={index} className='lembrete_item'>
+                                    <h3 className='container_alllembretes'>Nome:{lembrete.nomelembrete} </h3>
+                                    <p className='container_alllembretes'>Categoria:{lembrete.categoria}</p>
+                                    <div className='container_alllembretes  '>imp:{lembrete.ischecked} <div className='checkedbox'><IoIosCheckbox /></div><div className='uncheckedbox'><MdIndeterminateCheckBox /></div></div>
+                                    <div className='container_alllembretes'>
+                                        Vencimento:
+                                    </div>
                                     <div className='container_limpar'>
                                         <div className='container_trash'>
-                                            <FaTrash className='style_button_trash' onClick={() => handletrash(lembrete.id)} />
+                                            <FaTrash className='style_button_trash' />
                                         </div>
 
                                         <div className='container_edit'>
-                                            <FaEdit className='style_button_edit' onClick={() => handleedit(lembrete.id)} />
+                                            <FaEdit className='style_button_edit' />
                                         </div>
                                     </div>
                                 </div>
