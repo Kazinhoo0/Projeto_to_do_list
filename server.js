@@ -188,34 +188,40 @@ app.post('/index/criarlembretes', (req, res) => {
 })
 
 app.post('/index/deletelembrete', (req, res) => {
-  const { idlembrete } = req.body;
+  const { idlembrete, userid } = req.body;
 
 
 
   // console.log(req.body)
 
-  if (!idlembrete) {
+  if (!idlembrete || !userid) {
     return res.status(400).json({ error: 'Campo não preenchido ou lembrete não encontrado' });
   }
 
-  console.log('Dados do lembrete :', { idlembrete });
+  console.log('Dados do lembrete :', { idlembrete, userid });
 
 
-  const query = 'DELETE FROM lembretesusers WHERE id = ?';
+const query =  `DELETE FROM lembretesusers WHERE id = ? AND user_id = ?`
 
-  db.run(query, [idlembrete],
+
+  db.run(query, [idlembrete, userid],
     function (err) {
       if (err) {
         console.log('Erro ao excluir lembrete:', err.message);
         return res.status(500).json({ error: err.message });
       }
-      res.status(200).json({
-        success: true,
-        message: "Lembrete excluido com sucesso!"
-      })
+
+      if (this.changes > 0) {
+        res.status(200).json({
+            success: true,
+            message: "Lembrete excluído com sucesso!"
+        });
+    } else {
+        res.status(404).json({ error: 'Lembrete não encontrado ou usuário incorreto' });
     }
-  )
-})
+});
+});
+      
 
 
 app.post('/index/editarlembretes', (req, res) => {
