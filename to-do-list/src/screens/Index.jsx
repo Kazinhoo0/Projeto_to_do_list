@@ -65,10 +65,10 @@ function Index() {
     }
 
     // Função para apagar os lembretes criados pelo usuário
-    const handletrash = (id) => {
-        const updatelembretes = lembretes.filter(lembrete => lembrete.id !== id);
-        setLembretes(updatelembretes);
-    }
+    // const handletrash = (id) => {
+    //     const updatelembretes = lembretes.filter(lembrete => lembrete.id !== id);
+    //     setLembretes(updatelembretes);
+    // }
 
     // Função para navegar a home
     const NavegarHome = () => {
