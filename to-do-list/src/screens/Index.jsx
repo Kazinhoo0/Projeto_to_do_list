@@ -11,6 +11,9 @@ import ImagemUser from '../imagens/user.png';
 import ImagemCalendario from '../imagens/agendamento.png';
 import Imagemseta from '../imagens/seta-para-baixo.png';
 import ExitImage from '../imagens/logout.png';
+import { IoOpenOutline } from "react-icons/io5";
+import Toastify from 'toastify-js';
+
 
 
 
@@ -50,20 +53,6 @@ function Index() {
         setListavisivel(!ListaVisivel);
     }
 
-
-
-    useEffect(() => {  // este useEffect executa um get do username,vindo da pagina login.
-        const username = localStorage.getItem('username');
-        setUserdata({
-            username: username || ""
-        })
-    }, [])
-
-
-    const handleedit = () => {
-        navigate('/Editarlembretes')
-    }
-
     // Função para apagar os lembretes criados pelo usuário
     // const handletrash = (id) => {
     //     const updatelembretes = lembretes.filter(lembrete => lembrete.id !== id);
@@ -79,8 +68,12 @@ function Index() {
         navigate('/')
     }
 
-    const handlenavigateCriarLembrete = () => {
+    const handlenavigateeditarlembrete = () => {
         navigate('/index/editarlembretes')
+    }
+
+    const handlenavigateCriarLembrete = () => {
+        navigate('/index/criarlembretes')
     }
 
 
@@ -88,14 +81,18 @@ function Index() {
     const NavegarMeuPerfil = () => {
         navigate('/settings');
     }
+    //                                                                        //  
+
 
 
 
     useEffect(() => {
-        const userid = localStorage.getItem('id')
+        const userid = localStorage.getItem('id');
+        const username = localStorage.getItem('username');
 
         setUserdata({
             userid: userid || '',
+            username: username || ''
         })
 
 
@@ -117,6 +114,7 @@ function Index() {
 
                 if (data.success) {
                     setDadosLembretes(data.items); // Armazena os itens no estado
+                    localStorage.setItem('idlembrete' , data.id)
                 } else {
                     console.log('Nenhum item encontrado');
                 }
@@ -133,6 +131,37 @@ function Index() {
     if (loading) {
         return <div>Carregando...</div>; // Exibe um loading enquanto carrega
     }
+
+
+    const fetchdeletelembrete = async () => {
+        const idlembrete = localStorage.getItem('idlembrete');
+
+            const response = await fetch('https://projeto-to-do-list-2.onrender.com/index/deletelembrete', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ idlembrete })
+
+            });
+
+            const data = await response.json();
+            console.log('Dados recebidos:', data);
+
+            if (data.success) {
+                Toastify({
+                    text: 'Lembrete excluido!',
+                    position: 'center',
+                    style: {
+                      background: '#db2d0e',
+                      color: '#ffffff',
+                      width: '250px',
+                      height: '150px'
+                    }
+                  }).showToast();
+            } else {
+                console.log('Nenhum item encontrado');
+            }
+
+    };
 
     return (
         <>
@@ -232,28 +261,27 @@ function Index() {
                         {/* Renderizar lembretes */}
                         <div className='lembretes-list'>
 
-                        
-                        {lembretes.map((lembrete, index) => ( 
-                            <div key={index} className='lembrete_item'>
-                                <h3 className='container_alllembretes'>Nome:{lembrete.nomelembrete} </h3>
-                                <p className='container_alllembretes'>Categoria:{lembrete.categoria}</p>
-                                <div className='container_alllembretes  '>imp:{lembrete.ischecked} <div className='checkedbox'><IoIosCheckbox /></div><div className='uncheckedbox'><MdIndeterminateCheckBox /></div></div>
+
+
+                            <div className='lembrete_item'>
+                                <h3 className='container_alllembretes'>Nome: </h3>
+                                <p className='container_alllembretes'>Categoria:</p>
+                                <div className='container_alllembretes  '>imp: <div className='checkedbox'><IoIosCheckbox /></div><div className='uncheckedbox'><MdIndeterminateCheckBox /></div></div>
                                 <div className='container_alllembretes'>
                                     Vencimento:
                                 </div>
                                 <div className='container_limpar'>
                                     <div className='container_trash'>
-                                        <FaTrash className='style_button_trash' />
+                                        <FaTrash onClick={fetchdeletelembrete} className='style_button_trash' />
                                     </div>
 
                                     <div className='container_edit'>
-                                        <FaEdit className='style_button_edit' />
+                                        <IoOpenOutline
+                                            onClick={handlenavigateeditarlembrete} className='style_button_edit' />
                                     </div>
                                 </div>
                             </div>
-                            ))
-                            }
-                          
+
                         </div>
                     </div>
                 </div>

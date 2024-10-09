@@ -75,7 +75,7 @@ function EditarLembretes() {
         console.log('Valores:', newlembrete.nomelembrete,newlembrete.categoria,newlembrete.ischecked, userid, newlembrete.horavencimento, newlembrete.vencimento, newlembrete.descricao );
 
 
-        const response = await fetch('https://projeto-to-do-list-2.onrender.com/index/criarlembretes', {
+        const response = await fetch('https://projeto-to-do-list-2.onrender.com/index/editarlembretes', {
 
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -239,7 +239,7 @@ function EditarLembretes() {
                             />
                         </div>
                         <div style={{ justifyContent: 'center', alignContent: 'center', display: 'flex' }}>
-                            <button style={{ cursor: 'pointer', backgroundColor: 'yellow', color: 'black', width: '200px', height: '25px', borderRadius: '5px', border: 'none' }} onClick={handlecriarlembrete} >Cria Lembrete</button>
+                            <button style={{ cursor: 'pointer', backgroundColor: 'yellow', color: 'black', width: '200px', height: '25px', borderRadius: '5px', border: 'none' }} onClick={handlecriarlembrete} >Salvar Alterações</button>
                         </div>
                     </form>
                 </div>

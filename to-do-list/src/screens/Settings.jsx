@@ -173,9 +173,9 @@ function Settings() {
 
                             <li onChange={handlechangedata} style={{ paddingBottom: '60px', listStyleType: 'none' }} ><input className='style_list_inputs_pagesettings' value={userdata.username} name='username' type="text" /> </li>
 
-                            <small style={{ color: 'white', marginLeft: '10px' }}>Senha: </small>
+                            {/* <small style={{ color: 'white', marginLeft: '10px' }}>Senha: </small>
 
-                            <li onChange={handlechangedata} style={{ paddingBottom: '60px', listStyleType: 'none' }} ><input className='style_list_inputs_pagesettings' value={userdata.senha} name='senha' type="text" /> </li>
+                            <li onChange={handlechangedata} style={{ paddingBottom: '60px', listStyleType: 'none' }} ><input className='style_list_inputs_pagesettings' value={userdata.senha} name='senha' type="text" /> </li> */}
 
                         </ul>
                     </div>

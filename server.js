@@ -161,8 +161,69 @@ app.post('/index/criarlembretes', (req, res) => {
 
 
 
-  console.log(req.body)
+  // console.log(req.body)
 
+  if (!nomelembrete || !categoria || !ischecked || !user_id, !vencimento, !horavencimento, !descricao) {
+    return res.status(400).json({ error: 'Todos os campos são obrigatórios' });
+  }
+
+  console.log('Dados do lembrete :', { nomelembrete, categoria, ischecked, user_id, vencimento, horavencimento, descricao });
+
+
+  const query = 'INSERT INTO lembretesusers (nomelembrete, categoria, ischecked, user_id, horavencimento, vencimento, descricao) VALUES (?, ?, ?, ?, ?, ? ,? )';
+
+  db.run(query, [nomelembrete, categoria, ischecked, user_id, horavencimento, vencimento, descricao],
+    function (err) {
+      if (err) {
+        console.log('Erro ao cadastrar novo lembrete:', err.message);
+        return res.status(500).json({ error: err.message });
+      }
+      res.status(201).json({
+        success: true,
+        id: this.lasID,
+        message: "item adicionado com sucesso"
+      })
+    }
+  )
+})
+
+app.post('/index/deletelembrete', (req, res) => {
+  const { idlembrete } = req.body;
+
+
+
+  // console.log(req.body)
+
+  if (!idlembrete) {
+    return res.status(400).json({ error: 'Campo não preenchido ou lembrete não encontrado' });
+  }
+
+  console.log('Dados do lembrete :', { idlembrete });
+
+
+  const query = 'DELETE FROM lembretesusers WHERE id = ?';
+
+  db.run(query, [idlembrete],
+    function (err) {
+      if (err) {
+        console.log('Erro ao excluir lembrete:', err.message);
+        return res.status(500).json({ error: err.message });
+      }
+      res.status(201).json({
+        success: true,
+        message: "Lembrete excluido com sucesso!"
+      })
+    }
+  )
+})
+
+
+app.post('/index/editarlembretes', (req, res) => {
+  const { nomelembrete, ischecked, categoria, user_id, horavencimento, vencimento, descricao } = req.body;
+
+
+
+  // console.log(req.body)
 
   if (!nomelembrete || !categoria || !ischecked || !user_id, !vencimento, !horavencimento, !descricao) {
     return res.status(400).json({ error: 'Todos os campos são obrigatórios' });

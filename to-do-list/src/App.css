@@ -1444,7 +1444,8 @@ a {
 
 .style_button_edit {
   border: 1px;
-  margin-right: 10px;
+  /* margin-right: 10px; */
+  width: 20px;
   cursor: pointer;
 }
 

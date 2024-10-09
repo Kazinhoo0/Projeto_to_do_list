@@ -8,6 +8,8 @@ import Settings from "../screens/Settings";
 import Confirmaremail from "../PagConfirmarEmail/ConfirmarEmail";
 import Esquecisenha from "../components/InputEsqueciSenha";
 import RedefinirSenha from "../Inputesquecisenha/RedefinirSenha";
+import CriarLembretes from '../screens/CriarLembretes'
+
 
 
 
@@ -22,7 +24,8 @@ const Rotas = () => {
                 <Route Component={Login} path='/' exact ></Route>
                 <Route Component={Index} path='/index'></Route>
                 <Route Component={Criarnovaconta} path="/criarconta"></Route>
-                <Route Component={EditarLembretes} path="/index/EditarLembretes"></Route>
+                <Route Component={CriarLembretes} path="/index/criarlembretes"></Route>
+                <Route Componente={EditarLembretes} path="/editarlembretes  "></Route>
                 <Route Component={Settings} path="/settings" ></Route>
                 <Route Component={Confirmaremail} path="/confirmaremail"></Route>
                 <Route Component={Esquecisenha} path="/esquecisenha" > </Route>
