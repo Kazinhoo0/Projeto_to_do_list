@@ -31,6 +31,7 @@ function Index() {
     // const [user_id, setUserid] = useState('');
     const [userdata, setUserdata] = useState('');
     const [dadoslembrete, setDadosLembrete] = useState('');
+    const [loading, setLoading] = useState('')
 
     const [newlembrete, setNewlembrete] = useState({
 
@@ -77,6 +78,10 @@ function Index() {
 
     const NavigateLogin = () => {
         navigate('/')
+    }
+
+    const handlenavigateCriarLembrete = () => {
+        navigate('/index/editarlembretes')
     }
 
 
@@ -179,72 +184,72 @@ function Index() {
 
 
                 </div>
+                <div className='container_principal_pageindex'>
 
-                <div className='container_listaafazeres'>
-                    <div className='container_barradepesquisa'>
-                        <form action="">
-                            <input
-                                className='styleinput_nomelembrete'
-                                type="text"
-                                name='nomelembrete'
-                                placeholder='Insira o nome do seu lembrete*'
-                                value={nomelembrete}
-                                onChange={(e) => setNewlembrete({ ...newlembrete, nomelembrete: e.target.value })} />
-                            <label className='style_textimportante' htmlFor="checkbox">Importante: </label>
-                            <input
-                                type="checkbox"
-                                id='checkbox'
-                                onChange={(e) => setNewlembrete({ ...newlembrete, ischecked: e.target.value })}
-                                checked={ischecked}
-                                className='style_checkbox'
-                                name='checkbox'
-                            />
-                            <select value={categoria} name="typelembrete" id="" className='style_typelembrete' onChange={(e) => setNewlembrete({ ...newlembrete, categoria: e.target.value })}>
-                                <option value="">Nenhum</option>
-                                <option value="trabalho">Trabalho</option>
-                                <option value="pessoal">Pessoal</option>
-                                <option value="acordarcedo">Acordar cedo</option>
-                                <option value="entrevistaemprego">Entrevista de emprego</option>
-                                <option value="corrida">Corrida</option>
-                                <option value="academia">Academia</option>
-                                <option value="nataçao">Natação</option>
-                            </select>
-                            <button id='pesquisarlembrete' className='stylebuttonlupa'>
-                                <img className='styleimglupa' src={imagemlupa} alt="" />
-                            </button>
-                        </form>
+                    <div className='container_listaafazeres'>
 
-                        <button id='Criarlembrete' className='stylebuttonadicao'>
-                            <img className='styleimgadição' src={Simboloadição} alt="" />
-                        </button>
-                    </div>
-                    <div className='container_limparlembrete'>
-                        <div>
-                            <button className='buttoncleanlembrete'>Limpar todos os lembretes</button>
+                        <div className='container_barradepesquisa'>
+
+                            <div>
+                                <button id='pesquisarlembrete' className='stylebuttonlupa'>
+
+                                    <img className='styleimglupa' src={imagemlupa} alt="" />
+
+                                </button>
+                            </div>
+
+                            <div style={{width: '80%'}}>
+
+                                <input placeholder='Pesquisar lembrete*' style={{width: '70%',height: '60%', marginTop: '9px' , backgroundColor: '#19191a', border: 'none'}} type="text" />
+
+                            </div>
+                            
+                            <div>
+
+                                <button onClick={handlenavigateCriarLembrete} id='Criarlembrete' className='stylebuttonadicao'>
+
+                                 <img className='styleimgadição' src={Simboloadição} alt="" />
+
+                                </button>
+
+                            </div>
+                            
                         </div>
-                        <div>
-                            <button className='buttoncleanlembrete2'>Limpar lembrete</button>
+
+                        <div className='container_limparlembrete'>
+
+                            <div>
+                                <button className='buttoncleanlembrete'>Limpar todos os lembretes</button>
+
+                            </div>
+
+                            <div>
+
+                                <button className='buttoncleanlembrete'>Limpar lembrete</button>
+
+                            </div>
                         </div>
-                    </div>
 
-                    {/* Renderizar lembretes */}
-                    <div className='lembretes-list'>
-                        {lembretes.map((lembrete) => (
-                            <div key={lembrete.id} className='lembrete_item'>
-                                <h3 className='style_nomelembrete'>Nome:    {lembrete.nomelembrete}</h3>
-                                <p className='style_categorialembrete'>Categoria: {lembrete.categoria}</p>
-                                <div className='style_importanteornot'>imp:{lembrete.importante ? <div className='checkedbox'><IoIosCheckbox /></div> : <div className='uncheckedbox'><MdIndeterminateCheckBox /></div>}</div>
-                                <div className='container_limpar'>
-                                    <div className='container_trash'>
-                                        <FaTrash className='style_button_trash' onClick={() => handletrash(lembrete.id)} />
-                                    </div>
+                        {/* Renderizar lembretes */}
+                        <div className='lembretes-list'>
 
-                                    <div className='container_edit'>
-                                        <FaEdit className='style_button_edit' onClick={() => handleedit(lembrete.id)} />
+                            {lembretes.map((lembrete) => (
+                                <div key={lembrete.id} className='lembrete_item'>
+                                    <h3 className='style_nomelembrete'>Nome:    {lembrete.nomelembrete}</h3>
+                                    <p className='style_categorialembrete'>Categoria: {lembrete.categoria}</p>
+                                    <div className='style_importanteornot'>imp:{lembrete.importante ? <div className='checkedbox'><IoIosCheckbox /></div> : <div className='uncheckedbox'><MdIndeterminateCheckBox /></div>}</div>
+                                    <div className='container_limpar'>
+                                        <div className='container_trash'>
+                                            <FaTrash className='style_button_trash' onClick={() => handletrash(lembrete.id)} />
+                                        </div>
+
+                                        <div className='container_edit'>
+                                            <FaEdit className='style_button_edit' onClick={() => handleedit(lembrete.id)} />
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        ))}
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>

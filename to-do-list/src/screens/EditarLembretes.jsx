@@ -86,10 +86,9 @@ function EditarLembretes() {
                 user_id: userid
 
             })
-
         });
 
-        console.log(body);
+            
 
         const data = await response.json();
 
