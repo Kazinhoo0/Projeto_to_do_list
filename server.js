@@ -171,7 +171,7 @@ app.post('/index/criarlembretes', (req, res) => {
   console.log('Dados do lembrete :', { nomelembrete, categoria, ischecked, user_id, vencimento, horavencimento, descricao });
 
 
-  const query = 'INSERT INTO lembretes_users (nomelembrete, categoria, ischecked, user_id, horavencimento, vencimento, descricao) VALUES (?, ?, ?, ?, ?, ? ,? )';
+  const query = 'INSERT INTO lembretesusers (nomelembrete, categoria, ischecked, user_id, horavencimento, vencimento, descricao) VALUES (?, ?, ?, ?, ?, ? ,? )';
 
   db.run(query, [nomelembrete, categoria, ischecked, user_id, horavencimento, vencimento, descricao],
     function (err) {
@@ -199,7 +199,7 @@ app.post('/gerenciarlembretes', (req, res) => {
   }
 
 
-  const query = `SELECT * FROM lembretes_users WHERE user_id = ?`;
+  const query = `SELECT * FROM lembretesusers WHERE user_id = ?`;
 
   db.all(query, [userid], function (err, rows) {
     if (err) {
