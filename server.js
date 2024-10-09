@@ -5,6 +5,8 @@ const app = express();
 const port = 5000;
 const bodyParser = require('body-parser')
 const cors = require('cors')
+const fs = require('fs');
+
 
 
 
@@ -30,14 +32,14 @@ db.run(
   `
 );
 
-db.run (
+db.run(
   `ALTER TABLE lembretes_users
   ADD COLUMN vencimento TEXT
   `
 );
 
-db.run (
- `ALTER TABLE lembretes_users
+db.run(
+  `ALTER TABLE lembretes_users
  ADD COLUMN horavencimento INTEGER
  `
 );
@@ -57,6 +59,16 @@ app.get('*', (req, res) => {
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+
+
+
+// rota para baixar o banco de dados
+app.get('/baixar-banco', (req, res) => {
+  const file = `${__dirname}/database.db`;
+  res.download(file);
+});
+
 
 
 app.post('/login', (req, res) => {
