@@ -26,23 +26,23 @@ const db = new sqlite3.Database('./database.db', (err) => {
   }
 });
 
-db.run(
-  `ALTER TABLE lembretes_users
-  ADD COLUMN descricao TEXT  
-  `
-);
+// db.run(
+//   `ALTER TABLE lembretes_users
+//   ADD COLUMN descricao TEXT  
+//   `
+// );
 
-db.run(
-  `ALTER TABLE lembretes_users
-  ADD COLUMN vencimento TEXT
-  `
-);
+// db.run(
+//   `ALTER TABLE lembretes_users
+//   ADD COLUMN vencimento TEXT
+//   `
+// );
 
-db.run(
-  `ALTER TABLE lembretes_users
- ADD COLUMN horavencimento INTEGER
- `
-);
+// db.run(
+//   `ALTER TABLE lembretes_users
+//  ADD COLUMN horavencimento INTEGER
+//  `
+// );
 
 
 
@@ -65,8 +65,8 @@ app.use(bodyParser.json());
 
 // rota para baixar o banco de dados
 app.get('/baixar-banco', (req, res) => {
-  const file = `${__dirname}/database.db`;
-  res.download(file);
+  const dbPath = path.join(__dirname, 'seu-banco-de-dados.db');
+    res.download(dbPath, 'seu-banco-de-dados.db') 
 });
 
 
