@@ -25,7 +25,7 @@ const Rotas = () => {
                 <Route Component={Index} path='/index'></Route>
                 <Route Component={Criarnovaconta} path="/criarconta"></Route>
                 <Route Component={CriarLembretes} path="/index/criarlembretes"></Route>
-                <Route Componente={EditarLembretes} path="/editarlembretes  "></Route>
+                <Route Component={EditarLembretes} path="/index/editarlembretes"></Route>
                 <Route Component={Settings} path="/settings" ></Route>
                 <Route Component={Confirmaremail} path="/confirmaremail"></Route>
                 <Route Component={Esquecisenha} path="/esquecisenha" > </Route>
