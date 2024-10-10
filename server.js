@@ -201,7 +201,7 @@ app.post('/index/deletelembrete', (req, res) => {
   console.log('Dados do lembrete :', { idlembrete, userid });
 
 
-const query =  `DELETE FROM lembretesusers WHERE id = ? AND user_id = ?`
+  const query = `DELETE FROM lembretesusers WHERE id = ? AND user_id = ?`
 
 
   db.run(query, [idlembrete, userid],
@@ -213,15 +213,15 @@ const query =  `DELETE FROM lembretesusers WHERE id = ? AND user_id = ?`
 
       if (this.changes > 0) {
         res.status(200).json({
-            success: true,
-            message: "Lembrete excluído com sucesso!"
+          success: true,
+          message: "Lembrete excluído com sucesso!"
         });
-    } else {
+      } else {
         res.status(404).json({ error: 'Lembrete não encontrado ou usuário incorreto' });
-    }
+      }
+    });
 });
-});
-      
+
 
 
 app.post('/index/editarlembretes', (req, res) => {
@@ -256,9 +256,41 @@ app.post('/index/editarlembretes', (req, res) => {
 });
 
 
+app.get('/index/searchbar', (req, res) => {
+  const { user_id, condicaopesquisa } = req.body;
+
+
+  // console.log(req.body)
+
+  if (!user_id, !condicaopesquisa) {
+    return res.status(400).json({ error: 'Todos os campos são obrigatórios' });
+  }
+
+  console.log('Dados do lembrete :', { user_id, condicaopesquisa });
+
+
+  const query = 'SELECT * FROM lembretesusers WHERE userid = ? AND nomelembrete LIKE = ?'
+
+  db.all(query, [user_id, condicaopesquisa],
+    function (err) {
+      if (err) {
+        console.log('Erro ao cadastrar novo lembrete:', err.message);
+        return res.status(500).json({ error: err.message });
+      }
+      res.status(201).json({
+        success: true,
+        id: this.lasID,
+        message: "item adicionado com sucesso",
+        rows: rows
+      })
+    }
+  )
+});
+
+
 
 app.post('/settings/editarlembretes', (req, res) => {
-  const { nome, sobrenome, email , username } = req.body;
+  const { nome, sobrenome, email, username } = req.body;
 
 
   if (!nome || !sobrenome || !email || !username) {
