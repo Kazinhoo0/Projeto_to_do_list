@@ -2,7 +2,7 @@ import ImagemCalendario from '../imagens/agendamento.png';
 import ImagemGithub from '../imagens/icons8-github-30.png';
 import ImagemLinkedin from '../imagens/Linked_img.png';
 import ImagemPortifólio from '../imagens/Portifólio_img.png';
-import Inputs_CriarNovaConta from '../functionsfrontend/Inputs_CriarNovaConta';
+import Inputs_CriarNovaConta from '../components/Inputs_CriarNovaConta';
 import { useState } from 'react';
 import '..//App.css'
 import { useNavigate } from "react-router-dom";
@@ -10,11 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 function CriarNovaConta() {
 
-    const [nome, setNome] = useState('');
-    const [sobrenome, setSobrenome] = useState('');
-    const [senha, setSenha] = useState('');
-    const [email, setEmail] = useState('');
-    const [username, setUsername] = useState('');
+
     const navigate = useNavigate();
 
 

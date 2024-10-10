@@ -17,7 +17,7 @@ function To_Do_List() {
   const navigate = useNavigate('')
   const [email, setEmail] = useState('')
   const [senha, setSenha] = useState('')
-  
+
 
 
   // Esta variável navega para a página criarconta
@@ -40,7 +40,7 @@ function To_Do_List() {
     const response = await fetch('https://projeto-to-do-list-2.onrender.com/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email})
+      body: JSON.stringify({ email })
 
     });
 
@@ -97,18 +97,23 @@ function To_Do_List() {
       </head>
       <body>
         <div className='container'>
+
           <div className='cabecalhostyle'>
             <h1>TO-DO-LIST</h1>
             <img className='Imgstyle_criarconta' src={ImagemCalendario} alt="" />
           </div>
-          <div>
-            <div className='containerinputlogin'>
-              <div className='containerfaçalogin'>
+
+          <div className='container_principallogin' >
+
+            <div className='container_inputsforlogin'>
+
+              <div className='container_tittlefacalogin'>
                 <h3>Faça Login</h3>
               </div>
-              <div className='styleborderinput'>
+
+              <div className='container_princinputslogin'>
                 <form>
-                  <div className='containerinputmargin ' >
+                  <div className='containerinputmargin'>
                     <input
                       type="email"
                       name='email'
@@ -117,8 +122,7 @@ function To_Do_List() {
                       onChange={(e) => setEmail(e.target.value)}
                       value={email}
                     />
-                  </div>
-                  <div className='containerinputmargin '>
+
                     <input
                       placeholder='Insira sua senha*'
                       type='password'
@@ -126,23 +130,28 @@ function To_Do_List() {
                       className='styleinputs'
                       onChange={(e) => setSenha(e.target.value)}
                       value={senha} />
-                  </div>
-                  <div className='containerbuttonentrar11'>
-                    <button onClick={handleenteraccount} className='buttonentrarstyle' >Entrar</button>
+
+                    <button onClick={handleenteraccount} className='style_buttonentrarpaglogin' >Entrar</button>
+
                   </div>
 
                 </form>
-              </div>
-              <div className='container_esquecisenha_criarconta' >
-                <div>
-                  <a onClick={navigateesquecisenha} className='style_esquecisenha'>esqueceu sua senha?</a>
+                <div className='container_esquecisenha_criarconta_paglogin' >
+
+                  <a onClick={navigateesquecisenha} className='style_esquecisenhaandcriarconta'>esqueceu sua senha?</a>
+
+                  <a onClick={handlenavigate} className='style_esquecisenhaandcriarconta'>criar conta</a>
+
                 </div>
-                <div>
-                  <a onClick={handlenavigate} className='style_criarconta'>criar conta</a>
-                </div>
               </div>
+
+
+
+
             </div>
           </div>
+
+
           <div className='containerbuttonsstyle' >
             {<button id="popupid" className="buttonstyle" onClick={() => { window.open("https://kaualopesmonteiro.netlify.app/") }} type="button"><img className='popupsstyle' src={ImagemPortifólio} alt="" /></button>}
 
@@ -159,7 +168,7 @@ function To_Do_List() {
       </body>
 
 
-    </html>
+    </html >
   );
 }
 

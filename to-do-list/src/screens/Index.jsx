@@ -114,7 +114,7 @@ function Index() {
 
                 if (data.success) {
                     setDadosLembretes(data.items); // Armazena os itens no estado
-                    localStorage.setItem('idlembrete' , data.id)
+                    localStorage.setItem('idlembrete', data.id)
                 } else {
                     console.log('Nenhum item encontrado');
                 }
@@ -141,35 +141,35 @@ function Index() {
             return
         }
 
-            const response = await fetch('https://projeto-to-do-list-2.onrender.com/index/deletelembrete', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ idlembrete, userid })
+        const response = await fetch('https://projeto-to-do-list-2.onrender.com/index/deletelembrete', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ idlembrete, userid })
 
-            });
+        });
 
-            const data = await response.json();
-            console.log('Dados recebidos:', data);
+        const data = await response.json();
+        console.log('Dados recebidos:', data);
 
-            if (data.success) {
-                Toastify({
-                    text: 'Lembrete excluido!',
-                    position: 'center',
-                    style: {
-                      background: '#db2d0e',
-                      color: '#ffffff',
-                      width: '250px',
-                      height: '150px'
-                    }
-                  }).showToast();
+        if (data.success) {
+            Toastify({
+                text: 'Lembrete excluido!',
+                position: 'center',
+                style: {
+                    background: '#db2d0e',
+                    color: '#ffffff',
+                    width: '250px',
+                    height: '150px'
+                }
+            }).showToast();
 
 
-                  setDadosLembretes((prevLembretes) =>
-                    prevLembretes.filter(lembrete => lembrete.id !== parseInt(idlembrete))
-                )
-            } else {
-                console.log('Nenhum item encontrado');
-            }
+            setDadosLembretes((prevLembretes) =>
+                prevLembretes.filter(lembrete => lembrete.id !== parseInt(idlembrete))
+            )
+        } else {
+            console.log('Nenhum item encontrado');
+        }
 
     };
 
@@ -272,26 +272,28 @@ function Index() {
                         <div className='lembretes-list'>
 
 
-
-                        
-                            <div  className='lembrete_item'>
-                                <h3 className='container_alllembretes'>Nome: </h3>
-                                <p className='container_alllembretes'>Categoria:</p>
-                                <div className='container_alllembretes  '>imp: <div className='checkedbox'><IoIosCheckbox /></div><div className='uncheckedbox'><MdIndeterminateCheckBox /></div></div>
-                                <div className='container_alllembretes'>
-                                    Vencimento:
-                                </div>
-                                <div className='container_limpar'>
-                                    <div className='container_trash'>
-                                        <FaTrash  className='style_button_trash' />
+                            {lembretes.map((lembrete, index) => (
+                                <div key={index} className='lembrete_item'>
+                                    <h3 className='container_alllembretes'>Nome:{lembrete.nomelembrete} </h3>
+                                    <p className='container_alllembretes'>Categoria:{lembrete.categoria}</p>
+                                    <div className='container_alllembretes  '>imp:{lembrete.ischecked} <div className='checkedbox'><IoIosCheckbox /></div><div className='uncheckedbox'><MdIndeterminateCheckBox /></div></div>
+                                    <div className='container_alllembretes'>
+                                        Vencimento:{lembrete.vencimento}
                                     </div>
 
-                                    <div className='container_edit'>
-                                        <FaEdit onClick={handlenavigateeditarlembrete} className='style_button_edit' />
+
+                                    <div className='container_limpar'>
+                                        <div className='container_trash'>
+                                            <FaTrash className='style_button_trash' />
+                                        </div>
+
+                                        <div className='container_edit'>
+                                            <FaEdit onClick={handlenavigateeditarlembrete} className='style_button_edit' />
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                          
+                            ),)
+                            }
 
                         </div>
                     </div>

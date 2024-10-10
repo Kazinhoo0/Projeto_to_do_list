@@ -5,6 +5,7 @@ import ExitImage from '../imagens/logout.png';
 import ImagemUser from '../imagens/user.png';
 import ImagemCalendario from '../imagens/agendamento.png';
 import Imagemseta from '../imagens/seta-para-baixo.png';
+import Toastify from 'toastify-js';
 
 function Settings() {
 

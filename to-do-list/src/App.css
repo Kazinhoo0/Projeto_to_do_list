@@ -44,7 +44,6 @@ h1 {
   /* border: 1px solid rgb(155, 59, 59); */
   background-color: #0f1011;
   border-radius: 8px;
-
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -53,13 +52,13 @@ h1 {
 
 }
 
-.buttonentrarstyle {
+/* .buttonentrarstyle {
   border-radius: 30px;
   width: 70px;
   height: 30px;
   background-color: yellow;
   color: rgb(0, 0, 0);
-}
+} */
 
 .containerbuttonentrar {
   margin-top: 40px;
@@ -82,12 +81,6 @@ h1 {
   margin-left: 710px;
   background-color: #1c1d20;
   border-radius: 10px;
-
-}
-
-.containerinputmargin {
-  padding-top: 50px;
-  align-items: center;
 
 }
 
@@ -165,9 +158,6 @@ h1 {
 .Imgstyle_criarconta {
   width: 45px;
   margin-top: 20px;
-  position: absolute;
-  right: 40.8%;
-  top: 10.5%;
 }
 
 .cabecalhostyle {
@@ -186,35 +176,48 @@ h1 {
 }
 
 .buttonentrarstyle {
-  border: 1px solid black;
+  border: 1px solid rgb(252, 0, 0);
   border-radius: 5px;
-  width: 300px;
+  width: 450px;
   height: 30px;
-  position: absolute;
-  bottom: 23%;
   background-color: yellow;
   color: rgb(0, 0, 0);
   cursor: pointer;
 }
 
-.containerbuttonentrar11 {
-  position: absolute;
-  top: 63%;
-  left: 43.2%;
-
+.style_buttonentrarpaglogin {
+  border: none;
+  border-radius: 5px;
+  background-color: yellow;
+  width: 305px;
+  height: 30px;
+  margin-left: 11px;
+  margin-top: 20px;
+  cursor: pointer;
 }
 
-.containerfaçalogin {
+.containerbuttonentrarpglogin {
+  border: 1px solid red;
+  height: 50px;
+  width: 300px;
+}
+
+.container_tittlefacalogin {
+  /* border: 1px solid red; */
   text-align: center;
   font-size: larger;
-  margin: 50px;
+  margin-top: 10px;
   padding: 10px;
   color: white;
 }
 
-.containerinputlogin {
+.container_inputsforlogin {
+  border: 1px solid rgba(173, 161, 161, 0.336);
   width: 500px;
   height: 500px;
+  align-content: center;
+  justify-content: center;
+
   text-align: center;
   margin-left: 720px;
   background-color: #1c1d20;
@@ -222,10 +225,17 @@ h1 {
 
 }
 
-.containerinputmargin {
-  padding-top: 50px;
-  align-items: center;
+.container_principallogin {
+  /* border: 1px solid rgb(41, 6, 197); */
+}
 
+.containerinputmargin {
+  /* border: 1px solid green; */
+  height: 250px;
+  padding-bottom: 2px;
+  justify-content: center;
+  align-content: center;
+  display: grid;
 }
 
 .container {
@@ -240,13 +250,16 @@ h1 {
 }
 
 
-.styleborderinput {
+.container_princinputslogin {
   width: 450px;
-  height: 300px;
+  height: 350px;
+  justify-content: center;
+  align-content: center;
+  margin-bottom: 50px;
   border-radius: 10px;
   background-color: #2f3136;
   margin-left: 25px;
-  /* border: 1px solid red; */
+  /* border: 1px solid rgb(105, 11, 255); */
 }
 
 
@@ -256,6 +269,8 @@ h1 {
   background-color: #282c34;
   color: white;
   margin-left: 10px;
+  padding: 3px;
+  margin-top: 20px;
   width: 300px;
   height: 20px;
 }
@@ -276,25 +291,27 @@ h1 {
 
 
 .container_esquecisenha_criarconta {
+  /* border: 1px solid rgb(0, 225, 255); */
   width: 500px;
   height: 50px;
   display: flex;
   margin-top: 5px;
 }
 
-
-.style_esquecisenha {
-  cursor: pointer;
-  position: absolute;
-  left: 36.5%;
-  font-size: 0.75em;
+.container_esquecisenha_criarconta_paglogin {
+  /* border: 1px solid rgb(0, 225, 255); */
+  width: 440px;
+  justify-content: space-between;
+  align-content: space-between;
+  display: flex;
+  margin-top: 5px;
 }
 
-.style_criarconta {
-  position: absolute;
-  right: 39%;
-  font-size: 0.75em;
+.style_esquecisenhaandcriarconta {
   cursor: pointer;
+  font-size: 0.75em;
+  /* border: 1px solid red; */
+  margin-right: 50px;
 }
 
 
@@ -1453,6 +1470,8 @@ a {
 
 
 
+
+
 /* smartphones */
 
 @media (max-width: 500px) and (max-height: 896px) {
@@ -2180,6 +2199,70 @@ a {
   height: 30px;
 }
 
+
+
+
+/*  PAGINA CRIAR CONTA CSS  */
+
+
+
+
+
+.containerinputmargin {
+  align-items: center;
+  margin-top: -25px;
+
+}
+
+.stylelabel {
+  color: yellow;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: small;
+  font-size: 15px;
+}
+
+.styleinputss {
+  border: 1px solid rgb(77, 74, 74);
+  border-radius: 5px;
+  background-color: #282c34;
+  color: white;
+  width: 300px;
+  height: 20px;
+}
+
+.container_inputs_pagcriarconta {
+  /* border: 1px solid  red; */
+  width: 100%;
+  height: 100%;
+  margin-top: 50px;
+}
+
+.button_entrarstylee {
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 305px;
+  height: 30px;
+  background-color: yellow;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+}
+
+.containerbuttoncriarconta {
+  position: absolute;
+  top: 105%;
+  right: 42%;
+
+}
+
+
+
+
+
+
+
+
+
+
 /* smartphones */
 
 @media (width: 414px) and (height: 896px) {
@@ -2321,7 +2404,7 @@ h1 {
 
 }
 
-.containerinputmargin {
+.containerinputmargin_pagcriarnovaconta {
   align-items: center;
 
 }
