@@ -253,7 +253,22 @@ app.post('/index/editarlembretes', (req, res) => {
       })
     }
   )
+});
+
+
+
+app.post('/settings/editarlembretes', (req, res) => {
+  const { nome, sobrenome, email , username } = req.body;
+
+
+  if (!nome || !sobrenome || !email || !username) {
+    console.log('O usuario provavelmente não tem dados')
+  }
+
+
+  const query = ``;
 })
+
 
 
 app.post('/gerenciarlembretes', (req, res) => {

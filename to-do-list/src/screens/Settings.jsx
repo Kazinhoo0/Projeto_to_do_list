@@ -85,6 +85,59 @@ function Settings() {
         }));
     };
 
+    const  fetcheditarperfil = async (e) => {
+        e.preventDefault();
+
+        console.log('dados recebidos', userdata.nome, userdata.sobrenome, userdata.email, userdata.username)
+
+
+        const response = await fetch('projeto-to-do-list-2.onrender.com/settings/editarlembretes', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ 
+                nome: userdata.nome,
+                sobrenome: userdata.sobrenome,
+                email: userdata.email,
+                username: userdata.username 
+            })
+
+        })
+
+        const data = await response.json();
+          
+        if (data.sucess) {
+
+
+            Toastify({
+                text: 'Alterações salvas!',
+                position: 'center',
+                style: {
+                    background: '#33ff00',
+                    color: '#ffffff',
+                    width: '250px',
+                    height: '150px'
+                }
+            }).showToast();
+
+        } else {
+
+            Toastify({
+                text: 'Falha ao salvar as alteracões!',
+                position: 'center',
+                style: {
+                    background: '#db2d0e',
+                    color: '#ffffff',
+                    width: '250px',
+                    height: '150px'
+                }
+            }).showToast();
+        }
+
+
+    } 
+        
+    
+
     return (
         <div className="container" >
 
@@ -152,7 +205,7 @@ function Settings() {
 
                             <input style={{cursor: 'pointer'}} type="file" />
 
-                            <button className='style_button_pagesettings'>SALVAR</button>
+                            <button onClick={fetcheditarperfil} className='style_button_pagesettings'>SALVAR</button>
 
                         </div>
 
