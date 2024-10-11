@@ -272,7 +272,7 @@ app.get('/index/searchbar', (req, res) => {
 
   const query = 'SELECT * FROM lembretesusers WHERE userid = ? AND nomelembrete LIKE = ?'
 
-  db.all(query, [user_id, condicaopesquisa],
+  db.all(query, [user_id,  `%${condicaopesquisa}}%`],
     function (err) {
       if (err) {
         console.log('Erro ao cadastrar novo lembrete:', err.message);
