@@ -198,7 +198,7 @@ app.post('/index/deletelembrete', (req, res) => {
     return res.status(400).json({ error: 'Campo não preenchido ou lembrete não encontrado' });
   }
 
-  console.log('Dados do lembrete :', { idlembrete, userid });
+  console.log('Dados excluidos :', { idlembrete, userid });
 
 
   const query = `DELETE FROM lembretesusers WHERE id = ? AND user_id = ?`

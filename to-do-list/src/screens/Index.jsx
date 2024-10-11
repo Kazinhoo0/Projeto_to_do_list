@@ -33,13 +33,15 @@ function Index() {
     // const [username, setUsername] = useState('');
     // const [user_id, setUserid] = useState('');
     const [userdata, setUserdata] = useState('');
-    const [loading, setLoading] = useState('')
+    const [loading, setLoading] = useState('');
+    const [condicaopesquisa, setCondicaoPesquisa] = useState('');
 
     const [newlembrete, setNewlembrete] = useState({
 
         nomelembrete: '',
         ichecked: '',
         categoria: '',
+        
 
 
     })
@@ -82,8 +84,9 @@ function Index() {
         navigate('/settings');
     }
     //                                                                        //  
-
-
+    
+    condicaopesquisa(localStorage.setItem('condicaopesquisa'))
+    console.log(condicaopesquisa)
 
 
     useEffect(() => {
@@ -149,7 +152,7 @@ function Index() {
         });
 
         const data = await response.json();
-        console.log('Dados recebidos:', data);
+        console.log('Dados excluídos:', data);
 
         if (data.success) {
             Toastify({
@@ -172,6 +175,44 @@ function Index() {
         }
 
     };
+
+
+
+
+    const fetchsearchbar = async () => {
+        const userid = localStorage.getItem('id')
+        const condicaopesquisa = localStorage.getItem('condicaopesquisa')
+
+
+        if (!userid) {
+            console.log("nenhum lembrete selecionado")
+            return
+        }
+
+        const response = await fetch('https://projeto-to-do-list-2.onrender.com/index/searchbar', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ condicaopesquisa, userid })
+
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+
+            console.log('pesquisa executada');
+
+            console.log('pesquisa recebida:',data);
+
+
+        } else {
+            console.log('Não foi possivel pesquisar este item');
+        }
+
+    };
+
+
+
 
     return (
         <>
@@ -231,14 +272,19 @@ function Index() {
                             <div>
                                 <button id='pesquisarlembrete' className='stylebuttonlupa'>
 
-                                    <img className='styleimglupa' src={imagemlupa} alt="" />
+                                    <img onClick={fetchsearchbar} className='styleimglupa' src={imagemlupa} alt="" />
 
                                 </button>
                             </div>
 
                             <div style={{ width: '80%' }}>
 
-                                <input placeholder='Pesquisar lembrete*' style={{ color: 'white', width: '100%', height: '60%', marginTop: '9px', backgroundColor: '#19191a', border: 'none' }} type="text" />
+                                <input 
+                                placeholder='Pesquisar lembrete*' 
+                                style={{ color: 'white', width: '100%', height: '60%', marginTop: '9px', backgroundColor: '#19191a', border: 'none' }} 
+                                type="text"
+                                onChange={(e) => setCondicaoPesquisa(e.target.value)}
+                                 />
 
                             </div>
 
