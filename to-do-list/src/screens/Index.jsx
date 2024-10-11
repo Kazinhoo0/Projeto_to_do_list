@@ -85,7 +85,7 @@ function Index() {
     }
     //                                                                        //  
     
-    condicaopesquisa(localStorage.setItem('condicaopesquisa'))
+    (localStorage.setItem(condicaopesquisa,'condicaopesquisa'))
     console.log(condicaopesquisa)
 
 
