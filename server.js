@@ -235,7 +235,7 @@ app.post('/index/editarlembretes', (req, res) => {
     return res.status(400).json({ error: 'Todos os campos são obrigatórios' });
   }
 
-  console.log('Dados do lembrete :', { nomelembrete, categoria, ischecked, user_id, vencimento, horavencimento, descricao });
+  console.log('Dados trocados :', { nomelembrete, categoria, ischecked, user_id, vencimento, horavencimento, descricao });
 
 
   const query = 'INSERT INTO lembretesusers (nomelembrete, categoria, ischecked, user_id, horavencimento, vencimento, descricao) VALUES (?, ?, ?, ?, ?, ? ,? )';
@@ -253,7 +253,7 @@ app.post('/index/editarlembretes', (req, res) => {
       })
     }
   )
-});
+})
 
 
 app.get('/index/searchbar', (req, res) => {
@@ -290,7 +290,7 @@ app.get('/index/searchbar', (req, res) => {
 
 
 
-app.post('/settings/editarlembretes', (req, res) => {
+app.post('/settings/editarperfil', (req, res) => {
   const { nome, sobrenome, email, username } = req.body;
 
 
