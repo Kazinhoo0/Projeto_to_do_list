@@ -284,7 +284,7 @@ function Index() {
 
                                     <div className='container_limpar'>
                                         <div className='container_trash'>
-                                            <FaTrash onClick={fetchdeletelembrete} className='style_button_trash' />
+                                            <FaTrash onClick={() => fetchdeletelembrete(lembrete.id)} className='style_button_trash' />
                                         </div>
 
                                         <div className='container_edit'>

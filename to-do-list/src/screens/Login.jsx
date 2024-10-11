@@ -88,68 +88,60 @@ function To_Do_List() {
 
 
   return (
+      <div className='container'>
 
-    <html lang="pt-br">
-      <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-      </head>
-      <body>
-        <div className='container'>
+        <div className='cabecalhostyle'>
+          <h1>TO-DO-LIST</h1>
+          <img className='Imgstyle_criarconta' src={ImagemCalendario} alt="" />
+        </div>
 
-          <div className='cabecalhostyle'>
-            <h1>TO-DO-LIST</h1>
-            <img className='Imgstyle_criarconta' src={ImagemCalendario} alt="" />
-          </div>
+        <div className='container_principallogin' >
 
-          <div className='container_principallogin' >
+          <div className='container_inputsforlogin'>
 
-            <div className='container_inputsforlogin'>
+            <div className='container_tittlefacalogin'>
+              <h3>Faça Login</h3>
+            </div>
 
-              <div className='container_tittlefacalogin'>
-                <h3>Faça Login</h3>
-              </div>
+            <div className='container_princinputslogin'>
+              <form>
+                <div className='containerinputmargin'>
+                  <input
+                    type="email"
+                    name='email'
+                    placeholder='Insira seu email*'
+                    className='styleinputs'
+                    onChange={(e) => setEmail(e.target.value)}
+                    value={email}
+                  />
 
-              <div className='container_princinputslogin'>
-                <form>
-                  <div className='containerinputmargin'>
-                    <input
-                      type="email"
-                      name='email'
-                      placeholder='Insira seu email*'
-                      className='styleinputs'
-                      onChange={(e) => setEmail(e.target.value)}
-                      value={email}
-                    />
+                  <input
+                    placeholder='Insira sua senha*'
+                    type='password'
+                    name='senha'
+                    className='styleinputs'
+                    onChange={(e) => setSenha(e.target.value)}
+                    value={senha} />
 
-                    <input
-                      placeholder='Insira sua senha*'
-                      type='password'
-                      name='senha'
-                      className='styleinputs'
-                      onChange={(e) => setSenha(e.target.value)}
-                      value={senha} />
-
-                    <button onClick={handleenteraccount} className='style_buttonentrarpaglogin' >Entrar</button>
-
-                  </div>
-
-                </form>
-                <div className='container_esquecisenha_criarconta_paglogin' >
-
-                  <a onClick={navigateesquecisenha} className='style_esquecisenhaandcriarconta'>esqueceu sua senha?</a>
-
-                  <a onClick={handlenavigate} className='style_esquecisenhaandcriarconta'>criar conta</a>
+                  <button onClick={handleenteraccount} className='style_buttonentrarpaglogin' >Entrar</button>
 
                 </div>
+
+              </form>
+              <div className='container_esquecisenha_criarconta_paglogin' >
+
+                <a onClick={navigateesquecisenha} className='style_esquecisenhaandcriarconta'>esqueceu sua senha?</a>
+
+                <a onClick={handlenavigate} className='style_esquecisenhaandcriarconta'>criar conta</a>
+
               </div>
-
-
-
-
             </div>
+
+
+
+
           </div>
+        </div>
 
 
           <div className='containerbuttonsstyle' >
@@ -165,10 +157,6 @@ function To_Do_List() {
           </div>
 
         </div>
-      </body>
-
-
-    </html >
   );
 }
 
