@@ -257,7 +257,8 @@ app.post('/index/editarlembretes', (req, res) => {
 
 
 app.get('/index/searchbar', (req, res) => {
-  const { user_id, condicaopesquisa } = req.body;
+  const user_id = req.query.userid;
+  const condicaopesquisa = req.query.search || '';
 
 
   // console.log(req.body)

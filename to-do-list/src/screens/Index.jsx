@@ -35,6 +35,7 @@ function Index() {
     const [userdata, setUserdata] = useState('');
     const [loading, setLoading] = useState('');
     const [condicaopesquisa, setCondicaoPesquisa] = useState('');
+    const userid = localStorage.getItem('id');
 
     const [newlembrete, setNewlembrete] = useState({
 
@@ -180,7 +181,7 @@ function Index() {
 
 
     const fetchsearchbar = async () => {
-        const userid = localStorage.getItem('id')
+
         const condicaopesquisa = localStorage.getItem('condicaopesquisa')
 
 
@@ -192,10 +193,11 @@ function Index() {
         const response = await fetch('https://projeto-to-do-list-2.onrender.com/index/searchbar', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ condicaopesquisa, userid })
+            body: JSON.stringify({ userid ,condicaopesquisa })
+        
+        }, [condicaopesquisa, userid]);
 
-        });
-
+        setDadosLembretes(data)
         const data = await response.json();
 
         if (data.success) {
@@ -209,6 +211,7 @@ function Index() {
             console.log('Não foi possivel pesquisar este item');
         }
 
+        
     };
 
 
