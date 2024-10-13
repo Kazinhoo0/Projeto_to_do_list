@@ -41,6 +41,7 @@ function Settings() {
         });
 
         setUserdata(Storeddata)
+        setNewData(Storeddata)
 
     }, []);
 
@@ -227,15 +228,15 @@ function Settings() {
                         <ul>
                             <small style={{ color: 'white', marginLeft: '10px' }}>Nome: </small>
 
-                                <li  style={{ paddingBottom: '60px', listStyleType: 'none' }} ><input onChange={(e) => setNewData({...newdata, nome: e.target.value})} className='style_list_inputs_pagesettings' value={userdata.nome + userdata.sobrenome} name='nomecompleto' type="text" /> </li>
+                                <li  style={{ paddingBottom: '60px', listStyleType: 'none' }} ><input onChange={(e) => setNewData({...newdata, nome: e.target.value})} className='style_list_inputs_pagesettings' value={newdata.nome + userdata.sobrenome} name='nomecompleto' type="text" /> </li>
 
                             <small style={{ color: 'white', marginLeft: '10px' }}>Email: </small>
 
-                                <li  style={{ paddingBottom: '60px', listStyleType: 'none' }} ><input onChange={(e) => setNewData ({...newdata, email: e.target.value})} className='style_list_inputs_pagesettings' value={userdata.email} name='email' type="email" /> </li>
+                                <li  style={{ paddingBottom: '60px', listStyleType: 'none' }} ><input onChange={(e) => setNewData ({...newdata, email: e.target.value})} className='style_list_inputs_pagesettings' value={newdata.email} name='email' type="email" /> </li>
 
                             <small style={{ color: 'white', marginLeft: '10px' }}>Username: </small>
 
-                                 <li  style={{ paddingBottom: '60px', listStyleType: 'none' }} ><input onChange={(e) => setNewData ({...newdata, username: e.target.value})} className='style_list_inputs_pagesettings' value={userdata.username} name='username' type="text" /> </li>
+                                 <li  style={{ paddingBottom: '60px', listStyleType: 'none' }} ><input onChange={(e) => setNewData ({...newdata, username: e.target.value})} className='style_list_inputs_pagesettings' value={newdata.username} name='username' type="text" /> </li>
 
                             {/* <small style={{ color: 'white', marginLeft: '10px' }}>Senha: </small>
 
