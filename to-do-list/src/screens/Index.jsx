@@ -35,7 +35,6 @@ function Index() {
     const [userdata, setUserdata] = useState('');
     const [loading, setLoading] = useState('');
     const [condicaopesquisa, setCondicaoPesquisa] = useState('');
-    const userid = localStorage.getItem('id');
 
     const [newlembrete, setNewlembrete] = useState({
 
@@ -180,16 +179,18 @@ function Index() {
 
 
 
+
     const fetchsearchbar = async () => {
-        const userid= localStorage.getItem('userid');
+        const userid = localStorage.getItem('id');
         const condicaopesquisa = localStorage.getItem('condicaopesquisa');
 
+
+        console.log('user id: ',userid)
 
         if (!userid) {
             console.log("nenhum lembrete selecionado")
             return
         };
-
 
         try {
 
@@ -215,8 +216,10 @@ function Index() {
         } catch (error) {
             console.error('Erro ao fazer a busca:' , error);
         }
-        
-    };
+
+    }
+
+
 
 
 
