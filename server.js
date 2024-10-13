@@ -257,8 +257,7 @@ app.post('/index/editarlembretes', (req, res) => {
 
 
 app.post('/index/searchbar', (req, res) => {
-  const userid = req.query.userid;
-  const condicaopesquisa = req.query.search || '';
+  const {userid, condicaopesquisa} = req.body
 
 
   // console.log(req.body)
@@ -272,18 +271,25 @@ app.post('/index/searchbar', (req, res) => {
 
   const query = 'SELECT * FROM lembretesusers WHERE userid = ? AND nomelembrete LIKE ?'
 
-  db.all(query, [userid,  `%${condicaopesquisa}}%`],
+  db.all(query, [userid,  `%${condicaopesquisa}%`],
     function (err) {
       if (err) {
         console.log('Erro ao cadastrar novo lembrete:', err.message);
         return res.status(500).json({ error: err.message });
       }
-      res.status(200).json({
-        success: true,
-        id: this.lasID,
-        message: "item adicionado com sucesso",
-        rows: rows
-      })
+      if (rows.length > 0) {
+        res.status(200).json({
+          success: true,
+          id: this.lasID,
+          message: "item adicionado com sucesso",
+          rows: rows
+        })
+      } else {
+        res.status(400).json({
+          success: false,
+          message: 'Não foi encontrado nenhum item'
+        })
+      }
     }
   )
 });
