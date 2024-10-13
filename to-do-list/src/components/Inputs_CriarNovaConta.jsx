@@ -12,6 +12,7 @@ function Inputs_CriarNovaConta() {
     const navigate = useNavigate();
 
     async function cadastrarUsuario() {
+
         const response = await fetch('https://projeto-to-do-list-2.onrender.com/criarconta', {
             method: 'POST',
             headers: {
@@ -19,6 +20,21 @@ function Inputs_CriarNovaConta() {
             },
             body: JSON.stringify({ nome, sobrenome, email, username, senha })
         });
+
+
+        if (!nome || !sobrenome || !email || !senha || !username) {
+            Toastify({
+                text: 'Porfavor preencha todos os campos!',
+                position: 'center',
+                style: {
+                    background: '#db2d0e',
+                    color: '#ffffff',
+                    width: '250px',
+                    height: '150px'
+                }
+            }).showToast();
+        }
+        
 
         if (response.ok) {
 

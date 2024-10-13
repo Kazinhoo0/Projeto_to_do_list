@@ -46,13 +46,26 @@ function To_Do_List() {
 
     const data = await response.json();
 
+    if(!email || !senha) {
+      Toastify({
+        text: 'Porfavor preencha todos os campos!',
+        position: 'center',
+        style: {
+            background: '#db2d0e',
+            color: '#ffffff',
+            width: '250px',
+            height: '150px'
+        }
+    }).showToast();
+    }
+
     console.log(data)
 
 
     if (data.success) {
       localStorage.setItem('token', data.token);
       localStorage.setItem('username', data.username);
-      localStorage.setItem('id', data.id);
+      localStorage.setItem('id_usuario', data.id);
 
       console.log(data.username)
 

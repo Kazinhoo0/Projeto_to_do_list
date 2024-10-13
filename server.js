@@ -311,7 +311,7 @@ app.post('/index/settings/editarperfil', (req, res) => {
 
 
   const query = `UPDATE usuarios
-                SET username = ? ,email = ? , nome = ?
+                SET username = ? , email = ? , nome = ?
                 WHERE id = ?`;
 
   db.run(query, [username, email , nome, id ], function (err, rows) {

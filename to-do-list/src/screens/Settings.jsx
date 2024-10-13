@@ -47,16 +47,22 @@ function Settings() {
 
 
 
+    useEffect(() => {
+        const userid = localStorage.getItem('id');
 
+        setNewData({
+            userid: userid || ''
+        })
+    })
 
 
     const handleeditarperfil = async (e) => {
         e.preventDefault();
 
-        const id = localStorage.getItem('id');
+      
 
         // console.log('Valores:', newlembrete.nomelembrete,newlembrete.categoria,newlembrete.ischecked, userid, newlembrete.horavencimento, newlembrete.vencimento, newlembrete.descricao );
-        if(!id || !newdata.nome || !newdata.email || !newdata.username) {
+        if(!newdata.userid || !newdata.nome || !newdata.email || !newdata.username) {
             Toastify({
                 text: 'Porfavor preencha todos os campos!',
                 position: 'center',
@@ -75,7 +81,7 @@ function Settings() {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                id, 
+                id: newdata.userid,
                 nome:newdata.nome,
                 username: newdata.username,
                 email: newdata.email
