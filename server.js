@@ -299,29 +299,29 @@ app.post('/index/searchbar', (req, res) => {
 
 
 app.post('/index/settings/editarperfil', (req, res) => {
-  const { id, username, nome, email  } = req.body;
+  const { userid, username, nome, email  } = req.body;
 
 
-  if (!id) {
+  if (!userid) {
     return res.status(400).json({ message: 'id do usuário é obrigatório' })
 
   }
 
-  console.log('dados recebidos pelo backend', body)
+  console.log('dados recebidos pelo backend', req.body)
 
 
   const query = `UPDATE usuarios
                 SET username = ? , email = ? , nome = ?
                 WHERE id = ?`;
 
-  db.run(query, [username, email , nome, id ], function (err, rows) {
+  db.run(query, [username, email , nome, userid ], function (err, rows) {
     if (err) {
       console.error('Erro ao consultar o banco de dados:', err.message);
       return res.status(500).json({ error: err.message });
     }
 
     // Se houver itens no banco, retorna-os
-    if (rows.length > 0) {
+    if (this.changes > 0) {
       res.status(200).json({
         success: true,
         message: 'Alterações executadas com sucesso!',

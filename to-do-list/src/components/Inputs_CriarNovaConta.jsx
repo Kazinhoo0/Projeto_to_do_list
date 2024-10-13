@@ -33,8 +33,9 @@ function Inputs_CriarNovaConta() {
                     height: '150px'
                 }
             }).showToast();
+            return
         }
-        
+
 
         if (response.ok) {
 

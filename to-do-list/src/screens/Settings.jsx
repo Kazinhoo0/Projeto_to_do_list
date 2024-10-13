@@ -67,8 +67,16 @@ function Settings() {
                     height: '150px'
                 }
             }).showToast();
+            return
 
         }
+
+        console.log({
+            userid, 
+            nome: newdata.nome,
+            username: newdata.username,
+            email: newdata.email
+        });
 
         const response = await fetch('https://projeto-to-do-list-2.onrender.com/index/settings/editarperfil', {
 
