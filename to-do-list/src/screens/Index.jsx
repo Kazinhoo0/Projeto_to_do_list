@@ -178,8 +178,6 @@ function Index() {
 
 
 
-
-
     const fetchsearchbar = async () => {
         const userid = localStorage.getItem('id');
         const condicaopesquisa = localStorage.getItem('condicaopesquisa');
@@ -189,6 +187,16 @@ function Index() {
 
         if (!userid) {
             console.log("nenhum lembrete selecionado")
+            Toastify({
+                text: 'Porfavor preencha todos os campos!',
+                position: 'center',
+                style: {
+                    background: '#db2d0e',
+                    color: '#ffffff',
+                    width: '250px',
+                    height: '150px'
+                }
+            }).showToast();
             return
         };
 

@@ -9,10 +9,16 @@ import Toastify from 'toastify-js';
 
 function Settings() {
 
-    const [ListaVisivel, setListavisivel] = useState(false)
-    const [img, setImg] = useState(null)
-    const [filename, setFileName] = useState("Nenhum arquivo selecionado")
-    const [senha, setSenha] = useState('')
+    const [ListaVisivel, setListavisivel] = useState(false);
+    const [img, setImg] = useState(null);
+    const [filename, setFileName] = useState("Nenhum arquivo selecionado");
+    const [senha, setSenha] = useState('');
+    const [newdata, setNewData] = useState({
+        nome: '',
+        email: '',
+        username: ''
+    });
+
     const [userdata, setUserdata] = useState({
 
         nome: '',
@@ -23,11 +29,7 @@ function Settings() {
 
     }
 
-    )
-
-    // const itslistavisivel = () => {
-    //     setListavisivel(!ListaVisivel)
-    // }
+    );
 
 
     useEffect(() => {
@@ -45,25 +47,84 @@ function Settings() {
 
 
 
-    const navigate = useNavigate();
 
-    // const NavegarCriarLembrete = () => {
-    //     navigate('/EditarLembretes');
-    // };
+
+    const handleeditarperfil = async (e) => {
+        e.preventDefault();
+
+        const id = localStorage.getItem('id');
+
+        // console.log('Valores:', newlembrete.nomelembrete,newlembrete.categoria,newlembrete.ischecked, userid, newlembrete.horavencimento, newlembrete.vencimento, newlembrete.descricao );
+        if(!id || !newdata.nome || !newdata.email || !newdata.username) {
+            Toastify({
+                text: 'Porfavor preencha todos os campos!',
+                position: 'center',
+                style: {
+                    background: '#db2d0e',
+                    color: '#ffffff',
+                    width: '250px',
+                    height: '150px'
+                }
+            }).showToast();
+
+        }
+
+        const response = await fetch('https://projeto-to-do-list-2.onrender.com/index/settings/editarperfil', {
+
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                id, 
+                nome:newdata.nome,
+                username: newdata.username,
+                email: newdata.email
+            })
+        })
+     
+
+
+        const data = await response.json();
+
+        if (data.success) {
+
+            Toastify({
+                text: 'Alterações feitas com sucesso!',
+                position: 'center',
+                style: {
+                    background: '#33ff00',
+                    color: '#ffffff',
+                    width: '250px',
+                    height: '150px'
+                }
+            }).showToast();
+
+            setTimeout(() => {
+                navigate('/settings')
+            }, 3000);
+
+        } else {
+
+            Toastify({
+                text: 'Erro ao executar alterações!',
+                position: 'center',
+                style: {
+                    background: '#db2d0e',
+                    color: '#ffffff',
+                    width: '250px',
+                    height: '150px'
+                }
+            }).showToast();
+
+        }
+    }
+
+
+
+    const navigate = useNavigate();
 
     const itslistavisivel = () => {
         setListavisivel(!ListaVisivel)
     }
-
-
-    // const handleInputChange = (event) => {
-    //     const { name, value } = event.target;
-    //     setUserdata({
-    //         ...userdata,
-    //         [name]: value
-    //     });
-    // };
-
 
     const NavigateLogin = () => {
         navigate('/')
@@ -77,67 +138,16 @@ function Settings() {
         navigate('Settings')
     }
 
-    const handlechangedata = (e) => {
-        const { name, value } = e.target;
+    // const handlechangedata = (e) => {
+    //     const { name, value } = e.target;
 
-        setUserdata((prevData) => ({
-            ...prevData,
-            [name]: value // Atualiza o campo correspondente (nome, username, sobrenome, email)
-        }));
-    };
-
-    const  fetcheditarperfil = async (e) => {
-        e.preventDefault();
-
-        console.log('dados recebidos', userdata.nome, userdata.sobrenome, userdata.email, userdata.username)
+    //     setUserdata((prevData) => ({
+    //         ...prevData,
+    //         [name]: value // Atualiza o campo correspondente (nome, username, sobrenome, email)
+    //     }));
+    // };
 
 
-        const response = await fetch('projeto-to-do-list-2.onrender.com/settings/editarlembretes', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({ 
-                nome: userdata.nome,
-                sobrenome: userdata.sobrenome,
-                email: userdata.email,
-                username: userdata.username 
-            })
-
-        })
-
-        const data = await response.json();
-          
-        if (data.sucess) {
-
-
-            Toastify({
-                text: 'Alterações salvas!',
-                position: 'center',
-                style: {
-                    background: '#33ff00',
-                    color: '#ffffff',
-                    width: '250px',
-                    height: '150px'
-                }
-            }).showToast();
-
-        } else {
-
-            Toastify({
-                text: 'Falha ao salvar as alteracões!',
-                position: 'center',
-                style: {
-                    background: '#db2d0e',
-                    color: '#ffffff',
-                    width: '250px',
-                    height: '150px'
-                }
-            }).showToast();
-        }
-
-
-    } 
-        
-    
 
     return (
         <div className="container" >
@@ -206,7 +216,7 @@ function Settings() {
 
                             <input style={{cursor: 'pointer'}} type="file" />
 
-                            <button onClick={fetcheditarperfil} className='style_button_pagesettings'>SALVAR</button>
+                            <button onClick={handleeditarperfil} className='style_button_pagesettings'>SALVAR</button>
 
                         </div>
 
@@ -217,19 +227,19 @@ function Settings() {
                         <ul>
                             <small style={{ color: 'white', marginLeft: '10px' }}>Nome: </small>
 
-                            <li onChange={handlechangedata} style={{ paddingBottom: '60px', listStyleType: 'none' }} ><input className='style_list_inputs_pagesettings' value={userdata.nome + userdata.sobrenome} name='nomecompleto' type="text" /> </li>
+                                <li  style={{ paddingBottom: '60px', listStyleType: 'none' }} ><input onChange={(e) => setNewData({...newdata, nome: e.target.value})} className='style_list_inputs_pagesettings' value={userdata.nome + userdata.sobrenome} name='nomecompleto' type="text" /> </li>
 
                             <small style={{ color: 'white', marginLeft: '10px' }}>Email: </small>
 
-                            <li onChange={handlechangedata} style={{ paddingBottom: '60px', listStyleType: 'none' }} ><input className='style_list_inputs_pagesettings' value={userdata.email} name='email' type="email" /> </li>
+                                <li  style={{ paddingBottom: '60px', listStyleType: 'none' }} ><input onChange={(e) => setNewData ({...newdata, email: e.target.value})} className='style_list_inputs_pagesettings' value={userdata.email} name='email' type="email" /> </li>
 
                             <small style={{ color: 'white', marginLeft: '10px' }}>Username: </small>
 
-                            <li onChange={handlechangedata} style={{ paddingBottom: '60px', listStyleType: 'none' }} ><input className='style_list_inputs_pagesettings' value={userdata.username} name='username' type="text" /> </li>
+                                 <li  style={{ paddingBottom: '60px', listStyleType: 'none' }} ><input onChange={(e) => setNewData ({...newdata, username: e.target.value})} className='style_list_inputs_pagesettings' value={userdata.username} name='username' type="text" /> </li>
 
                             {/* <small style={{ color: 'white', marginLeft: '10px' }}>Senha: </small>
 
-                            <li onChange={handlechangedata} style={{ paddingBottom: '60px', listStyleType: 'none' }} ><input className='style_list_inputs_pagesettings' value={userdata.senha} name='senha' type="text" /> </li> */}
+                            <li  style={{ paddingBottom: '60px', listStyleType: 'none' }} ><input className='style_list_inputs_pagesettings' value={userdata.senha} name='senha' type="text" /> </li> */}
 
                         </ul>
                     </div>

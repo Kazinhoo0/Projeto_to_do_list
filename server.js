@@ -296,17 +296,46 @@ app.post('/index/searchbar', (req, res) => {
 
 
 
-// app.post('/settings/editarperfil', (req, res) => {
-//   const { nome, sobrenome, email, username } = req.body;
 
 
-//   if (!nome || !sobrenome || !email || !username) {
-//     console.log('O usuario provavelmente não tem dados')
-//   }
+app.post('/settings/editarperfil', (req, res) => {
+  const { id, username, nome, email  } = req.body;
 
 
-//   const query = ``;
-// })
+  if (!id) {
+    return res.status(400).json({ message: 'id do usuário é obrigatório' })
+
+  }
+
+  console.log('dados recebidos pelo backend', body)
+
+
+  const query = `UPDATE usuarios
+                SET username = ? ,email = ? , nome = ?
+                WHERE id = ?`;
+
+  db.run(query, [username, email , nome, id ], function (err, rows) {
+    if (err) {
+      console.error('Erro ao consultar o banco de dados:', err.message);
+      return res.status(500).json({ error: err.message });
+    }
+
+    // Se houver itens no banco, retorna-os
+    if (rows.length > 0) {
+      res.status(200).json({
+        success: true,
+        message: 'Alterações executadas com sucesso!',
+        items: rows
+      });
+    } else {
+      // Caso não haja itens na tabela
+      res.status(404).json({ success: false, message: 'Nenhum usuário encontrado' });
+    }
+  });
+});
+
+
+
 
 
 
@@ -318,7 +347,6 @@ app.post('/gerenciarlembretes', (req, res) => {
     return res.status(400).json({ message: 'id do usuário é obrigatório' })
 
   }
-
 
   const query = `SELECT * FROM lembretesusers WHERE user_id = ?`;
 
