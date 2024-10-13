@@ -257,22 +257,22 @@ app.post('/index/editarlembretes', (req, res) => {
 
 
 app.post('/index/searchbar', (req, res) => {
-  const user_id = req.query.userid;
+  const userid = req.query.userid;
   const condicaopesquisa = req.query.search || '';
 
 
   // console.log(req.body)
 
-  if (!user_id || !condicaopesquisa) {
+  if (!userid || !condicaopesquisa) {
     return res.status(400).json({ error: 'Todos os campos são obrigatórios' });
   }
 
-  console.log('Dados do lembrete :', { user_id, condicaopesquisa });
+  console.log('Dados do lembrete :', { userid, condicaopesquisa });
 
 
   const query = 'SELECT * FROM lembretesusers WHERE userid = ? AND nomelembrete LIKE ?'
 
-  db.all(query, [user_id,  `%${condicaopesquisa}}%`],
+  db.all(query, [userid,  `%${condicaopesquisa}}%`],
     function (err) {
       if (err) {
         console.log('Erro ao cadastrar novo lembrete:', err.message);
@@ -290,17 +290,17 @@ app.post('/index/searchbar', (req, res) => {
 
 
 
-app.post('/settings/editarperfil', (req, res) => {
-  const { nome, sobrenome, email, username } = req.body;
+// app.post('/settings/editarperfil', (req, res) => {
+//   const { nome, sobrenome, email, username } = req.body;
 
 
-  if (!nome || !sobrenome || !email || !username) {
-    console.log('O usuario provavelmente não tem dados')
-  }
+//   if (!nome || !sobrenome || !email || !username) {
+//     console.log('O usuario provavelmente não tem dados')
+//   }
 
 
-  const query = ``;
-})
+//   const query = ``;
+// })
 
 
 
