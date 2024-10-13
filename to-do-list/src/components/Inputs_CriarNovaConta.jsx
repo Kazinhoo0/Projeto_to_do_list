@@ -36,7 +36,7 @@ function Inputs_CriarNovaConta() {
             }).showToast();
 
             setTimeout(() => {
-                navigate('/login')
+                navigate('/')
             }, 2000)
 
         } else {

@@ -285,7 +285,7 @@ app.post('/index/searchbar', (req, res) => {
           rows: rows
         })
       } else {
-        res.status(400).json({
+        res.status(404).json({
           success: false,
           message: 'Não foi encontrado nenhum item'
         })
