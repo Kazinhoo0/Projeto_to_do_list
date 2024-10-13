@@ -181,36 +181,40 @@ function Index() {
 
 
     const fetchsearchbar = async () => {
-
-        const condicaopesquisa = localStorage.getItem('condicaopesquisa')
+        const userid= localStorage.getItem('userid');
+        const condicaopesquisa = localStorage.getItem('condicaopesquisa');
 
 
         if (!userid) {
             console.log("nenhum lembrete selecionado")
             return
+        };
+
+
+        try {
+
+            const response = await fetch('https://projeto-to-do-list-2.onrender.com/index/searchbar', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ userid ,condicaopesquisa })
+            
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+
+                console.log('pesquisa executada');
+                console.log('pesquisa recebida:',data);
+                setDadosLembretes(data.rows)
+
+
+            } else {
+                console.log('Não foi possivel pesquisar este item');
+            }
+        } catch (error) {
+            console.error('Erro ao fazer a busca:' , error);
         }
-
-        const response = await fetch('https://projeto-to-do-list-2.onrender.com/index/searchbar', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ userid ,condicaopesquisa })
-        
-        }, [condicaopesquisa, userid]);
-
-        setDadosLembretes(data)
-        const data = await response.json();
-
-        if (data.success) {
-
-            console.log('pesquisa executada');
-
-            console.log('pesquisa recebida:',data);
-
-
-        } else {
-            console.log('Não foi possivel pesquisar este item');
-        }
-
         
     };
 

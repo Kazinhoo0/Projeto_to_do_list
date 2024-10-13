@@ -256,21 +256,21 @@ app.post('/index/editarlembretes', (req, res) => {
 })
 
 
-app.get('/index/searchbar', (req, res) => {
+app.post('/index/searchbar', (req, res) => {
   const user_id = req.query.userid;
   const condicaopesquisa = req.query.search || '';
 
 
   // console.log(req.body)
 
-  if (!user_id, !condicaopesquisa) {
+  if (!user_id || !condicaopesquisa) {
     return res.status(400).json({ error: 'Todos os campos são obrigatórios' });
   }
 
   console.log('Dados do lembrete :', { user_id, condicaopesquisa });
 
 
-  const query = 'SELECT * FROM lembretesusers WHERE userid = ? AND nomelembrete LIKE = ?'
+  const query = 'SELECT * FROM lembretesusers WHERE userid = ? AND nomelembrete LIKE ?'
 
   db.all(query, [user_id,  `%${condicaopesquisa}}%`],
     function (err) {
@@ -278,7 +278,7 @@ app.get('/index/searchbar', (req, res) => {
         console.log('Erro ao cadastrar novo lembrete:', err.message);
         return res.status(500).json({ error: err.message });
       }
-      res.status(201).json({
+      res.status(200).json({
         success: true,
         id: this.lasID,
         message: "item adicionado com sucesso",
