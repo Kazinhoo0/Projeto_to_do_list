@@ -298,7 +298,7 @@ app.post('/index/searchbar', (req, res) => {
 
 
 
-app.post('/settings/editarperfil', (req, res) => {
+app.post('/index/settings/editarperfil', (req, res) => {
   const { id, username, nome, email  } = req.body;
 
 

@@ -228,7 +228,7 @@ function Settings() {
                         <ul>
                             <small style={{ color: 'white', marginLeft: '10px' }}>Nome: </small>
 
-                                <li  style={{ paddingBottom: '60px', listStyleType: 'none' }} ><input onChange={(e) => setNewData({...newdata, nome: e.target.value})} className='style_list_inputs_pagesettings' value={newdata.nome + userdata.sobrenome} name='nomecompleto' type="text" /> </li>
+                                <li  style={{ paddingBottom: '60px', listStyleType: 'none' }} ><input onChange={(e) => setNewData({...newdata, nome: e.target.value})} className='style_list_inputs_pagesettings' value={newdata.nome} name='nomecompleto' type="text" /> </li>
 
                             <small style={{ color: 'white', marginLeft: '10px' }}>Email: </small>
 
