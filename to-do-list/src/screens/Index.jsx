@@ -232,34 +232,6 @@ function Index() {
     };
 
 
-   
-        const fetchUserData = async () => {
-           const userid = localStorage.getItem('id');
-            try {
-   
-   
-                const response = await fetch('https://projeto-to-do-list-2.onrender.com/settings/datausers', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                   body: JSON.stringify({ userid })
-   
-                });
-   
-   
-                const data = await response.json();
-   
-                if (data.success) {
-                    setNewData({
-                        username: data.users.username
-                    });
-                } else {
-                    console.log('Erro ao carregar os dados do usuário');
-                }
-            } catch (error) {
-                console.log('Erro na requisição', error);
-            }
-            fetchUserData();
-        };
     
 
 
@@ -282,7 +254,7 @@ function Index() {
                         </div>
 
                         <div className='container_mensagembemvindo' >
-                            <p className='mensagem_bemvindo' >Olá,{newData.username}
+                            <p className='mensagem_bemvindo' >Olá,{userdata.username}
                                 <br></br>Bem-vindo</p>
                         </div>
 
