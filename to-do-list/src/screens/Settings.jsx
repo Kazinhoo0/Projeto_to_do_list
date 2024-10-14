@@ -1,4 +1,4 @@
-import { useState, useEffect, useDeferredValue } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
 import '..//App.css'
 import ExitImage from '../imagens/logout.png';
@@ -34,21 +34,16 @@ function Settings() {
 
     useEffect(() => {
         const Storeddata = ({
-            nome: localStorage.getItem('nome_pagperfil'),
-            username: localStorage.getItem('username_pagperfil'),
-            sobrenome: localStorage.getItem('sobrenome_pagperfil'),
-            email: localStorage.getItem('email_pagperfil'),
+            nome: localStorage.getItem('nome'),
+            username: localStorage.getItem('username'),
+            sobrenome: localStorage.getItem('sobrenome'),
+            email: localStorage.getItem('email'),
         });
 
         setUserdata(Storeddata)
         setNewData(Storeddata)
 
     }, []);
-
-
-    
-
-
 
 
 
