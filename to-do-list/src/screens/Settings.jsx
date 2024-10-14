@@ -153,7 +153,6 @@ function Settings() {
                         email: data.users.email,
                         username: data.users.username
                     });
-                    localStorage.setItem('username')
    
                     setNewData({
                         nome: data.users.nome,
