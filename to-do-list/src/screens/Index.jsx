@@ -117,7 +117,10 @@ function Index() {
 
                 if (data.success) {
                     setDadosLembretes(data.items); // Armazena os itens no estado
-                    localStorage.setItem('idlembrete', data.id)
+                    localStorage.setItem('idlembrete', data.id);
+                    localStorage.setItem('nome_pagperfil', data.nome);
+                    localStorage.setItem('username_pagperfil', data.username);
+                    localStorage.setItem('email_pagperfil', data.email);
                 } else {
                     console.log('Nenhum item encontrado');
                 }
@@ -225,7 +228,43 @@ function Index() {
             console.error('Erro ao fazer a busca:' , error);
         }
 
-    }
+    };
+
+
+
+
+    // const fetchdadosperfil = async () => {
+    //     try {
+
+
+    //         const response = await fetch('https://projeto-to-do-list-2.onrender.com/gerenciarlembretes', {
+    //             method: 'POST',
+    //             headers: { 'Content-Type': 'application/json' },
+    //             body: JSON.stringify({ userid })
+
+    //         });
+
+
+
+    //         const data = await response.json();
+    //         console.log('Dados recebidos:', data);
+
+    //         if (data.success) {
+    //             setDadosLembretes(data.items); // Armazena os itens no estado
+    //             localStorage.setItem('idlembrete', data.id)
+    //         } else {
+    //             console.log('Nenhum item encontrado');
+    //         }
+    //     } catch (error) {
+    //         console.error('Erro ao buscar os pratos:', error);
+    //     } finally {
+    //         setLoading(false); // Remove o loading após a requisição
+    //     }
+    // };
+
+
+
+
 
 
 
