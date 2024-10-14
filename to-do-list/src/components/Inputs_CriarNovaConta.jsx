@@ -73,6 +73,10 @@ function Inputs_CriarNovaConta() {
 
     }
 
+    const NavigateLogin = () => {
+        navigate('/')
+    }
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -136,6 +140,12 @@ function Inputs_CriarNovaConta() {
 
 
                     <button className='style_buttonentrarpaglogin' >Criar conta</button>
+
+                    <div className='container_esquecisenha_criarconta'>
+                        <div>
+                            <a onClick={NavigateLogin} className='style_esquecisenha'>Já tem uma conta ?</a>
+                        </div>
+                    </div>
                 </div>
 
 

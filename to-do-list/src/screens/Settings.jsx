@@ -127,9 +127,6 @@ function Settings() {
 
 
 
-
-
-
     useEffect(() => {
         const fetchUserData = async () => {
            const userid = localStorage.getItem('id');

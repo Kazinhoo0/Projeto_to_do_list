@@ -227,8 +227,6 @@ app.post('/index/deletelembrete', (req, res) => {
 app.post('/index/editarlembretes', (req, res) => {
   const { nomelembrete, ischecked, categoria, user_id, horavencimento, vencimento, descricao } = req.body;
 
-
-
   // console.log(req.body)
 
   if (!nomelembrete || !categoria || !ischecked || !user_id, !vencimento, !horavencimento, !descricao) {
@@ -257,13 +255,11 @@ app.post('/index/editarlembretes', (req, res) => {
 
 
 
-
-
 app.post('/index/searchbar', (req, res) => {
   const {userid, condicaopesquisa} = req.body
 
 
-  // console.log(req.body)
+   console.log(req.body)
 
   if (!userid || !condicaopesquisa) {
     return res.status(400).json({ error: 'Todos os campos são obrigatórios' });
@@ -277,20 +273,20 @@ app.post('/index/searchbar', (req, res) => {
   db.all(query, [userid,  `%${condicaopesquisa}%`],
     function (err) {
       if (err) {
-        console.log('Erro ao cadastrar novo lembrete:', err.message);
+        console.log('Erro ao pesquisar lembrete:', err.message);
         return res.status(500).json({ error: err.message });
       }
       if (rows.length > 0) {
         res.status(200).json({
           success: true,
           id: this.lasID,
-          message: "item adicionado com sucesso",
+          message: "Sucesso ao buscar o lembrete",
           rows: rows
         })
       } else {
         res.status(404).json({
           success: false,
-          message: 'Não foi encontrado nenhum item'
+          message: 'Nenhum lembrete encontrado'
         })
       }
     }
@@ -305,8 +301,8 @@ app.post('/index/settings/editarperfil', (req, res) => {
   const { userid, username, nome, email  } = req.body;
 
 
-  if (!userid) {
-    return res.status(400).json({ message: 'id do usuário é obrigatório' })
+  if (!userid || !username || !nome || !email) {
+    return res.status(400).json({ message: 'Todos os campos são obrigatórios.' })
 
   }
 
@@ -358,7 +354,7 @@ app.post('/settings/datausers', (req, res) => {
       return res.status(500).json({ error: err.message });
     }
 
-    // Se houver itens no banco, retorna-os
+    // Se houver usuário com este id, retorna os dados
     if (row) {
       res.status(200).json({
         success: true,
@@ -366,7 +362,7 @@ app.post('/settings/datausers', (req, res) => {
         users: row
       });
     } else {
-      // Caso não haja itens na tabela
+      // Caso não ache usuário na tabela
       res.status(404).json({ success: false, message: 'Nenhum usuário encontrado' });
     }
   });
@@ -393,7 +389,7 @@ app.post('/gerenciarlembretes', (req, res) => {
       return res.status(500).json({ error: err.message });
     }
 
-    // Se houver itens no banco, retorna-os
+    // Se houver Lembretes na tabela retorna-os.
     if (rows.length > 0) {
       res.status(200).json({
         success: true,
@@ -401,8 +397,8 @@ app.post('/gerenciarlembretes', (req, res) => {
         items: rows
       });
     } else {
-      // Caso não haja itens na tabela
-      res.status(404).json({ success: false, message: 'Nenhum item encontrado' });
+      // Caso não haja lembretes na tabela.
+      res.status(404).json({ success: false, message: 'Nenhum Lembrete encontrado' });
     }
   });
 });

@@ -19,6 +19,8 @@ import Toastify from 'toastify-js';
 
 
 
+
+
 function Index() {
     const [ListaVisivel, setListavisivel] = useState(false);
     // const [mostrarnovolembrete, setnovolembrete] = useState(false);
@@ -42,7 +44,7 @@ function Index() {
         nomelembrete: '',
         ichecked: '',
         categoria: '',
-        
+
 
 
     });
@@ -79,14 +81,26 @@ function Index() {
         navigate('/index/criarlembretes')
     }
 
+    const testebutton = () => {
+        Toastify({
+            text: 'Lembrete excluido!',
+            position: 'center',
+            style: {
+                background: '#db2d0e',
+                color: '#ffffff',
+                
+            }
+        }).showToast();
+    }
+
 
     // Função para navegar a pagina de settings, que atualmente ainda não foi terminada.
     const NavegarMeuPerfil = () => {
         navigate('/settings');
     }
     //                                                                        //  
-    
-    (localStorage.setItem(condicaopesquisa,'condicaopesquisa'))
+
+    (localStorage.setItem(condicaopesquisa, 'condicaopesquisa'))
     console.log(condicaopesquisa)
 
 
@@ -187,7 +201,7 @@ function Index() {
         const condicaopesquisa = localStorage.getItem('condicaopesquisa');
 
 
-        console.log('user id: ',userid)
+        console.log('user id: ', userid)
 
         if (!userid) {
             console.log("nenhum lembrete selecionado")
@@ -209,8 +223,8 @@ function Index() {
             const response = await fetch('https://projeto-to-do-list-2.onrender.com/index/searchbar', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ userid ,condicaopesquisa })
-            
+                body: JSON.stringify({ userid, condicaopesquisa })
+
             });
 
             const data = await response.json();
@@ -218,7 +232,7 @@ function Index() {
             if (data.success) {
 
                 console.log('pesquisa executada');
-                console.log('pesquisa recebida:',data);
+                console.log('pesquisa recebida:', data);
                 setDadosLembretes(data.rows)
 
 
@@ -226,13 +240,13 @@ function Index() {
                 console.log('Não foi possivel pesquisar este item');
             }
         } catch (error) {
-            console.error('Erro ao fazer a busca:' , error);
+            console.error('Erro ao fazer a busca:', error);
         }
 
     };
 
 
-    
+
 
 
 
@@ -301,12 +315,12 @@ function Index() {
 
                             <div style={{ width: '80%' }}>
 
-                                <input 
-                                placeholder='Pesquisar lembrete*' 
-                                style={{ color: 'white', width: '100%', height: '60%', marginTop: '9px', backgroundColor: '#19191a', border: 'none' }} 
-                                type="text"
-                                onChange={(e) => setCondicaoPesquisa(e.target.value)}
-                                 />
+                                <input
+                                    placeholder='Pesquisar lembrete*'
+                                    style={{ color: 'white', width: '100%', height: '60%', marginTop: '9px', backgroundColor: '#19191a', border: 'none' }}
+                                    type="text"
+                                    onChange={(e) => setCondicaoPesquisa(e.target.value)}
+                                />
 
                             </div>
 
@@ -319,6 +333,7 @@ function Index() {
                                 </button>
 
                             </div>
+                            <button onClick={testebutton}>da</button>
 
                         </div>
 

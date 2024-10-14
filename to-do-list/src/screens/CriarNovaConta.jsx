@@ -17,7 +17,7 @@ function CriarNovaConta() {
     const NavigateLogin = () => {
         navigate('/')
     }
-    
+
 
 
     return (
@@ -27,35 +27,32 @@ function CriarNovaConta() {
                 <h1>TO-DO-LIST</h1>
                 {<img className='imgstyle_criarconta' src={ImagemCalendario} alt="" />}
             </div>
-            <div>
+            <div className='container_principalcriarnovaconta'>
 
-                <div className='containerinputlogin'>
+                <div className='containerinputs_pagcriarconta'>
                     <div className='containerfaçalogin'>
                         <h3>Criar conta</h3>
                     </div>
                     <div className='styleborderinput'>
-                        <Inputs_CriarNovaConta/>
+
+                        <Inputs_CriarNovaConta />
 
                     </div>
-                    <div className='container_esquecisenha_criarconta'>
-                        <div>
-                            <a onClick={NavigateLogin} className='style_esquecisenha'>Já tem uma conta ?</a>
-                        </div>
-                    </div>
+                
                 </div>
             </div>
-            <div className='containerbuttonsstyle' >
-                {<button id="popupid" className="buttonstyle" onClick={() => { window.open("https://kaualopesmonteiro.netlify.app/") }} type="button"><img className='popupsstyle' src={ImagemPortifólio} alt="" /></button>}
+                <div className='container_sitesbuttons_style' >
+                    {<button id="popupid" className="buttonstyle" onClick={() => { window.open("https://kaualopesmonteiro.netlify.app/") }} type="button"><img className='popupsstyle' src={ImagemPortifólio} alt="" /></button>}
 
-                {<button className="buttonstyle" onClick={() => { window.open("https://www.linkedin.com/in/kau%C3%A3-lopes-monteiro/") }} type="button"><img className='popupsstyle' src={ImagemLinkedin} alt="" /></button>}
+                    {<button className="buttonstyle" onClick={() => { window.open("https://www.linkedin.com/in/kau%C3%A3-lopes-monteiro/") }} type="button"><img className='popupsstyle' src={ImagemLinkedin} alt="" /></button>}
 
-                {<button className="buttonstyle" onClick={() => { window.open("https://github.com/Kazinhoo0") }} type="button" ><img className='popupsstyle' src={ImagemGithub} alt="" /></button>}
+                    {<button className="buttonstyle" onClick={() => { window.open("https://github.com/Kazinhoo0") }} type="button" ><img className='popupsstyle' src={ImagemGithub} alt="" /></button>}
+                </div>
 
-            </div>
-            <div>
-                <p className='containerparagraforedes'>Desenvolvido por Kauã Lopes Monteiro</p>
-            </div>
 
+                <div className='container_devfor'>
+                    <p style={{ color: 'yellow', marginLeft: '20px', marginBottom: '20px' }}>Desenvolvido por Kauã Lopes Monteiro</p>
+                </div>
         </div>
     )
 

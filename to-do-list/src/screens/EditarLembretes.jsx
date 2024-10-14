@@ -91,6 +91,22 @@ function EditarLembretes() {
             })
         });
 
+        if(!newlembrete.nomelembrete || !newlembrete.categoria || newlembrete.ischecked || !newlembrete.descricao || !newlembrete.vencimento || !newlembrete.horavencimento) {
+            
+
+            Toastify({
+                text: 'Porfavor preencha todos os campos!',
+                position: 'center',
+                style: {
+                    background: '#db2d0e',
+                    color: '#ffffff',
+                    width: '250px',
+                    height: '150px'
+                }
+            }).showToast();
+
+        }
+
             
 
         const data = await response.json();

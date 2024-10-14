@@ -46,17 +46,17 @@ function To_Do_List() {
 
     const data = await response.json();
 
-    if(!email || !senha) {
+    if (!email || !senha) {
       Toastify({
         text: 'Porfavor preencha todos os campos!',
         position: 'center',
         style: {
-            background: '#db2d0e',
-            color: '#ffffff',
-            width: '250px',
-            height: '150px'
+          background: '#db2d0e',
+          color: '#ffffff',
+          width: '250px',
+          height: '150px'
         }
-    }).showToast();
+      }).showToast();
     }
 
     console.log(data)
@@ -101,75 +101,76 @@ function To_Do_List() {
 
 
   return (
-      <div className='container'>
+    <div className='container'>
 
-        <div className='cabecalhostyle'>
-          <h1>TO-DO-LIST</h1>
-          <img className='Imgstyle_criarconta' src={ImagemCalendario} alt="" />
-        </div>
+      <div className='cabecalhostyle'>
+        <h1>TO-DO-LIST</h1>
+        <img className='Imgstyle_criarconta' src={ImagemCalendario} alt="" />
+      </div>
 
-        <div className='container_principallogin' >
+      <div className='container_principallogin' >
 
-          <div className='container_inputsforlogin'>
+        <div className='container_inputsforlogin'>
 
-            <div className='container_tittlefacalogin'>
-              <h3>Faça Login</h3>
-            </div>
+          <div className='container_tittlefacalogin'>
+            <h3>Faça Login</h3>
+          </div>
 
-            <div className='container_princinputslogin'>
-              <form>
-                <div className='containerinputmargin'>
-                  <input
-                    type="email"
-                    name='email'
-                    placeholder='Insira seu email*'
-                    className='styleinputs'
-                    onChange={(e) => setEmail(e.target.value)}
-                    value={email}
-                  />
+          <div className='container_princinputslogin'>
+            <form>
+              <div className='containerinputmargin'>
+                <input
+                  type="email"
+                  name='email'
+                  placeholder='Insira seu email*'
+                  className='styleinputs'
+                  onChange={(e) => setEmail(e.target.value)}
+                  value={email}
+                />
 
-                  <input
-                    placeholder='Insira sua senha*'
-                    type='password'
-                    name='senha'
-                    className='styleinputs'
-                    onChange={(e) => setSenha(e.target.value)}
-                    value={senha} />
+                <input
+                  placeholder='Insira sua senha*'
+                  type='password'
+                  name='senha'
+                  className='styleinputs'
+                  onChange={(e) => setSenha(e.target.value)}
+                  value={senha} />
 
-                  <button onClick={handleenteraccount} className='style_buttonentrarpaglogin' >Entrar</button>
-
-                </div>
-
-              </form>
-              <div className='container_esquecisenha_criarconta_paglogin' >
-
-                <a onClick={navigateesquecisenha} className='style_esquecisenhaandcriarconta'>esqueceu sua senha?</a>
-
-                <a onClick={handlenavigate} className='style_esquecisenhaandcriarconta'>criar conta</a>
+                <button onClick={handleenteraccount} className='style_buttonentrarpaglogin' >Entrar</button>
 
               </div>
+
+            </form>
+
+            <div className='container_esquecisenha_criarconta_paglogin' >
+
+              <a onClick={navigateesquecisenha} className='style_esquecisenhaandcriarconta'>esqueceu sua senha?</a>
+
+              <a onClick={handlenavigate} className='style_esquecisenhaandcriarconta'>criar conta</a>
+
             </div>
 
-
-
-
-          </div>
-        </div>
-
-
-          <div className='containerbuttonsstyle' >
-            {<button id="popupid" className="buttonstyle" onClick={() => { window.open("https://kaualopesmonteiro.netlify.app/") }} type="button"><img className='popupsstyle' src={ImagemPortifólio} alt="" /></button>}
-
-            {<button className="buttonstyle" onClick={() => { window.open("https://www.linkedin.com/in/kau%C3%A3-lopes-monteiro/") }} type="button"><img className='popupsstyle' src={ImagemLinkedin} alt="" /></button>}
-
-            {<button className="buttonstyle" onClick={() => { window.open("https://github.com/Kazinhoo0") }} type="button" ><img className='popupsstyle' src={ImagemGithub} alt="" /></button>}
-
-          </div>
-          <div>
-            <p className='containerparagraforedes'>Desenvolvido por Kauã Lopes Monteiro</p>
           </div>
 
         </div>
+
+      </div>
+
+
+      <div className='container_sitesbuttons_style' >
+        {<button id="popupid" className="buttonstyle" onClick={() => { window.open("https://kaualopesmonteiro.netlify.app/") }} type="button"><img className='popupsstyle' src={ImagemPortifólio} alt="" /></button>}
+
+        {<button className="buttonstyle" onClick={() => { window.open("https://www.linkedin.com/in/kau%C3%A3-lopes-monteiro/") }} type="button"><img className='popupsstyle' src={ImagemLinkedin} alt="" /></button>}
+
+        {<button className="buttonstyle" onClick={() => { window.open("https://github.com/Kazinhoo0") }} type="button" ><img className='popupsstyle' src={ImagemGithub} alt="" /></button>}
+      </div>
+
+
+      <div className='container_devfor'>
+        <p style={{ color: 'yellow', marginLeft: '20px', marginBottom: '20px' }}>Desenvolvido por Kauã Lopes Monteiro</p>
+      </div>
+
+    </div>
   );
 }
 
