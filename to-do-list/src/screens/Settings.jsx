@@ -127,6 +127,52 @@ function Settings() {
 
 
 
+
+
+
+    useEffect(() => {
+        const fetchUserData = async () => {
+           const userid = localStorage.getItem('id');
+            try {
+   
+   
+                const response = await fetch('https://projeto-to-do-list-2.onrender.com/settings/datausers', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                   body: JSON.stringify({ userid })
+   
+                });
+   
+   
+                const data = await response.json();
+   
+                if (data.success) {
+                    setUserdata({
+                        nome: data.users.nome,
+                        sobrenome: data.users.sobrenome,
+                        email: data.users.email,
+                        username: data.users.username
+                    });
+   
+                    setNewData({
+                        nome: data.users.nome,
+                        email: data.users.email,
+                        username: data.users.username
+                    });
+                } else {
+                    console.log('Erro ao carregar os dados do usuário');
+                }
+            } catch (error) {
+                console.log('Erro na requisição', error);
+            }
+        };
+    
+        fetchUserData();
+    }, []);
+   
+
+
+
     const navigate = useNavigate();
 
     const itslistavisivel = () => {

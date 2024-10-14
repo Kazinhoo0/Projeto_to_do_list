@@ -253,7 +253,10 @@ app.post('/index/editarlembretes', (req, res) => {
       })
     }
   )
-})
+});
+
+
+
 
 
 app.post('/index/searchbar', (req, res) => {
@@ -334,6 +337,40 @@ app.post('/index/settings/editarperfil', (req, res) => {
   });
 });
 
+
+
+
+
+app.post('/settings/datausers', (req, res) => {
+  const { userid } = req.body;
+
+
+  if (!userid) {
+    return res.status(400).json({ message: 'id do usuário é obrigatório' })
+
+  }
+
+  const query = `SELECT * FROM usuarios WHERE id = ?`;
+
+  db.get(query, [userid], function (err, row) {
+    if (err) {
+      console.error('Erro ao consultar o banco de dados:', err.message);
+      return res.status(500).json({ error: err.message });
+    }
+
+    // Se houver itens no banco, retorna-os
+    if (row) {
+      res.status(200).json({
+        success: true,
+        message: 'Usuário encontrado com sucesso',
+        users: row
+      });
+    } else {
+      // Caso não haja itens na tabela
+      res.status(404).json({ success: false, message: 'Nenhum usuário encontrado' });
+    }
+  });
+});
 
 
 
