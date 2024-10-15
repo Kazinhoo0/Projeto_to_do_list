@@ -72,7 +72,7 @@ function Inputesquecisenha() {
 
 
                     </div>
-                    <div style={{ marginLeft: '410px', height: '200px', justifyContent: 'center', display: 'center', alignContent: 'center' }}>
+                    <div style={{ height: '200px', justifyContent: 'center', display: 'flex', alignContent: 'center', marginTop: '40px' }}>
 
 
                         <input style={{ color: 'white', backgroundColor: 'rgb(59, 56, 56)', borderRadius: '10px', borderTopRightRadius: '0px', borderBottomRightRadius: '0px', border: 'none', width: '300px', height: '30px' }} placeholder="Insira seu email*" type="email" />

@@ -234,8 +234,8 @@ function CriarLembretes() {
                                 onChange={(e) => setNewLembrete({ ...newlembrete, ischecked: e.target.checked })}
                             />
                         </div>
-                        <div style={{ justifyContent: 'center', alignContent: 'center', display: 'flex' }}>
-                            <button style={{ cursor: 'pointer', backgroundColor: 'yellow', color: 'black', width: '200px', height: '25px', borderRadius: '5px', border: 'none' }} onClick={handlecriarlembrete} >Cria Lembrete</button>
+                        <div className='container_buttonpagcriarlembrete' >
+                            <button className='stylebutton-criarlembrete' onClick={handlecriarlembrete} >Cria Lembrete</button>
                         </div>
                     </form>
                 </div>

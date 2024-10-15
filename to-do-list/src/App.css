@@ -354,8 +354,9 @@ h1 {
 
 .container_imgcalendario {
   /* border: 1px solid red; */
-  justify-content: center;
-  align-content: center;
+  display: flex;
+  justify-content: start;
+  align-content: start;
   width: 50%;
 
 }
@@ -364,6 +365,7 @@ h1 {
   font-size: 1.5em;
   margin-left: 200px;
   width: 25%;
+  display: flex;
   cursor: pointer;
 
 }
@@ -395,15 +397,19 @@ h1 {
 }
 
 .container_mensagembemvindo {
-  /* border: 1px solid rgb(255, 230, 0); */
-  margin-left: 680px;
+  border: 1px solid rgb(255, 230, 0);
+  margin-left: 20px;
 }
 
 .container_navigatebar {
-  /* border: 1px solid rgb(0, 17, 255); */
-  width: 50%;
+  border: 1px solid rgb(0, 17, 255);
+  width: 20%;
+  margin-left: 400px;
   display: flex;
+  justify-content: end;
+
 }
+
 
 .styleImageUser {
   width: 100%;
@@ -447,7 +453,7 @@ a {
 }
 
 .containerimageexit {
-  /* border: 1px solid rgb(4, 196, 255); */
+  border: 1px solid rgb(4, 196, 255);
   width: 20%;
   display: grid;
   justify-content: center;
@@ -455,10 +461,12 @@ a {
 
 }
 
-/* .containeropenseta {
+.containeropenseta {
 
-  /* border: 1px solid rgb(30, 255, 0); */
+  border: 1px solid rgb(30, 255, 0);
 
+
+}
 
 
 .lista_style {
@@ -628,7 +636,7 @@ a {
 }
 
 .lembretes-list {
-  /* border: 1px solid red; */
+  border: 1px solid red;
   width: auto;
   height: 67%;
   overflow-y: scroll;
@@ -736,7 +744,7 @@ a {
 .container_filhocriarlembretes {
   border: 1px solid grey;
   border-radius: 8px;
-  margin-top: 50px;
+  margin-top: 30px;
   width: 85%;
   height: 90%;
 }
@@ -1073,14 +1081,28 @@ h1 {
   width: 95%;
   height: 85%;
   display: flex;
-  margin-top: 90px;
+  margin-top: 50px;
 
 }
+
+
+.style_inputs_settings {
+  padding-Bottom: 60px;
+  list-Style-Type: none;
+
+}
+
+.style_small_pagsettings {
+  color: white;
+  margin-Left: 10px;
+}
+
 
 .container_changephoto {
   /* border: 1px solid red; */
   width: 30%;
   margin: 30px;
+  margin-top: 20px;
   height: 95%;
 }
 
@@ -1106,11 +1128,18 @@ h1 {
 
 }
 
+.container_buttonpagcriarlembrete {
+  justify-Content: center;
+  align-Content: center;
+  display: flex;
+}
+
 
 .container_foto_pagesettings {
   border: 1px solid grey;
   border-radius: 5px;
   height: 50%;
+  display: flex;
   justify-content: center;
   align-content: center;
 
@@ -1141,8 +1170,7 @@ h1 {
   width: 40%;
   height: 50%;
   border-radius: 50%;
-  margin-left: 150px;
-  margin-bottom: 50px;
+  margin-top: 60px;
 }
 
 .container_fotoperfil {
@@ -1240,6 +1268,21 @@ h4 {
   /* border: 1px solid black; */
 }
 
+.stylebutton-criarlembrete {
+  cursor: pointer;
+  background-color: yellow;
+  color: black;
+  width: 200px;
+  height: 25px;
+  border-radius: 5px;
+  border: none;
+}
+
+.style_h1pagsettings {
+  border-Bottom: 1px solid white;
+}
+
+
 .container_input_arquivofoto {
   /* border: 1px solid red; */
   position: absolute;
@@ -1248,8 +1291,7 @@ h4 {
 }
 
 .containeruserprofile {
-  position: absolute;
-  left: 82%;
+  border: 1px solid red;
 }
 
 .button_salvarconfigs {
@@ -1269,28 +1311,175 @@ h4 {
 }
 
 
+button :hover {
+  background-color: rgb(41, 37, 37);
+}
+
+
 
 
 /*                      RESPONSIVIDADE DAS PAGINAS                                 */
 
 
 
+@media (max-width: 1740px) {
 
-@media  (max-width: 560px) {
+  .container_navigatebar {
+    margin-left: 120px;
+  }
+
+  /* .container_buttonpagcriarlembrete {
+    margin-top: 0px !important;
+  }
+
+  .container_filhocriarlembretes {
+    margin-top: 20px !important;
+  } */
+
+}
+
+
+
+@media (max-width: 1440px) {
+
+
+  .container_navigatebar {
+    margin-right: 100px;
+  }
+
+  .container_imgcalendario {
+    border: 1px solid red;
+    width: 35%;
+  }
+}
+
+
+
+@media (max-width: 1190px) {
+
+
+  .container_navigatebar {
+    margin-right: 160px !important;
+  }
+
+  .h1_userbar {
+    margin-left: 30px !important;
+    font-size: 20px !important;
+  }
+
+  .container_imgcalendario {
+    border: 1px solid red;
+    width: 28%;
+  }
+
+
+
+  /* RESPONSIVIDADE PAG SETTINGS  */
+  .container_filho_pagesettings {
+    margin-top: 30px !important;
+  }
+
+  .style_button_pagesettings {
+    width: 80% !important;
+    margin-left: 30px !important;
+  }
+
+  .container_changephoto {
+    margin-top: 15px !important;
+  }
+
+  .style_list_inputs_pagesettings {
+    width: 500px !important;
+  }
+
+  .style_list_inputs_pagesettings {
+    margin-right: 150px !important;
+  }
+
+  .style_h1pagsettings {
+    margin-right: 150px !important;
+  }
+
+  .container_changephoto {
+    margin-right: 50px !important;
+  }
+}
+
+
+@media (max-width: 860px) {
+
+
+  /* RESPONSIVIDADE PAGINA SETTINGS  */
+  .container_filho_pagesettings {
+    display: grid !important;
+    justify-content: center;
+
+  }
+
+  .container_filho_pagesettings {
+    height: 130%;
+  }
+
+  .container {
+    overflow-x: scroll;
+  }
+
+  .style_h1pagsettings {
+    margin-left: 40px !important;
+  }
+
+  .container-teste3 {
+    margin-left: 350px !important;
+  }
+
+  .container_changephoto {
+    width: 40% !important;
+    height: 110% !important;
+    margin-left: 320px !important;
+  }
+
+  .style_button_pagesettings {
+    margin-top: 50px !important;
+  }
+
+  .style_foto_pagesettings {
+    border: 5px solid rgb(255, 255, 255);
+    width: 30%;
+    height: 65%;
+    border-radius: 50%;
+    margin-top: 20px;
+  }
+
+  .container_listaafazeres {
+    width: 600px !important;
+  }
+
+
+}
+
+.container-teste3 {
+  /* border: 1px solid red; */
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+
+@media (max-width: 560px) {
 
 
   /*       PAG LOGIN            */
 
-  .container_inputsforlogin  {
+  .container_inputsforlogin {
     width: 400px !important;
 
   }
-  
+
   .container_princinputslogin {
     width: 350px !important;
   }
 
-  .container_esquecisenha_criarconta_paglogin { 
+  .container_esquecisenha_criarconta_paglogin {
     width: 400px !important;
     margin-right: 20px !important;
     justify-content: start !important;
@@ -1313,44 +1502,122 @@ h4 {
     overflow-x: scroll;
   }
 
+  /*  ESQUECI A SENHA */
+
+  input {
+    width: 250px !important;
+  }
 
 
-  
+  /* PAG CRIARLEMBRETE  */
+
+  .containernomelembrete {
+    margin-left: 110px !important;
+  }
+
+  .containerimportante {
+    margin-left: 110px !important;
+  }
+
+  .stylebutton-criarlembrete {}
+
+  .container_buttonpagcriarlembrete {
+    margin-top: 50px !important;
+  }
+
+  .container_filhocriarlembretes {
+    margin-top: 20px !important;
+  }
+
+  .container_buttonpagcriarlembrete {
+    margin-top: 17px !important;
+  }
+
+
+
+
+  /* RESPONSIVIDADE PAGINA SETTINGS  */
+  .container_filho_pagesettings {
+    display: grid !important;
+    justify-content: center;
+
+  }
+
+  .container_filho_pagesettings {
+    height: 130%;
+  }
+
+  .container {
+    overflow-x: scroll;
+  }
+
+  .style_h1pagsettings {
+    margin-left: 40px !important;
+  }
+
+  .container-teste3 {
+    margin-left: 300px !important;
+  }
+
+  .container_changephoto {
+    width: 40% !important;
+    height: 110% !important;
+    margin-left: 230px !important;
+  }
+
+  .style_button_pagesettings {
+    margin-top: 50px !important;
+  }
+
+  .style_foto_pagesettings {
+    border: 5px solid rgb(255, 255, 255);
+    width: 30%;
+    height: 65%;
+    border-radius: 50%;
+    margin-top: 20px;
+  }
+
+
+  .style_list_inputs_pagesettings {
+    width: 50% !important;
+  }
+
+
 }
 
 
 
 
-@media  (max-width: 421px) {
+@media (max-width: 421px) {
 
 
-   /*       PAG LOGIN            */
+  /*       PAG LOGIN            */
 
 
-  .container_inputsforlogin  {
+  .container_inputsforlogin {
     width: 350px !important;
 
   }
-  
+
   .container_princinputslogin {
     width: 300px !important;
   }
 
-  .container_esquecisenha_criarconta_paglogin { 
+  .container_esquecisenha_criarconta_paglogin {
     width: 400px !important;
     margin-right: 20px !important;
     justify-content: start !important;
   }
 
-  .styleinputs  {
+  .styleinputs {
     width: 280px !important;
     margin-left: 0px !important;
-}
+  }
 
   .style_buttonentrarpaglogin {
     width: 265px !important;
   }
-  
+
   a {
     margin-left: 25px;
   }
@@ -1375,6 +1642,33 @@ h4 {
 
   .container {
     overflow-x: scroll;
+  }
+
+  /*  ESQUECI A SENHA */
+
+  input {
+    width: 175px !important;
+  }
+
+
+  /* PAG CRIARLEMBRETE  */
+
+  .containernomelembrete {
+    margin-left: 80px !important;
+  }
+
+  .containerimportante {
+    margin-left: 80px !important;
+  }
+
+  .stylebutton-criarlembrete {}
+
+  .container_buttonpagcriarlembrete {
+    margin-top: 20px !important;
+  }
+
+  .container_filhocriarlembretes {
+    margin-top: 20px !important;
   }
 
 

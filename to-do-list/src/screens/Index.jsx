@@ -88,7 +88,7 @@ function Index() {
             style: {
                 background: '#db2d0e',
                 color: '#ffffff',
-                
+
             }
         }).showToast();
     }
@@ -260,8 +260,8 @@ function Index() {
                         <h1 className='h1_userbar'>TO-DO-LIST {<img className='style_imgcalendario' src={ImagemCalendario} alt="" />}</h1>
                     </div>
 
-                    <div className='container_navigatebar'>
 
+                    <div className='container_navigatebar'>
 
                         <div className='containeruserprofile'>
                             <img className='styleImageUser' src={ImagemUser} alt="" />
@@ -295,6 +295,8 @@ function Index() {
                         <div className='containerimageexit'>
                             <img onClick={NavigateLogin} className='imageexit' src={ExitImage} alt="" />
                         </div>
+
+
                     </div>
 
 
@@ -333,7 +335,7 @@ function Index() {
                                 </button>
 
                             </div>
-                            <button onClick={testebutton}>da</button>
+
 
                         </div>
 
@@ -354,8 +356,7 @@ function Index() {
                         {/* Renderizar lembretes */}
                         <div className='lembretes-list'>
 
-
-                            {lembretes.map((lembrete, index) => (
+                        {lembretes.map((lembrete, index) => (
                                 <div key={index} className='lembrete_item'>
                                     <h3 className='container_alllembretes'>Nome:{lembrete.nomelembrete} </h3>
                                     <p className='container_alllembretes'>Categoria:{lembrete.categoria}</p>
