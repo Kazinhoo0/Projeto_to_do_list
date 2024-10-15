@@ -90,7 +90,7 @@ function Inputs_CriarNovaConta() {
     return (
 
         <div className='container_inputs_pagcriarconta'>
-            <form id='criarconta' onSubmit={handleSubmit}>
+            <form className='formu_style' id='criarconta' onSubmit={handleSubmit}>
                 <div className='containerinputmargin_pagcriarnovaconta'>
 
                     <input

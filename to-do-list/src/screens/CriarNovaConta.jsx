@@ -23,10 +23,15 @@ function CriarNovaConta() {
     return (
 
         <div className='container'>
+
             <div className='cabecalhostyle'>
+                
                 <h1>TO-DO-LIST</h1>
-                {<img className='imgstyle_criarconta' src={ImagemCalendario} alt="" />}
+
+                <img className='imgstyle_criarconta' src={ImagemCalendario} alt="" />
+
             </div>
+
             <div className='container_principalcriarnovaconta'>
 
                 <div className='containerinputs_pagcriarconta'>

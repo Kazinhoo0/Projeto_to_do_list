@@ -104,8 +104,11 @@ function To_Do_List() {
     <div className='container'>
 
       <div className='cabecalhostyle'>
+        
         <h1>TO-DO-LIST</h1>
+
         <img className='Imgstyle_criarconta' src={ImagemCalendario} alt="" />
+
       </div>
 
       <div className='container_principallogin' >
