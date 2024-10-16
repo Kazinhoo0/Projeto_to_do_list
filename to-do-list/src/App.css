@@ -402,7 +402,7 @@ h1 {
 }
 
 .container_navigatebar {
-  border: 1px solid rgb(0, 17, 255);
+  /* border: 1px solid rgb(0, 17, 255); */
   width: 20%;
   margin-left: 400px;
   display: flex;
@@ -1291,7 +1291,7 @@ h4 {
 }
 
 .containeruserprofile {
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .button_salvarconfigs {
@@ -1348,7 +1348,7 @@ button :hover {
   }
 
   .container_imgcalendario {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     width: 35%;
   }
 }
@@ -1368,7 +1368,7 @@ button :hover {
   }
 
   .container_imgcalendario {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     width: 28%;
   }
 
@@ -1406,7 +1406,7 @@ button :hover {
 }
 
 
-@media (max-width: 860px) {
+@media (max-width: 1000px) {
 
 
   /* RESPONSIVIDADE PAGINA SETTINGS  */
@@ -1451,8 +1451,123 @@ button :hover {
   }
 
   .container_listaafazeres {
-    width: 600px !important;
+    width: 550px !important;
   }
+
+
+  /* CSS NAV BAR */
+
+  .container_mensagembemvindo {
+    display: none;
+  }
+
+  .containeropenseta {
+    display: none;
+  }
+
+  .containerimageexit {
+    display: none;
+  }
+
+  .containeruserbar {
+    width: 96% !important;
+  }
+
+  .container_imgcalendario {
+    width: 50% !important;
+  }
+
+
+  .navbar_smarthphone {
+    width: 10px;
+
+  }
+
+  /* CSS NAVBAR */
+
+
+  .navbar_smarthphone {
+    /* border: 1px solid rgb(255, 0, 242); */
+    width: 200px !important;
+    height: 99% !important;
+    position: fixed;
+    left: 800px !important;
+    top: 1px !important;
+    background-color: rgba(0, 0, 0, 0.959);
+    border-radius: 5px !important;
+    display: grid;
+    /* display: none; */
+
+  }
+
+  .styleteste {
+    /* border: 1px solid red; */
+    width: 50px !important;
+    height: 30px !important;
+    margin-left: 130px !important;
+    margin-top: 25px !important;
+  }
+
+  .style_closebutton {
+    /* border: 1px solid red; */
+    height: 100px !important;
+  }
+
+  .style_navbar_smarthphone {
+    /* border: 1px solid red;  */
+    border-bottom: 1px solid rgb(253, 253, 253);
+    color: white;
+    font-size: 15px !important;
+    list-style: none;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    padding-top: 15px;
+
+  }
+
+  .style_links {
+    margin-bottom: 600px !important;
+    margin-right: 50px !important;
+    /* border: 1px solid red; */
+  }
+
+  .style_buttonbar {
+    width: 50px !important;
+    height: 30px !important;
+    margin-left: 30px !important;
+    margin-top: 25px !important;
+  }
+
+
+  .buttoncleanlembrete {
+    width: 120px !important;
+    height: 30px !important;
+  }
+
+
+  .container_navigatebar {
+    width: 70% !important;
+    margin-right: 50px !important;
+  }
+
+  .container_mensagembemvindo {
+    display: none;
+  }
+
+  .containeropenseta {
+    display: none;
+  }
+
+  .containerimageexit {
+    display: none;
+  }
+
+  .containeruserbar {
+    width: 95% !important;
+  }
+
+
 
 
 }
@@ -1519,7 +1634,7 @@ button :hover {
     margin-left: 110px !important;
   }
 
-  .stylebutton-criarlembrete {}
+  /* .stylebutton-criarlembrete {} */
 
   .container_buttonpagcriarlembrete {
     margin-top: 50px !important;
@@ -1580,6 +1695,120 @@ button :hover {
 
   .style_list_inputs_pagesettings {
     width: 50% !important;
+  }
+
+  /* PÁGINA INDEX  */
+
+  .container_listaafazeres {
+    width: 410px !important;
+    height: 550px !important;
+    margin-top: 80px !important;
+  }
+
+  .lembretes-list {
+    height: 75% !important;
+  }
+
+  .buttoncleanlembrete {
+    width: 150px !important;
+    height: 30px !important;
+  }
+
+
+  .container_listaafazeres {
+    width: 380px !important;
+    height: 550px !important;
+    margin-top: 80px !important;
+  }
+
+  .lembretes-list {
+    height: 75% !important;
+  }
+
+  .buttoncleanlembrete {
+    width: 120px !important;
+    height: 30px !important;
+  }
+
+
+  .container_navigatebar {
+    width: 70% !important;
+  }
+
+  .container_mensagembemvindo {
+    display: none;
+  }
+
+  .containeropenseta {
+    display: none;
+  }
+
+  .containerimageexit {
+    display: none;
+  }
+
+  .containeruserbar {
+    width: 95% !important;
+  }
+
+
+
+  /* NAVBAR CSS  */
+
+  .navbar_smarthphone {
+    /* border: 1px solid rgb(255, 0, 242); */
+    width: auto !important;
+    height: 99% !important;
+    position: fixed;
+    left: 360px !important;
+    top: 1px !important;
+    align-items: end;
+    background-color: rgba(0, 0, 0, 0.959);
+    border-radius: 5px !important;
+    display: grid;
+    /* display: none; */
+
+  }
+
+  .styleteste {
+    /* border: 1px solid red; */
+    width: 50px !important;
+    height: 30px !important;
+    margin-left: 130px !important;
+    margin-top: 25px !important;
+  }
+
+  .style_closebutton {
+    /* border: 1px solid red; */
+    height: 100px !important;
+  }
+
+  .style_navbar_smarthphone {
+    /* border: 1px solid red;  */
+    /* border-bottom: 1px solid rgb(253, 253, 253); */
+    color: white;
+    font-size: 15px !important;
+    list-style: none;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    padding-top: 15px;
+
+  }
+
+  .style_links {
+    justify-items: end;
+    align-content: end;
+    margin-bottom: 600px !important;
+    margin-right: 50px !important;
+    /* border: 1px solid red; */
+  }
+
+  .style_buttonbar {
+    width: 50px !important;
+    height: 30px !important;
+    margin-left: 30px !important;
+    margin-top: 25px !important;
   }
 
 
@@ -1661,7 +1890,7 @@ button :hover {
     margin-left: 80px !important;
   }
 
-  .stylebutton-criarlembrete {}
+  /* .stylebutton-criarlembrete {} */
 
   .container_buttonpagcriarlembrete {
     margin-top: 20px !important;
@@ -1671,5 +1900,98 @@ button :hover {
     margin-top: 20px !important;
   }
 
+  /* PÁGINA INDEX  */
+
+  .container_listaafazeres {
+    width: 380px !important;
+    height: 550px !important;
+    margin-top: 80px !important;
+  }
+
+  .lembretes-list {
+    height: 75% !important;
+  }
+
+  .buttoncleanlembrete {
+    width: 120px !important;
+    height: 30px !important;
+  }
+
+
+  .container_navigatebar {
+    width: 70% !important;
+  }
+
+  .container_mensagembemvindo {
+    display: none;
+  }
+
+  .containeropenseta {
+    display: none;
+  }
+
+  .containerimageexit {
+    display: none;
+  }
+
+  .containeruserbar {
+    width: 95% !important;
+  }
+
+  /* .container_imgcalendario {} */
+
+
+  .navbar_smarthphone {
+    /* border: 1px solid rgb(255, 0, 242); */
+    width: 200px !important;
+    height: 99% !important;
+    position: fixed;
+    left: 218px !important;
+    top: 1px !important;
+    background-color: rgba(0, 0, 0, 0.959);
+    border-radius: 5px !important;
+    display: grid;
+    /* display: none; */
+
+  }
+
+  .styleteste {
+    /* border: 1px solid red; */
+    width: 50px !important;
+    height: 30px !important;
+    margin-left: 130px !important;
+    margin-top: 25px !important;
+  }
+
+  .style_closebutton {
+    /* border: 1px solid red; */
+    height: 100px !important;
+  }
+
+  .style_navbar_smarthphone {
+    /* border: 1px solid red;  */
+    border-bottom: 1px solid rgb(253, 253, 253);
+    color: white;
+    font-size: 15px !important;
+    list-style: none;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    padding-top: 15px;
+
+  }
+
+  .style_links {
+    margin-bottom: 600px !important;
+    margin-right: 50px !important;
+    /* border: 1px solid red; */
+  }
+
+  .style_buttonbar {
+    width: 50px !important;
+    height: 30px !important;
+    margin-left: 30px !important;
+    margin-top: 25px !important;
+  }
 
 }

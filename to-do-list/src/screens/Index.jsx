@@ -13,6 +13,10 @@ import Imagemseta from '../imagens/seta-para-baixo.png';
 import ExitImage from '../imagens/logout.png';
 import { IoOpenOutline } from "react-icons/io5";
 import Toastify from 'toastify-js';
+import { FaBars } from "react-icons/fa";
+import { IoMdClose } from "react-icons/io";
+
+
 
 
 
@@ -38,6 +42,7 @@ function Index() {
     const [loading, setLoading] = useState('');
     const [condicaopesquisa, setCondicaoPesquisa] = useState('');
     const [newData, setNewData] = useState('');
+    const [isMenuActive, setMenuisActive] = useState(false);
 
     const [newlembrete, setNewlembrete] = useState({
 
@@ -52,6 +57,11 @@ function Index() {
 
 
     const navigate = useNavigate()
+
+
+    const handlebutton = () => {
+        setMenuisActive(!isMenuActive)
+    }
 
 
     const itslistavisivel = () => {
@@ -72,6 +82,7 @@ function Index() {
     const NavigateLogin = () => {
         navigate('/')
     }
+
 
     const handlenavigateeditarlembrete = () => {
         navigate('/index/editarlembretes')
@@ -297,12 +308,38 @@ function Index() {
                         </div>
 
 
+
+                        <div>
+                            <FaBars onClick={handlebutton} className='style_buttonbar' color='white' />
+                        </div>
+
+
+                        {isMenuActive && (
+                            
+                            <div className='navbar_smarthphone'>
+
+                                <div className='style_closebutton'>
+                                    <IoMdClose onClick={handlebutton} className='styleteste' color='white' />
+                                </div>
+        
+                                <div className='style_links'>
+                                    <ul style={{ marginLeft: '40px' }}>
+                                        <li onClick={NavegarMeuPerfil} className='style_navbar_smarthphone'>Configurações</li>
+                                        <li onClick={NavegarHome} className='style_navbar_smarthphone'>Meus lembretes</li>
+                                        <li onClick={NavigateLogin} className='style_navbar_smarthphone'>Sair</li>
+                                    </ul>
+                                </div>
+        
+                            </div>
+                        )}
                     </div>
+
 
 
                 </div>
                 <div className='container_principal_pageindex'>
-
+                
+                
                     <div className='container_listaafazeres'>
 
                         <div className='container_barradepesquisa'>
@@ -314,6 +351,7 @@ function Index() {
 
                                 </button>
                             </div>
+
 
                             <div style={{ width: '80%' }}>
 
@@ -356,7 +394,7 @@ function Index() {
                         {/* Renderizar lembretes */}
                         <div className='lembretes-list'>
 
-                        {lembretes.map((lembrete, index) => (
+                            {lembretes.map((lembrete, index) => (
                                 <div key={index} className='lembrete_item'>
                                     <h3 className='container_alllembretes'>Nome:{lembrete.nomelembrete} </h3>
                                     <p className='container_alllembretes'>Categoria:{lembrete.categoria}</p>

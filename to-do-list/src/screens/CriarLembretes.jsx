@@ -100,6 +100,7 @@ function CriarLembretes() {
                     background: '#33ff00',
                     color: '#ffffff',
                     width: 'auto',
+                    maxWidth: '300px',
                     height: '150px'
                 }
             }).showToast();
