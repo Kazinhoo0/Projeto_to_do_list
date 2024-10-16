@@ -12,7 +12,6 @@ import Toastify from 'toastify-js';
 
 
 
-
 function To_Do_List() {
 
   const navigate = useNavigate('')
@@ -42,7 +41,7 @@ function To_Do_List() {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, senha })
-    });
+    }); 
 
     const data = await response.json();
 
@@ -53,11 +52,10 @@ function To_Do_List() {
         text: 'Todos os campos precisam ser preenchidos, porfavor tente novamente!',
         position: 'center',
         style: {
-          width: 'auto',
-          Maxwidth: '300px',
           background: '#db2d0e',
           color: '#ffffff',
-
+          width: '250px',
+          height: '150px'
         }
       }).showToast();
     }
@@ -88,74 +86,72 @@ function To_Do_List() {
       }, 2000);
 
     } else {
-      //   Toastify({
-      //     text: 'Usuário não cadastrado, porfavor crie uma conta!',
-      //     position: 'center',
-      //     style: {
-      //       background: '#db2d0e',
-      //       color: '#ffffff',
-      //       width: '250px',
-      //       height: '150px'
-      //     }
-      //   }).showToast();
-      // }
-      console.log("Email e senha errados, por favor tente novamente")
+    //   Toastify({
+    //     text: 'Usuário não cadastrado, porfavor crie uma conta!',
+    //     position: 'center',
+    //     style: {
+    //       background: '#db2d0e',
+    //       color: '#ffffff',
+    //       width: '250px',
+    //       height: '150px'
+    //     }
+    //   }).showToast();
+    // }
+    console.log("Email e senha errados, por favor tente")
 
-    };
+  };
 
 
-    return (
-      <div className='container'>
+  return (
+    <div className='container'>
 
-        <div className='cabecalhostyle'>
+      <div className='cabecalhostyle'>
+        
+        <h1>TO-DO-LIST</h1>
 
-          <h1>TO-DO-LIST</h1>
+        <img className='Imgstyle_criarconta' src={ImagemCalendario} alt="" />
 
-          <img className='Imgstyle_criarconta' src={ImagemCalendario} alt="" />
+      </div>
 
-        </div>
+      <div className='container_principallogin' >
 
-        <div className='container_principallogin' >
+        <div className='container_inputsforlogin'>
 
-          <div className='container_inputsforlogin'>
+          <div className='container_tittlefacalogin'>
+            <h3>Faça Login</h3>
+          </div>
 
-            <div className='container_tittlefacalogin'>
-              <h3>Faça Login</h3>
-            </div>
+          <div className='container_princinputslogin'>
+            <form>
+              <div className='containerinputmargin'>
+                <input
+                  type="email"
+                  name='email'
+                  placeholder='Insira seu email*'
+                  className='styleinputs'
+                  onChange={(e) => setEmail(e.target.value)}
+                  value={email}
+                />
 
-            <div className='container_princinputslogin'>
-              <form>
-                <div className='containerinputmargin'>
-                  <input
-                    type="email"
-                    name='email'
-                    placeholder='Insira seu email*'
-                    className='styleinputs'
-                    onChange={(e) => setEmail(e.target.value)}
-                    value={email}
-                  />
+                <input
+                  placeholder='Insira sua senha*'
+                  type='password'
+                  name='senha'
+                  className='styleinputs'
+                  onChange={(e) => setSenha(e.target.value)}
+                  value={senha} />
 
-                  <input
-                    placeholder='Insira sua senha*'
-                    type='password'
-                    name='senha'
-                    className='styleinputs'
-                    onChange={(e) => setSenha(e.target.value)}
-                    value={senha} />
-
-                  <button onClick={handleenteraccount} className='style_buttonentrarpaglogin' >Entrar</button>
-
-                </div>
-
-              </form>
-
-              <div className='container_esquecisenha_criarconta_paglogin' >
-
-                <a onClick={navigateesquecisenha} className='style_esquecisenhaandcriarconta'>esqueceu sua senha?</a>
-
-                <a onClick={handlenavigate} className='style_esquecisenhaandcriarconta'>criar conta</a>
+                <button onClick={handleenteraccount} className='style_buttonentrarpaglogin' >Entrar</button>
 
               </div>
+
+            </form>
+
+            <div className='container_esquecisenha_criarconta_paglogin' >
+
+              <a onClick={navigateesquecisenha} className='style_esquecisenhaandcriarconta'>esqueceu sua senha?</a>
+
+              <a onClick={handlenavigate} className='style_esquecisenhaandcriarconta'>criar conta</a>
 
             </div>
 
@@ -163,24 +159,25 @@ function To_Do_List() {
 
         </div>
 
-
-        <div className='container_sitesbuttons_style' >
-          {<button id="popupid" className="buttonstyle" onClick={() => { window.open("https://kaualopesmonteiro.netlify.app/") }} type="button"><img className='popupsstyle' src={ImagemPortifólio} alt="" /></button>}
-
-          {<button className="buttonstyle" onClick={() => { window.open("https://www.linkedin.com/in/kau%C3%A3-lopes-monteiro/") }} type="button"><img className='popupsstyle' src={ImagemLinkedin} alt="" /></button>}
-
-          {<button className="buttonstyle" onClick={() => { window.open("https://github.com/Kazinhoo0") }} type="button" ><img className='popupsstyle' src={ImagemGithub} alt="" /></button>}
-        </div>
-
-
-        <div className='container_devfor'>
-          <p style={{ color: 'yellow', marginLeft: '20px', marginBottom: '20px' }}>Desenvolvido por Kauã Lopes Monteiro</p>
-        </div>
-
       </div>
-    );
-  }
-}
 
+
+      <div className='container_sitesbuttons_style' >
+        {<button id="popupid" className="buttonstyle" onClick={() => { window.open("https://kaualopesmonteiro.netlify.app/") }} type="button"><img className='popupsstyle' src={ImagemPortifólio} alt="" /></button>}
+
+        {<button className="buttonstyle" onClick={() => { window.open("https://www.linkedin.com/in/kau%C3%A3-lopes-monteiro/") }} type="button"><img className='popupsstyle' src={ImagemLinkedin} alt="" /></button>}
+
+        {<button className="buttonstyle" onClick={() => { window.open("https://github.com/Kazinhoo0") }} type="button" ><img className='popupsstyle' src={ImagemGithub} alt="" /></button>}
+      </div>
+
+
+      <div className='container_devfor'>
+        <p style={{ color: 'yellow', marginLeft: '20px', marginBottom: '20px' }}>Desenvolvido por Kauã Lopes Monteiro</p>
+      </div>
+
+    </div>
+  );
+}
+}
 
 export default To_Do_List
