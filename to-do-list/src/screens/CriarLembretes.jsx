@@ -99,7 +99,7 @@ function CriarLembretes() {
                 style: {
                     background: '#33ff00',
                     color: '#ffffff',
-                    width: '250px',
+                    width: 'auto',
                     height: '150px'
                 }
             }).showToast();

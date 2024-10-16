@@ -3,7 +3,6 @@ import ImagemCalendario from '../imagens/agendamento.png'
 import ImagemGithub from '../imagens/icons8-github-30.png'
 import ImagemLinkedin from '../imagens/Linked_img.png'
 import ImagemPortifólio from '../imagens/Portifólio_img.png'
-import CriarNovaConta from './CriarNovaConta'
 import '..//App.css'
 // import InputUsernameLogin from '../functionsfrontend/InputUsernameLogin'
 import { useNavigate } from "react-router-dom";
@@ -52,10 +51,10 @@ function To_Do_List() {
         text: 'Todos os campos precisam ser preenchidos, porfavor tente novamente!',
         position: 'center',
         style: {
+          width: 'auto',
           background: '#db2d0e',
           color: '#ffffff',
-          width: '250px',
-          height: '150px'
+          
         }
       }).showToast();
     }
