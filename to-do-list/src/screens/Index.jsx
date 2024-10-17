@@ -88,7 +88,7 @@ function Index() {
     }
     //                                                                        //  
 
-    
+
     (localStorage.setItem(condicaopesquisa, 'condicaopesquisa'))
     console.log(condicaopesquisa)
 

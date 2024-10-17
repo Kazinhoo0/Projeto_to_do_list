@@ -66,14 +66,14 @@ function EditarLembretes() {
         setUserData({
             username: username || "",
         })
-    })
+    }, [])
 
     const handlecriarlembrete = async (e) => {
         e.preventDefault();
 
         const userid = localStorage.getItem('id');
 
-        console.log('Valores:', newlembrete.nomelembrete,newlembrete.categoria,newlembrete.ischecked, userid, newlembrete.horavencimento, newlembrete.vencimento, newlembrete.descricao );
+        console.log('Valores:', newlembrete.nomelembrete, newlembrete.categoria, newlembrete.ischecked, userid, newlembrete.horavencimento, newlembrete.vencimento, newlembrete.descricao);
 
 
         const response = await fetch('https://projeto-to-do-list-2.onrender.com/index/editarlembretes', {
@@ -92,8 +92,8 @@ function EditarLembretes() {
             })
         });
 
-        if(!newlembrete.nomelembrete || !newlembrete.categoria || newlembrete.ischecked || !newlembrete.descricao || !newlembrete.vencimento || !newlembrete.horavencimento) {
-            
+        if (!newlembrete.nomelembrete || !newlembrete.categoria || newlembrete.ischecked || !newlembrete.descricao || !newlembrete.vencimento || !newlembrete.horavencimento) {
+
 
             Toastify({
                 text: 'Porfavor preencha todos os campos!',
@@ -108,7 +108,7 @@ function EditarLembretes() {
 
         }
 
-            
+
 
         const data = await response.json();
 
@@ -152,7 +152,7 @@ function EditarLembretes() {
             <div className='containeruserbar'>
 
                 <div className='container_imgcalendario'>
-                    <h1 className='h1_userbar'>TO-DO-LIST {<img className='style_imgcalendario' src={ImagemCalendario} alt="" />}</h1>
+                    <h1 onClick={NavegarMeusLembretes} className='h1_userbar'>TO-DO-LIST {<img className='style_imgcalendario' src={ImagemCalendario} alt="" />}</h1>
                 </div>
 
                 <div className='container_navigatebar'>
@@ -191,7 +191,7 @@ function EditarLembretes() {
                         <img onClick={NavigateLogin} className='imageexit' src={ExitImage} alt="" />
                     </div>
 
-                    <NavBarSmartPhones/>
+                    <NavBarSmartPhones />
                 </div>
 
 

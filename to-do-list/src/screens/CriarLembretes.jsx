@@ -62,7 +62,7 @@ function CriarLembretes() {
         setUserData({
             username: username || "",
         })
-    })
+    }, [])
 
     const handlecriarlembrete = async (e) => {
         e.preventDefault();
@@ -172,7 +172,7 @@ function CriarLembretes() {
                         <img onClick={NavigateLogin} className='imageexit' src={ExitImage} alt="" />
                     </div>
 
-                    <NavBarSmartPhones/>
+                    <NavBarSmartPhones />
                 </div>
 
 
