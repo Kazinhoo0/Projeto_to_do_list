@@ -397,7 +397,7 @@ h1 {
 }
 
 .container_mensagembemvindo {
-  border: 1px solid rgb(255, 230, 0);
+  /* border: 1px solid rgb(255, 230, 0); */
   margin-left: 20px;
 }
 
@@ -453,7 +453,7 @@ a {
 }
 
 .containerimageexit {
-  border: 1px solid rgb(4, 196, 255);
+  /* border: 1px solid rgb(4, 196, 255); */
   width: 20%;
   display: grid;
   justify-content: center;
@@ -461,12 +461,13 @@ a {
 
 }
 
+/* 
 .containeropenseta {
 
-  border: 1px solid rgb(30, 255, 0);
+  /* border: 1px solid rgb(30, 255, 0); */
 
 
-}
+
 
 
 .lista_style {
@@ -476,9 +477,9 @@ a {
 
 .containerlistaordenada {
   position: absolute;
-  left: 85%;
-  top: 11.3%;
-  width: 190px;
+  left: 78%;
+  top: 10%;
+  width: 10%;
   font-size: 0.8em;
   text-align: right;
   border-radius: 5px;
@@ -636,7 +637,7 @@ a {
 }
 
 .lembretes-list {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   width: auto;
   height: 67%;
   overflow-y: scroll;
@@ -720,6 +721,10 @@ a {
   /* margin-right: 10px; */
   width: 20px;
   cursor: pointer;
+}
+
+.style_buttonbar {
+  display: none;
 }
 
 /* EDITARLEMBRETES PAGE CSS */
@@ -1324,6 +1329,11 @@ button :hover {
 
 @media (max-width: 1740px) {
 
+
+  .style_buttonbar {
+    display: none;
+  }
+
   .container_navigatebar {
     margin-left: 120px;
   }
@@ -1342,6 +1352,9 @@ button :hover {
 
 @media (max-width: 1440px) {
 
+  .style_buttonbar {
+    display: none;
+  }
 
   .container_navigatebar {
     margin-right: 100px;
@@ -1357,6 +1370,10 @@ button :hover {
 
 @media (max-width: 1190px) {
 
+  
+  .style_buttonbar {
+    display: none;
+  }
 
   .container_navigatebar {
     margin-right: 160px !important;
@@ -1403,10 +1420,14 @@ button :hover {
   .container_changephoto {
     margin-right: 50px !important;
   }
+
+
+  
 }
 
 
 @media (max-width: 1000px) {
+
 
 
   /* RESPONSIVIDADE PAGINA SETTINGS  */
@@ -1478,24 +1499,20 @@ button :hover {
   }
 
 
-  .navbar_smarthphone {
-    width: 10px;
-
-  }
 
   /* CSS NAVBAR */
 
 
   .navbar_smarthphone {
     /* border: 1px solid rgb(255, 0, 242); */
-    width: 200px !important;
-    height: 99% !important;
+    width: 35% !important;
+    height: 99vh !important;
     position: fixed;
-    left: 800px !important;
+    left: 68% !important;
     top: 1px !important;
-    background-color: rgba(0, 0, 0, 0.959);
+    background-color: rgba(0, 0, 0, 0.884);
     border-radius: 5px !important;
-    display: grid;
+    display: grid !important;
     /* display: none; */
 
   }
@@ -1504,7 +1521,7 @@ button :hover {
     /* border: 1px solid red; */
     width: 50px !important;
     height: 30px !important;
-    margin-left: 130px !important;
+    margin-left: 10px !important;
     margin-top: 25px !important;
   }
 
@@ -1519,7 +1536,7 @@ button :hover {
     color: white;
     font-size: 15px !important;
     list-style: none;
-    display: flex;
+    display: flex ;
     align-items: start;
     justify-content: start;
     padding-top: 15px;
@@ -1537,6 +1554,7 @@ button :hover {
     height: 30px !important;
     margin-left: 30px !important;
     margin-top: 25px !important;
+    display: flex !important;
   }
 
 
@@ -1652,15 +1670,7 @@ button :hover {
 
 
   /* RESPONSIVIDADE PAGINA SETTINGS  */
-  .container_filho_pagesettings {
-    display: grid !important;
-    justify-content: center;
 
-  }
-
-  .container_filho_pagesettings {
-    height: 130%;
-  }
 
   .container {
     overflow-x: scroll;
@@ -1675,9 +1685,14 @@ button :hover {
   }
 
   .container_changephoto {
-    width: 40% !important;
+    justify-content: center;
+    align-items: center;
+    width: 50% !important;
     height: 110% !important;
-    margin-left: 230px !important;
+    /* border: 1px solid red; */
+    margin-left: 150px !important;
+    margin-top: 70px !important;
+
   }
 
   .style_button_pagesettings {
@@ -1695,7 +1710,32 @@ button :hover {
 
   .style_list_inputs_pagesettings {
     width: 50% !important;
+   
   }
+
+  .container_inputs_pagesettings {
+    /* border: 1px solid red; */
+    width: 50% !important ;
+    height: 70% !important;
+    margin-left: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .container-teste3 {
+    margin-left: 100px !important;
+  }
+
+  .container_filho_pagesettings {
+    height: 110%;
+    display: grid !important;
+    justify-content: center;
+    align-items: center;
+  }
+
+ 
+
 
   /* PÁGINA INDEX  */
 
@@ -1757,15 +1797,14 @@ button :hover {
 
   .navbar_smarthphone {
     /* border: 1px solid rgb(255, 0, 242); */
-    width: auto !important;
-    height: 99% !important;
+    width: 55% !important;
+    height: 99vh !important;
     position: fixed;
-    left: 360px !important;
+    left: 55% !important;
     top: 1px !important;
-    align-items: end;
-    background-color: rgba(0, 0, 0, 0.959);
+    background-color: rgba(0, 0, 0, 0.884);
     border-radius: 5px !important;
-    display: grid;
+    display: grid !important;
     /* display: none; */
 
   }
@@ -1774,7 +1813,7 @@ button :hover {
     /* border: 1px solid red; */
     width: 50px !important;
     height: 30px !important;
-    margin-left: 130px !important;
+    margin-left: 15px !important;
     margin-top: 25px !important;
   }
 
@@ -1809,6 +1848,7 @@ button :hover {
     height: 30px !important;
     margin-left: 30px !important;
     margin-top: 25px !important;
+    display: flex !important;
   }
 
 
@@ -1943,14 +1983,14 @@ button :hover {
 
   .navbar_smarthphone {
     /* border: 1px solid rgb(255, 0, 242); */
-    width: 200px !important;
-    height: 99% !important;
+    width: 55% !important;
+    height: 99vh !important;
     position: fixed;
-    left: 218px !important;
+    left: 50% !important;
     top: 1px !important;
-    background-color: rgba(0, 0, 0, 0.959);
+    background-color: rgba(0, 0, 0, 0.884);
     border-radius: 5px !important;
-    display: grid;
+    display: grid !important;
     /* display: none; */
 
   }
@@ -1959,7 +1999,7 @@ button :hover {
     /* border: 1px solid red; */
     width: 50px !important;
     height: 30px !important;
-    margin-left: 130px !important;
+    margin-left: 15px !important;
     margin-top: 25px !important;
   }
 
@@ -1992,6 +2032,7 @@ button :hover {
     height: 30px !important;
     margin-left: 30px !important;
     margin-top: 25px !important;
+    display: flex !important;
   }
 
 }

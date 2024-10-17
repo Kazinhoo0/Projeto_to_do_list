@@ -7,6 +7,7 @@ import ImagemUser from '../imagens/user.png';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Toastify from 'toastify-js';
+import NavBarSmartPhones from '../components/NavBarPhone';
 
 
 
@@ -170,6 +171,8 @@ function CriarLembretes() {
                     <div className='containerimageexit'>
                         <img onClick={NavigateLogin} className='imageexit' src={ExitImage} alt="" />
                     </div>
+
+                    <NavBarSmartPhones/>
                 </div>
 
 

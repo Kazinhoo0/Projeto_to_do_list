@@ -4,7 +4,7 @@ import ImagemGithub from '../imagens/icons8-github-30.png'
 import ImagemLinkedin from '../imagens/Linked_img.png'
 import ImagemPortifólio from '../imagens/Portifólio_img.png'
 import CriarNovaConta from './CriarNovaConta'
-import '..//App.css'
+import '../App.css'
 // import InputUsernameLogin from '../functionsfrontend/InputUsernameLogin'
 import { useNavigate } from "react-router-dom";
 import Toastify from 'toastify-js';
@@ -85,18 +85,18 @@ function Login() {
         navigate('/index')
       }, 2000);
 
-    } else {
+     } //else {
     //   Toastify({
-    //     text: 'Usuário não cadastrado, porfavor crie uma conta!',
-    //     position: 'center',
-    //     style: {
-    //       background: '#db2d0e',
-    //       color: '#ffffff',
-    //       width: '250px',
-    //       height: '150px'
-    //     }
-    //   }).showToast();
-    // }
+    //      text: 'Usuário não cadastrado, porfavor crie uma conta!',
+    //      position: 'center',
+    //      style: {
+    //        background: '#db2d0e',
+    //        color: '#ffffff',
+    //        width: '250px',
+    //        height: '150px'
+    //      }
+    //    }).showToast();
+    //  }
     console.log("Email e senha errados, por favor tente")
 
   };
@@ -177,7 +177,8 @@ function Login() {
 
     </div>
   );
-}
-}
+ }
+
+
 
 export default Login
