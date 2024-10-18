@@ -24,8 +24,6 @@ export default function NavBarSmartPhones() {
     }
 
 
-
-
     const [isMenuActive, setIsbuttonActive] = useState(false)
 
     const handlebutton = () => {
